@@ -43,6 +43,10 @@ For example there's no styling difference between several road types like servic
 The colors come from the [material design colore palette](https://material.io/design/color/the-color-system.html#tools-for-picking-colors) and objects of the same kind have usually the same saturation and just different color tones.
 For example do all normal roads have the 200 saturation and all tunnel roads the 100 saturation.
 
+**Exceptions:**
+
+* Tidalflat areas have `#bbd2dc` (which is the "Blue Grey 100" color but with 20% saturation and 90% brightness instead)
+
 # TODOs
 
 * [ ] tracks
