@@ -1,0 +1,9 @@
+# Data files
+*.pbf
+*.poly
+
+# Database
+postgres-data
+
+# Rendered maps
+*.pdf

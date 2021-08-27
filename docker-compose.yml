@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  osm-postgres:
+#    build:
+#      network: host
+#      context: ./
+    image: postgis/postgis:12-3.1-alpine
+    container_name: osm-postgres
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=secret
+#      - POSTGRES_DBNAME=gis
+    volumes:
+      - "./postgres-data:/var/lib/postgresql/12/main"
