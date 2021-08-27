@@ -29,6 +29,20 @@ To start everything using docker, do the following:
 
 That's it, your database is filled and you can now start QGIS (e.g. double-click on the `map.qgz` file).
 
+# Style guideline
+
+Some guidelines how the map style has been developed
+
+### Simplicity
+
+Avoid unnecessary details and too many object.
+For example there's no styling difference between several road types like service, residential oder unclassified.
+
+### Colors
+
+The colors come from the [material design colore palette](https://material.io/design/color/the-color-system.html#tools-for-picking-colors) and objects of the same kind have usually the same saturation and just different color tones.
+For example do all normal roads have the 200 saturation and all tunnel roads the 100 saturation.
+
 # TODOs
 
 * [ ] tracks
