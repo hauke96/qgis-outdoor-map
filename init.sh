@@ -12,4 +12,4 @@ psql -d gis -c "CREATE EXTENSION postgis;"
 psql -d gis -c "CREATE EXTENSION hstore;"
 psql -d gis -c "ALTER TABLE geometry_columns OWNER TO postgres;"
 psql -d gis -c "ALTER TABLE spatial_ref_sys OWNER TO postgres;"
-osm2pgsql -d gis --create --slim -G --hstore --number-processes 4 ./hamburg-latest.osm.pbf
+osm2pgsql -d gis --create --slim -G --hstore --number-processes 4 "$1"
