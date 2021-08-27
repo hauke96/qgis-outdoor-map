@@ -28,3 +28,10 @@ To start everything using docker, do the following:
 3. Fill the database with `init.sh your-data.pbf` 
 
 That's it, your database is filled and you can now start QGIS (e.g. double-click on the `map.qgz` file).
+
+# TODOs
+
+* [ ] tracks
+* [ ] (hiking)paths, footways, cycleways, bridleways
+* [ ] nature reserve/protection areas
+* [ ] POIs
