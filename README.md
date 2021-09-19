@@ -23,11 +23,18 @@ This folder contains the following files:
 ## Start
 To start everything using docker, do the following:
 
-1. Download a PBF-file (e.g. from geofabrik) of the area you want to work on. Downloading large areas just make things small, so download only the stuff you need.
+1. Download a PBF-file (e.g. from geofabrik) of the area you want to work on. Downloading large areas just make things slow, so download only the stuff you need.
 2. Execute the following command within this folder: `docker-compose up --build`. This starts the docker container with an empty postgres database and postgis plugin.
 3. Fill the database with `init.sh your-data.pbf`
 
 That's it, your database is filled and you can now start QGIS (e.g. double-click on the `map.qgz` file).
+
+## Update data
+
+1. Download latest PBF file
+2. Import into existing (filled or empty) database with `init.sh your-data.pbf`
+
+This also works while QGIS is running.
 
 # Style guideline
 
