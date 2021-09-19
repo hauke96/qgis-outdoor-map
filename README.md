@@ -25,7 +25,7 @@ To start everything using docker, do the following:
 
 1. Download a PBF-file (e.g. from geofabrik) of the area you want to work on. Downloading large areas just make things small, so download only the stuff you need.
 2. Execute the following command within this folder: `docker-compose up --build`. This starts the docker container with an empty postgres database and postgis plugin.
-3. Fill the database with `init.sh your-data.pbf` 
+3. Fill the database with `init.sh your-data.pbf`
 
 That's it, your database is filled and you can now start QGIS (e.g. double-click on the `map.qgz` file).
 
@@ -49,7 +49,13 @@ For example do all normal roads have the 200 saturation and all tunnel roads the
 
 # TODOs
 
-* [ ] tracks
-* [ ] (hiking)paths, footways, cycleways, bridleways
-* [ ] nature reserve/protection areas
+* [x] tracks
+* [x] (hiking)paths, footways, cycleways, bridleways
+* [x] nature reserve/protection areas
+* [ ] barriers
 * [ ] POIs
+  * [ ] Mountain peaks
+  * [ ] historic=*
+  * [ ] tourism=*
+  * [ ] huts
+  * [ ] hunting_stand
