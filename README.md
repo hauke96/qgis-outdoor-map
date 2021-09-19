@@ -54,8 +54,9 @@ For example do all normal roads have the 200 saturation and all tunnel roads the
 * [x] nature reserve/protection areas
 * [ ] barriers
 * [ ] POIs
-  * [ ] Mountain peaks
+  * [x] Mountain peaks
   * [ ] historic=*
   * [ ] tourism=*
   * [ ] huts
   * [ ] hunting_stand
+* [ ] borders
