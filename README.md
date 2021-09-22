@@ -66,7 +66,7 @@ For example do all normal roads have the 200 saturation and all tunnel roads the
   * [ ] tourism=*
   * [ ] huts
   * [ ] hunting_stand
-* [ ] borders
+* [x] borders
 * [ ] names of places (cities, quarters, villages, settlements)
 * [ ] font sizes (e.g. large font for city names, small font for paths
 * [ ] symbols for motorways and primary road references (e.g. small box for label "A7")
