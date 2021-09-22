@@ -2,6 +2,8 @@
 
 A simple map for outdoor activities as QGIS project for manual editing, printing, layouting, etc.
 
+<img align="center" style="width: 100%;" src="https://raw.githubusercontent.com/hauke96/qgis-outdoor-map/main/example-hiking-map.jpg">
+
 # Setup
 
 This QGIS-project expects a **PostGIS** database with the credentials *postgres* and *secret*.
