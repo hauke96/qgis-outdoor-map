@@ -45,6 +45,31 @@ Some guidelines how the map style has been developed
 Avoid unnecessary details and too many object.
 For example there's no styling difference between several road types like service, residential oder unclassified.
 
+### Font sizes
+
+Normal font size is **6pt** and used for streets and small places (e.g. `place=square`).
+But there are situations for larger fonts:
+
+#### 6pt
+* streets
+
+#### 8pt
+* small places
+* grass areas
+* protected area
+* forest
+* heath
+* hamlet, square, locality
+
+#### 10pt
+* village, city quarter
+
+#### 12pt
+* suburb
+
+#### 14pt
+* city
+
 ### Colors
 
 The colors come from the [material design colore palette](https://material.io/design/color/the-color-system.html#tools-for-picking-colors) and objects of the same kind have usually the same saturation and just different color tones.
@@ -67,6 +92,6 @@ For example do all normal roads have the 200 saturation and all tunnel roads the
   * [ ] huts
   * [ ] hunting_stand
 * [x] borders
-* [ ] names of places (cities, quarters, villages, settlements)
-* [ ] font sizes (e.g. large font for city names, small font for paths
+* [x] names of places (cities, quarters, villages, settlements)
+  * [x] font sizes (e.g. large font for city names, small font for paths
 * [ ] symbols for motorways and primary road references (e.g. small box for label "A7")
