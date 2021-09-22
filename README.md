@@ -59,7 +59,7 @@ For example do all normal roads have the 200 saturation and all tunnel roads the
 * [x] tracks
 * [x] (hiking)paths, footways, cycleways, bridleways
 * [x] nature reserve/protection areas
-* [ ] barriers
+* [x] barriers
 * [ ] POIs
   * [x] Mountain peaks
   * [ ] historic=*
