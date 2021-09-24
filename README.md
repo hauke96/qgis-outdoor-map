@@ -89,9 +89,9 @@ For example do all normal roads have the 200 saturation and all tunnel roads the
 * [x] barriers
 * [ ] POIs
   * [x] Mountain peaks
-  * [ ] historic=*
+  * [x] historic=*
   * [ ] tourism=*
-  * [ ] huts
+  * [x] huts
   * [ ] hunting_stand
 * [x] borders
 * [x] names of places (cities, quarters, villages, settlements)
@@ -103,4 +103,4 @@ For example do all normal roads have the 200 saturation and all tunnel roads the
   * [ ] military
   * [ ] square
 
-Done: 9 / 16 (56%)
+Done: 11 / 16 (69%)
