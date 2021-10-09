@@ -104,7 +104,7 @@ For example do all normal roads have the 200 saturation and all tunnel roads the
   * [x] pitch
   * [x] military
   * [ ] square
-  * [ ] cemetery
+  * [x] cemetery
   * [x] construction
 
-Done: 16 / 18
+Done: 17 / 18
