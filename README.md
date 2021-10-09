@@ -80,6 +80,8 @@ For example do all normal roads have the 200 saturation and all tunnel roads the
 **Exceptions:**
 
 * Tidalflat areas have `#bbd2dc` (which is the "Blue Grey 100" color but with 20% saturation and 90% brightness instead)
+* Pitches have `#bde2d2` (the middle between "Green 100" and "Teal 100")
+* Sport centres have `#e8f5e9` ("Green 50" but with saturation of 10 instead of 5)
 
 # TODOs
 
@@ -87,7 +89,7 @@ For example do all normal roads have the 200 saturation and all tunnel roads the
 * [x] (hiking)paths, footways, cycleways, bridleways
 * [x] nature reserve/protection areas
 * [x] barriers
-* [ ] POIs
+* [x] POIs
   * [x] Mountain peaks
   * [x] historic=*
   * [x] tourism=*
@@ -99,8 +101,8 @@ For example do all normal roads have the 200 saturation and all tunnel roads the
 * [x] symbols for motorways and primary road references (e.g. small box for label "A7")
 * [ ] areas
   * [x] school, university
-  * [ ] pitch
+  * [x] pitch
   * [ ] military
   * [ ] square
 
-Done: 11 / 16 (69%)
+Done: 13 / 16 (81%)
