@@ -54,6 +54,7 @@ But there are situations for larger fonts:
 
 #### 6pt
 * streets
+* hotels, guest houses
 
 #### 8pt
 * small places
@@ -62,6 +63,7 @@ But there are situations for larger fonts:
 * forest
 * heath
 * hamlet, square, locality
+* landuses (education, military, etc.)
 
 #### 10pt
 * village, city quarter
