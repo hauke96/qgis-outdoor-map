@@ -109,3 +109,4 @@ For example do all normal roads have the 200 saturation and all tunnel roads the
   * [x] military
   * [x] cemetery
   * [x] construction
+* [ ] Clustering: Only show one icon for multiple close by POIs
