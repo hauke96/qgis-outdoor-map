@@ -59,7 +59,6 @@ But there are situations for larger fonts:
 #### 8pt
 * small places
 * grass areas
-* protected area
 * forest
 * heath
 * hamlet, square, locality
@@ -67,6 +66,7 @@ But there are situations for larger fonts:
 
 #### 10pt
 * village, city quarter
+* protected area
 
 #### 12pt
 * suburb
