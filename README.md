@@ -15,7 +15,8 @@ QGIS enables you to create PDF or image exports which then can be printed:
 # How to use
 
 1. Make sure you have a postgres database running (s. section "Docker Setup" to start the database as a docker container)
-2. Import data into the database (s. 
+2. Import data into the database (s. "Fill database")
+3. Start QGIS and load the `map.qgz` project file
 
 ## Docker Setup
 
