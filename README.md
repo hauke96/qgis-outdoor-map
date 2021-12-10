@@ -85,6 +85,17 @@ For example do all normal roads have the 200 saturation and all tunnel roads the
 * Pitches have `#bde2d2` (the middle between "Green 100" and "Teal 100")
 * Sport centres have `#e8f5e9` ("Green 50" but with saturation of 10 instead of 5)
 
+# Extracts
+
+## Fischbek
+
+The Hamburg-extract from Geofabrik does not contain the whole area of Fischbeker Heide, so we have to combine it with the Lower Saxony extract:
+
+* Download Hamburg and Lower Saxony extracts
+* Cutout irrelevant stuff from Lower Saxony: `osmium extract -b 9.7685,53.4721,9.973,53.3978 niedersachsen-latest.osm.pbf --overwrite -o niedersachsen-latest-cutout.osm.pbf`
+* Merhe them: `osmium merge hamburg-latest.osm.pbf niedersachsen-latest-cutout.osm.pbf --overwrite -o hh-nds.pbf`
+* Import it: `./init.sh hh-nds.pbf`
+
 # TODOs
 
 * [x] tracks
@@ -97,16 +108,16 @@ For example do all normal roads have the 200 saturation and all tunnel roads the
   * [x] tourism=*
   * [x] huts
   * [x] hunting_stand
-  * [ ] Bus stops
-  * [ ] Train/subway stations
+  * [x] Bus stops
+  * [x] Train/subway stations
 * [x] borders
 * [x] names of places (cities, quarters, villages, settlements)
   * [x] font sizes (e.g. large font for city names, small font for paths
 * [x] symbols for motorways and primary road references (e.g. small box for label "A7")
-* [ ] areas
+* [x] areas
   * [x] school, university
   * [x] pitch
   * [x] military
   * [x] cemetery
   * [x] construction
-* [ ] Clustering: Only show one icon for multiple close by POIs
+* [x] Clustering: Only show one icon for multiple close by POIs
