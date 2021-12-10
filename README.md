@@ -4,6 +4,14 @@ A simple map for outdoor activities as QGIS project for manual editing, printing
 
 <img align="center" style="width: 100%;" src="https://raw.githubusercontent.com/hauke96/qgis-outdoor-map/main/example-hiking-map.jpg">
 
+QGIS enables you to create PDF or image exports which then can be printed:
+
+<div>
+<img align="center" style="width: 33%;" src="https://raw.githubusercontent.com/hauke96/qgis-outdoor-map/main/printed maps/printed-map-1.JPG">
+<img align="center" style="width: 33%;" src="https://raw.githubusercontent.com/hauke96/qgis-outdoor-map/main/printed maps/printed-map-2.JPG">
+<img align="center" style="width: 33%;" src="https://raw.githubusercontent.com/hauke96/qgis-outdoor-map/main/printed maps/printed-map-3.JPG">
+</div>
+
 # Setup
 
 This QGIS-project expects a **PostGIS** database with the credentials *postgres* and *secret*.
