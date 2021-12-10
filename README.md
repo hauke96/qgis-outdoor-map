@@ -12,39 +12,66 @@ QGIS enables you to create PDF or image exports which then can be printed:
 <img align="center" style="width: 30%;" src="https://raw.githubusercontent.com/hauke96/qgis-outdoor-map/main/printed maps/printed-map-3.JPG">
 </div>
 
-# Setup
+# How to use
+
+1. Make sure you have a postgres database running (s. section "Docker Setup" to start the database as a docker container)
+2. Import data into the database (s. 
+
+## Docker Setup
 
 This QGIS-project expects a **PostGIS** database with the credentials *postgres* and *secret*.
 To make things easier there's a docker-compose file to start everything within a couple of seconds.
 
-## Docker
+### Setup
 
-## Setup
-
-Make sure your docker setup works ;)
-
-This folder contains the following files:
+This folder contains the following docker related files:
 
 * `docker-compose.yml`: Core docker file, needed to tell docker what to start. This also contains credentials for the database.
 * `init.sh`: Simple script to fill a running database
 * `.pgpass`: Contains the credentials for the database. This is used by the `init.sh` script to be able to log into the database without user interactions.
 * `map.qgz`: The actual QGIS project
 
-## Start
+### Start
+
 To start everything using docker, do the following:
 
-1. Download a PBF-file (e.g. from geofabrik) of the area you want to work on. Downloading large areas just make things slow, so download only the stuff you need.
-2. Execute the following command within this folder: `docker-compose up --build`. This starts the docker container with an empty postgres database and postgis plugin.
-3. Fill the database with `init.sh your-data.pbf`
+1. Execute the following command within this folder: `docker-compose up --build`. This starts the docker container with an empty postgres database and postgis plugin.
 
 That's it, your database is filled and you can now start QGIS (e.g. double-click on the `map.qgz` file).
 
+## Fill database
+
+Make sure the database is running. Now we can add some data to it:
+
+1. Download a PBF-file (e.g. from [Geofabrik](https://download.geofabrik.de/index.html)) of the area you want to work on. Downloading large areas just make things slow, so download only the stuff you need.
+2. Fill the database with `init.sh your-data.pbf`. **Caution:** This removed the existing content of the database!
+
+### Combine multiple Extracts
+
+**Example: Fischbek**
+
+The Hamburg-extract from Geofabrik does not contain the whole area of Fischbeker Heide, so we have to combine it with the Lower Saxony extract:
+
+* Download Hamburg and Lower Saxony extracts
+* Cutout irrelevant stuff from Lower Saxony: `osmium extract -b 9.7685,53.4721,9.973,53.3978 niedersachsen-latest.osm.pbf --overwrite -o niedersachsen-latest-cutout.osm.pbf`
+* Merhe them: `osmium merge hamburg-latest.osm.pbf niedersachsen-latest-cutout.osm.pbf --overwrite -o hh-nds.pbf`
+* Import it: `./init.sh hh-nds.pbf`
+
 ## Update data
 
+Updating data works just like in the "Fill database" step.
+
 1. Download latest PBF file
-2. Import into existing (filled or empty) database with `init.sh your-data.pbf`
+2. Import into existing (filled or empty) database with `init.sh your-data.pbf`. **Caution:** This removed the existing content of the database!
 
 This also works while QGIS is running.
+
+### Append data to database
+
+If you don't want to remove everything with every `init.sh` call, there are two options:
+
+1. Combine PBF files so that you can load multiple extracts into the database
+2. Edit the `init.sh` script and replace `--create` with `--append` 
 
 # Style guideline
 
@@ -92,17 +119,6 @@ For example do all normal roads have the 200 saturation and all tunnel roads the
 * Tidalflat areas have `#bbd2dc` (which is the "Blue Grey 100" color but with 20% saturation and 90% brightness instead)
 * Pitches have `#bde2d2` (the middle between "Green 100" and "Teal 100")
 * Sport centres have `#e8f5e9` ("Green 50" but with saturation of 10 instead of 5)
-
-# Extracts
-
-## Fischbek
-
-The Hamburg-extract from Geofabrik does not contain the whole area of Fischbeker Heide, so we have to combine it with the Lower Saxony extract:
-
-* Download Hamburg and Lower Saxony extracts
-* Cutout irrelevant stuff from Lower Saxony: `osmium extract -b 9.7685,53.4721,9.973,53.3978 niedersachsen-latest.osm.pbf --overwrite -o niedersachsen-latest-cutout.osm.pbf`
-* Merhe them: `osmium merge hamburg-latest.osm.pbf niedersachsen-latest-cutout.osm.pbf --overwrite -o hh-nds.pbf`
-* Import it: `./init.sh hh-nds.pbf`
 
 # TODOs
 
