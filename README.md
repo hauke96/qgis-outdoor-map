@@ -1,6 +1,6 @@
 # QGIS outdoor map
 
-A simple map for outdoor activities as QGIS project for manual editing, printing, layouting, etc.
+A simple map for outdoor activities as [QGIS](https://www.qgis.org/) project for manual editing, printing, layouting, etc.
 
 <img align="center" style="width: 100%;" src="https://raw.githubusercontent.com/hauke96/qgis-outdoor-map/main/example-hiking-map.jpg">
 
@@ -14,9 +14,9 @@ QGIS enables you to create PDF or image exports which then can be printed:
 
 # How to use
 
-1. Make sure you have a postgres database running (s. section "Docker Setup" to start the database as a docker container)
-2. Import data into the database (s. "Fill database")
-3. Start QGIS and load the `map.qgz` project file
+1. Make sure you have a postgres database running (see section ["Docker Setup"](#docker-setup) to start the database as a docker container)
+2. Import data into the database (see ["Fill database"](#fill-database))
+3. Start QGIS and load the [`map.qgz`](map.qgz) project file
 
 ## Docker Setup
 
@@ -27,10 +27,10 @@ To make things easier there's a docker-compose file to start everything within a
 
 This folder contains the following docker related files:
 
-* `docker-compose.yml`: Core docker file, needed to tell docker what to start. This also contains credentials for the database.
-* `init.sh`: Simple script to fill a running database
-* `.pgpass`: Contains the credentials for the database. This is used by the `init.sh` script to be able to log into the database without user interactions.
-* `map.qgz`: The actual QGIS project
+* [`docker-compose.yml`](docker-compose.yml): Core docker file, needed to tell docker what to start. This also contains credentials for the database.
+* [`init.sh`](init.sh): Simple script to fill a running database
+* [`.pgpass`](.pgpass): Contains the credentials for the database. This is used by the `init.sh` script to be able to log into the database without user interactions.
+* [`map.qgz`](map.qgz): The actual QGIS project
 
 ### Start
 
@@ -45,7 +45,7 @@ That's it, your database is filled and you can now start QGIS (e.g. double-click
 Make sure the database is running. Now we can add some data to it:
 
 1. Download a PBF-file (e.g. from [Geofabrik](https://download.geofabrik.de/index.html)) of the area you want to work on. Downloading large areas just make things slow, so download only the stuff you need.
-2. Fill the database with `init.sh your-data.pbf`. **Caution:** This removed the existing content of the database!
+2. Fill the database with `init.sh your-data.pbf`. **Caution:** This removes the existing content of the database!
 
 ### Combine multiple Extracts
 
@@ -55,24 +55,24 @@ The Hamburg-extract from Geofabrik does not contain the whole area of Fischbeker
 
 * Download Hamburg and Lower Saxony extracts
 * Cutout irrelevant stuff from Lower Saxony: `osmium extract -b 9.7685,53.4721,9.973,53.3978 niedersachsen-latest.osm.pbf --overwrite -o niedersachsen-latest-cutout.osm.pbf`
-* Merhe them: `osmium merge hamburg-latest.osm.pbf niedersachsen-latest-cutout.osm.pbf --overwrite -o hh-nds.pbf`
+* Merge them: `osmium merge hamburg-latest.osm.pbf niedersachsen-latest-cutout.osm.pbf --overwrite -o hh-nds.pbf`
 * Import it: `./init.sh hh-nds.pbf`
 
 ## Update data
 
-Updating data works just like in the "Fill database" step.
+Updating data works just like in the ["Fill database"](#fill-database) step.
 
 1. Download latest PBF file
-2. Import into existing (filled or empty) database with `init.sh your-data.pbf`. **Caution:** This removed the existing content of the database!
+2. Import into existing (filled or empty) database with `init.sh your-data.pbf`. **Caution:** This removes the existing content of the database!
 
 This also works while QGIS is running.
 
 ### Append data to database
 
-If you don't want to remove everything with every `init.sh` call, there are two options:
+If you don't want to remove everything with every [`init.sh`](init.sh) call, there are two options:
 
 1. Combine PBF files so that you can load multiple extracts into the database
-2. Edit the `init.sh` script and replace `--create` with `--append` 
+2. Edit the [`init.sh`](init.sh) script and replace `--create` with `--append` 
 
 # Style guideline
 
