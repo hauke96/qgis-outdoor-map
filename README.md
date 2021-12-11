@@ -45,7 +45,7 @@ That's it, your database is filled and you can now start QGIS (e.g. double-click
 Make sure the database is running. Now we can add some data to it:
 
 1. Download a PBF-file (e.g. from [Geofabrik](https://download.geofabrik.de/index.html)) of the area you want to work on. Downloading large areas just make things slow, so download only the stuff you need.
-2. Fill the database with `init.sh your-data.pbf`. **Caution:** This removed the existing content of the database!
+2. Fill the database with `init.sh your-data.pbf`. **Caution:** This removes the existing content of the database!
 
 ### Combine multiple Extracts
 
@@ -55,15 +55,15 @@ The Hamburg-extract from Geofabrik does not contain the whole area of Fischbeker
 
 * Download Hamburg and Lower Saxony extracts
 * Cutout irrelevant stuff from Lower Saxony: `osmium extract -b 9.7685,53.4721,9.973,53.3978 niedersachsen-latest.osm.pbf --overwrite -o niedersachsen-latest-cutout.osm.pbf`
-* Merhe them: `osmium merge hamburg-latest.osm.pbf niedersachsen-latest-cutout.osm.pbf --overwrite -o hh-nds.pbf`
+* Merge them: `osmium merge hamburg-latest.osm.pbf niedersachsen-latest-cutout.osm.pbf --overwrite -o hh-nds.pbf`
 * Import it: `./init.sh hh-nds.pbf`
 
 ## Update data
 
-Updating data works just like in the "Fill database" step.
+Updating data works just like in the ["Fill database"](#fill-database) step.
 
 1. Download latest PBF file
-2. Import into existing (filled or empty) database with `init.sh your-data.pbf`. **Caution:** This removed the existing content of the database!
+2. Import into existing (filled or empty) database with `init.sh your-data.pbf`. **Caution:** This removes the existing content of the database!
 
 This also works while QGIS is running.
 
