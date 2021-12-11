@@ -1,6 +1,6 @@
 # QGIS outdoor map
 
-A simple map for outdoor activities as QGIS project for manual editing, printing, layouting, etc.
+A simple map for outdoor activities as [QGIS](https://www.qgis.org/) project for manual editing, printing, layouting, etc.
 
 <img align="center" style="width: 100%;" src="https://raw.githubusercontent.com/hauke96/qgis-outdoor-map/main/example-hiking-map.jpg">
 
@@ -14,9 +14,9 @@ QGIS enables you to create PDF or image exports which then can be printed:
 
 # How to use
 
-1. Make sure you have a postgres database running (s. section "Docker Setup" to start the database as a docker container)
-2. Import data into the database (s. "Fill database")
-3. Start QGIS and load the `map.qgz` project file
+1. Make sure you have a postgres database running (see section ["Docker Setup"](#docker-setup) to start the database as a docker container)
+2. Import data into the database (see ["Fill database"](#fill-database))
+3. Start QGIS and load the [`map.qgz`](map.qgz) project file
 
 ## Docker Setup
 
@@ -27,10 +27,10 @@ To make things easier there's a docker-compose file to start everything within a
 
 This folder contains the following docker related files:
 
-* `docker-compose.yml`: Core docker file, needed to tell docker what to start. This also contains credentials for the database.
-* `init.sh`: Simple script to fill a running database
-* `.pgpass`: Contains the credentials for the database. This is used by the `init.sh` script to be able to log into the database without user interactions.
-* `map.qgz`: The actual QGIS project
+* [`docker-compose.yml`](docker-compose.yml): Core docker file, needed to tell docker what to start. This also contains credentials for the database.
+* [`init.sh`](init.sh): Simple script to fill a running database
+* [`.pgpass`](.pgpass): Contains the credentials for the database. This is used by the `init.sh` script to be able to log into the database without user interactions.
+* [`map.qgz`](map.qgz): The actual QGIS project
 
 ### Start
 
@@ -69,10 +69,10 @@ This also works while QGIS is running.
 
 ### Append data to database
 
-If you don't want to remove everything with every `init.sh` call, there are two options:
+If you don't want to remove everything with every [`init.sh`](init.sh) call, there are two options:
 
 1. Combine PBF files so that you can load multiple extracts into the database
-2. Edit the `init.sh` script and replace `--create` with `--append` 
+2. Edit the [`init.sh`](init.sh) script and replace `--create` with `--append` 
 
 # Style guideline
 
