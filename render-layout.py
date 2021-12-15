@@ -12,7 +12,7 @@ gdal.PushErrorHandler('CPLQuietErrorHandler')
 parser = argparse.ArgumentParser(description="Render QGIS layout to a PDF or image file.")
 parser.add_argument("-t", "--type", help="The file type to generate. Default: pdf", choices=["pdf", "png"], default="pdf")
 parser.add_argument("-o", "--output", help="The output file name. Default: <layout_name>.<type>")
-parser.add_argument("-p", "--project", help="The project file to load. Default: map.qgz", default="map.qgz")
+parser.add_argument("-p", "--project", help="The project file to load. Default: ./map.qgs", default="./map.qgs")
 parser.add_argument("-d", "--dpi", help="The DPI that should be used. Default: 300", type=int, default=300)
 parser.add_argument("layout_name", help="The name of the layout that should be rendered.")
 args = parser.parse_args()
@@ -32,7 +32,7 @@ qgs.initQgis();
 
 # Load project
 project = QgsProject.instance()
-project.read("./map.qgz")
+project.read(args.project)
 
 # Get the according layout
 manager = project.layoutManager()
