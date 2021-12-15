@@ -28,7 +28,9 @@ To make things easier there's a docker-compose file to start everything within a
 This folder contains the following docker related files:
 
 * [`docker-compose.yml`](docker-compose.yml): Core docker file, needed to tell docker what to start. This also contains credentials for the database.
-* [`init.sh`](init.sh): Simple script to fill a running database
+* [`init.sh`](init.sh): Simple script to fill a running database.
+  * `init.sh file.pbf` will remove the current data and just import `file.pbf`
+  * `init.sh --append file.pbf` will append the data from `file.pbf` to the current database
 * [`.pgpass`](.pgpass): Contains the credentials for the database. This is used by the `init.sh` script to be able to log into the database without user interactions.
 * [`map.qgz`](map.qgz): The actual QGIS project
 
@@ -69,10 +71,7 @@ This also works while QGIS is running.
 
 ### Append data to database
 
-If you don't want to remove everything with every [`init.sh`](init.sh) call, there are two options:
-
-1. Combine PBF files so that you can load multiple extracts into the database
-2. Edit the [`init.sh`](init.sh) script and replace `--create` with `--append` 
+Just use the `--append` parameter for the `init.sh` script: `init.sh --append file.pbf`
 
 # Style guideline
 

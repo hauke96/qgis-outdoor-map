@@ -7,9 +7,17 @@ export PGPASSFILE=./.pgpass
 export PGHOST=localhost
 export PGUSER=postgres
 
+ACTION="--create"
+FILE="$1"
+if [ $1 = "--append" ]
+then
+	ACTION="--append"
+	FILE="$2"
+fi
+
 psql -c "CREATE EXTENSION hstore;" 2> /dev/stderr || echo "Skip hstore extension creation."
 
-osm2pgsql --create --slim -G --hstore --number-processes 4 "$1"
+osm2pgsql $ACTION --slim -G --hstore --number-processes 4 "$FILE"
 
 # Convert closed line-strings for protection areas into polygons. To do this
 # without generating duplicates, all lines for which a relation already exists
