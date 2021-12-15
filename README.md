@@ -16,7 +16,9 @@ QGIS enables you to create PDF or image exports which then can be printed:
 
 1. Make sure you have a postgres database running (see section ["Docker Setup"](#docker-setup) to start the database as a docker container)
 2. Import data into the database (see ["Fill database"](#fill-database))
-3. Start QGIS and load the [`map.qgz`](map.qgz) project file
+3. Read the ["QGIS setup"](#qgis-setup) section
+4. Load the [`map.qgs`](map.qgs) project file
+5. Take a look at the ["Render map"](#render-map) section on how to render the map to PDF/PNG
 
 ## Docker Setup
 
@@ -32,7 +34,7 @@ This folder contains the following docker related files:
   * `init.sh file.pbf` will remove the current data and just import `file.pbf`
   * `init.sh --append file.pbf` will append the data from `file.pbf` to the current database
 * [`.pgpass`](.pgpass): Contains the credentials for the database. This is used by the `init.sh` script to be able to log into the database without user interactions.
-* [`map.qgz`](map.qgz): The actual QGIS project
+* [`map.qgs`](map.qgs): The actual QGIS project
 
 ### Start
 
@@ -40,7 +42,7 @@ To start everything using docker, do the following:
 
 1. Execute the following command within this folder: `docker-compose up --build`. This starts the docker container with an empty postgres database and postgis plugin.
 
-That's it, your database is filled and you can now start QGIS (e.g. double-click on the `map.qgz` file).
+That's it, your database is filled and you can now start QGIS (e.g. double-click on the `map.qgs` file).
 
 ## Fill database
 
@@ -60,7 +62,7 @@ The Hamburg-extract from Geofabrik does not contain the whole area of Fischbeker
 * Merge them: `osmium merge hamburg-latest.osm.pbf niedersachsen-latest-cutout.osm.pbf --overwrite -o hh-nds.pbf`
 * Import it: `./init.sh hh-nds.pbf`
 
-## Update data
+### Update data
 
 Updating data works just like in the ["Fill database"](#fill-database) step.
 
@@ -72,6 +74,30 @@ This also works while QGIS is running.
 ### Append data to database
 
 Just use the `--append` parameter for the `init.sh` script: `init.sh --append file.pbf`
+
+## QGIS setup
+
+1. Make sure you use the latest QGIS version (as of 15th December 3.22)
+2. Install the "Trackable QGIS Project" (this orders the XML attributes in the project file alphabetically so that the file is better trackable by git)
+3. Collapse all layers before committing (just to keep the project clean)
+
+## Render map
+
+Make sure the project is loaded in QGIS and that you have the data loaded into your database.
+
+1. Create a layout or change an existing one
+2. Add the OSM attribution if you use OSM data
+3. Use the normal QGIS mechanisms to export the layout to PDF, PNG, ...
+
+### Render via Terminal/CLI
+
+1. Make sure you created your layout in QGIS
+2. Use the `render-layout.py` script to render a single layout (ude `render-layout.py --help` for more information)
+
+### Render all pre-defined layouts
+
+There are some pre-defined layouts (such as `a2-fischbeker-heide`) wich legend, scale bar, attribution and everything.
+Calling the script `render-all.sh` renders them all as PDF and PNG files, no parameter needed.
 
 # Style guideline
 

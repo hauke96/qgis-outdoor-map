@@ -1,9 +1,17 @@
 # Data files
 *.pbf
 *.poly
+*.tif
+
+# Project files
+*.qgs~
+*.db
 
 # Database
 postgres-data
 
 # Rendered maps
 *.pdf
+*.png
+*.jpg
+rendered-maps
