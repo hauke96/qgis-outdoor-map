@@ -42,7 +42,7 @@ To start everything using docker, do the following:
 
 1. Execute the following command within this folder: `docker-compose up --build`. This starts the docker container with an empty postgres database and postgis plugin.
 
-That's it, your database is filled and you can now start QGIS (e.g. double-click on the `map.qgs` file).
+That's it, your database is now running and can be filled with data.
 
 ## Fill database
 
@@ -78,8 +78,9 @@ Just use the `--append` parameter for the `init.sh` script: `init.sh --append fi
 ## QGIS setup
 
 1. Make sure you use the latest QGIS version (as of 15th December 3.22)
-2. Install the "Trackable QGIS Project" (this orders the XML attributes in the project file alphabetically so that the file is better trackable by git)
-3. Collapse all layers before committing (just to keep the project clean)
+2. If you want to modify the project and create a pull-request: 
+  1. Install the extension "Trackable QGIS Project" (this orders the XML attributes in the project file alphabetically so that the file is better trackable by git)
+  2. Collapse all layers before committing (just to keep the project clean)
 
 ## Render map
 
