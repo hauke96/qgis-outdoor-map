@@ -124,6 +124,7 @@ But there are situations for larger fonts:
 * heath
 * hamlet, square, locality
 * landuses (education, military, etc.)
+* train stations
 
 #### 10pt
 * village, city quarter
