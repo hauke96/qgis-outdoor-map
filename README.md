@@ -158,29 +158,3 @@ For example do all normal roads have the 200 saturation and all tunnel roads the
 * Pitches have `#bde2d2` (the middle between "Green 100" and "Teal 100")
 * Sport centres have `#e8f5e9` ("Green 50" but with saturation of 10 instead of 5)
 * Tracks have the `#a1887f` color but with 20° hue and 75% saturation (resulting in `#a14728`)
-
-# TODOs
-
-* [x] tracks
-* [x] (hiking)paths, footways, cycleways, bridleways
-* [x] nature reserve/protection areas
-* [x] barriers
-* [x] POIs
-  * [x] Mountain peaks
-  * [x] historic=*
-  * [x] tourism=*
-  * [x] huts
-  * [x] hunting_stand
-  * [x] Bus stops
-  * [x] Train/subway stations
-* [x] borders
-* [x] names of places (cities, quarters, villages, settlements)
-  * [x] font sizes (e.g. large font for city names, small font for paths
-* [x] symbols for motorways and primary road references (e.g. small box for label "A7")
-* [x] areas
-  * [x] school, university
-  * [x] pitch
-  * [x] military
-  * [x] cemetery
-  * [x] construction
-* [x] Clustering: Only show one icon for multiple close by POIs
