@@ -59,6 +59,16 @@ function a2_thueringer_wald()
 	cp $OUT $DATA
 }
 
+function example_hiking_map()
+{
+	NAME="example-hiking-map"
+	OUT="$NAME$ENDING"
+
+	osmium extract -b 10.2698,50.9798,10.3626,50.9374 $TH --overwrite -o $OUT
+
+	cp $OUT $DATA
+}
+
 if [ $1 == "a2-fischbeker-heide" ]
 then
 	a2_fischbeker_heide
@@ -68,6 +78,9 @@ then
 elif [ $1 == "a2-thueringer-wald" ]
 then
 	a2_thueringer_wald
+elif [ $1 == "example-hiking-map" ]
+then
+	example_hiking_map
 fi
 
 # Must be the first: Creates the $DATA file
