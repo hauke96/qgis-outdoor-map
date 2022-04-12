@@ -30,3 +30,21 @@ DELETE FROM planet_osm_line WHERE osm_id IN (
 INSERT INTO planet_osm_polygon SELECT * FROM planet_osm_line l WHERE ST_IsClosed(l.way) AND boundary='protected_area';
 UPDATE planet_osm_polygon SET way = ST_MakePolygon(way) WHERE ST_GeometryType(way)='ST_LineString';
 EOF
+
+# Convert hut-POIs into points as we don't need a polygon for them
+QUERY="\"tourism\" IN (
+	'alpine_hut',
+	'wildernis_hut'
+) OR
+(
+	\"amenity\" = 'shelter' AND
+	(
+		\"tags\"::hstore -> 'shelter_type' IS NULL OR 
+		\"tags\"::hstore -> 'shelter_type' != 'public_transport'
+	)
+)"
+psql <<EOF
+UPDATE planet_osm_polygon SET way = ST_Centroid(way) WHERE $QUERY;
+INSERT INTO planet_osm_point SELECT * FROM planet_osm_polygon WHERE $QUERY;
+DELETE FROM planet_osm_polygon WHERE  $QUERY;
+EOF
