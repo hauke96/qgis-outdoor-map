@@ -35,6 +35,7 @@ This folder contains the following docker related files:
   * `init.sh --append file.pbf` will append the data from `file.pbf` to the current database
 * [`.pgpass`](.pgpass): Contains the credentials for the database. This is used by the `init.sh` script to be able to log into the database without user interactions.
 * [`map.qgs`](map.qgs): The actual QGIS project
+* [`data/import-layout-data.sh`](data/import-layout-data.sh): Imports data specifically for a given layout.
 
 ### Start
 
@@ -53,6 +54,10 @@ Make sure the database is running. Now we can add some data to it:
 
 ### Combine multiple Extracts
 
+Sometimes a region is across multiple Geofabrik extracts (e.g. your region covers Lower Saxony and Hamburg), in this case you have to combine multiple PBF-files into one.
+
+The script `./data/import-layout-data.sh` does that, so take a look at its source code.
+
 **Example: Fischbek**
 
 The Hamburg-extract from Geofabrik does not contain the whole area of Fischbeker Heide, so we have to combine it with the Lower Saxony extract:
@@ -67,7 +72,7 @@ The Hamburg-extract from Geofabrik does not contain the whole area of Fischbeker
 Updating data works just like in the ["Fill database"](#fill-database) step.
 
 1. Download latest PBF file
-2. Import into existing (filled or empty) database with `init.sh your-data.pbf`. **Caution:** This removes the existing content of the database!
+2. Import into existing (filled or empty) database with `init.sh your-data.pbf`. **Caution:** This removes the existing content of the database! If you want to append data to the existing database use the `--append` flag (s. above).
 
 This also works while QGIS is running.
 
