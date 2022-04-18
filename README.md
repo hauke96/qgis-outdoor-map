@@ -35,7 +35,7 @@ This folder contains the following docker related files:
   * `init.sh --append file.pbf` will append the data from `file.pbf` to the current database
 * [`.pgpass`](.pgpass): Contains the credentials for the database. This is used by the `init.sh` script to be able to log into the database without user interactions.
 * [`map.qgs`](map.qgs): The actual QGIS project
-* [`data/import-layout-data.sh`](data/import-layout-data.sh): Imports data specifically for a given layout.
+* [`data/import-layout-data.sh`](data/import-layout-data.sh): Downloads old/missing data and imports it specifically for a given layout.
 
 ### Start
 
@@ -49,8 +49,10 @@ That's it, your database is now running and can be filled with data.
 
 Make sure the database is running. Now we can add some data to it:
 
-1. Download a PBF-file (e.g. from [Geofabrik](https://download.geofabrik.de/index.html)) of the area you want to work on. Downloading large areas just make things slow, so download only the stuff you need.
-2. Fill the database with `init.sh your-data.pbf`. **Caution:** This removes the existing content of the database!
+1. Download data
+  * **When importing for a specific layout:** Go into the `data` folder and execute the `import-layout-data.sh` script with the layout name as parameter (e.g. `a2-thueringer-wald`).
+  * **When importing arbitrary data:** Get a PBF-file (e.g. downloading from [Geofabrik](https://download.geofabrik.de/index.html)) of the area you want to work on. Downloading large areas just make things slow, so download only the stuff you need.
+2. Fill the database with `init.sh your-data.pbf`. **Caution:** This removes the existing content of the database! Use `--append` to just append to existing data without wiping the database.
 
 ### Combine multiple Extracts
 
