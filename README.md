@@ -12,6 +12,10 @@ QGIS enables you to create PDF or image exports which then can be printed:
 <img align="center" style="width: 30%;" src="https://raw.githubusercontent.com/hauke96/qgis-outdoor-map/main/printed maps/printed-map-3.JPG">
 </div>
 
+## Example online map
+
+Take a look at this experimental [example map](https://hauke-stieler.de/public/maps/thueringer-wald/) to see what this map style looks like.
+
 # How to use
 
 1. Make sure you have a postgres database running (see section ["Docker Setup"](#docker-setup) to start the database as a docker container)
