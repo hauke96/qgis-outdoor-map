@@ -12,6 +12,25 @@ SH="schleswig-holstein-latest$ENDING"
 NDS="niedersachsen-latest$ENDING"
 TH="thueringen-latest$ENDING"
 
+# $1 = Full name of the top-level region (e.g. "europe/germany")
+# $2 = Name of the actual file (e.g. "thueringen-latest.osm.pbf")
+function download()
+{
+	MD5_FILE="$2.md5"
+	REMOTE_HASH=$(curl "https://download.geofabrik.de/$1/$MD5_FILE" || true)
+
+	LOCAL_HASH=$(md5sum "$2" || true)
+
+	echo "Local hash:  $LOCAL_HASH"
+	echo "Remote hash: $REMOTE_HASH"
+
+	if [ "$LOCAL_HASH" != "$REMOTE_HASH" ]
+	then
+		echo "Downloading $2/$1"
+		curl "https://download.geofabrik.de/$1/$2" -o "$2"
+	fi
+}
+
 function merge_with_data()
 {
 	osmium merge $DATA $1 --overwrite -o "temp.$DATA"
@@ -71,15 +90,20 @@ function example_hiking_map()
 
 if [ $1 == "a2-fischbeker-heide" ]
 then
+	download "europe/germany" $NDS
+	download "europe/germany" $SH
 	a2_fischbeker_heide
 elif [ $1 == "a2-sachsenwald" ]
 then
+	download "europe/germany" $SH
 	a2_sachsenwald
 elif [ $1 == "a2-thueringer-wald" ]
 then
+	download "europe/germany" $TH
 	a2_thueringer_wald
 elif [ $1 == "example-hiking-map" ]
 then
+	download "europe/germany" $TH
 	example_hiking_map
 fi
 
