@@ -17,7 +17,7 @@ fi
 
 psql -c "CREATE EXTENSION hstore;" 2> /dev/stderr || echo "Skip hstore extension creation."
 
-osm2pgsql $ACTION --slim -G --hstore --number-processes 4 "$FILE"
+osm2pgsql $ACTION --hstore-add-index --slim -G --hstore --number-processes 4 "$FILE"
 
 # Convert closed line-strings for protection areas into polygons. To do this
 # without generating duplicates, all lines for which a relation already exists
@@ -47,4 +47,8 @@ psql <<EOF
 UPDATE planet_osm_polygon SET way = ST_Centroid(way) WHERE $QUERY;
 INSERT INTO planet_osm_point SELECT * FROM planet_osm_polygon WHERE $QUERY;
 DELETE FROM planet_osm_polygon WHERE  $QUERY;
+CREATE INDEX planet_osm_point_spx ON planet_osm_point USING GIST (way);
+CREATE INDEX planet_osm_polygon_spx ON planet_osm_polygon USING GIST (way);
+VACUUM ANALYZE planet_osm_point;
+VACUUM ANALYZE planet_osm_polygon;
 EOF
