@@ -2,6 +2,7 @@
 *.pbf
 *.poly
 *.tif
+*.gpkg
 
 # Project files
 *.qgs~
