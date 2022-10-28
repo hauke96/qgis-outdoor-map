@@ -89,7 +89,7 @@ Just use the `--append` parameter for the `init.sh` script: `init.sh --append fi
 ## Hillshading & contour lines
 
 Use the [tutorial in this repo](./HILLSHADE_CONTOURS.md) to create your own hillshade and contour lines files.
-This project expects a `hillshade.tif` and `contours.gpkg` file right next to the map project file.
+This project has two layers (one for hillshading and one for contour lines), you just need to change the source to a lokcal `.tif` (for hillshading) or `.gpkg` (for contours) file.
 
 For hillshading, there's also a public service provided by ESRI but the contours must be created locally (until I find a suitable public layer for that).
 
