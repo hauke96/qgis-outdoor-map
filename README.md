@@ -86,15 +86,12 @@ This also works while QGIS is running.
 
 Just use the `--append` parameter for the `init.sh` script: `init.sh --append file.pbf`
 
-## Contour lines
+## Hillshading & contour lines
 
-The hillshading is a public service provided by ESRI but the contours must be created locally (until I find a suitable public layer for that).
+Use the [tutorial in this repo](./HILLSHADE_CONTOURS.md) to create your own hillshade and contour lines files.
+This project expects a `hillshade.tif` and `contours.gpkg` file right next to the map project file.
 
-Currently the contour lines layer expects vector tiles in the XYZ slippy map structure.
-They can easily be created using QGIS (see e.g. [this tutorial](https://www.geodose.com/2018/05/how-to-create-contour-lines-in-qgis.html)).
-
-Then you have a folder with all the tiles, start a small HTTP-server in it so that it's available under `http://localhost:8000/`.
-See the layer properties for exact information on the URL and file structure.
+For hillshading, there's also a public service provided by ESRI but the contours must be created locally (until I find a suitable public layer for that).
 
 ## QGIS setup
 
