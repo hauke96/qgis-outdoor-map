@@ -7,10 +7,16 @@ DATA="data.pbf"
 
 ENDING=".osm.pbf"
 
+EU="europe"
+COUNTRY_GER="$EU/germany"
+COUNTRY_GER_BY="$COUNTRY_GER/bayern"
+
 HH="hamburg-latest$ENDING"
 SH="schleswig-holstein-latest$ENDING"
 NDS="niedersachsen-latest$ENDING"
 TH="thueringen-latest$ENDING"
+BY_O="oberbayern-latest$ENDING"
+AU="austria-latest$ENDING"
 
 # $1 = Full name of the top-level region (e.g. "europe/germany")
 # $2 = Name of the actual file (e.g. "thueringen-latest.osm.pbf")
@@ -78,6 +84,20 @@ function a2_thueringer_wald()
 	cp $OUT $DATA
 }
 
+function zugspitze()
+{
+	NAME="zugspitze"
+	OUT1="$NAME-1$ENDING"
+	OUT2="$NAME-2$ENDING"
+	OUT="$NAME$ENDING"
+
+	osmium extract -b 10.9132,47.4887,11.0680,47.3660 $BY_O --overwrite -o $OUT1
+	osmium extract -b 10.9132,47.4887,11.0680,47.3660 $AU --overwrite -o $OUT2
+	osmium merge $OUT1 $OUT2 --overwrite -o $OUT
+
+	cp $OUT $DATA
+}
+
 function example_hiking_map()
 {
 	NAME="example-hiking-map"
@@ -90,20 +110,25 @@ function example_hiking_map()
 
 if [ $1 == "a2-fischbeker-heide" ]
 then
-	download "europe/germany" $NDS
-	download "europe/germany" $SH
+	download $COUNTRY_GER $NDS
+	download $COUNTRY_GER $SH
 	a2_fischbeker_heide
 elif [ $1 == "a2-sachsenwald" ]
 then
-	download "europe/germany" $SH
+	download $COUNTRY_GER $SH
 	a2_sachsenwald
 elif [ $1 == "a2-thueringer-wald" ]
 then
-	download "europe/germany" $TH
+	download $COUNTRY_GER $TH
 	a2_thueringer_wald
+elif [ $1 == "zugspitze" ]
+then
+	download $COUNTRY_GER_BY $BY_O
+	download $EU $AU
+	zugspitze
 elif [ $1 == "example-hiking-map" ]
 then
-	download "europe/germany" $TH
+	download $COUNTRY_GER $TH
 	example_hiking_map
 fi
 
