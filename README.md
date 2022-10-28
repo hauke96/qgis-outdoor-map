@@ -166,4 +166,5 @@ For example do all normal roads have the 200 saturation and all tunnel roads the
 * Pitches have `#bde2d2` (the middle between "Green 100" and "Teal 100")
 * Sport centres have `#e8f5e9` ("Green 50" but with saturation of 10 instead of 5)
 * Tracks have the `#a1887f` color but with 20° hue and 75% saturation (resulting in `#a14728`)
-* Commercial areas have '#ffdee2' (basically "Red 100" with 13% saturation instead of 20%)
+* Commercial areas have `#ffdee2` (basically "Red 100" with 13% saturation instead of 20%)
+* Bare rock has `#ebe4e2` (the "Brown 100" but a bit lighter)
