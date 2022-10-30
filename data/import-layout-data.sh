@@ -90,9 +90,10 @@ function zugspitze()
 	OUT1="$NAME-1$ENDING"
 	OUT2="$NAME-2$ENDING"
 	OUT="$NAME$ENDING"
+	EXTENT="10.8923,47.5167,11.2514,47.3407"
 
-	osmium extract -b 10.9132,47.4887,11.0680,47.3660 $BY_O --overwrite -o $OUT1
-	osmium extract -b 10.9132,47.4887,11.0680,47.3660 $AU --overwrite -o $OUT2
+	osmium extract -b $EXTENT $BY_O --overwrite -o $OUT1
+	osmium extract -b $EXTENT $AU --overwrite -o $OUT2
 	osmium merge $OUT1 $OUT2 --overwrite -o $OUT
 
 	cp $OUT $DATA
