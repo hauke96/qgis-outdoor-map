@@ -16,8 +16,9 @@ then
 fi
 
 psql -c "CREATE EXTENSION hstore;" 2> /dev/stderr || echo "Skip hstore extension creation."
+psql -c "CREATE EXTENSION btree_gist;" 2> /dev/stderr || echo "Skip B-Tree extension creation."
 
-osm2pgsql $ACTION --hstore-add-index --slim -G --hstore --number-processes 4 "$FILE"
+osm2pgsql $ACTION --slim -G --hstore --number-processes 4 "$FILE"
 
 # Convert closed line-strings for protection areas into polygons. To do this
 # without generating duplicates, all lines for which a relation already exists
@@ -32,23 +33,40 @@ UPDATE planet_osm_polygon SET way = ST_MakePolygon(way) WHERE ST_GeometryType(wa
 EOF
 
 # Convert hut-POIs into points as we don't need a polygon for them
-QUERY="\"tourism\" IN (
+QUERY=$(cat << EOF
+"tourism" IN (
 	'alpine_hut',
 	'wildernis_hut'
 ) OR
 (
-	\"amenity\" = 'shelter' AND
+	"amenity" = 'shelter' AND
 	(
-		\"tags\"::hstore -> 'shelter_type' IS NULL OR 
-		\"tags\"::hstore -> 'shelter_type' != 'public_transport'
+		"tags"::hstore -> 'shelter_type' IS NULL OR 
+		"tags"::hstore -> 'shelter_type' != 'public_transport'
 	)
-)"
+)
+EOF
+)
+
+INDICES_QUERY=$(cat << EOF
+CREATE INDEX idx_planet_osm_point_geom ON planet_osm_point USING GIST (way);
+CREATE INDEX idx_planet_osm_polygon_geom ON planet_osm_polygon USING GIST (way);
+CREATE INDEX idx_planet_osm_line_geom ON planet_osm_line USING GIST (way);
+
+CREATE INDEX idx_planet_osm_point_tags ON planet_osm_point USING gist(tags);
+CREATE INDEX idx_planet_osm_polygon_tags ON planet_osm_polygon USING gist(tags);
+CREATE INDEX idx_planet_osm_line_tags ON planet_osm_line USING gist(tags);
+CREATE INDEX idx_planet_osm_line_highway ON planet_osm_line USING gist(highway);
+EOF
+)
+
 psql <<EOF
 UPDATE planet_osm_polygon SET way = ST_Centroid(way) WHERE $QUERY;
 INSERT INTO planet_osm_point SELECT * FROM planet_osm_polygon WHERE $QUERY;
 DELETE FROM planet_osm_polygon WHERE  $QUERY;
-CREATE INDEX planet_osm_point_spx ON planet_osm_point USING GIST (way);
-CREATE INDEX planet_osm_polygon_spx ON planet_osm_polygon USING GIST (way);
+
+$INDICES_QUERY
+
 VACUUM ANALYZE planet_osm_point;
 VACUUM ANALYZE planet_osm_polygon;
 EOF
