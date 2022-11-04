@@ -12,9 +12,12 @@ QGIS enables you to create PDF or image exports which then can be printed:
 <img align="center" style="width: 30%;" src="https://raw.githubusercontent.com/hauke96/qgis-outdoor-map/main/printed maps/printed-map-3.JPG">
 </div>
 
-## Example online map
+## Example online maps
 
-Take a look at this experimental [example map](https://hauke-stieler.de/public/maps/thueringer-wald/) to see what this map style looks like.
+Take a look at these examples:
+
+* [Thüringer Wald (thuringian forest)](https://hauke-stieler.de/public/maps/thueringer-wald/) (as of 04-2022; JPG; DPI 96)
+* [Zugspitze / Castle Neuschwanstein](https://hauke-stieler.de/public/maps/fuessen-zugspitze/) (as of 11-2022; PNG; DPI 150)
 
 # How to use
 
