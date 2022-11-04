@@ -32,8 +32,8 @@ INSERT INTO planet_osm_polygon SELECT * FROM planet_osm_line l WHERE ST_IsClosed
 UPDATE planet_osm_polygon SET way = ST_MakePolygon(way) WHERE ST_GeometryType(way)='ST_LineString';
 EOF
 
-# Convert hut-POIs into points as we don't need a polygon for them
-QUERY=$(cat << EOF
+# Convert certain POIs mapped as polygons into points to make rendering easier:
+QUERY_HUT=$(cat << EOF
 "tourism" IN (
 	'alpine_hut',
 	'wildernis_hut'
@@ -47,7 +47,9 @@ QUERY=$(cat << EOF
 )
 EOF
 )
+QUERY_HISTORIC='"historic" IS NOT NULL'
 
+# Query to add some indices in the hope that they improve performance
 INDICES_QUERY=$(cat << EOF
 CREATE INDEX idx_planet_osm_point_geom ON planet_osm_point USING GIST (way);
 CREATE INDEX idx_planet_osm_polygon_geom ON planet_osm_polygon USING GIST (way);
@@ -60,10 +62,11 @@ CREATE INDEX idx_planet_osm_line_highway ON planet_osm_line USING gist(highway);
 EOF
 )
 
+# Execute post-processing SQL
 psql <<EOF
-UPDATE planet_osm_polygon SET way = ST_Centroid(way) WHERE $QUERY;
-INSERT INTO planet_osm_point SELECT * FROM planet_osm_polygon WHERE $QUERY;
-DELETE FROM planet_osm_polygon WHERE  $QUERY;
+INSERT INTO planet_osm_point (osm_id,"name",tags,way,tourism,amenity) SELECT osm_id,"name",tags,ST_Centroid(way),tourism,amenity FROM planet_osm_polygon WHERE $QUERY_HUT;
+
+INSERT INTO planet_osm_point (osm_id,"name",tags,way,historic) SELECT osm_id,"name",tags,ST_Centroid(way),historic FROM planet_osm_polygon WHERE $QUERY_HISTORIC;
 
 $INDICES_QUERY
 
