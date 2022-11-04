@@ -122,6 +122,23 @@ function a2_fuessen()
 	cp $OUT $DATA
 }
 
+function fuessen_zugspitze()
+{
+	NAME="fuessen-zugspitze"
+	OUT1="$NAME-1$ENDING"
+	OUT2="$NAME-2$ENDING"
+	OUT3="$NAME-3$ENDING"
+	OUT="$NAME$ENDING"
+	EXTENT="10.7,47.6,11.2514,47.3407"
+
+	extract $EXTENT $BY_OBERB $OUT1
+	extract $EXTENT $BY_SCHW $OUT2
+	extract $EXTENT $AU $OUT3
+	osmium merge $OUT1 $OUT2 $OUT3 --overwrite -o $OUT
+
+	cp $OUT $DATA
+}
+
 function example_hiking_map()
 {
 	NAME="example-hiking-map"
@@ -155,6 +172,12 @@ then
 	download $COUNTRY_GER_BY $BY_SCHW
 	download $EU $AU
 	a2_fuessen
+elif [ $1 == "fuessen-zugspitze" ]
+then
+	download $COUNTRY_GER_BY $BY_OBERB
+	download $COUNTRY_GER_BY $BY_SCHW
+	download $EU $AU
+	fuessen_zugspitze
 elif [ $1 == "example-hiking-map" ]
 then
 	download $COUNTRY_GER $TH
