@@ -56,12 +56,15 @@ Make sure the merges data is available as one layer.
 
 # Smoothing + upscaling
 
-Both steps (smoothing and upscaling) are recommended, as the resolution is not so nice and the raw files are quite noisy (even though you don't see that now).
+The resolution of SRTM data is not so nice and the raw files might be quite noisy (even though you don't see that now).
+For SRTM at least upscaling by a factor of 2 works very well.
 
 1. Open a terminal and navigate to the folder where your clipped SRTM file is
-2. Use `gdal_translate -outsize 50% 50% -r bilinear clipped.tif downscaled.tif` to downscale the image
-3. Use `gdal_translate -outsize 200% 200% -r bilinear downscaled.tif normal-scaled.tif` to scale the image back to the original resolution
-3. Use `gdal_translate -outsize 200% 200% -r bilinear normal-scaled.tif upscaled.tif` to upscale the image
+2. Smoothing:
+  1. Use `gdal_translate -outsize 50% 50% -r bilinear clipped.tif downscaled.tif` to downscale the image
+  2. Use `gdal_translate -outsize 200% 200% -r bilinear downscaled.tif normal-scaled.tif` to scale the image back to the original resolution
+3. Upscaling:
+  1. Use `gdal_translate -outsize 200% 200% -r bilinear normal-scaled.tif upscaled.tif` to upscale the image
 
 This down- and double upscaling automatically smoothes the image. Use other values than 50% and 200% for more/less smoothing and upscaling.
 One single large upscaling step from 50% to 200% resolution would create ugly blocks because the interpolation doesn't work nice then.
@@ -129,3 +132,16 @@ Good format here are either raster tiles like XYZ-tiles (using GDAL from the too
 ## Contour lines
 
 Good format here is any vector format (GeoJSON, ShapeFile, GeoPackage, PBF, ...) or vector tiles like XYZ-tiles (using GDAL from the toolbox).
+
+**Important:** If you want to use the contour lines in this QGIS map projekt, make sure it's a **GeoPackage** with the layer name **contour**.
+
+# Import in this QGIS outdoor map
+
+1. Hillshading
+  1. Export your hillshading into a `.tif` file.
+  2. Copy the hillshading file next to the QGIS project file and name it `hillshade.tif`.
+2. Contours
+  1. Export the contours as `.gpkg` and name the contour layer `contour`.
+  2. Copy the file next to the QGIS project file and name it `contours.gpkg`.
+
+Now you can open the QGIS project and you'll have your contours and hillshading.
