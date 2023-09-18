@@ -22,7 +22,7 @@
       "source-layer": "landuse",
       "filter": ["all", ["in", "landuse", "residential", "education"]],
       "layout": {"visibility": "visible"},
-      "paint": {"fill-color": "rgba(238, 238, 238, 1)"}
+      "paint": {"fill-color": "rgba(230, 230, 230, 1)"}
     },
     {
       "id": "landuse_commercial",
@@ -44,7 +44,7 @@
         ]
       ],
       "layout": {"visibility": "visible"},
-      "paint": {"fill-color": "rgba(252, 228, 236, 1)"}
+      "paint": {"fill-color": "rgba(245, 220, 235, 1)"}
     },
     {
       "id": "natural_water",
@@ -80,6 +80,17 @@
       "paint": {"fill-color": "rgba(200, 230, 201, 1)"}
     },
     {
+      "id": "buildings_background",
+      "type": "fill",
+      "source": "localhost",
+      "source-layer": "building",
+      "minzoom": 14,
+      "paint": {
+        "fill-color": "rgba(210, 210, 210, 1)",
+        "fill-outline-color": "rgba(180, 180, 180, 1)"
+      }
+    },
+    {
       "id": "natural_scrub",
       "type": "fill",
       "source": "localhost",
@@ -87,17 +98,6 @@
       "filter": ["all", ["==", "landuse", "scrub"]],
       "layout": {"visibility": "visible"},
       "paint": {"fill-color": "rgba(165, 214, 167, 1)"}
-    },
-    {
-      "id": "buildings_background",
-      "type": "fill",
-      "source": "localhost",
-      "source-layer": "building",
-      "minzoom": 14,
-      "paint": {
-        "fill-color": "#e0e0e0",
-        "fill-outline-color": "rgba(189, 189, 189, 1)"
-      }
     },
     {
       "id": "road_sml_back",
@@ -179,24 +179,24 @@
       "paint": {"line-width": 1.5, "line-color": "rgba(229, 57, 53, 1)"}
     },
     {
-      "id": "trail_track_good",
+      "id": "track_good",
       "type": "line",
       "source": "localhost",
       "source-layer": "highway",
       "filter": [
         "all",
         ["==", "highway", "track"],
-        ["in", "tracktype", "grade1", "grade2", "grade3"]
+        ["!in", "tracktype", "grade4", "grade5"]
       ],
       "layout": {"line-join": "round", "line-cap": "butt"},
       "paint": {
-        "line-color": "rgba(93, 64, 55, 1)",
+        "line-color": "rgba(191, 54, 12, 1)",
         "line-width": 2,
         "line-dasharray": [5, 2]
       }
     },
     {
-      "id": "trail_track_bad",
+      "id": "track_bad",
       "type": "line",
       "source": "localhost",
       "source-layer": "highway",
@@ -207,7 +207,7 @@
       ],
       "layout": {"line-join": "round", "line-cap": "butt"},
       "paint": {
-        "line-color": "rgba(121, 85, 72, 1)",
+        "line-color": "rgba(191, 54, 12, 1)",
         "line-width": 2,
         "line-dasharray": [2, 2]
       }
