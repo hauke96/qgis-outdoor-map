@@ -1,4 +1,34 @@
-# QGIS outdoor map
+# Outdoor map style
+
+This repo contains a Mapbox style file for an OSM-based outdoor map focussed on hiking and trekking.
+PBF vector tiles are used (generated with Tilemaker) and styled via Maputnik.
+
+## Download data
+
+> TODO
+
+## Create vector tiles from PBF file
+
+Call the `make-tiles.sh data.osm.pbf` script.
+It removes the `./tiles` folder, recreates it and fills it with XYZ vector tiles in PBF format.
+
+## Edit style with Maputnik
+
+> TODO
+
+## Style usage in QGIS
+
+### Load style
+
+> TODO
+
+### Render layout
+
+> TODO
+
+---
+
+# DEPRECATED DOCUMENTATION
 
 A simple map for outdoor activities as [QGIS](https://www.qgis.org/) project for manual editing, printing, layouting, etc.
 

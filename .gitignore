@@ -3,6 +3,7 @@
 *.poly
 *.tif
 *.gpkg
+tiles
 
 # Project files
 *.qgs~

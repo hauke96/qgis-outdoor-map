@@ -1,0 +1,248 @@
+{
+  "version": 8,
+  "name": "outdoor-map-style",
+  "metadata": {"maputnik:renderer": "mbgljs"},
+  "sources": {
+    "localhost": {
+      "type": "vector",
+      "tiles": ["http://localhost:8000/{z}/{x}/{y}.pbf"],
+      "minZoom": 0,
+      "maxZoom": 14,
+      "minzoom": 10,
+      "maxzoom": 16
+    }
+  },
+  "sprite": "",
+  "glyphs": "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
+  "layers": [
+    {
+      "id": "landuse_residential",
+      "type": "fill",
+      "source": "localhost",
+      "source-layer": "landuse",
+      "filter": ["all", ["in", "landuse", "residential", "education"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(238, 238, 238, 1)"}
+    },
+    {
+      "id": "landuse_commercial",
+      "type": "fill",
+      "source": "localhost",
+      "source-layer": "landuse",
+      "filter": [
+        "all",
+        [
+          "in",
+          "landuse",
+          "commercial",
+          "industrial",
+          "retail",
+          "institutional",
+          "garagesport ",
+          "railway ",
+          "religious "
+        ]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(252, 228, 236, 1)"}
+    },
+    {
+      "id": "natural_water",
+      "type": "fill",
+      "source": "localhost",
+      "source-layer": "landuse",
+      "filter": ["all", ["==", "landuse", "water"]],
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": "rgba(179, 229, 252, 1)",
+        "fill-outline-color": "rgba(79, 195, 247, 1)"
+      }
+    },
+    {
+      "id": "natural_forest",
+      "type": "fill",
+      "source": "localhost",
+      "source-layer": "landuse",
+      "filter": ["all", ["in", "landuse", "forest", "wood"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(129, 199, 132, 1)"}
+    },
+    {
+      "id": "natural_grass",
+      "type": "fill",
+      "source": "localhost",
+      "source-layer": "landuse",
+      "filter": [
+        "all",
+        ["in", "landuse", "grass", "meadow", "grassland", "village_green"]
+      ],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(200, 230, 201, 1)"}
+    },
+    {
+      "id": "natural_scrub",
+      "type": "fill",
+      "source": "localhost",
+      "source-layer": "landuse",
+      "filter": ["all", ["==", "landuse", "scrub"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(165, 214, 167, 1)"}
+    },
+    {
+      "id": "buildings_background",
+      "type": "fill",
+      "source": "localhost",
+      "source-layer": "building",
+      "minzoom": 14,
+      "paint": {
+        "fill-color": "#e0e0e0",
+        "fill-outline-color": "rgba(189, 189, 189, 1)"
+      }
+    },
+    {
+      "id": "road_sml_back",
+      "type": "line",
+      "source": "localhost",
+      "source-layer": "highway",
+      "minzoom": 0,
+      "filter": [
+        "all",
+        ["in", "highway", "unclassified", "tertiary", "secondary", "primary"]
+      ],
+      "layout": {"line-join": "round", "line-cap": "butt"},
+      "paint": {
+        "line-width": ["interpolate", ["linear"], ["zoom"], 10, 4, 16, 12],
+        "line-color": "rgba(158, 158, 158, 1)"
+      }
+    },
+    {
+      "id": "road_s_front",
+      "type": "line",
+      "source": "localhost",
+      "source-layer": "highway",
+      "minzoom": 0,
+      "filter": ["all", ["in", "highway", "unclassified", "tertiary"]],
+      "layout": {"line-join": "round", "line-cap": "butt"},
+      "paint": {
+        "line-width": ["interpolate", ["linear"], ["zoom"], 10, 1, 16, 10],
+        "line-color": "rgba(255, 255, 255, 1)"
+      }
+    },
+    {
+      "id": "road_m_front",
+      "type": "line",
+      "source": "localhost",
+      "source-layer": "highway",
+      "minzoom": 0,
+      "filter": ["all", ["in", "highway", "secondary"]],
+      "layout": {"line-join": "round", "line-cap": "butt"},
+      "paint": {
+        "line-width": ["interpolate", ["linear"], ["zoom"], 10, 1, 16, 10],
+        "line-color": "rgba(255, 245, 157, 1)"
+      }
+    },
+    {
+      "id": "road_l_front",
+      "type": "line",
+      "source": "localhost",
+      "source-layer": "highway",
+      "minzoom": 0,
+      "filter": ["all", ["in", "highway", "primary"]],
+      "layout": {"line-join": "round", "line-cap": "butt"},
+      "paint": {
+        "line-width": ["interpolate", ["linear"], ["zoom"], 10, 1, 16, 10],
+        "line-color": "rgba(255, 204, 128, 1)"
+      }
+    },
+    {
+      "id": "trail_back",
+      "type": "line",
+      "source": "localhost",
+      "source-layer": "highway",
+      "minzoom": 0,
+      "filter": ["all", ["in", "highway", "path", "footway", "track"]],
+      "layout": {
+        "line-join": "round",
+        "line-cap": "butt",
+        "visibility": "visible"
+      },
+      "paint": {"line-width": 3, "line-color": "rgba(255, 255, 255, 0.5)"}
+    },
+    {
+      "id": "trail_paths",
+      "type": "line",
+      "source": "localhost",
+      "source-layer": "highway",
+      "minzoom": 0,
+      "filter": ["all", ["in", "highway", "path", "footway"]],
+      "layout": {"line-join": "round", "line-cap": "butt"},
+      "paint": {"line-width": 1.5, "line-color": "rgba(229, 57, 53, 1)"}
+    },
+    {
+      "id": "trail_track_good",
+      "type": "line",
+      "source": "localhost",
+      "source-layer": "highway",
+      "filter": [
+        "all",
+        ["==", "highway", "track"],
+        ["in", "tracktype", "grade1", "grade2", "grade3"]
+      ],
+      "layout": {"line-join": "round", "line-cap": "butt"},
+      "paint": {
+        "line-color": "rgba(93, 64, 55, 1)",
+        "line-width": 2,
+        "line-dasharray": [5, 2]
+      }
+    },
+    {
+      "id": "trail_track_bad",
+      "type": "line",
+      "source": "localhost",
+      "source-layer": "highway",
+      "filter": [
+        "all",
+        ["==", "highway", "track"],
+        ["in", "tracktype", "grade4", "grade5"]
+      ],
+      "layout": {"line-join": "round", "line-cap": "butt"},
+      "paint": {
+        "line-color": "rgba(121, 85, 72, 1)",
+        "line-width": 2,
+        "line-dasharray": [2, 2]
+      }
+    },
+    {
+      "id": "highway_label",
+      "type": "symbol",
+      "source": "localhost",
+      "source-layer": "highway",
+      "layout": {
+        "symbol-placement": "line",
+        "text-field": "{name}",
+        "text-font": ["OpenSans Regular"],
+        "text-size": 12
+      },
+      "paint": {
+        "text-color": "rgba(109, 76, 65, 1)",
+        "text-halo-color": "rgba(255, 255, 255, 0.75)",
+        "text-halo-blur": 0,
+        "text-halo-width": 2
+      }
+    },
+    {
+      "id": "buildings_foreground",
+      "type": "fill",
+      "source": "localhost",
+      "source-layer": "building",
+      "minzoom": 14,
+      "layout": {"visibility": "none"},
+      "paint": {
+        "fill-color": "#e0e0e0",
+        "fill-opacity": 0.75,
+        "fill-outline-color": "rgba(189, 189, 189, 1)"
+      }
+    }
+  ],
+  "id": "5vwt2vaok"
+}
