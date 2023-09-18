@@ -12,6 +12,11 @@ PBF vector tiles are used (generated with Tilemaker) and styled via Maputnik.
 Call the `make-tiles.sh data.osm.pbf` script.
 It removes the `./tiles` folder, recreates it and fills it with XYZ vector tiles in PBF format.
 
+## Serve tiles locally
+
+1. Install http server: `sudo npm i -g http-server`
+2. Start http server from this directory: `http-server --cors -p 8000 tiles`
+
 ## Edit style with Maputnik
 
 > TODO
