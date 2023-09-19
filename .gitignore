@@ -4,13 +4,7 @@
 *.tif
 *.gpkg
 tiles
-
-# Project files
-*.qgs~
-*.db
-
-# Database
-postgres-data
+demo-website/dist
 
 # Rendered maps
 *.pdf

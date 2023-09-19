@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Demo - OSM-based outdoor map</title>
+		<meta charset='utf-8'>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel='stylesheet' href='https://unpkg.com/maplibre-gl@3.3.1/dist/maplibre-gl.css' />
+		<script src='https://unpkg.com/maplibre-gl@3.3.1/dist/maplibre-gl.js'></script>
+		<style>
+			body { margin: 0; padding: 0; }
+			html, body, #map { height: 100%; }
+		</style>
+	</head>
+	<body>
+		<div id="map"></div>
+
+		<script>
+			const baseUrl = 'https://hauke-stieler.de/public/maps/osm-outdoor-map-demo/';
+
+			const map = new maplibregl.Map({
+				container: 'map',
+				style: baseUrl + 'style.json',
+				center: [11.0268, 47.4573],
+				zoom: 14
+			});
+		</script>
+	</body>
+</html>
+
