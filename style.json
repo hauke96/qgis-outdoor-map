@@ -5,16 +5,22 @@
   "sources": {
     "localhost": {
       "type": "vector",
-      "tiles": ["http://localhost:8000/{z}/{x}/{y}.pbf"],
+      "tiles": ["http://localhost:8000/tiles/{z}/{x}/{y}.pbf"],
       "minZoom": 0,
       "maxZoom": 14,
       "minzoom": 10,
       "maxzoom": 16
     }
   },
-  "sprite": "",
+  "sprite": "http://localhost:8000/sprites/sprite",
   "glyphs": "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
   "layers": [
+    {
+      "id": "background",
+      "type": "background",
+      "layout": {"visibility": "visible"},
+      "paint": {"background-color": "rgba(255, 255, 255, 1)"}
+    },
     {
       "id": "landuse_residential",
       "type": "fill",
@@ -44,7 +50,16 @@
         ]
       ],
       "layout": {"visibility": "visible"},
-      "paint": {"fill-color": "rgba(245, 220, 235, 1)"}
+      "paint": {"fill-color": "rgba(242, 224, 245, 1)"}
+    },
+    {
+      "id": "landuse_farmland",
+      "type": "fill",
+      "source": "localhost",
+      "source-layer": "landuse",
+      "filter": ["all", ["in", "landuse", "farmland"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(255, 243, 205, 1)"}
     },
     {
       "id": "natural_water",
@@ -80,6 +95,15 @@
       "paint": {"fill-color": "rgba(200, 230, 201, 1)"}
     },
     {
+      "id": "natural_rock",
+      "type": "fill",
+      "source": "localhost",
+      "source-layer": "landuse",
+      "filter": ["all", ["in", "landuse", "bare_rock"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-pattern": "rock_pattern"}
+    },
+    {
       "id": "buildings_background",
       "type": "fill",
       "source": "localhost",
@@ -100,6 +124,22 @@
       "paint": {"fill-color": "rgba(165, 214, 167, 1)"}
     },
     {
+      "id": "road_tiny_back",
+      "type": "line",
+      "source": "localhost",
+      "source-layer": "highway",
+      "minzoom": 12,
+      "filter": [
+        "all",
+        ["in", "highway", "residential", "living_street", "pedestrian", "road"]
+      ],
+      "layout": {"line-join": "round", "line-cap": "butt"},
+      "paint": {
+        "line-width": ["interpolate", ["linear"], ["zoom"], 10, 2, 16, 8],
+        "line-color": "rgba(158, 158, 158, 1)"
+      }
+    },
+    {
       "id": "road_sml_back",
       "type": "line",
       "source": "localhost",
@@ -113,6 +153,22 @@
       "paint": {
         "line-width": ["interpolate", ["linear"], ["zoom"], 10, 4, 16, 12],
         "line-color": "rgba(158, 158, 158, 1)"
+      }
+    },
+    {
+      "id": "road_tiny_front",
+      "type": "line",
+      "source": "localhost",
+      "source-layer": "highway",
+      "minzoom": 12,
+      "filter": [
+        "all",
+        ["in", "highway", "residential", "living_street", "pedestrian", "road"]
+      ],
+      "layout": {"line-join": "round", "line-cap": "butt"},
+      "paint": {
+        "line-width": ["interpolate", ["linear"], ["zoom"], 10, 0.5, 16, 7],
+        "line-color": "rgba(255, 255, 255, 1)"
       }
     },
     {
@@ -177,6 +233,24 @@
       "filter": ["all", ["in", "highway", "path", "footway"]],
       "layout": {"line-join": "round", "line-cap": "butt"},
       "paint": {"line-width": 1.5, "line-color": "rgba(229, 57, 53, 1)"}
+    },
+    {
+      "id": "landuse_military",
+      "type": "fill",
+      "source": "localhost",
+      "source-layer": "landuse",
+      "filter": ["all", ["==", "landuse", "military"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-color": "rgba(239, 154, 154, 0.25)"}
+    },
+    {
+      "id": "landuse_military-pattern",
+      "type": "fill",
+      "source": "localhost",
+      "source-layer": "landuse",
+      "filter": ["all", ["==", "landuse", "military"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-pattern": "dash_pattern"}
     },
     {
       "id": "track_good",
