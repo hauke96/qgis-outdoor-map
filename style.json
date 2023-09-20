@@ -10,6 +10,14 @@
       "maxZoom": 14,
       "minzoom": 10,
       "maxzoom": 16
+    },
+    "elevation": {
+      "type": "raster-dem",
+      "url": "https://api.maptiler.com/tiles/terrain-rgb-v2/tiles.json?key=4nptrw7BQF2XDy7sNXL5"
+    },
+    "contours": {
+      "type": "vector",
+      "url": "https://api.maptiler.com/tiles/contours/tiles.json?key=4nptrw7BQF2XDy7sNXL5"
     }
   },
   "sprite": "http://localhost:8000/sprites/sprite",
@@ -18,6 +26,7 @@
     {
       "id": "background",
       "type": "background",
+      "maxzoom": 12,
       "layout": {"visibility": "visible"},
       "paint": {"background-color": "rgba(255, 255, 255, 1)"}
     },
@@ -129,6 +138,58 @@
       "filter": ["all", ["==", "landuse", "scrub"]],
       "layout": {"visibility": "visible"},
       "paint": {"fill-color": "rgba(191, 220, 170, 1)"}
+    },
+    {
+      "id": "hillshade",
+      "type": "hillshade",
+      "source": "elevation",
+      "maxzoom": 16,
+      "paint": {"hillshade-exaggeration": 0.5}
+    },
+    {
+      "id": "contours",
+      "type": "line",
+      "source": "contours",
+      "source-layer": "contour",
+      "filter": ["all", ["!=", "nth_line", 10]],
+      "paint": {
+        "line-color": "rgba(93, 64, 55, 1)",
+        "line-width": 0.5,
+        "line-opacity": 0.5
+      }
+    },
+    {
+      "id": "contours_100m",
+      "type": "line",
+      "source": "contours",
+      "source-layer": "contour",
+      "filter": ["all", ["==", "nth_line", 10]],
+      "paint": {
+        "line-color": "rgba(62, 39, 35, 1)",
+        "line-width": 1,
+        "line-opacity": 0.5
+      }
+    },
+    {
+      "id": "contours_100m-labels",
+      "type": "symbol",
+      "source": "contours",
+      "source-layer": "contour",
+      "filter": ["all", ["==", "nth_line", 10]],
+      "layout": {
+        "symbol-placement": "line",
+        "text-field": "{height}",
+        "text-font": ["OpenSans Regular"],
+        "text-size": 10,
+        "visibility": "visible",
+        "symbol-spacing": 200
+      },
+      "paint": {
+        "text-color": "rgba(93, 64, 55, 1)",
+        "text-halo-color": "rgba(255, 255, 255, 0.75)",
+        "text-halo-blur": 0,
+        "text-halo-width": 1
+      }
     },
     {
       "id": "buildings_background",
