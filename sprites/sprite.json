@@ -11,13 +11,20 @@
     "y": 0,
     "height": 128,
     "width": 128,
-    "pixelRatio": 1
+    "pixelRatio": 1.5
+  },
+  "forest_pattern": {
+    "x": 10,
+    "y": 128,
+    "height": 128,
+    "width": 128,
+    "pixelRatio": 3
   },
   "rock_pattern": {
     "x": 138,
     "y": 0,
     "height": 256,
     "width": 256,
-    "pixelRatio": 1
+    "pixelRatio": 1.5
   }
 }
