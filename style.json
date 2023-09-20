@@ -59,7 +59,7 @@
       "source-layer": "landuse",
       "filter": ["all", ["in", "landuse", "farmland"]],
       "layout": {"visibility": "visible"},
-      "paint": {"fill-color": "rgba(255, 243, 205, 1)"}
+      "paint": {"fill-color": "rgba(255, 245, 215, 1)"}
     },
     {
       "id": "natural_water",
@@ -80,7 +80,16 @@
       "source-layer": "landuse",
       "filter": ["all", ["in", "landuse", "forest", "wood"]],
       "layout": {"visibility": "visible"},
-      "paint": {"fill-color": "rgba(129, 199, 132, 1)"}
+      "paint": {"fill-color": "rgba(153, 205, 149, 1)"}
+    },
+    {
+      "id": "natural_forest-pattern",
+      "type": "fill",
+      "source": "localhost",
+      "source-layer": "landuse",
+      "filter": ["all", ["in", "landuse", "forest", "wood"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-pattern": "forest_pattern"}
     },
     {
       "id": "natural_grass",
@@ -92,7 +101,7 @@
         ["in", "landuse", "grass", "meadow", "grassland", "village_green"]
       ],
       "layout": {"visibility": "visible"},
-      "paint": {"fill-color": "rgba(200, 230, 201, 1)"}
+      "paint": {"fill-color": "rgba(204, 235, 194, 1)"}
     },
     {
       "id": "natural_rock",
@@ -113,24 +122,24 @@
       "paint": {"fill-pattern": "shingle_pattern"}
     },
     {
-      "id": "buildings_background",
-      "type": "fill",
-      "source": "localhost",
-      "source-layer": "building",
-      "minzoom": 14,
-      "paint": {
-        "fill-color": "rgba(210, 210, 210, 1)",
-        "fill-outline-color": "rgba(180, 180, 180, 1)"
-      }
-    },
-    {
       "id": "natural_scrub",
       "type": "fill",
       "source": "localhost",
       "source-layer": "landuse",
       "filter": ["all", ["==", "landuse", "scrub"]],
       "layout": {"visibility": "visible"},
-      "paint": {"fill-color": "rgba(165, 214, 167, 1)"}
+      "paint": {"fill-color": "rgba(191, 220, 170, 1)"}
+    },
+    {
+      "id": "buildings_background",
+      "type": "fill",
+      "source": "localhost",
+      "source-layer": "building",
+      "minzoom": 14,
+      "paint": {
+        "fill-color": "rgba(220, 214, 211, 1)",
+        "fill-outline-color": "rgba(180, 180, 180, 1)"
+      }
     },
     {
       "id": "road_tiny_back",
