@@ -104,6 +104,15 @@
       "paint": {"fill-pattern": "rock_pattern"}
     },
     {
+      "id": "natural_shingle",
+      "type": "fill",
+      "source": "localhost",
+      "source-layer": "landuse",
+      "filter": ["all", ["in", "landuse", "shingle", "scree"]],
+      "layout": {"visibility": "visible"},
+      "paint": {"fill-pattern": "shingle_pattern"}
+    },
+    {
       "id": "buildings_background",
       "type": "fill",
       "source": "localhost",
