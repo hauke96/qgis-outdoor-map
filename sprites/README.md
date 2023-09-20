@@ -1,6 +1,18 @@
-# Create sprites
+# Edit sprites
 
-1. Change the source file (e.g. the SVG file)
-2. Create a PNG file from the source file
-    * SVG to PNG: `inkscape --export-filename=dash-pattern.png dash-pattern.svg`
-3. Merge the new PNG into the `sprite.png` via the GIMP file `sprite.xcf` and adjust `sprite.json` accordingly (only for new sprites or changes sizes/locations)
+This also works for adding new files.
+The `sprite.json` then needs to be edited as mentioned below.
+
+## SVG-based sprites
+
+1. Edit the SVG file
+2. Export SVG as PNG
+3. Add rendered PNG to respective `sprite.xcf`
+2. Save the file as `sprite.png`
+3. Only needed when layout changed: Adjust `sprite.json` accordingly
+
+## Raster sprites
+
+1. Edit the layer in the `sprite.xcf` file
+2. Save the file as `sprite.png`
+3. Only needed when layout changed: Adjust `sprite.json` accordingly

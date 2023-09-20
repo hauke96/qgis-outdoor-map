@@ -6,8 +6,15 @@
     "width": 10,
     "pixelRatio": 1
   },
-  "rock_pattern": {
+  "shingle_pattern": {
     "x": 10,
+    "y": 0,
+    "height": 128,
+    "width": 128,
+    "pixelRatio": 1
+  },
+  "rock_pattern": {
+    "x": 138,
     "y": 0,
     "height": 256,
     "width": 256,
