@@ -1,15 +1,15 @@
 {
   "layers": {
-    "highway": { "minzoom": 10, "maxzoom": 16 },
-    "building": { "minzoom": 12, "maxzoom": 16 },
-    "poi": { "minzoom": 12, "maxzoom": 16 },
-    "landuse": { "minzoom": 0, "maxzoom": 16 },
-    "natural": { "minzoom": 0, "maxzoom": 16 }
+    "highway": { "minzoom": 10, "maxzoom": 14 },
+    "building": { "minzoom": 12, "maxzoom": 14 },
+    "poi": { "minzoom": 12, "maxzoom": 14 },
+    "landuse": { "minzoom": 0, "maxzoom": 14 },
+    "natural": { "minzoom": 0, "maxzoom": 14 }
   },
   "settings": {
     "minzoom": 10,
-    "maxzoom": 16,
-    "basezoom": 16,
+    "maxzoom": 14,
+    "basezoom": 14,
     "include_ids": false,
     "compress": "none",
     "name": "Outdoor activity map",
