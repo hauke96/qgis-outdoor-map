@@ -13,7 +13,7 @@
       "minZoom": 0,
       "maxZoom": 14,
       "minzoom": 10,
-      "maxzoom": 16
+      "maxzoom": 14
     },
     "elevation": {
       "type": "raster-dem",
@@ -257,6 +257,9 @@
       "type": "hillshade",
       "source": "elevation",
       "maxzoom": 16,
+      "layout": {
+        "visibility": "visible"
+      },
       "paint": {
         "hillshade-exaggeration": 0.5
       }
@@ -274,6 +277,9 @@
           10
         ]
       ],
+      "layout": {
+        "visibility": "visible"
+      },
       "paint": {
         "line-color": "rgba(93, 64, 55, 1)",
         "line-width": 0.5,
@@ -293,6 +299,9 @@
           10
         ]
       ],
+      "layout": {
+        "visibility": "visible"
+      },
       "paint": {
         "line-color": "rgba(62, 39, 35, 1)",
         "line-width": 1,
@@ -574,6 +583,10 @@
           "path",
           "footway",
           "track"
+        ],
+        [
+          "!has",
+          "via_ferrata_scale"
         ]
       ],
       "layout": {
@@ -599,6 +612,10 @@
           "highway",
           "path",
           "footway"
+        ],
+        [
+          "!has",
+          "via_ferrata_scale"
         ]
       ],
       "layout": {
@@ -608,6 +625,31 @@
       "paint": {
         "line-width": 1.5,
         "line-color": "rgba(229, 57, 53, 1)"
+      }
+    },
+    {
+      "id": "trail_via-ferrata",
+      "type": "symbol",
+      "source": "localhost",
+      "source-layer": "highway",
+      "filter": [
+        "any",
+        [
+          "==",
+          "highway",
+          "via_ferrata"
+        ],
+        [
+          "has",
+          "via_ferrata_scale"
+        ]
+      ],
+      "layout": {
+        "symbol-placement": "line",
+        "icon-image": "via_ferrata",
+        "icon-rotate": 90,
+        "symbol-spacing": 1,
+        "icon-ignore-placement": true
       }
     },
     {
