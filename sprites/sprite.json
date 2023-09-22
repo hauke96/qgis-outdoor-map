@@ -6,6 +6,13 @@
     "width": 10,
     "pixelRatio": 1
   },
+  "via_ferrata": {
+    "x": 0,
+    "y": 10,
+    "height": 3,
+    "width": 10,
+    "pixelRatio": 1
+  },
   "shingle_pattern": {
     "x": 10,
     "y": 0,
