@@ -255,7 +255,7 @@
       "id": "hillshade",
       "type": "hillshade",
       "source": "elevation",
-      "maxzoom": 16,
+      "maxzoom": 24,
       "layout": {
         "visibility": "visible"
       },
