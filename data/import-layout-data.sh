@@ -190,4 +190,5 @@ fi
 # These append data to $DATA file
 #a2_sachsenwald
 
-../init.sh $DATA
+cd ..
+./make-tiles.sh ./data/$DATA
