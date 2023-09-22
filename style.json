@@ -883,6 +883,111 @@
       }
     },
     {
+      "id": "railway_rails-back",
+      "type": "line",
+      "source": "localhost",
+      "source-layer": "railway",
+      "filter": [
+        "all",
+        [
+          "in",
+          "railway",
+          "rail"
+        ]
+      ],
+      "paint": {
+        "line-color": "rgba(117, 117, 117, 1)",
+        "line-width": 3
+      }
+    },
+    {
+      "id": "railway_rails-front",
+      "type": "line",
+      "source": "localhost",
+      "source-layer": "railway",
+      "filter": [
+        "all",
+        [
+          "in",
+          "railway",
+          "rail"
+        ]
+      ],
+      "paint": {
+        "line-color": "rgba(255, 255, 255, 1)",
+        "line-width": 1.5,
+        "line-dasharray": [
+          4,
+          4
+        ]
+      }
+    },
+    {
+      "id": "railway_tunnel",
+      "type": "line",
+      "source": "localhost",
+      "source-layer": "railway",
+      "filter": [
+        "all",
+        [
+          "in",
+          "railway",
+          "rail",
+          "narrow_gauge",
+          "funicular",
+          "light_rail",
+          "monorail",
+          "subway",
+          "tram",
+          "disused",
+          "abandoned"
+        ],
+        [
+          "==",
+          "tunnel",
+          "yes"
+        ]
+      ],
+      "paint": {
+        "line-color": "rgba(97, 97, 97, 1)",
+        "line-width": 2,
+        "line-dasharray": [
+          3,
+          1.5
+        ]
+      }
+    },
+    {
+      "id": "railway_other",
+      "type": "line",
+      "source": "localhost",
+      "source-layer": "railway",
+      "filter": [
+        "all",
+        [
+          "in",
+          "railway",
+          "narrow_gauge",
+          "funicular",
+          "light_rail",
+          "monorail",
+          "subway",
+          "tram",
+          "disused",
+          "abandoned"
+        ],
+        [
+          "!=",
+          "tunnel",
+          "yes"
+        ]
+      ],
+      "paint": {
+        "line-color": "rgba(97, 97, 97, 1)",
+        "line-width": 2
+      }
+    },
+    {
       "id": "landuse_military",
       "type": "fill",
       "source": "localhost",
