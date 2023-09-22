@@ -30,7 +30,7 @@
     {
       "id": "background",
       "type": "background",
-      "maxzoom": 12,
+      "maxzoom": 24,
       "layout": {
         "visibility": "visible"
       },
@@ -250,6 +250,26 @@
       },
       "paint": {
         "fill-color": "rgba(191, 220, 170, 1)"
+      }
+    },
+    {
+      "id": "natural_glacier",
+      "type": "fill",
+      "source": "localhost",
+      "source-layer": "landuse",
+      "filter": [
+        "all",
+        [
+          "==",
+          "landuse",
+          "glacier"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "rgba(190, 236, 255, 1)"
       }
     },
     {
@@ -690,6 +710,60 @@
       },
       "paint": {
         "fill-pattern": "dash_pattern"
+      }
+    },
+    {
+      "id": "protected_nature-reserve_line",
+      "type": "line",
+      "source": "localhost",
+      "source-layer": "boundary",
+      "filter": [
+        "all",
+        [
+          "==",
+          "boundary",
+          "protected_area"
+        ],
+        [
+          "==",
+          "protect_class",
+          "4"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(67, 160, 71, 1)",
+        "line-width": 2
+      }
+    },
+    {
+      "id": "protected_nature-reserve_shading",
+      "type": "line",
+      "source": "localhost",
+      "source-layer": "boundary",
+      "filter": [
+        "all",
+        [
+          "==",
+          "boundary",
+          "protected_area"
+        ],
+        [
+          "==",
+          "protect_class",
+          "4"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(67, 160, 71, 1)",
+        "line-offset": 5,
+        "line-width": 10,
+        "line-opacity": 0.25
       }
     },
     {
