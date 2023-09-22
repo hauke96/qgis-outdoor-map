@@ -106,27 +106,6 @@
       }
     },
     {
-      "id": "natural_water",
-      "type": "fill",
-      "source": "localhost",
-      "source-layer": "landuse",
-      "filter": [
-        "all",
-        [
-          "==",
-          "landuse",
-          "water"
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "fill-color": "rgba(179, 229, 252, 1)",
-        "fill-outline-color": "rgba(79, 195, 247, 1)"
-      }
-    },
-    {
       "id": "natural_forest",
       "type": "fill",
       "source": "localhost",
@@ -269,7 +248,7 @@
         "visibility": "visible"
       },
       "paint": {
-        "fill-color": "rgba(190, 236, 255, 1)"
+        "fill-color": "rgba(220, 243, 255, 1)"
       }
     },
     {
@@ -367,6 +346,171 @@
       "paint": {
         "fill-color": "rgba(220, 214, 211, 1)",
         "fill-outline-color": "rgba(180, 180, 180, 1)"
+      }
+    },
+    {
+      "id": "water_stream",
+      "type": "line",
+      "source": "localhost",
+      "source-layer": "waterway",
+      "filter": [
+        "all",
+        [
+          "!in",
+          "waterway",
+          "river",
+          "canal",
+          "tidal_channel "
+        ],
+        [
+          "!=",
+          "intermittent",
+          "yes"
+        ]
+      ],
+      "paint": {
+        "line-color": "rgba(150, 211, 255, 1)",
+        "line-width": 2
+      }
+    },
+    {
+      "id": "water_stream-interm",
+      "type": "line",
+      "source": "localhost",
+      "source-layer": "waterway",
+      "filter": [
+        "all",
+        [
+          "!in",
+          "waterway",
+          "river",
+          "canal",
+          "tidal_channel "
+        ],
+        [
+          "==",
+          "intermittent",
+          "yes"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(150, 211, 255, 1)",
+        "line-width": 2,
+        "line-dasharray": [
+          2,
+          2
+        ]
+      }
+    },
+    {
+      "id": "water_river-interm-back",
+      "type": "line",
+      "source": "localhost",
+      "source-layer": "waterway",
+      "filter": [
+        "all",
+        [
+          "in",
+          "waterway",
+          "river",
+          "canal",
+          "tidal_channel"
+        ],
+        [
+          "==",
+          "intermittent",
+          "yes"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(255, 255, 255, 1)",
+        "line-width": 5
+      }
+    },
+    {
+      "id": "water_river-interm",
+      "type": "line",
+      "source": "localhost",
+      "source-layer": "waterway",
+      "filter": [
+        "all",
+        [
+          "in",
+          "waterway",
+          "river",
+          "canal",
+          "tidal_channel"
+        ],
+        [
+          "==",
+          "intermittent",
+          "yes"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(150, 211, 255, 1)",
+        "line-width": 5,
+        "line-dasharray": [
+          0.75,
+          0.5
+        ]
+      }
+    },
+    {
+      "id": "water_river",
+      "type": "line",
+      "source": "localhost",
+      "source-layer": "waterway",
+      "filter": [
+        "all",
+        [
+          "in",
+          "waterway",
+          "river",
+          "canal",
+          "tidal_channel "
+        ],
+        [
+          "!=",
+          "intermittent",
+          "yes"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(150, 211, 255, 1)",
+        "line-width": 5
+      }
+    },
+    {
+      "id": "water",
+      "type": "fill",
+      "source": "localhost",
+      "source-layer": "landuse",
+      "filter": [
+        "all",
+        [
+          "==",
+          "landuse",
+          "water"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "fill-color": "rgba(150, 211, 255, 1)"
       }
     },
     {
@@ -673,6 +817,72 @@
       }
     },
     {
+      "id": "track_good",
+      "type": "line",
+      "source": "localhost",
+      "source-layer": "highway",
+      "filter": [
+        "all",
+        [
+          "==",
+          "highway",
+          "track"
+        ],
+        [
+          "!in",
+          "tracktype",
+          "grade4",
+          "grade5"
+        ]
+      ],
+      "layout": {
+        "line-join": "round",
+        "line-cap": "butt",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(191, 54, 12, 1)",
+        "line-width": 2,
+        "line-dasharray": [
+          5,
+          2
+        ]
+      }
+    },
+    {
+      "id": "track_bad",
+      "type": "line",
+      "source": "localhost",
+      "source-layer": "highway",
+      "filter": [
+        "all",
+        [
+          "==",
+          "highway",
+          "track"
+        ],
+        [
+          "in",
+          "tracktype",
+          "grade4",
+          "grade5"
+        ]
+      ],
+      "layout": {
+        "line-join": "round",
+        "line-cap": "butt",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(191, 54, 12, 1)",
+        "line-width": 2,
+        "line-dasharray": [
+          2,
+          2
+        ]
+      }
+    },
+    {
       "id": "landuse_military",
       "type": "fill",
       "source": "localhost",
@@ -764,70 +974,6 @@
         "line-offset": 5,
         "line-width": 10,
         "line-opacity": 0.25
-      }
-    },
-    {
-      "id": "track_good",
-      "type": "line",
-      "source": "localhost",
-      "source-layer": "highway",
-      "filter": [
-        "all",
-        [
-          "==",
-          "highway",
-          "track"
-        ],
-        [
-          "!in",
-          "tracktype",
-          "grade4",
-          "grade5"
-        ]
-      ],
-      "layout": {
-        "line-join": "round",
-        "line-cap": "butt"
-      },
-      "paint": {
-        "line-color": "rgba(191, 54, 12, 1)",
-        "line-width": 2,
-        "line-dasharray": [
-          5,
-          2
-        ]
-      }
-    },
-    {
-      "id": "track_bad",
-      "type": "line",
-      "source": "localhost",
-      "source-layer": "highway",
-      "filter": [
-        "all",
-        [
-          "==",
-          "highway",
-          "track"
-        ],
-        [
-          "in",
-          "tracktype",
-          "grade4",
-          "grade5"
-        ]
-      ],
-      "layout": {
-        "line-join": "round",
-        "line-cap": "butt"
-      },
-      "paint": {
-        "line-color": "rgba(191, 54, 12, 1)",
-        "line-width": 2,
-        "line-dasharray": [
-          2,
-          2
-        ]
       }
     },
     {
