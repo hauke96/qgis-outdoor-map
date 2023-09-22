@@ -58,6 +58,13 @@ function way_function(way)
 		add_tag(way, "boundary", "name", "protect_class", "border_type", "admin_level")
 		return
 	end
+
+	local waterway = way:Find("waterway")
+	if waterway ~= "" then
+		way:Layer("waterway", false)
+		add_tag(way, "waterway", "name", "intermittent", "tunnel")
+		return
+	end
 end
 
 function relation_function(relation)
