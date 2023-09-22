@@ -5,7 +5,8 @@
     "poi": { "minzoom": 12, "maxzoom": 14 },
     "landuse": { "minzoom": 0, "maxzoom": 14 },
     "boundary": { "minzoom": 0, "maxzoom": 14 },
-    "waterway": { "minzoom": 0, "maxzoom": 14 }
+    "waterway": { "minzoom": 0, "maxzoom": 14 },
+    "railway": { "minzoom": 0, "maxzoom": 14 }
   },
   "settings": {
     "minzoom": 10,

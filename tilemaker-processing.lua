@@ -65,6 +65,22 @@ function way_function(way)
 		add_tag(way, "waterway", "name", "intermittent", "tunnel")
 		return
 	end
+
+	local railway = way:Find("railway")
+	--if railway == "rail" or railway == "narrow_gauge" or railway == "funicular" or railway == "light_rail" or railway == "monorail" or railway == "subway" or railway == "tram" or railway == "disused" or railway == "abandoned" then
+	if railway ~= "" then
+		if any_of(railway, "rail", "narrow_gauge", "funicular", "light_rail", "monorail", "subway", "tram", "disused", "abandoned") then
+			-- Consider these tags as lines
+			way:Layer("railway", false)
+			add_tag(way, "railway", "name", "tunnel")
+			return
+		else
+			-- Everything else is considered to be a polygon, especially stations and platforms
+			way:Layer("railway", true)
+			add_tag(way, "railway", "name", "tunnel")
+			return
+		end
+	end
 end
 
 function relation_function(relation)
@@ -81,6 +97,16 @@ function add_tag(feature, ...)
 	for i = 1, #tags do
 		feature:Attribute(tags[i], feature:Find(tags[i]))
 	end
+end
+
+function any_of(value, ...)
+	local others = {...}
+	for i = 1, #others do
+		if value == others[i]then
+			return true
+		end
+	end
+	return false
 end
 
 function relation_scan_function(relation)
