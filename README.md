@@ -14,8 +14,9 @@ It removes the `./tiles` folder, recreates it and fills it with XYZ vector tiles
 
 ## Serve tiles locally
 
-1. Install http server: `sudo npm i -g http-server`
-2. Start http server from this directory: `http-server --cors -p 8000 tiles`
+Tiles need to be served from `http://localhost:8000/tiles` and sprites from `.../sprites`.
+Use the `serve.sh` script to start the tile server and Maputnik.
+The Maputnik desktop tool will automatically save everything to the JSON style file.
 
 ## Edit style with Maputnik
 
