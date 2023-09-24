@@ -764,6 +764,50 @@
       }
     },
     {
+      "id": "trail_back-advanced",
+      "type": "line",
+      "source": "localhost",
+      "source-layer": "highway",
+      "minzoom": 0,
+      "filter": [
+        "any",
+        [
+          "==",
+          "highway",
+          "via_ferrata"
+        ],
+        [
+          "has",
+          "via_ferrata_scale"
+        ],
+        [
+          "in",
+          "sac_scale",
+          "demanding_mountain_hiking",
+          "alpine_hiking",
+          "demanding_alpine_hiking",
+          "difficult_alpine_hiking"
+        ],
+        [
+          "in",
+          "trail_visibility",
+          "bad",
+          "horrible",
+          "no"
+        ]
+      ],
+      "layout": {
+        "line-join": "round",
+        "line-cap": "butt",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-width": 5,
+        "line-color": "#ffeb3b",
+        "line-opacity": 0.65
+      }
+    },
+    {
       "id": "trail_paths",
       "type": "line",
       "source": "localhost",
