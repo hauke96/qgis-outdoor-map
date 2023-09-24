@@ -13,22 +13,29 @@
     "width": 10,
     "pixelRatio": 1
   },
-  "shingle_pattern": {
+  "peak": {
     "x": 10,
+    "y": 0,
+    "height": 32,
+    "width": 32,
+    "pixelRatio": 3
+  },
+  "shingle_pattern": {
+    "x": 42,
     "y": 0,
     "height": 128,
     "width": 128,
     "pixelRatio": 1.5
   },
   "forest_pattern": {
-    "x": 10,
+    "x": 42,
     "y": 128,
     "height": 128,
     "width": 128,
     "pixelRatio": 3
   },
   "rock_pattern": {
-    "x": 138,
+    "x": 170,
     "y": 0,
     "height": 256,
     "width": 256,
