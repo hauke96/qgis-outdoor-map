@@ -1126,6 +1126,37 @@
       }
     },
     {
+      "id": "poi_peak",
+      "type": "symbol",
+      "source": "localhost",
+      "source-layer": "poi",
+      "filter": [
+        "all",
+        [
+          "==",
+          "natural",
+          "peak"
+        ]
+      ],
+      "layout": {
+        "icon-image": "peak",
+        "text-font": [
+          "Open Sans Regular"
+        ],
+        "text-field": "{name}",
+        "text-size": 11
+      },
+      "paint": {
+        "text-color": "rgba(80, 33, 17, 1)",
+        "text-halo-color": "rgba(255, 255, 255, 0.75)",
+        "text-halo-width": 1,
+        "text-translate": [
+          0,
+          12
+        ]
+      }
+    },
+    {
       "id": "highway_label",
       "type": "symbol",
       "source": "localhost",

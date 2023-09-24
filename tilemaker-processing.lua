@@ -1,5 +1,5 @@
 -- Nodes will only be processed if one of these keys is present
-node_keys = { "amenity", "shop" }
+node_keys = { "amenity", "shop", "natural" }
 
 -- Initialize Lua logic (optional)
 function init_function()
@@ -13,11 +13,10 @@ end
 function node_function(node)
 	local amenity = node:Find("amenity")
 	local shop = node:Find("shop")
-	if amenity ~= "" or shop ~= "" then
+	local natural = node:Find("natural")
+	if amenity ~= "" or shop ~= "" or natural ~= "" then
 		node:Layer("poi", false)
-		-- node:Attribute("name", node:Find("name"))
-		-- if amenity ~= "" then node:Attribute("class",amenity)
-		-- else node:Attribute("class",shop) end
+		add_tag(node, "name", "amenity", "shop", "natural")
 	end
 end
 
