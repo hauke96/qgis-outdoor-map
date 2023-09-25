@@ -68,17 +68,22 @@ function way_function(way)
 	local railway = way:Find("railway")
 	--if railway == "rail" or railway == "narrow_gauge" or railway == "funicular" or railway == "light_rail" or railway == "monorail" or railway == "subway" or railway == "tram" or railway == "disused" or railway == "abandoned" then
 	if railway ~= "" then
+		-- Only consider certain tags as lines. Everything else is considered to be a polygon, especially stations and platforms
 		if any_of(railway, "rail", "narrow_gauge", "funicular", "light_rail", "monorail", "subway", "tram", "disused", "abandoned") then
-			-- Consider these tags as lines
 			way:Layer("railway", false)
-			add_tag(way, "railway", "name", "tunnel")
-			return
 		else
-			-- Everything else is considered to be a polygon, especially stations and platforms
 			way:Layer("railway", true)
-			add_tag(way, "railway", "name", "tunnel")
-			return
 		end
+
+		add_tag(way, "railway", "name", "tunnel")
+		return
+	end
+
+	local aerialway = way:Find("aerialway")
+	if aerialway ~= "" then
+		way:Layer("aerialway", false)
+		add_tag(way, "aerialway", "name", "access")
+		return
 	end
 end
 

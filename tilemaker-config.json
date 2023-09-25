@@ -6,7 +6,8 @@
     "landuse": { "minzoom": 0, "maxzoom": 14 },
     "boundary": { "minzoom": 0, "maxzoom": 14 },
     "waterway": { "minzoom": 0, "maxzoom": 14 },
-    "railway": { "minzoom": 0, "maxzoom": 14 }
+    "railway": { "minzoom": 0, "maxzoom": 14 },
+    "aerialway": { "minzoom": 0, "maxzoom": 14 }
   },
   "settings": {
     "minzoom": 10,
