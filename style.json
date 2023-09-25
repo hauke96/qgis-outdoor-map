@@ -264,6 +264,33 @@
       }
     },
     {
+      "id": "border_country",
+      "type": "line",
+      "source": "localhost",
+      "source-layer": "boundary",
+      "filter": [
+        "all",
+        [
+          "==",
+          "boundary",
+          "administrative"
+        ],
+        [
+          "==",
+          "admin_level",
+          "2"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(202, 161, 210, 1)",
+        "line-width": 5,
+        "line-opacity": 1
+      }
+    },
+    {
       "id": "contours",
       "type": "line",
       "source": "contours",
@@ -940,7 +967,7 @@
         ]
       ],
       "paint": {
-        "line-color": "rgba(117, 117, 117, 1)",
+        "line-color": "rgba(97, 97, 97, 1)",
         "line-width": 3
       }
     },
@@ -993,8 +1020,8 @@
         ]
       ],
       "paint": {
-        "line-color": "rgba(97, 97, 97, 1)",
-        "line-width": 2,
+        "line-color": "rgba(53, 53, 53, 1)",
+        "line-width": 1.5,
         "line-dasharray": [
           3,
           1.5
@@ -1027,8 +1054,131 @@
         ]
       ],
       "paint": {
-        "line-color": "rgba(97, 97, 97, 1)",
-        "line-width": 2
+        "line-color": "rgba(53, 53, 53, 1)",
+        "line-width": 1.5
+      }
+    },
+    {
+      "id": "aerialway_public",
+      "type": "line",
+      "source": "localhost",
+      "source-layer": "aerialway",
+      "filter": [
+        "all",
+        [
+          "!=",
+          "aerialway",
+          "goods"
+        ],
+        [
+          "!in",
+          "access",
+          "private",
+          "forestry",
+          "agricultural"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(80, 80, 80, 1)",
+        "line-width": 1
+      }
+    },
+    {
+      "id": "aerialway_public-dashs",
+      "type": "line",
+      "source": "localhost",
+      "source-layer": "aerialway",
+      "filter": [
+        "all",
+        [
+          "!=",
+          "aerialway",
+          "goods"
+        ],
+        [
+          "!in",
+          "access",
+          "private",
+          "forestry",
+          "agricultural"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(80, 80, 80, 1)",
+        "line-dasharray": [
+          2,
+          4
+        ],
+        "line-width": 3
+      }
+    },
+    {
+      "id": "aerialway_private",
+      "type": "line",
+      "source": "localhost",
+      "source-layer": "aerialway",
+      "filter": [
+        "any",
+        [
+          "==",
+          "aerialway",
+          "goods"
+        ],
+        [
+          "in",
+          "access",
+          "private",
+          "forestry",
+          "agricultural"
+        ]
+      ],
+      "layout": {
+        "visibility": "none"
+      },
+      "paint": {
+        "line-color": "rgba(80, 80, 80, 1)",
+        "line-width": 1,
+        "line-opacity": 0.75
+      }
+    },
+    {
+      "id": "aerialway_private-dashs",
+      "type": "line",
+      "source": "localhost",
+      "source-layer": "aerialway",
+      "filter": [
+        "any",
+        [
+          "==",
+          "aerialway",
+          "goods"
+        ],
+        [
+          "in",
+          "access",
+          "private",
+          "forestry",
+          "agricultural"
+        ]
+      ],
+      "layout": {
+        "visibility": "none",
+        "line-cap": "square"
+      },
+      "paint": {
+        "line-color": "rgba(80, 80, 80, 1)",
+        "line-dasharray": [
+          0.125,
+          3
+        ],
+        "line-width": 6,
+        "line-opacity": 1
       }
     },
     {
