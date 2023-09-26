@@ -13,6 +13,7 @@ import (
 	"github.com/paulmach/osm/osmxml"
 	"os"
 	"strings"
+	"time"
 )
 
 var nodeIdCounter int64 = 1
@@ -132,12 +133,17 @@ func handleWay(nodes osm.WayNodes, originalTags osm.Tags) *osm.Node {
 		tags = append(tags, osm.Tag{Key: k, Value: v.(string)})
 	}
 
+	// Osmium only supports this format, so we basically make the time less accurate so that no millis are serialized
+	timestamp, err := time.Parse(time.RFC3339, time.Now().UTC().Format(time.RFC3339))
+	sigolo.FatalCheck(err)
+
 	node := &osm.Node{
-		Version: 1,
-		ID:      osm.NodeID(nodeIdCounter),
-		Tags:    tags,
-		Lon:     centroid.Geometry.(orb.Point).Lon(),
-		Lat:     centroid.Geometry.(orb.Point).Lat(),
+		Version:   1,
+		ID:        osm.NodeID(nodeIdCounter),
+		Timestamp: timestamp,
+		Tags:      tags,
+		Lon:       centroid.Geometry.(orb.Point).Lon(),
+		Lat:       centroid.Geometry.(orb.Point).Lat(),
 	}
 	nodeIdCounter++
 

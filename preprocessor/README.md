@@ -7,6 +7,12 @@ This includes:
 
 ## Usage
 
-1. Convert the OSM-PBF to GeoJSON, e.g. with `osmium export -o data.geojson data.osm.pbf --overwrite`
-2. Call this script `go run main.go data.geojson data-output.geojson`
+1. Call this script `go run main.go data.osm.pbf output.osm`
+    * Input can be `.osm` or `.pbf` but output is fixed `.osm` (meaning in OSM-XML format)
+2. Convert to PBF in order to use this with osmosis and tilemaker: `osmium cat output.osm -o output.osm.pbf --overwrite`
+3. Merge with existing PBF file (since the output of this tool only produces the additional data): `osmium merge data.osm.pbf output.osm.pbf -o merged.osm.pbf --overwrite`
 
+## TODOs
+
+* Correctly handle relations forming an area but consisting of a MultiLineString
+* Directly use Osmium (so that the above steps are not necessary anymore)
