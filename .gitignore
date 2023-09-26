@@ -12,3 +12,6 @@ demo-website/dist
 *.png
 *.jpg
 rendered-maps
+
+# Other things to ignore
+.idea
