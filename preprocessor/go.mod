@@ -9,6 +9,7 @@ require (
 )
 
 require (
+	github.com/alecthomas/kong v0.8.1 // indirect
 	github.com/datadog/czlib v0.0.0-20160811164712-4bc9a24e37f2 // indirect
 	github.com/paulmach/protoscan v0.2.1 // indirect
 	go.mongodb.org/mongo-driver v1.11.4 // indirect

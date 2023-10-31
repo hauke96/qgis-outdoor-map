@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/xml"
 	"fmt"
+	"github.com/alecthomas/kong"
 	"github.com/hauke96/sigolo"
 	"github.com/paulmach/orb"
 	"github.com/paulmach/orb/geojson"
@@ -20,32 +21,36 @@ var nodeIdCounter int64 = 1
 var inputNodes = map[osm.NodeID]*osm.Node{}
 var inputWays = map[osm.WayID]*osm.Way{}
 
+var cli struct {
+	Debug  bool   `help:"Enable debug mode." short:"d"`
+	Input  string `help:"The input file. Either .osm or .pbf (OSM-PBF format)." short:"i"`
+	Output string `help:"The output file, which must be a .osm file." short:"o"`
+}
+
 func main() {
-	if len(os.Args) != 3 {
-		sigolo.Error("Expect 2 args, found %d", len(os.Args))
-		os.Exit(1)
+	kong.Parse(&cli)
+
+	if cli.Debug {
+		sigolo.LogLevel = sigolo.LOG_DEBUG
 	}
 
-	inputFile := os.Args[1]
-	outputFile := os.Args[2]
-
-	if !strings.HasSuffix(inputFile, ".osm") && !strings.HasSuffix(inputFile, ".pbf") {
+	if !strings.HasSuffix(cli.Input, ".osm") && !strings.HasSuffix(cli.Input, ".pbf") {
 		sigolo.Error("Input file must be an .osm or .pbf file")
 		os.Exit(1)
 	}
-	if !strings.HasSuffix(outputFile, ".osm") {
+	if !strings.HasSuffix(cli.Output, ".osm") {
 		sigolo.Error("Output file must be an .osm file")
 		os.Exit(1)
 	}
 
-	f, err := os.Open(inputFile)
+	f, err := os.Open(cli.Input)
 	sigolo.FatalCheck(err)
 	defer f.Close()
 
 	var scanner osm.Scanner
-	if strings.HasSuffix(inputFile, ".osm") {
+	if strings.HasSuffix(cli.Input, ".osm") {
 		scanner = osmxml.New(context.Background(), f)
-	} else if strings.HasSuffix(inputFile, ".pbf") {
+	} else if strings.HasSuffix(cli.Input, ".pbf") {
 		scanner = osmpbf.New(context.Background(), f, 1)
 	}
 	defer scanner.Close()
@@ -74,8 +79,8 @@ func main() {
 	outputXml, err := xml.Marshal(outputOsm)
 	sigolo.FatalCheck(err)
 
-	sigolo.Info("Write result to %s", outputFile)
-	err = os.WriteFile(outputFile, outputXml, 0644)
+	sigolo.Info("Write result to %s", cli.Output)
+	err = os.WriteFile(cli.Output, outputXml, 0644)
 	sigolo.FatalCheck(err)
 
 	sigolo.Info("Done")
@@ -101,12 +106,6 @@ func handleRelation(relation *osm.Relation, outputOsm osm.OSM) {
 				tags = append(tags, memberWay.Tags...)
 				outerRingWays = append(outerRingWays, memberWay)
 			}
-
-			//centroidNode := handleWay(memberWay.Nodes, tags)
-			//if centroidNode == nil {
-			//	continue
-			//}
-			//outputOsm.Append(centroidNode)
 		}
 	}
 
