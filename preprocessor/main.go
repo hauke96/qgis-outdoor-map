@@ -226,11 +226,11 @@ func handleNodeCloud(nodes osm.WayNodes, originalTags osm.Tags, outputOsm *osm.O
 	nodeIdCounter++
 
 	if node.Tags.Find("text") != "" {
-		sigolo.Debug("Created centroid node with ID %s at lat=%d / lon=%d", nodeIdCounter, node.Lat, node.Lon)
+		sigolo.Debug("Created centroid node with ID %d at lat=%f / lon=%f", nodeIdCounter, node.Lat, node.Lon)
 		outputOsm.Append(node)
 	}
 
-	sigolo.Debug("Node not added. Centroid node with ID %s at lat=%d / lon=%d has no text", nodeIdCounter, node.Lat, node.Lon)
+	sigolo.Debug("Node not added. Centroid node with ID %d at lat=%f / lon=%f has no text", nodeIdCounter, node.Lat, node.Lon)
 }
 
 func determineCentroidFeatureFromOsmObject(geometry orb.Geometry, tags osm.Tags) *geojson.Feature {
@@ -259,21 +259,23 @@ func determineCentroidFeature(geometry orb.Geometry, originalTags map[string]int
 			labelType = fmt.Sprintf("protect_class_%s", protectClass)
 		}
 	}
+	if labelType == "" {
+		sigolo.Debug("No centroid point feature created since label-type could not be determined from the following tags: %#v", originalTags)
+		return nil
+	}
 
 	var centroid *geojson.Feature
 	// No supported label type -> ignore
-	if labelType != "" {
-		tags := map[string]interface{}{
-			"label": "yes",
-			"type":  labelType,
-			"text":  getValue(originalTags, "name"),
-		}
+	tags := map[string]interface{}{
+		"label": "yes",
+		"type":  labelType,
+		"text":  getValue(originalTags, "name"),
+	}
 
-		centroid = &geojson.Feature{
-			Type:       geojson.TypePoint,
-			Geometry:   centroidLocation,
-			Properties: tags,
-		}
+	centroid = &geojson.Feature{
+		Type:       geojson.TypePoint,
+		Geometry:   centroidLocation,
+		Properties: tags,
 	}
 	return centroid
 }
