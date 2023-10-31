@@ -14,5 +14,5 @@ This includes:
 
 ## TODOs
 
-* Correctly handle relations forming an area but consisting of a MultiLineString
 * Directly use Osmium (so that the above steps are not necessary anymore)
+* Adjust `make-tiles.sh` script to properly use this preprocessor
