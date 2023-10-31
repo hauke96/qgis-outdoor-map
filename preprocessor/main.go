@@ -87,6 +87,8 @@ func main() {
 }
 
 func handleRelation(relation *osm.Relation, outputOsm *osm.OSM) {
+	sigolo.Debug("Handle relation %d", relation.ID)
+
 	// Collection of all ways with role "outer". Connected rings are later used to determine one centroid.
 	var outerRingWays []*osm.Way
 
@@ -149,12 +151,14 @@ func handleRelation(relation *osm.Relation, outputOsm *osm.OSM) {
 
 				// Remove j-th way ("other way") and compensate the j++ of the loop due to the removed element
 				outerRingWays = append(outerRingWays[:j], outerRingWays[j+1:]...)
-				j--
+				j = -1
 			}
 		}
 
 		ringWays = append(ringWays, waysOfCurrentRing)
 	}
+
+	sigolo.Debug("Found %d rings for potential centroids", len(ringWays))
 
 	// 2.) Create a centroid for each ring
 	for _, ring := range ringWays {
@@ -165,16 +169,19 @@ func handleRelation(relation *osm.Relation, outputOsm *osm.OSM) {
 
 		// Do not use handleWays, since we have more like a point cloud here because we do not know (and care)
 		// about the order of the ways.
-		handleNodeCloud(allNodesOfRing, relation.Tags, &outputOsm)
+		handleNodeCloud(allNodesOfRing, relation.Tags, outputOsm)
 	}
 }
 
 // handleWay interprets the given nodes as one way. Its nodes are passed to handleNodeCloud and processed accordingly.
 func handleWay(way *osm.Way, outputOsm *osm.OSM) {
+	sigolo.Debug("Handle way %d", way.ID)
+
 	nodes := way.Nodes
 	// If way is not closed -> ignore, since it's not a polygon and not interesting for the current approach
 	if len(nodes) < 3 || nodes[0].ID != nodes[len(nodes)-1].ID {
 		// Given nodes do not form a polygon -> nothing to do here
+		sigolo.Debug("Way %d is not a polygon. No node will be created.", way.ID)
 		return
 	}
 
@@ -184,6 +191,8 @@ func handleWay(way *osm.Way, outputOsm *osm.OSM) {
 // handleNodeCloud processed the given nodes, determines a potential centroid and creates a new node if needed. This
 // node is added to the given OSM output.
 func handleNodeCloud(nodes osm.WayNodes, originalTags osm.Tags, outputOsm *osm.OSM) {
+	sigolo.Debug("Process node cloud with %d nodes", len(nodes))
+
 	// Convert the nodes of the ways (which have NO GEOMETRY!) to a polygon with geometry.
 	var points []orb.Point
 	for _, wayNode := range nodes {
@@ -193,6 +202,7 @@ func handleNodeCloud(nodes osm.WayNodes, originalTags osm.Tags, outputOsm *osm.O
 
 	centroid := determineCentroidFeatureFromOsmObject(polygon, originalTags)
 	if centroid == nil {
+		sigolo.Debug("Could not determine centroid geometry. No node will be created.")
 		return
 	}
 
@@ -215,9 +225,12 @@ func handleNodeCloud(nodes osm.WayNodes, originalTags osm.Tags, outputOsm *osm.O
 	}
 	nodeIdCounter++
 
-	if node != nil && node.Tags.Find("text") != "" {
+	if node.Tags.Find("text") != "" {
+		sigolo.Debug("Created centroid node with ID %s at lat=%d / lon=%d", nodeIdCounter, node.Lat, node.Lon)
 		outputOsm.Append(node)
 	}
+
+	sigolo.Debug("Node not added. Centroid node with ID %s at lat=%d / lon=%d has no text", nodeIdCounter, node.Lat, node.Lon)
 }
 
 func determineCentroidFeatureFromOsmObject(geometry orb.Geometry, tags osm.Tags) *geojson.Feature {
