@@ -68,7 +68,7 @@ func main() {
 			inputWays[obj.ID] = obj
 			handleWay(obj, &outputOsm)
 		case *osm.Relation:
-			handleRelation(obj, outputOsm)
+			handleRelation(obj, &outputOsm)
 		}
 	}
 
@@ -86,7 +86,7 @@ func main() {
 	sigolo.Info("Done")
 }
 
-func handleRelation(relation *osm.Relation, outputOsm osm.OSM) {
+func handleRelation(relation *osm.Relation, outputOsm *osm.OSM) {
 	// Collection of all ways with role "outer". Connected rings are later used to determine one centroid.
 	var outerRingWays []*osm.Way
 
