@@ -396,7 +396,7 @@
         ]
       ],
       "paint": {
-        "line-color": "rgba(150, 211, 255, 1)",
+        "line-color": "rgba(145, 209, 255, 1)",
         "line-width": 2
       }
     },
@@ -484,7 +484,7 @@
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "rgba(150, 211, 255, 1)",
+        "line-color": "rgba(160, 215, 255, 1)",
         "line-width": 5,
         "line-dasharray": [
           0.75,
@@ -516,7 +516,7 @@
         "visibility": "visible"
       },
       "paint": {
-        "line-color": "rgba(150, 211, 255, 1)",
+        "line-color": "rgba(160, 215, 255, 1)",
         "line-width": 5
       }
     },
@@ -537,7 +537,7 @@
         "visibility": "visible"
       },
       "paint": {
-        "fill-color": "rgba(150, 211, 255, 1)"
+        "fill-color": "rgba(160, 215, 255, 1)"
       }
     },
     {
@@ -1332,7 +1332,7 @@
       }
     },
     {
-      "id": "highway_route_label",
+      "id": "label_hiking_route",
       "type": "symbol",
       "source": "localhost",
       "source-layer": "highway",
@@ -1359,7 +1359,7 @@
       }
     },
     {
-      "id": "highway_label",
+      "id": "label_highway",
       "type": "symbol",
       "source": "localhost",
       "source-layer": "highway",
@@ -1379,35 +1379,6 @@
         "text-halo-color": "rgba(255, 255, 255, 0.75)",
         "text-halo-blur": 0,
         "text-halo-width": 2
-      }
-    },
-    {
-      "id": "label_forest",
-      "type": "symbol",
-      "source": "localhost",
-      "source-layer": "landuse",
-      "filter": [
-        "all",
-        [
-          "in",
-          "landuse",
-          "forest",
-          "wood"
-        ]
-      ],
-      "layout": {
-        "text-field": "{name}",
-        "text-font": [
-          "Open Sans Semi Bold"
-        ],
-        "text-size": 14,
-        "symbol-placement": "point",
-        "text-letter-spacing": 0.25
-      },
-      "paint": {
-        "text-color": "rgba(32, 100, 22, 1)",
-        "text-halo-color": "rgba(232, 245, 233, 1)",
-        "text-halo-width": 1.5
       }
     },
     {
@@ -1431,12 +1402,42 @@
         "text-font": [
           "Open Sans Semi Bold"
         ],
-        "text-size": 14,
+        "text-size": 12,
         "symbol-placement": "point",
-        "text-letter-spacing": 0.25
+        "text-letter-spacing": 0.15
       },
       "paint": {
-        "text-color": "rgba(80, 120, 49, 1)",
+        "text-color": "rgba(92, 140, 52, 1)",
+        "text-halo-color": "rgba(232, 245, 233, 1)",
+        "text-halo-width": 1.25
+      }
+    },
+    {
+      "id": "label_forest",
+      "type": "symbol",
+      "source": "localhost",
+      "source-layer": "landuse",
+      "filter": [
+        "all",
+        [
+          "in",
+          "landuse",
+          "forest",
+          "wood"
+        ]
+      ],
+      "layout": {
+        "text-field": "{name}",
+        "text-font": [
+          "Open Sans Semi Bold"
+        ],
+        "text-size": 14,
+        "symbol-placement": "point",
+        "text-letter-spacing": 0.15,
+        "visibility": "visible"
+      },
+      "paint": {
+        "text-color": "rgba(32, 100, 22, 1)",
         "text-halo-color": "rgba(232, 245, 233, 1)",
         "text-halo-width": 1.5
       }
@@ -1461,10 +1462,10 @@
         ],
         "text-size": 14,
         "symbol-placement": "point",
-        "text-letter-spacing": 0.25
+        "text-letter-spacing": 0.15
       },
       "paint": {
-        "text-color": "rgba(28, 107, 160, 1)",
+        "text-color": "rgba(41, 130, 190, 1)",
         "text-halo-color": "rgba(225, 245, 254, 1)",
         "text-halo-width": 1.5
       }
