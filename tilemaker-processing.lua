@@ -1,6 +1,9 @@
 -- Nodes will only be processed if one of these keys is present
 node_keys = { "amenity", "shop", "natural" }
 
+-- Route attributes to copy
+route_attributes = { "name", "colour", "ref" }
+
 -- Initialize Lua logic (optional)
 function init_function()
 end
@@ -26,6 +29,57 @@ function way_function(way)
 	if highway ~= "" then
 		way:Layer("highway", false)
 		add_tag(way, "highway", "name", "smoothness", "trail_visibility", "sac_scale", "via_ferrata_scale", "surface", "tracktype")
+
+		-- Iterate over relations to determine hiking-route tags
+		local route_attr = {}
+		while true do
+			local rel = way:NextRelation()
+			if not rel then break end
+
+			-- read the type of route
+			local route_type = way:FindInRelation("route")
+
+			if route_type ~= "" then
+				-- e.g. "hiking_route=yes"
+				route_attr[route_type.."_route"] = "yes"
+
+				-- Copy certain attributes from relations to the way
+				for _, osm_attr_key in pairs(route_attributes) do
+					local attr_key = route_type.."_"..osm_attr_key
+					local osm_attr_value = way:FindInRelation(osm_attr_key)
+					if osm_attr_value ~= nil and osm_attr_value ~= "" then
+						local attr_value = route_attr[attr_key]
+						if attr_value ~= nil and attr_value ~= "" then
+							attr_value = attr_value..", "..osm_attr_value
+						else
+							attr_value = osm_attr_value
+						end
+						route_attr[attr_key] = attr_value
+					end
+				end
+			end
+		end
+
+		-- Copy attributes from dictionary to the way object
+		for attr, value in pairs(route_attr) do
+			if value ~= "" then
+				way:Attribute(attr, value)
+			end
+		end
+
+		local label = way:Find("name")
+		local hiking_route = route_attr["hiking_route"]
+		local hiking_ref = route_attr["hiking_ref"]
+		if hiking_route ~= nil and hiking_route ~= "" and hiking_ref ~= nil and hiking_ref ~= "" then
+			if label ~= "" then
+				label = label .. " (" .. hiking_ref .. ")"
+			else
+				label = hiking_ref
+				print(label)
+			end
+		end
+		way:Attribute("label", label)
+
 		return
 	end
 
@@ -94,6 +148,13 @@ function relation_function(relation)
 		add_tag(relation, "boundary", "name", "protect_class", "border_type", "admin_level")
 		return
 	end
+
+	local route = relation:Find("route")
+	if route == "hiking" then
+		relation:Layer("route", false)
+		add_tag(relation, "route", "name", "ref", "colour")
+		return
+	end
 end
 
 function add_tag(feature, ...)
@@ -114,7 +175,8 @@ function any_of(value, ...)
 end
 
 function relation_scan_function(relation)
-	if relation:Find("type") == "boundary" then
+	local rel_type = relation:Find("type")
+	if rel_type == "boundary" or rel_type == "route" then
 		relation:Accept()
 	end
 end
