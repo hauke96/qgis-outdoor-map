@@ -761,6 +761,31 @@
       }
     },
     {
+      "id": "trail_route_back",
+      "type": "line",
+      "source": "localhost",
+      "source-layer": "highway",
+      "minzoom": 0,
+      "filter": [
+        "all",
+        [
+          "==",
+          "hiking_route",
+          "yes"
+        ]
+      ],
+      "layout": {
+        "line-join": "round",
+        "line-cap": "butt",
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#fb8c00",
+        "line-opacity": 0.35,
+        "line-width": 10
+      }
+    },
+    {
       "id": "trail_back",
       "type": "line",
       "source": "localhost",
@@ -831,7 +856,7 @@
       "paint": {
         "line-width": 5,
         "line-color": "#ffeb3b",
-        "line-opacity": 0.65
+        "line-opacity": 0.85
       }
     },
     {
@@ -1307,10 +1332,40 @@
       }
     },
     {
+      "id": "highway_route_label",
+      "type": "symbol",
+      "source": "localhost",
+      "source-layer": "highway",
+      "filter": [
+        "all"
+      ],
+      "layout": {
+        "symbol-placement": "line",
+        "text-field": "{hiking_ref}",
+        "text-font": [
+          "OpenSans Regular"
+        ],
+        "text-size": 12,
+        "symbol-spacing": 150,
+        "icon-allow-overlap": false,
+        "icon-ignore-placement": false,
+        "icon-optional": false
+      },
+      "paint": {
+        "text-color": "#ef6c00",
+        "text-halo-color": "#fff3e0",
+        "text-halo-blur": 0,
+        "text-halo-width": 2
+      }
+    },
+    {
       "id": "highway_label",
       "type": "symbol",
       "source": "localhost",
       "source-layer": "highway",
+      "filter": [
+        "all"
+      ],
       "layout": {
         "symbol-placement": "line",
         "text-field": "{name}",
