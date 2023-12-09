@@ -32,6 +32,12 @@ The Maputnik desktop tool will automatically save everything to the JSON style f
 
 > TODO
 
+## Maputnik shows old tiles
+
+Problem: Maputnik doesn't use the newly generated tiles.
+
+Solution: Use a private-browsing window and open Maputnik there. Whenever the tiles change, close that window and restart Maputnik in a new private-browsing window.
+
 ---
 
 # DEPRECATED DOCUMENTATION
