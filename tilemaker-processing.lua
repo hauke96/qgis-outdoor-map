@@ -75,7 +75,6 @@ function way_function(way)
 				label = label .. " (" .. hiking_ref .. ")"
 			else
 				label = hiking_ref
-				print(label)
 			end
 		end
 		way:Attribute("label", label)
@@ -146,13 +145,6 @@ function relation_function(relation)
 	if boundary ~= "" then
 		relation:Layer("boundary", false)
 		add_tag(relation, "boundary", "name", "protect_class", "border_type", "admin_level")
-		return
-	end
-
-	local route = relation:Find("route")
-	if route == "hiking" then
-		relation:Layer("route", false)
-		add_tag(relation, "route", "name", "ref", "colour")
 		return
 	end
 end
