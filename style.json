@@ -1495,6 +1495,28 @@
       }
     },
     {
+      "id": "label_waterway",
+      "type": "symbol",
+      "source": "localhost",
+      "source-layer": "waterway",
+      "filter": [
+        "all"
+      ],
+      "layout": {
+        "text-field": "{name}",
+        "text-font": [
+          "Open Sans Regular"
+        ],
+        "text-size": 12,
+        "symbol-placement": "line"
+      },
+      "paint": {
+        "text-color": "rgba(41, 130, 190, 1)",
+        "text-halo-color": "rgba(255, 255, 255, 0.75)",
+        "text-halo-width": 2
+      }
+    },
+    {
       "id": "label_water",
       "type": "symbol",
       "source": "localhost",
