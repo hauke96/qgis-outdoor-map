@@ -4,6 +4,7 @@
   "metadata": {
     "maputnik:renderer": "mbgljs"
   },
+  "light": {},
   "sources": {
     "localhost": {
       "type": "vector",
@@ -30,6 +31,7 @@
     {
       "id": "background",
       "type": "background",
+      "minzoom": 0,
       "maxzoom": 24,
       "layout": {
         "visibility": "visible"
@@ -260,7 +262,57 @@
         "visibility": "visible"
       },
       "paint": {
-        "hillshade-exaggeration": 0.5
+        "hillshade-exaggeration": 0.4
+      }
+    },
+    {
+      "id": "natural_cliff",
+      "type": "line",
+      "source": "localhost",
+      "source-layer": "landuse",
+      "minzoom": 13,
+      "filter": [
+        "all",
+        [
+          "==",
+          "landuse",
+          "cliff"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "#757575"
+      }
+    },
+    {
+      "id": "natural_cliff_icons",
+      "type": "symbol",
+      "source": "localhost",
+      "source-layer": "landuse",
+      "minzoom": 13,
+      "filter": [
+        "all",
+        [
+          "==",
+          "landuse",
+          "cliff"
+        ]
+      ],
+      "layout": {
+        "icon-image": "cliff",
+        "symbol-placement": "line",
+        "symbol-spacing": 12,
+        "icon-allow-overlap": true,
+        "icon-ignore-placement": false,
+        "icon-padding": 0,
+        "symbol-avoid-edges": false,
+        "icon-anchor": "top",
+        "icon-offset": [
+          0,
+          0
+        ]
       }
     },
     {

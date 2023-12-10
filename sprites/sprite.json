@@ -20,6 +20,13 @@
     "width": 32,
     "pixelRatio": 3
   },
+  "cliff": {
+    "x": 18,
+    "y": 32,
+    "height": 16,
+    "width": 24,
+    "pixelRatio": 3
+  },
   "shingle_pattern": {
     "x": 42,
     "y": 0,

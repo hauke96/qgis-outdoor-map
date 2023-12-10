@@ -100,7 +100,11 @@ function way_function(way)
 	local natural = way:Find("natural")
 	if natural ~= "" then
 		-- Put "natural" things also to landuse for convenience
-		way:Layer("landuse", true)
+		if natural == "cliff" or natural == "arete" then
+			way:Layer("landuse", false)
+		else
+			way:Layer("landuse", true)
+		end
 		add_tag(way, "name")
 		way:Attribute("landuse", natural)
 		return
