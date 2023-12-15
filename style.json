@@ -1371,8 +1371,11 @@
         "text-font": [
           "Open Sans Regular"
         ],
-        "text-field": "{name}",
-        "text-size": 11
+        "text-field": "{name} {ele}m",
+        "text-size": 11,
+        "text-anchor": "top",
+        "symbol-placement": "point",
+        "text-max-width": 0
       },
       "paint": {
         "text-color": "rgba(80, 33, 17, 1)",
@@ -1380,7 +1383,7 @@
         "text-halo-width": 1,
         "text-translate": [
           0,
-          12
+          6
         ]
       }
     },
@@ -1568,17 +1571,17 @@
         "icon-image": "railway_{railway}",
         "visibility": "visible",
         "text-anchor": "top",
-        "text-justify": "center",
-        "text-offset": [
-          0,
-          0.35
-        ]
+        "text-justify": "center"
       },
       "paint": {
         "text-color": "#5c6bc0",
         "text-halo-color": "rgba(255, 255, 255, 1)",
         "text-halo-width": 1,
-        "icon-translate-anchor": "map"
+        "icon-translate-anchor": "map",
+        "text-translate": [
+          0,
+          6
+        ]
       }
     },
     {

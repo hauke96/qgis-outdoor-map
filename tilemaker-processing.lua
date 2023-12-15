@@ -25,8 +25,7 @@ function node_function(node)
 	local natural = node:Find("natural")
 	if amenity ~= "" or shop ~= "" or natural ~= "" then
 		node:Layer("poi", false)
-		add_tag(node, "name", "amenity", "shop", "natural")
-		return
+		add_tag(node, "name", "amenity", "shop", "natural", "ele")
 	end
 
 	local label= node:Find("label")
