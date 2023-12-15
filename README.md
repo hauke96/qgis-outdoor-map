@@ -32,7 +32,7 @@ The Maputnik desktop tool will automatically save everything to the JSON style f
 
 > TODO
 
-## Maputnik shows old tiles
+## Maputnik shows old tiles0
 
 Problem: Maputnik doesn't use the newly generated tiles.
 
@@ -40,8 +40,15 @@ Solution: Use a private-browsing window and open Maputnik there. Whenever the ti
 
 # TODOs
 
+* Preprocessor: See TODOs in its README file
 * Other protected areas (protect_class <= 4 or 5)
 * Bus stations
+* Label style of lakes based on their size
+  * large lake: large font, wide letter spaces, bold
+  * mid lake: mid sized font, slight letter space, bold
+  * small lake: regular font, no letter space, regular font
+* Generate legend graphic
+  * Alternatively: Manually create it, but it would be nice to generate such graphic
 
 ---
 

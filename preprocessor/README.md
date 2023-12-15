@@ -14,5 +14,5 @@ This includes:
 
 ## TODOs
 
-* Directly use Osmium (so that the above steps are not necessary anymore)
-* Adjust `make-tiles.sh` script to properly use this preprocessor
+* Store entire PBF file, not just the label points
+    * Alternatively: Directly use Osmium (so that the above steps are not necessary anymore)
