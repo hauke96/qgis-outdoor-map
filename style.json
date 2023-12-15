@@ -1545,6 +1545,42 @@
       }
     },
     {
+      "id": "label_railway_station",
+      "type": "symbol",
+      "source": "localhost",
+      "source-layer": "railway",
+      "filter": [
+        "all",
+        [
+          "in",
+          "railway",
+          "halt",
+          "station"
+        ]
+      ],
+      "layout": {
+        "text-field": "{name}",
+        "text-font": [
+          "Open Sans Bold"
+        ],
+        "text-size": 12,
+        "icon-image": "railway_{railway}",
+        "visibility": "visible",
+        "text-anchor": "top",
+        "text-justify": "center",
+        "text-offset": [
+          0,
+          0.35
+        ]
+      },
+      "paint": {
+        "text-color": "#5c6bc0",
+        "text-halo-color": "rgba(255, 255, 255, 1)",
+        "text-halo-width": 1,
+        "icon-translate-anchor": "map"
+      }
+    },
+    {
       "id": "label_protected",
       "type": "symbol",
       "source": "localhost",

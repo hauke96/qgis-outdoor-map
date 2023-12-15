@@ -38,6 +38,11 @@ Problem: Maputnik doesn't use the newly generated tiles.
 
 Solution: Use a private-browsing window and open Maputnik there. Whenever the tiles change, close that window and restart Maputnik in a new private-browsing window.
 
+# TODOs
+
+* Other protected areas (protect_class <= 4 or 5)
+* Bus stations
+
 ---
 
 # DEPRECATED DOCUMENTATION

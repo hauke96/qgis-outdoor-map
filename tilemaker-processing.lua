@@ -1,5 +1,11 @@
 -- Nodes will only be processed if one of these keys is present
-node_keys = { "amenity", "shop", "natural", "type" }
+node_keys = {
+	"amenity",
+	"natural",
+	"railway",
+	"shop",
+	"type"
+}
 
 -- Route attributes to copy
 route_attributes = { "name", "colour", "ref" }
@@ -27,6 +33,13 @@ function node_function(node)
 	if label == "yes" then
 		node:Layer("label", false)
 		add_tag(node, "type", "text")
+		return
+	end
+
+	local railway= node:Find("railway")
+	if railway ~= "" then
+		node:Layer("railway", false)
+		add_tag(node, "railway", "name")
 		return
 	end
 end
