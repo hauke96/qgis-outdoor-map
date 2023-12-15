@@ -125,7 +125,8 @@
         "visibility": "visible"
       },
       "paint": {
-        "fill-color": "rgba(171, 220, 134, 1)"
+        "fill-color": "rgba(171, 220, 134, 1)",
+        "fill-antialias": false
       }
     },
     {
