@@ -1300,6 +1300,70 @@
       }
     },
     {
+      "id": "protected_other_line",
+      "type": "line",
+      "source": "localhost",
+      "source-layer": "boundary",
+      "filter": [
+        "all",
+        [
+          "==",
+          "boundary",
+          "protected_area"
+        ],
+        [
+          "in",
+          "protect_class",
+          "5",
+          "6",
+          "7",
+          "97",
+          "98",
+          "99"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(67, 160, 71, 1)",
+        "line-width": 2
+      }
+    },
+    {
+      "id": "protected_other_shading",
+      "type": "line",
+      "source": "localhost",
+      "source-layer": "boundary",
+      "filter": [
+        "all",
+        [
+          "==",
+          "boundary",
+          "protected_area"
+        ],
+        [
+          "in",
+          "protect_class",
+          "5",
+          "6",
+          "7",
+          "97",
+          "98",
+          "99"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(67, 160, 71, 1)",
+        "line-width": 8,
+        "line-opacity": 0.25,
+        "line-offset": 4
+      }
+    },
+    {
       "id": "protected_nature-reserve_line",
       "type": "line",
       "source": "localhost",
@@ -1312,8 +1376,13 @@
           "protected_area"
         ],
         [
-          "==",
+          "in",
           "protect_class",
+          "1",
+          "1a",
+          "1b",
+          "2",
+          "3",
           "4"
         ]
       ],
@@ -1338,8 +1407,13 @@
           "protected_area"
         ],
         [
-          "==",
+          "in",
           "protect_class",
+          "1",
+          "1a",
+          "1b",
+          "2",
+          "3",
           "4"
         ]
       ],
@@ -1348,9 +1422,9 @@
       },
       "paint": {
         "line-color": "rgba(67, 160, 71, 1)",
-        "line-offset": 5,
-        "line-width": 10,
-        "line-opacity": 0.25
+        "line-width": 16,
+        "line-opacity": 0.25,
+        "line-offset": 8
       }
     },
     {
@@ -1585,6 +1659,41 @@
       }
     },
     {
+      "id": "label_protected-other",
+      "type": "symbol",
+      "source": "localhost",
+      "source-layer": "label",
+      "filter": [
+        "all",
+        [
+          "in",
+          "type",
+          "protect_class_5",
+          "protect_class_6",
+          "protect_class_7",
+          "protect_class_97",
+          "protect_class_98",
+          "protect_class_99"
+        ]
+      ],
+      "layout": {
+        "text-field": "{text}",
+        "text-font": [
+          "Open Sans Bold Italic"
+        ],
+        "text-size": 16,
+        "symbol-placement": "point",
+        "visibility": "visible",
+        "text-letter-spacing": 0.25
+      },
+      "paint": {
+        "text-color": "rgba(32, 100, 22, 1)",
+        "text-halo-color": "rgba(232, 245, 233, 1)",
+        "text-halo-width": 1.5,
+        "text-opacity": 0.65
+      }
+    },
+    {
       "id": "label_protected",
       "type": "symbol",
       "source": "localhost",
@@ -1592,8 +1701,11 @@
       "filter": [
         "all",
         [
-          "==",
+          "in",
           "type",
+          "protect_class_1",
+          "protect_class_2",
+          "protect_class_3",
           "protect_class_4"
         ]
       ],

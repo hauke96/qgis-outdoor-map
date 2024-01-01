@@ -43,7 +43,7 @@ go run main.go -i "$TMP_INPUT" -o "$TMP_CENTROIDS_OSM"
 log "Turn preprocessed OSM-XML output into PBF"
 osmium cat "$TMP_CENTROIDS_OSM" -o "$TMP_CENTROIDS_PBF" --overwrite
 
-log "Merge preprocessed PBF into input data"
+log "Merge preprocessed PBF into input data file $TMP_DATA"
 osmium merge "$TMP_CENTROIDS_PBF" "$TMP_INPUT" -o "$TMP_DATA" --overwrite
 
 # Create tiles
