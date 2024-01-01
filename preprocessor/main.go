@@ -13,6 +13,8 @@ import (
 	"github.com/paulmach/osm/osmpbf"
 	"github.com/paulmach/osm/osmxml"
 	"os"
+	"os/exec"
+	"path"
 	"strings"
 	"time"
 )
@@ -24,7 +26,7 @@ var inputWays = map[osm.WayID]*osm.Way{}
 var cli struct {
 	Debug  bool   `help:"Enable debug mode." short:"d"`
 	Input  string `help:"The input file. Either .osm or .pbf (OSM-PBF format)." short:"i"`
-	Output string `help:"The output file, which must be a .osm file." short:"o"`
+	Output string `help:"The output file, which must be a .osm.pbf (OSM-PBF format) file." short:"o"`
 }
 
 func main() {
@@ -38,8 +40,8 @@ func main() {
 		sigolo.Error("Input file must be an .osm or .pbf file")
 		os.Exit(1)
 	}
-	if !strings.HasSuffix(cli.Output, ".osm") {
-		sigolo.Error("Output file must be an .osm file")
+	if !strings.HasSuffix(cli.Output, ".osm.pbf") {
+		sigolo.Error("Output file must be an .osm.pbf file")
 		os.Exit(1)
 	}
 
@@ -61,15 +63,17 @@ func main() {
 	}
 
 	for scanner.Scan() {
-		switch obj := scanner.Object().(type) {
+		obj := scanner.Object()
+		switch osmObj := obj.(type) {
 		case *osm.Node:
-			inputNodes[obj.ID] = obj
+			inputNodes[osmObj.ID] = osmObj
 		case *osm.Way:
-			inputWays[obj.ID] = obj
-			handleWay(obj, &outputOsm)
+			inputWays[osmObj.ID] = osmObj
+			handleWay(osmObj, &outputOsm)
 		case *osm.Relation:
-			handleRelation(obj, &outputOsm)
+			handleRelation(osmObj, &outputOsm)
 		}
+		outputOsm.Append(obj)
 	}
 
 	err = scanner.Err()
@@ -79,8 +83,19 @@ func main() {
 	outputXml, err := xml.Marshal(outputOsm)
 	sigolo.FatalCheck(err)
 
-	sigolo.Info("Write result to %s", cli.Output)
-	err = os.WriteFile(cli.Output, outputXml, 0644)
+	osmXmlOutputFile := path.Base(strings.TrimSuffix(cli.Output, ".osm.pbf")) + ".tmp.osm"
+	sigolo.Info("Write result to temp file %s", osmXmlOutputFile)
+	err = os.WriteFile(osmXmlOutputFile, outputXml, 0644)
+	sigolo.FatalCheck(err)
+
+	sigolo.Info("Convert written OSM-XML file to OSM-PBF file %s", cli.Output)
+	command := exec.Command("osmium", "cat", osmXmlOutputFile, "-o", cli.Output, "--overwrite")
+	sigolo.Info("Call osmium: %s", command.String())
+	err = command.Run()
+	sigolo.FatalCheck(err)
+
+	sigolo.Info("Remove temp file %s", osmXmlOutputFile)
+	err = os.Remove(osmXmlOutputFile)
 	sigolo.FatalCheck(err)
 
 	sigolo.Info("Done")
@@ -249,27 +264,40 @@ func tagsToPropertyMap(tags osm.Tags) map[string]interface{} {
 func determineCentroidFeature(geometry orb.Geometry, originalTags map[string]interface{}) *geojson.Feature {
 	centroidLocation, _ := planar.CentroidArea(geometry)
 
+	labelCategory := "natural"
 	labelType := getValue(originalTags, "natural")
 	if labelType == "" {
+		labelCategory = "landuse"
 		labelType = getValue(originalTags, "landuse")
 	}
 	if labelType == "" {
+		labelCategory = "protect_class"
 		protectClass := getValue(originalTags, "protect_class")
 		if protectClass != "" {
 			labelType = fmt.Sprintf("protect_class_%s", protectClass)
 		}
 	}
 	if labelType == "" {
+		labelCategory = "place"
+		labelType = getValue(originalTags, "place")
+	}
+
+	// No supported label type -> ignore
+	if labelType == "" {
 		sigolo.Debug("No centroid point feature created since label-type could not be determined from the following tags: %#v", originalTags)
 		return nil
 	}
 
 	var centroid *geojson.Feature
-	// No supported label type -> ignore
-	tags := map[string]interface{}{
-		"label": "yes",
-		"type":  labelType,
-		"text":  getValue(originalTags, "name"),
+	// Create different nodes for different label types
+	tags := map[string]interface{}{}
+	if labelCategory == "place" {
+		tags["place"] = labelType
+		tags["name"] = getValue(originalTags, "name")
+	} else {
+		tags["label"] = "yes"
+		tags["type"] = labelType
+		tags["text"] = getValue(originalTags, "name")
 	}
 
 	centroid = &geojson.Feature{

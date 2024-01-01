@@ -4,7 +4,8 @@ node_keys = {
 	"natural",
 	"railway",
 	"shop",
-	"type"
+	"label",
+	"place"
 }
 
 -- Route attributes to copy
@@ -28,14 +29,22 @@ function node_function(node)
 		add_tag(node, "name", "amenity", "shop", "natural", "ele")
 	end
 
-	local label= node:Find("label")
+	local label = node:Find("label")
+	local category = node:Find("category")
 	if label == "yes" then
 		node:Layer("label", false)
-		add_tag(node, "type", "text")
+		add_tag(node, "type", "category", "text")
 		return
 	end
 
-	local railway= node:Find("railway")
+	local place = node:Find("place")
+	if place ~= "" then
+		node:Layer("label", false)
+		add_tag(node, "place", "name")
+		return
+	end
+
+	local railway = node:Find("railway")
 	if railway ~= "" then
 		node:Layer("railway", false)
 		add_tag(node, "railway", "name")

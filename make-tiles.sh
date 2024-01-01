@@ -18,8 +18,6 @@ then
 fi
 
 TMP_INPUT="$TMP/input.osm.pbf"
-TMP_CENTROIDS_OSM="$TMP/centroids.osm"
-TMP_CENTROIDS_PBF="$TMP/centroids.osm.pbf"
 TMP_DATA="$TMP/data.osm.pbf"
 
 log "Create empty temp-folder $TMP"
@@ -35,7 +33,7 @@ log "Copy intput data"
 cp $1 $TMP_INPUT
 
 # Run preprocessing script
-log "Run preprocessor in input data"
+log "Run preprocessor on input data"
 cd preprocessor
 go run main.go -i "$TMP_INPUT" -o "$TMP_CENTROIDS_OSM"
 

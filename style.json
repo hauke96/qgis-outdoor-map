@@ -1462,6 +1462,36 @@
       }
     },
     {
+      "id": "poi_railway_station",
+      "type": "symbol",
+      "source": "localhost",
+      "source-layer": "railway",
+      "filter": [
+        "all",
+        [
+          "in",
+          "railway",
+          "halt",
+          "station"
+        ]
+      ],
+      "layout": {
+        "icon-image": "railway_{railway}",
+        "visibility": "visible",
+        "icon-allow-overlap": true
+      },
+      "paint": {
+        "text-color": "#5c6bc0",
+        "text-halo-color": "rgba(255, 255, 255, 1)",
+        "text-halo-width": 1,
+        "icon-translate-anchor": "map",
+        "text-translate": [
+          0,
+          6
+        ]
+      }
+    },
+    {
       "id": "label_hiking_route",
       "type": "symbol",
       "source": "localhost",
@@ -1475,7 +1505,7 @@
         "text-font": [
           "OpenSans Regular"
         ],
-        "text-size": 12,
+        "text-size": 10,
         "symbol-spacing": 150,
         "icon-allow-overlap": false,
         "icon-ignore-placement": false,
@@ -1502,7 +1532,7 @@
         "text-font": [
           "OpenSans Regular"
         ],
-        "text-size": 12
+        "text-size": 10
       },
       "paint": {
         "text-color": "rgba(109, 76, 65, 1)",
@@ -1532,7 +1562,7 @@
         "text-font": [
           "Open Sans Semi Bold"
         ],
-        "text-size": 12,
+        "text-size": 10,
         "symbol-placement": "point",
         "text-letter-spacing": 0.15
       },
@@ -1561,7 +1591,7 @@
         "text-font": [
           "Open Sans Semi Bold"
         ],
-        "text-size": 14,
+        "text-size": 12,
         "symbol-placement": "point",
         "text-letter-spacing": 0.15,
         "visibility": "visible"
@@ -1585,7 +1615,7 @@
         "text-font": [
           "Open Sans Regular"
         ],
-        "text-size": 12,
+        "text-size": 10,
         "symbol-placement": "line"
       },
       "paint": {
@@ -1612,7 +1642,7 @@
         "text-font": [
           "Open Sans Semi Bold"
         ],
-        "text-size": 14,
+        "text-size": 12,
         "symbol-placement": "point",
         "text-letter-spacing": 0.15
       },
@@ -1642,8 +1672,6 @@
           "Open Sans Bold"
         ],
         "text-size": 12,
-        "icon-image": "railway_{railway}",
-        "visibility": "visible",
         "text-anchor": "top",
         "text-justify": "center"
       },
@@ -1724,6 +1752,34 @@
         "text-halo-color": "rgba(232, 245, 233, 1)",
         "text-halo-width": 1.5,
         "text-opacity": 0.65
+      }
+    },
+    {
+      "id": "label_village",
+      "type": "symbol",
+      "source": "localhost",
+      "source-layer": "label",
+      "filter": [
+        "all",
+        [
+          "in",
+          "place",
+          "village",
+          "suburb"
+        ]
+      ],
+      "layout": {
+        "text-field": "{name}",
+        "text-font": [
+          "Open Sans Regular"
+        ],
+        "text-size": 12,
+        "symbol-placement": "point"
+      },
+      "paint": {
+        "text-halo-color": "rgba(255, 255, 255, 1)",
+        "text-halo-width": 1.5,
+        "text-color": "#424242"
       }
     },
     {
