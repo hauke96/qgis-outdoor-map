@@ -32,7 +32,7 @@ The Maputnik desktop tool will automatically save everything to the JSON style f
 
 > TODO
 
-## Maputnik shows old tiles0
+## Maputnik shows old tiles
 
 Problem: Maputnik doesn't use the newly generated tiles.
 
@@ -41,7 +41,7 @@ Solution: Use a private-browsing window and open Maputnik there. Whenever the ti
 # TODOs
 
 * Preprocessor: See TODOs in its README file
-* Other protected areas (protect_class <= 4 or 5)
+* Merge ring segments of relations to form one linestring per ring (better rendering of transparent styles)
 * Bus stations
 * Label style of lakes based on their size
   * large lake: large font, wide letter spaces, bold
