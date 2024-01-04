@@ -79,26 +79,26 @@ func main() {
 	err = scanner.Err()
 	sigolo.FatalCheck(err)
 
-	sigolo.Info("Convert result to OSM XML")
+	sigolo.Debug("Convert result to OSM XML")
 	outputXml, err := xml.Marshal(outputOsm)
 	sigolo.FatalCheck(err)
 
 	osmXmlOutputFile := path.Base(strings.TrimSuffix(cli.Output, ".osm.pbf")) + ".tmp.osm"
-	sigolo.Info("Write result to temp file %s", osmXmlOutputFile)
+	sigolo.Debug("Write result to temp file %s", osmXmlOutputFile)
 	err = os.WriteFile(osmXmlOutputFile, outputXml, 0644)
 	sigolo.FatalCheck(err)
 
-	sigolo.Info("Convert written OSM-XML file to OSM-PBF file %s", cli.Output)
+	sigolo.Debug("Convert written OSM-XML file to OSM-PBF file %s", cli.Output)
 	command := exec.Command("osmium", "cat", osmXmlOutputFile, "-o", cli.Output, "--overwrite")
-	sigolo.Info("Call osmium: %s", command.String())
+	sigolo.Debug("Call osmium: %s", command.String())
 	err = command.Run()
 	sigolo.FatalCheck(err)
 
-	sigolo.Info("Remove temp file %s", osmXmlOutputFile)
+	sigolo.Debug("Remove temp file %s", osmXmlOutputFile)
 	err = os.Remove(osmXmlOutputFile)
 	sigolo.FatalCheck(err)
 
-	sigolo.Info("Done")
+	sigolo.Info("Done. Result feature written to %s", cli.Output)
 }
 
 func handleRelation(relation *osm.Relation, outputOsm *osm.OSM) {
