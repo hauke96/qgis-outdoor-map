@@ -22,6 +22,11 @@ The Maputnik desktop tool will automatically save everything to the JSON style f
 
 > TODO
 
+## Generate legend graphic
+
+The legend graphic is a generated PDF file.
+See [`legend-graphic` folder](./legend-graphic) for further documentation.
+
 ## Style usage in QGIS
 
 ### Load style
@@ -47,8 +52,8 @@ Solution: Use a private-browsing window and open Maputnik there. Whenever the ti
   * large lake: large font, wide letter spaces, bold
   * mid lake: mid sized font, slight letter space, bold
   * small lake: regular font, no letter space, regular font
-* Generate legend graphic
-  * Alternatively: Manually create it, but it would be nice to generate such graphic
+* Maybe merge preprocessor and legend-graphic generator? They do use some common code.
+* Motorway
 
 ---
 
