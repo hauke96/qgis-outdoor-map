@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Legend</title>
+        <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@3.3.1/dist/maplibre-gl.css"/>
+        <script src="https://unpkg.com/maplibre-gl@3.3.1/dist/maplibre-gl.js"></script>
+        <style>
+            html, body {
+                font-size: 10pt;
+                /*width: 40rem;*/
+                height: 80rem;
+                display: flex;
+                flex-direction: column;
+                margin: 0;
+            }
+
+            @page {
+                size: 200rem 400rem;
+            }
+
+            .item-container {
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+                overflow: auto;
+                align-content: flex-start
+            }
+
+            h1 {
+                margin-left: 0.5rem;
+            }
+
+            h2 {
+                width: 15rem;
+                margin-left: 0.5rem;
+            }
+
+            .item {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                margin-bottom: 0.5rem;
+                margin-left: 1rem;
+                margin-right: 2rem;
+                width: 15rem;
+
+                /* This nesting allows us to create a map of arbitrary size and scale it down to get sharper images */
+                .map-container {
+                    width: 4rem;
+                    height: 2rem;
+                    /*margin-left: 0.5rem;*/
+
+                    .map {
+                        width: 7rem;
+                        height: 3.5rem;
+                        transform: scale(57.14%);
+                        position: relative;
+                        left: -1.5rem;
+                        top: -0.75rem;
+                    }
+                }
+
+                .description {
+                    margin-left: 0.75rem;
+                }
+            }
+        </style>
+        <script>
+            function createMap(mapId, position, zoom) {
+                new maplibregl.Map({
+                    container: mapId,
+                    style: "http://localhost:8000/style.json",
+                    center: position,
+                    zoom: zoom ?? 18.5, // Get larger sprites (19 switches to the smallest sprites) to get sharper and better visible icons and styles due to scaling with the map-container
+                    attributionControl: false,
+                    preserveDrawingBuffer: true
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Legend</h1>
+        <div class="item-container">
+<!--            <h2>Roads and trails</h2>-->
+<!--            <div class="item">-->
+<!--                <div class="map-container">-->
+<!--                    <div id="map-landuse-a" class="map"></div>-->
+<!--                </div>-->
+<!--                <div class="description">Test item a</div>-->
+<!--            </div>-->
+<!--            <script>-->
+<!--                createMap("map-landuse-a", {lat: 0 * 0.001 + 0.0001 / 2, lon: 1 * 0.001 + 0.000225 / 2});-->
+<!--            </script>-->
+
+<!--            <div class="item">-->
+<!--                <div class="map-container">-->
+<!--                    <div id="map-landuse-b" class="map"></div>-->
+<!--                </div>-->
+<!--                <div class="description">Test item b</div>-->
+<!--            </div>-->
+<!--            <script>-->
+<!--                createMap("map-landuse-b", {lat: 5 * 0.001 + 0.0001 / 2, lon: 1 * 0.001 + 0.000225 / 2});-->
+<!--            </script>-->
+
+__ITEMS__
+        </div>
+    </body>
+</html>
