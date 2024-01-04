@@ -3,36 +3,6 @@
 LEGEND_SCHEMA_FILE="legend.json"
 OUTPUT="legend.pdf"
 
-# Generate the HTML template
-#LEGEND_SCHEMA=$(cat $LEGEND_SCHEMA_FILE)
-#
-#mkdir -p .tmp
-#
-#bash <<EOF
-#cd ..
-#./serve.sh
-#EOF
-#
-#jq -c '.categories[]' "$LEGEND_SCHEMA_FILE" | while read CATEGORY; do
-#  echo "Process category $(echo $CATEGORY | jq .title)"
-#
-#  echo "$CATEGORY" | jq -c '.items[]' | while read ITEM; do
-#    echo "Process item $(echo $ITEM | jq .description)"
-#
-#    KEY=$(echo $ITEM | jq .key)
-#    VALUE=$(echo $ITEM | jq .value)
-#    TYPE=$(echo $ITEM | jq .type)
-#
-#    cat feature-template.osm | sed 's/__KEY__/$KEY/g' | sed 's/__VALUE__/$VALUE/g' > .tmp/feature.osm
-#    osmium cat .tmp/feature.osm -o .tmp/feature.osm.pbf --overwrite
-#    bash <<EOF
-#    cd ..
-#    ./make-tiles.sh legend-graphic/.tmp/feature.osm.pbf
-#    EOF
-#
-#  done
-#done
-
 go run main.go -d -i "$LEGEND_SCHEMA_FILE"
 
 # Generate the raw PDF and crop it to the content
