@@ -57,7 +57,7 @@ function way_function(way)
 	local highway = way:Find("highway")
 	if highway ~= "" then
 		way:Layer("highway", false)
-		add_tag(way, "highway", "name", "smoothness", "trail_visibility", "sac_scale", "via_ferrata_scale", "surface", "tracktype")
+		add_tag(way, "highway", "name", "smoothness", "trail_visibility", "sac_scale", "via_ferrata_scale", "surface", "tracktype", "hiking_route", "hiking_ref")
 
 		-- Iterate over relations to determine hiking-route tags
 		local route_attr = {}
