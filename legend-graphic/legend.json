@@ -467,5 +467,11 @@
         }
       ]
     }
+  ],
+  "additional-infos": [
+    {
+      "title": "Copyright",
+      "html": "            <style>\n                .info-label {\n                    white-space: nowrap;\n                    vertical-align: top;\n                }\n            </style>\n            <table>\n                <tr>\n                    <td class=\"info-label\">Map data:</td>\n                    <td>&copy; OpenStreetMap contributors (<a href=\"https://osm.org/copyright\">openstreetmap.org/copyright</a>), &copy; MapTiler</td>\n                </tr>\n                <tr>\n                    <td class=\"info-label\">Map style:</td>\n                    <td><i>Outdoor and Hiking map</i> by Hauke Stieler (<a href=\"https://github.com/hauke96/qgis-outdoor-map\">github.com/hauke96/qgis-outdoor-map</a>)</td>\n                </tr>\n                <tr>\n                    <td class=\"info-label\">License:</td>\n                    <td>Open Data Commons Open Database License (ODbL)</td>\n                </tr>\n            </table>"
+    }
   ]
 }

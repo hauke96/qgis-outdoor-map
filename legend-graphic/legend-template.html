@@ -6,9 +6,9 @@
         <script src="https://unpkg.com/maplibre-gl@3.3.1/dist/maplibre-gl.js"></script>
         <style>
             html, body {
-                font-size: 10pt;
-                /*width: 40rem;*/
-                height: 80rem;
+                font-size: 9pt;
+                width: 36rem; /* 2x item size of width+margins */
+                height: 81rem;
                 display: flex;
                 flex-direction: column;
                 margin: 0;
@@ -22,7 +22,7 @@
                 display: flex;
                 flex-wrap: wrap;
                 flex-direction: column;
-                overflow: auto;
+                overflow: hidden;
                 align-content: flex-start
             }
 
@@ -64,6 +64,10 @@
                     margin-left: 0.75rem;
                 }
             }
+
+            .additional-info-container {
+                margin-left: 0.5rem;
+            }
         </style>
         <script>
             function createMap(mapId, position, zoom) {
@@ -104,5 +108,26 @@
 
 __ITEMS__
         </div>
+__ADDITIONAL_INFO__
+<!--            <style>-->
+<!--                .info-label {-->
+<!--                    white-space: nowrap;-->
+<!--                    vertical-align: top;-->
+<!--                }-->
+<!--            </style>-->
+<!--            <table>-->
+<!--                <tr>-->
+<!--                    <td class="info-label">Map data:</td>-->
+<!--                    <td>&copy; OpenStreetMap contributors (<a href="https://osm.org/copyright">openstreetmap.org/copyright</a>), &copy; MapTiler</td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td class="info-label">Map style:</td>-->
+<!--                    <td><i>Outdoor and Hiking map</i> by Hauke Stieler (<a href="https://github.com/hauke96/qgis-outdoor-map">github.com/hauke96/qgis-outdoor-map</a>)</td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td class="info-label">License:</td>-->
+<!--                    <td>Open Data Commons Open Database License (ODbL)</td>-->
+<!--                </tr>-->
+<!--            </table>-->
     </body>
 </html>

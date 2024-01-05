@@ -28,14 +28,17 @@ const (
 
 	outputFileName = "features.osm.pbf"
 
-	placeholderItems         = "__ITEMS__"
-	placeholderCategoryTitle = "__CAT__"
-	placeholderCategoryId    = "__CAT-ID__"
-	placeholderItemDesc      = "__DESC__"
-	placeholderItemId        = "__TITLE-ID__"
-	placeholderItemLat       = "__LAT__"
-	placeholderItemLon       = "__LON__"
-	placeholderItemZoom      = "__ZOOM__"
+	placeholderItems               = "__ITEMS__"
+	placeholderCategoryTitle       = "__CAT__"
+	placeholderCategoryId          = "__CAT-ID__"
+	placeholderItemDesc            = "__DESC__"
+	placeholderItemId              = "__TITLE-ID__"
+	placeholderItemLat             = "__LAT__"
+	placeholderItemLon             = "__LON__"
+	placeholderItemZoom            = "__ZOOM__"
+	placeholderAdditionalInfo      = "__ADDITIONAL_INFO__"
+	placeholderAdditionalInfoTitle = "__ADDITIONAL_INFO_TITLE__"
+	placeholderAdditionalInfoHtml  = "__ADDITIONAL_INFO_HTML__"
 )
 
 var (
@@ -54,11 +57,18 @@ var (
 	        	createMap("map-` + placeholderCategoryId + `-` + placeholderItemId + `", { lat: ` + placeholderItemLat + `, lon: ` + placeholderItemLon + ` }, ` + placeholderItemZoom + `);
 	        </script>
 `
+	additionalInfoTemplate = `
+			<h1>` + placeholderAdditionalInfoTitle + `</h1>
+			<div class="additional-info-container">
+			` + placeholderAdditionalInfoHtml + `
+			</div>
+`
 )
 
 type Schema struct {
-	Title      string     `json:"title"`
-	Categories []Category `json:"categories"`
+	Title           string           `json:"title"`
+	Categories      []Category       `json:"categories"`
+	AdditionalInfos []AdditionalInfo `json:"additional-infos"`
 }
 
 type Category struct {
@@ -73,6 +83,11 @@ type Item struct {
 	Description   string      `json:"description"`
 	OffsetLat     float64     `json:"offset-lataa"`
 	OffsetLon     float64     `json:"offset-lonaa"`
+}
+
+type AdditionalInfo struct {
+	Title string `json:"title"`
+	Html  string `json:"html"`
 }
 
 func (i Item) getTags() osm.Tags {
@@ -100,7 +115,21 @@ func main() {
 
 	generatedHtml := generateLegendHtmlItems(schema)
 
-	createLegendHtmlFile(generatedHtml)
+	if len(schema.AdditionalInfos) > 0 {
+		sigolo.Debug("Generate HTML for additional information")
+	} else {
+		sigolo.Debug("No additional information found")
+	}
+	additionalInfoHtml := ""
+	for _, info := range schema.AdditionalInfos {
+		sigolo.Debug("Generate HTML for additional info section '%s'", info.Title)
+		infoHtml := additionalInfoTemplate
+		infoHtml = strings.Replace(infoHtml, placeholderAdditionalInfoTitle, info.Title, 1)
+		infoHtml = strings.Replace(infoHtml, placeholderAdditionalInfoHtml, info.Html, 1)
+		additionalInfoHtml += infoHtml
+	}
+
+	createLegendHtmlFile(generatedHtml, additionalInfoHtml)
 }
 
 func readCliArgs() {
@@ -361,14 +390,18 @@ func generateLegendHtmlItems(schema Schema) string {
 	return generatedHtml
 }
 
-func createLegendHtmlFile(generatedHtml string) {
+func createLegendHtmlFile(generatedHtml string, additionalInfoHtml string) {
 	sigolo.Debug("Read template file")
 	templateFileBytes, err := os.ReadFile("legend-template.html")
 	sigolo.FatalCheck(err)
 
-	sigolo.Debug("Replace placeholder %s from template file with actual content", placeholderItems)
 	templateFileContent := string(templateFileBytes)
+
+	sigolo.Debug("Replace placeholder %s from template file with actual content", placeholderItems)
 	templateFileContent = strings.Replace(templateFileContent, placeholderItems, generatedHtml, 1)
+
+	sigolo.Debug("Replace placeholder %s from template file with actual content", placeholderAdditionalInfo)
+	templateFileContent = strings.ReplaceAll(templateFileContent, placeholderAdditionalInfo, additionalInfoHtml)
 
 	sigolo.Debug("Write legend file")
 	err = os.WriteFile("legend.html", []byte(templateFileContent), 0644)
