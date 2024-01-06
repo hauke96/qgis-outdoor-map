@@ -13,5 +13,9 @@ demo-website/dist
 *.jpg
 rendered-maps
 
+# Legend and preprocessing files
+legend.html
+.tmp
+
 # Other things to ignore
 .idea
