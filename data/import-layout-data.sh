@@ -51,7 +51,7 @@ function merge_with_data()
 	mv "temp.$DATA" $DATA
 }
 
-function a2_fischbeker_heide()
+function fischbeker_heide()
 {
 	NAME="a2-fischbeker-heide"
 	HH_OUT="hamburg-latest-$NAME-cutout$ENDING"
@@ -67,7 +67,7 @@ function a2_fischbeker_heide()
 #	rm $HH_OUT $NDS_OUT
 }
 
-function a2_sachsenwald()
+function sachsenwald()
 {
 	NAME="a2-sachsenwald"
 	OUT="$NAME$ENDING"
@@ -78,7 +78,7 @@ function a2_sachsenwald()
 	cp $OUT $DATA
 }
 
-function a2_thueringer_wald()
+function thueringer_wald()
 {
 	NAME="a2-thüringer-wald"
 	OUT1="$NAME-1$ENDING"
@@ -92,7 +92,7 @@ function a2_thueringer_wald()
 	cp $OUT $DATA
 }
 
-function a2_zugspitze()
+function zugspitze()
 {
 	NAME="zugspitze"
 	OUT1="$NAME-1$ENDING"
@@ -107,7 +107,7 @@ function a2_zugspitze()
 	cp $OUT $DATA
 }
 
-function a2_fuessen()
+function fuessen()
 {
 	NAME="fuessen"
 	OUT1="$NAME-1$ENDING"
@@ -149,46 +149,41 @@ function example_hiking_map()
 	cp $OUT $DATA
 }
 
-if [ $1 == "a2-fischbeker-heide" ]
-then
+case $1 in
+"fischbeker-heide")
 	download $COUNTRY_GER $NDS
 	download $COUNTRY_GER $SH
-	a2_fischbeker_heide
-elif [ $1 == "a2-sachsenwald" ]
-then
+	fischbeker_heide
+	;;
+"sachsenwald")
 	download $COUNTRY_GER $SH
-	a2_sachsenwald
-elif [ $1 == "a2-thueringer-wald" ]
-then
+	sachsenwald
+	;;
+"thueringer-wald")
 	download $COUNTRY_GER $TH
-	a2_thueringer_wald
-elif [ $1 == "a2-zugspitze" ]
-then
+	thueringer_wald
+	;;
+"zugspitze")
 	download $COUNTRY_GER_BY $BY_OBERB
 	download $EU $AU
-	a2_zugspitze
-elif [ $1 == "a2-fuessen" ]
-then
+	zugspitze
+	;;
+"fuessen")
 	download $COUNTRY_GER_BY $BY_SCHW
 	download $EU $AU
-	a2_fuessen
-elif [ $1 == "fuessen-zugspitze" ]
-then
+	fuessen
+	;;
+"fuessen-zugspitze")
 	download $COUNTRY_GER_BY $BY_OBERB
 	download $COUNTRY_GER_BY $BY_SCHW
 	download $EU $AU
 	fuessen_zugspitze
-elif [ $1 == "example-hiking-map" ]
-then
+	;;
+"example-hiking-map")
 	download $COUNTRY_GER $TH
 	example_hiking_map
-fi
-
-# Must be the first: Creates the $DATA file
-#a2_fischbeker_heide
-
-# These append data to $DATA file
-#a2_sachsenwald
+	;;
+esac
 
 cd ..
 ./make-tiles.sh ./data/$DATA
