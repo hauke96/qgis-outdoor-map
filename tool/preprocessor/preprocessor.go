@@ -1,10 +1,8 @@
-package main
+package preprocessor
 
 import (
 	"context"
-	"encoding/xml"
 	"fmt"
-	"github.com/alecthomas/kong"
 	"github.com/hauke96/sigolo"
 	"github.com/paulmach/orb"
 	"github.com/paulmach/orb/geojson"
@@ -13,46 +11,35 @@ import (
 	"github.com/paulmach/osm/osmpbf"
 	"github.com/paulmach/osm/osmxml"
 	"os"
-	"os/exec"
-	"path"
 	"strings"
 	"time"
+	"tool/common"
 )
 
-var nodeIdCounter int64 = 1
-var inputNodes = map[osm.NodeID]*osm.Node{}
-var inputWays = map[osm.WayID]*osm.Way{}
+var (
+	nodeIdCounter int64 = 1
+	inputNodes          = map[osm.NodeID]*osm.Node{}
+	inputWays           = map[osm.WayID]*osm.Way{}
+)
 
-var cli struct {
-	Debug  bool   `help:"Enable debug mode." short:"d"`
-	Input  string `help:"The input file. Either .osm or .pbf (OSM-PBF format)." short:"i"`
-	Output string `help:"The output file, which must be a .osm.pbf (OSM-PBF format) file." short:"o"`
-}
-
-func main() {
-	kong.Parse(&cli)
-
-	if cli.Debug {
-		sigolo.LogLevel = sigolo.LOG_DEBUG
-	}
-
-	if !strings.HasSuffix(cli.Input, ".osm") && !strings.HasSuffix(cli.Input, ".pbf") {
+func PreprocessData(inputFile string, outputFile string) {
+	if !strings.HasSuffix(inputFile, ".osm") && !strings.HasSuffix(inputFile, ".pbf") {
 		sigolo.Error("Input file must be an .osm or .pbf file")
 		os.Exit(1)
 	}
-	if !strings.HasSuffix(cli.Output, ".osm.pbf") {
+	if !strings.HasSuffix(outputFile, ".osm.pbf") {
 		sigolo.Error("Output file must be an .osm.pbf file")
 		os.Exit(1)
 	}
 
-	f, err := os.Open(cli.Input)
+	f, err := os.Open(inputFile)
 	sigolo.FatalCheck(err)
 	defer f.Close()
 
 	var scanner osm.Scanner
-	if strings.HasSuffix(cli.Input, ".osm") {
+	if strings.HasSuffix(inputFile, ".osm") {
 		scanner = osmxml.New(context.Background(), f)
-	} else if strings.HasSuffix(cli.Input, ".pbf") {
+	} else if strings.HasSuffix(inputFile, ".pbf") {
 		scanner = osmpbf.New(context.Background(), f, 1)
 	}
 	defer scanner.Close()
@@ -79,26 +66,7 @@ func main() {
 	err = scanner.Err()
 	sigolo.FatalCheck(err)
 
-	sigolo.Debug("Convert result to OSM XML")
-	outputXml, err := xml.Marshal(outputOsm)
-	sigolo.FatalCheck(err)
-
-	osmXmlOutputFile := path.Base(strings.TrimSuffix(cli.Output, ".osm.pbf")) + ".tmp.osm"
-	sigolo.Debug("Write result to temp file %s", osmXmlOutputFile)
-	err = os.WriteFile(osmXmlOutputFile, outputXml, 0644)
-	sigolo.FatalCheck(err)
-
-	sigolo.Debug("Convert written OSM-XML file to OSM-PBF file %s", cli.Output)
-	command := exec.Command("osmium", "cat", osmXmlOutputFile, "-o", cli.Output, "--overwrite")
-	sigolo.Debug("Call osmium: %s", command.String())
-	err = command.Run()
-	sigolo.FatalCheck(err)
-
-	sigolo.Debug("Remove temp file %s", osmXmlOutputFile)
-	err = os.Remove(osmXmlOutputFile)
-	sigolo.FatalCheck(err)
-
-	sigolo.Info("Done. Result feature written to %s", cli.Output)
+	common.WriteOsmToPbf(outputFile, &outputOsm)
 }
 
 func handleRelation(relation *osm.Relation, outputOsm *osm.OSM) {

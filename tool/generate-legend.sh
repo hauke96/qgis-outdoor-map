@@ -3,7 +3,7 @@
 LEGEND_SCHEMA_FILE="legend.json"
 OUTPUT="legend.pdf"
 
-go run main.go -d -i "$LEGEND_SCHEMA_FILE"
+go run main.go generate-legend -d "$LEGEND_SCHEMA_FILE"
 
 # Generate the raw PDF and crop it to the content
 # The large value of --virtual-time-budget is needed to enable rendering of the map canvas which takes some time.

@@ -1,24 +1,16 @@
-package main
+package legend_graphic
 
 import (
 	"encoding/json"
-	"encoding/xml"
-	"github.com/alecthomas/kong"
 	"github.com/hauke96/sigolo"
 	"github.com/paulmach/osm"
 	"os"
-	"os/exec"
-	"path"
 	"regexp"
 	"strconv"
 	"strings"
 	"time"
+	"tool/common"
 )
-
-var cli struct {
-	Debug bool   `help:"Enable debug mode." short:"d"`
-	Input string `help:"The input schema file." short:"i"`
-}
 
 const (
 	latOffset     = 0.001
@@ -26,7 +18,7 @@ const (
 	featureHeight = 0.0001
 	featureWidth  = 0.000225
 
-	outputFileName = "features.osm.pbf"
+	legendFeaturesFileName = "features.osm.pbf"
 
 	placeholderItems               = "__ITEMS__"
 	placeholderCategoryTitle       = "__CAT__"
@@ -42,8 +34,7 @@ const (
 )
 
 var (
-	idCounter        int64 = 1
-	categoryTemplate       = `			<h2>` + placeholderCategoryTitle + `</h2>
+	categoryTemplate = `			<h2>` + placeholderCategoryTitle + `</h2>
 			` + placeholderItems + `
 `
 	itemTemplate = `
@@ -98,10 +89,13 @@ func (i Item) getTags() osm.Tags {
 	return tags
 }
 
-func main() {
-	readCliArgs()
+func GenerateLegendGraphic(schemaFile string) {
+	if !strings.HasSuffix(schemaFile, ".json") {
+		sigolo.Error("Input file must be an .json file")
+		os.Exit(1)
+	}
 
-	schema := readSchemaFile()
+	schema := readSchemaFile(schemaFile)
 
 	outputOsm := osm.OSM{
 		Version: "0.6",
@@ -109,9 +103,9 @@ func main() {
 
 	createFeaturesFromSchema(schema, &outputOsm)
 
-	writeOsmToPbf(&outputOsm)
+	common.WriteOsmToPbf(legendFeaturesFileName, &outputOsm)
 
-	generateVectorTiles()
+	common.GenerateVectorTiles(legendFeaturesFileName)
 
 	generatedHtml := generateLegendHtmlItems(schema)
 
@@ -132,25 +126,12 @@ func main() {
 	createLegendHtmlFile(generatedHtml, additionalInfoHtml)
 }
 
-func readCliArgs() {
-	kong.Parse(&cli)
-
-	if cli.Debug {
-		sigolo.LogLevel = sigolo.LOG_DEBUG
-	}
-
-	if !strings.HasSuffix(cli.Input, ".json") {
-		sigolo.Error("Input file must be an .json file")
-		os.Exit(1)
-	}
-}
-
-func readSchemaFile() Schema {
-	schemaFile, err := os.ReadFile(cli.Input)
+func readSchemaFile(schemaFile string) Schema {
+	schemaFileBytes, err := os.ReadFile(schemaFile)
 	sigolo.FatalCheck(err)
 
 	schema := Schema{}
-	err = json.Unmarshal(schemaFile, &schema)
+	err = json.Unmarshal(schemaFileBytes, &schema)
 	sigolo.FatalCheck(err)
 
 	return schema
@@ -180,51 +161,29 @@ func addPolygon(originLon float64, offsetLon float64, originLat float64, offsetL
 	timestamp, err := time.Parse(time.RFC3339, time.Now().UTC().Format(time.RFC3339))
 	sigolo.FatalCheck(err)
 
-	nodeLowerLeft := toNode(originLon+offsetLon, originLat+offsetLat, nil, timestamp, outputOsm)
-	idCounter++
+	nodeLowerLeft := common.ToNode(originLon+offsetLon, originLat+offsetLat, nil, timestamp, outputOsm)
 
-	nodeUpperLeft := toNode(originLon+offsetLon, originLat+featureHeight+offsetLat, nil, timestamp, outputOsm)
-	idCounter++
+	nodeUpperLeft := common.ToNode(originLon+offsetLon, originLat+featureHeight+offsetLat, nil, timestamp, outputOsm)
 
-	nodeUpperRight := toNode(originLon+featureWidth+offsetLon, originLat+featureHeight+offsetLat, nil, timestamp, outputOsm)
-	idCounter++
+	nodeUpperRight := common.ToNode(originLon+featureWidth+offsetLon, originLat+featureHeight+offsetLat, nil, timestamp, outputOsm)
 
-	nodeLowerRight := toNode(originLon+featureWidth+offsetLon, originLat+offsetLat, nil, timestamp, outputOsm)
-	idCounter++
+	nodeLowerRight := common.ToNode(originLon+featureWidth+offsetLon, originLat+offsetLat, nil, timestamp, outputOsm)
+
+	nodes := osm.WayNodes{
+		common.ToWayNode(nodeLowerLeft),
+		common.ToWayNode(nodeUpperLeft),
+		common.ToWayNode(nodeUpperRight),
+		common.ToWayNode(nodeLowerRight),
+		common.ToWayNode(nodeLowerLeft),
+	}
 
 	if featurePerTag {
 		for _, tag := range tags {
-			way := &osm.Way{
-				ID:        osm.WayID(idCounter),
-				Version:   1,
-				Timestamp: timestamp,
-				Nodes: []osm.WayNode{
-					toWayNode(nodeLowerLeft),
-					toWayNode(nodeUpperLeft),
-					toWayNode(nodeUpperRight),
-					toWayNode(nodeLowerRight),
-					toWayNode(nodeLowerLeft),
-				},
-				Tags: []osm.Tag{tag},
-			}
-			idCounter++
+			way := common.ToWay(nodes, []osm.Tag{tag}, timestamp)
 			outputOsm.Append(way)
 		}
 	} else {
-		way := &osm.Way{
-			ID:        osm.WayID(idCounter),
-			Version:   1,
-			Timestamp: timestamp,
-			Nodes: []osm.WayNode{
-				toWayNode(nodeLowerLeft),
-				toWayNode(nodeUpperLeft),
-				toWayNode(nodeUpperRight),
-				toWayNode(nodeLowerRight),
-				toWayNode(nodeLowerLeft),
-			},
-			Tags: tags,
-		}
-		idCounter++
+		way := common.ToWay(nodes, tags, timestamp)
 		outputOsm.Append(way)
 	}
 }
@@ -233,39 +192,22 @@ func addLine(originLon float64, offsetLon float64, originLat float64, offsetLat 
 	timestamp, err := time.Parse(time.RFC3339, time.Now().UTC().Format(time.RFC3339))
 	sigolo.FatalCheck(err)
 
-	nodeLeft := toNode(originLon+offsetLon, originLat+featureHeight/2+offsetLat, nil, timestamp, outputOsm)
-	idCounter++
+	nodeLeft := common.ToNode(originLon+offsetLon, originLat+featureHeight/2+offsetLat, nil, timestamp, outputOsm)
 
-	nodeRight := toNode(originLon+featureWidth+offsetLon, originLat+featureHeight/2+offsetLat, nil, timestamp, outputOsm)
-	idCounter++
+	nodeRight := common.ToNode(originLon+featureWidth+offsetLon, originLat+featureHeight/2+offsetLat, nil, timestamp, outputOsm)
+
+	nodes := osm.WayNodes{
+		common.ToWayNode(nodeLeft),
+		common.ToWayNode(nodeRight),
+	}
 
 	if featurePerTag {
 		for _, tag := range tags {
-			way := &osm.Way{
-				ID:        osm.WayID(idCounter),
-				Version:   1,
-				Timestamp: timestamp,
-				Nodes: []osm.WayNode{
-					toWayNode(nodeLeft),
-					toWayNode(nodeRight),
-				},
-				Tags: []osm.Tag{tag},
-			}
-			idCounter++
+			way := common.ToWay(nodes, []osm.Tag{tag}, timestamp)
 			outputOsm.Append(way)
 		}
 	} else {
-		way := &osm.Way{
-			ID:        osm.WayID(idCounter),
-			Version:   1,
-			Timestamp: timestamp,
-			Nodes: []osm.WayNode{
-				toWayNode(nodeLeft),
-				toWayNode(nodeRight),
-			},
-			Tags: tags,
-		}
-		idCounter++
+		way := common.ToWay(nodes, tags, timestamp)
 		outputOsm.Append(way)
 	}
 }
@@ -276,76 +218,13 @@ func addPoint(originLon float64, offsetLon float64, originLat float64, offsetLat
 
 	if featurePerTag {
 		for _, tag := range tags {
-			node := toNode(originLon+featureWidth/2+offsetLon, originLat+featureHeight/2+offsetLat, []osm.Tag{tag}, timestamp, outputOsm)
-			idCounter++
+			node := common.ToNode(originLon+featureWidth/2+offsetLon, originLat+featureHeight/2+offsetLat, []osm.Tag{tag}, timestamp, outputOsm)
 			outputOsm.Append(&node)
 		}
 	} else {
-		node := toNode(originLon+featureWidth/2+offsetLon, originLat+featureHeight/2+offsetLat, tags, timestamp, outputOsm)
-		idCounter++
+		node := common.ToNode(originLon+featureWidth/2+offsetLon, originLat+featureHeight/2+offsetLat, tags, timestamp, outputOsm)
 		outputOsm.Append(&node)
 	}
-}
-
-func toNode(originLon float64, originLat float64, tags []osm.Tag, timestamp time.Time, outputOsm *osm.OSM) osm.Node {
-	node := osm.Node{
-		Version:   1,
-		ID:        osm.NodeID(idCounter),
-		Timestamp: timestamp,
-		Tags:      tags,
-		Lon:       originLon,
-		Lat:       originLat,
-	}
-	outputOsm.Append(&node)
-	return node
-}
-
-func toWayNode(node osm.Node) osm.WayNode {
-	return osm.WayNode{
-		ID:      node.ID,
-		Version: node.Version,
-		Lat:     node.Lat,
-		Lon:     node.Lon,
-	}
-}
-
-func writeOsmToPbf(outputOsm *osm.OSM) {
-	sigolo.Debug("Convert result to OSM XML")
-	outputXml, err := xml.Marshal(outputOsm)
-	sigolo.FatalCheck(err)
-
-	osmXmlOutputFile := "features.osm"
-	sigolo.Debug("Write result to temp file %s", osmXmlOutputFile)
-	err = os.WriteFile(osmXmlOutputFile, outputXml, 0644)
-	sigolo.FatalCheck(err)
-
-	sigolo.Debug("Convert written OSM-XML file to OSM-PBF file %s", outputFileName)
-	command := exec.Command("osmium", "cat", osmXmlOutputFile, "-o", outputFileName, "--overwrite")
-	sigolo.Debug("Call osmium: %s", command.String())
-	err = command.Run()
-	sigolo.FatalCheck(err)
-
-	sigolo.Debug("Remove temp file %s", osmXmlOutputFile)
-	err = os.Remove(osmXmlOutputFile)
-	sigolo.FatalCheck(err)
-
-	sigolo.Info("Feature written to %s", outputFileName)
-}
-
-func generateVectorTiles() {
-	sigolo.Info("Generate tiles from generated OSM-PBF")
-
-	currentWorkingDir, err := os.Getwd()
-	sigolo.FatalCheck(err)
-
-	osmPbfFile := currentWorkingDir + "/" + outputFileName
-	sigolo.Debug("Build make-tiles command with PBF file %s", osmPbfFile)
-	command := exec.Command("bash", "make-tiles.sh", osmPbfFile)
-	command.Dir = strings.TrimSuffix(currentWorkingDir, path.Base(currentWorkingDir))
-
-	sigolo.Debug("Call make-tiles.sh script to create tiles of generated features")
-	err = command.Run()
-	sigolo.FatalCheck(err)
 }
 
 func generateLegendHtmlItems(schema Schema) string {

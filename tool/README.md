@@ -1,3 +1,19 @@
+# Preprocessor
+
+This project adds additional data to the OSM data for better rendering.
+This includes:
+
+* Nodes at centroids of polygons (e.g. lakes)
+
+## Usage
+
+Call this script `go run main.go preprocessing data.osm.pbf output.osm`.
+The input file can either be `.osm` or `.pbf` but the output format is `.osm.pbf`.
+
+## TODOs
+
+# Legend graphic generator
+
 This project generates a legend graphic as PDF file based on a schema definition in JSON form.
 
 ## Schema

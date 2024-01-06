@@ -25,7 +25,7 @@ The Maputnik desktop tool will automatically save everything to the JSON style f
 ## Generate legend graphic
 
 The legend graphic is a generated PDF file.
-See [`legend-graphic` folder](./legend-graphic) for further documentation.
+See [`legend-graphic` folder](./tool) for further documentation.
 
 ## Style usage in QGIS
 
@@ -52,8 +52,8 @@ Solution: Use a private-browsing window and open Maputnik there. Whenever the ti
   * large lake: large font, wide letter spaces, bold
   * mid lake: mid sized font, slight letter space, bold
   * small lake: regular font, no letter space, regular font
-* Maybe merge preprocessor and legend-graphic generator? They do use some common code.
 * Motorway
+* Rename git-repo since it's not a QGIS-based map anymore
 
 ---
 

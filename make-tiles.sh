@@ -34,8 +34,8 @@ cp $1 $TMP_INPUT
 
 # Run preprocessing script
 log "Run preprocessor on input data"
-cd preprocessor
-go run main.go -i "$TMP_INPUT" -o "$TMP_DATA"
+cd tool
+go run main.go preprocessing "$TMP_INPUT" "$TMP_DATA"
 
 # Create tiles
 log "Go back to $SRC_DIR"
