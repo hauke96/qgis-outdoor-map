@@ -108,21 +108,8 @@ func GenerateLegendGraphic(schemaFile string) {
 	common.GenerateVectorTiles(legendFeaturesFileName)
 
 	generatedHtml := generateLegendHtmlItems(schema)
-
-	if len(schema.AdditionalInfos) > 0 {
-		sigolo.Debug("Generate HTML for additional information")
-	} else {
-		sigolo.Debug("No additional information found")
-	}
-	additionalInfoHtml := ""
-	for _, info := range schema.AdditionalInfos {
-		sigolo.Debug("Generate HTML for additional info section '%s'", info.Title)
-		infoHtml := additionalInfoTemplate
-		infoHtml = strings.Replace(infoHtml, placeholderAdditionalInfoTitle, info.Title, 1)
-		infoHtml = strings.Replace(infoHtml, placeholderAdditionalInfoHtml, info.Html, 1)
-		additionalInfoHtml += infoHtml
-	}
-
+	additionalInfoHtml := generateAdditionalInfoHtml(schema)
+	
 	createLegendHtmlFile(generatedHtml, additionalInfoHtml)
 }
 
@@ -267,6 +254,26 @@ func generateLegendHtmlItems(schema Schema) string {
 	generatedHtml += strings.Replace(generatedCategoryHtml, placeholderItems, generatedItem, 1)
 
 	return generatedHtml
+}
+
+func generateAdditionalInfoHtml(schema Schema) string {
+	if len(schema.AdditionalInfos) > 0 {
+		sigolo.Debug("Generate HTML for additional information")
+	} else {
+		sigolo.Debug("No additional information found")
+	}
+
+	additionalInfoHtml := ""
+
+	for _, info := range schema.AdditionalInfos {
+		sigolo.Debug("Generate HTML for additional info section '%s'", info.Title)
+		infoHtml := additionalInfoTemplate
+		infoHtml = strings.Replace(infoHtml, placeholderAdditionalInfoTitle, info.Title, 1)
+		infoHtml = strings.Replace(infoHtml, placeholderAdditionalInfoHtml, info.Html, 1)
+		additionalInfoHtml += infoHtml
+	}
+
+	return additionalInfoHtml
 }
 
 func createLegendHtmlFile(generatedHtml string, additionalInfoHtml string) {
