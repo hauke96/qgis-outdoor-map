@@ -109,7 +109,7 @@ func GenerateLegendGraphic(schemaFile string) {
 
 	generatedHtml := generateLegendHtmlItems(schema)
 	additionalInfoHtml := generateAdditionalInfoHtml(schema)
-	
+
 	createLegendHtmlFile(generatedHtml, additionalInfoHtml)
 }
 
