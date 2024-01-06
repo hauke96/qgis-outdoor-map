@@ -34,7 +34,7 @@ const (
 )
 
 var (
-	categoryTemplate = `			<h2>` + placeholderCategoryTitle + `</h2>
+	categoryTemplate = `			<h3>` + placeholderCategoryTitle + `</h3>
 			` + placeholderItems + `
 `
 	itemTemplate = `
