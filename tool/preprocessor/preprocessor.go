@@ -12,7 +12,6 @@ import (
 	"github.com/paulmach/osm/osmxml"
 	"os"
 	"strings"
-	"time"
 	"tool/common"
 )
 
@@ -168,7 +167,13 @@ func handleWay(way *osm.Way, outputOsm *osm.OSM) {
 		return
 	}
 
-	handleNodeCloud(nodes, way.Tags, outputOsm)
+	// Handling of some special cases where certain ways should be converted into point features
+	if way.Tags.Find("waterway") == "waterfall" {
+		centroid, _ := determineCentroidLocation(way.LineString())
+		common.AddNode(centroid.Lon(), centroid.Lat(), way.Tags, common.GetTimestamp(), outputOsm)
+	} else {
+		handleNodeCloud(nodes, way.Tags, outputOsm)
+	}
 }
 
 // handleNodeCloud processed the given nodes, determines a potential centroid and creates a new node if needed. This
@@ -194,14 +199,10 @@ func handleNodeCloud(nodes osm.WayNodes, originalTags osm.Tags, outputOsm *osm.O
 		tags = append(tags, osm.Tag{Key: k, Value: v.(string)})
 	}
 
-	// Osmium only supports this format, so we basically make the time less accurate so that no millis are serialized
-	timestamp, err := time.Parse(time.RFC3339, time.Now().UTC().Format(time.RFC3339))
-	sigolo.FatalCheck(err)
-
 	node := &osm.Node{
 		Version:   1,
 		ID:        osm.NodeID(nodeIdCounter),
-		Timestamp: timestamp,
+		Timestamp: common.GetTimestamp(),
 		Tags:      tags,
 		Lon:       centroid.Geometry.(orb.Point).Lon(),
 		Lat:       centroid.Geometry.(orb.Point).Lat(),
@@ -230,7 +231,7 @@ func tagsToPropertyMap(tags osm.Tags) map[string]interface{} {
 }
 
 func determineCentroidFeature(geometry orb.Geometry, originalTags map[string]interface{}) *geojson.Feature {
-	centroidLocation, _ := planar.CentroidArea(geometry)
+	centroidLocation, _ := determineCentroidLocation(geometry)
 
 	labelCategory := "natural"
 	labelType := getValue(originalTags, "natural")
@@ -274,6 +275,10 @@ func determineCentroidFeature(geometry orb.Geometry, originalTags map[string]int
 		Properties: tags,
 	}
 	return centroid
+}
+
+func determineCentroidLocation(geometry orb.Geometry) (orb.Point, float64) {
+	return planar.CentroidArea(geometry)
 }
 
 func getValue(tags map[string]interface{}, key string) interface{} {

@@ -8,7 +8,6 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
-	"time"
 	"tool/common"
 )
 
@@ -145,16 +144,15 @@ func createFeaturesFromSchema(schema Schema, outputOsm *osm.OSM) {
 }
 
 func addPolygon(originLon float64, offsetLon float64, originLat float64, offsetLat float64, tags []osm.Tag, featurePerTag bool, outputOsm *osm.OSM) {
-	timestamp, err := time.Parse(time.RFC3339, time.Now().UTC().Format(time.RFC3339))
-	sigolo.FatalCheck(err)
+	timestamp := common.GetTimestamp()
 
-	nodeLowerLeft := common.ToNode(originLon+offsetLon, originLat+offsetLat, nil, timestamp, outputOsm)
+	nodeLowerLeft := common.AddNode(originLon+offsetLon, originLat+offsetLat, nil, timestamp, outputOsm)
 
-	nodeUpperLeft := common.ToNode(originLon+offsetLon, originLat+featureHeight+offsetLat, nil, timestamp, outputOsm)
+	nodeUpperLeft := common.AddNode(originLon+offsetLon, originLat+featureHeight+offsetLat, nil, timestamp, outputOsm)
 
-	nodeUpperRight := common.ToNode(originLon+featureWidth+offsetLon, originLat+featureHeight+offsetLat, nil, timestamp, outputOsm)
+	nodeUpperRight := common.AddNode(originLon+featureWidth+offsetLon, originLat+featureHeight+offsetLat, nil, timestamp, outputOsm)
 
-	nodeLowerRight := common.ToNode(originLon+featureWidth+offsetLon, originLat+offsetLat, nil, timestamp, outputOsm)
+	nodeLowerRight := common.AddNode(originLon+featureWidth+offsetLon, originLat+offsetLat, nil, timestamp, outputOsm)
 
 	nodes := osm.WayNodes{
 		common.ToWayNode(nodeLowerLeft),
@@ -166,22 +164,19 @@ func addPolygon(originLon float64, offsetLon float64, originLat float64, offsetL
 
 	if featurePerTag {
 		for _, tag := range tags {
-			way := common.ToWay(nodes, []osm.Tag{tag}, timestamp)
-			outputOsm.Append(way)
+			common.AddWay(nodes, []osm.Tag{tag}, timestamp, outputOsm)
 		}
 	} else {
-		way := common.ToWay(nodes, tags, timestamp)
-		outputOsm.Append(way)
+		common.AddWay(nodes, tags, timestamp, outputOsm)
 	}
 }
 
 func addLine(originLon float64, offsetLon float64, originLat float64, offsetLat float64, tags []osm.Tag, featurePerTag bool, outputOsm *osm.OSM) {
-	timestamp, err := time.Parse(time.RFC3339, time.Now().UTC().Format(time.RFC3339))
-	sigolo.FatalCheck(err)
+	timestamp := common.GetTimestamp()
 
-	nodeLeft := common.ToNode(originLon+offsetLon, originLat+featureHeight/2+offsetLat, nil, timestamp, outputOsm)
+	nodeLeft := common.AddNode(originLon+offsetLon, originLat+featureHeight/2+offsetLat, nil, timestamp, outputOsm)
 
-	nodeRight := common.ToNode(originLon+featureWidth+offsetLon, originLat+featureHeight/2+offsetLat, nil, timestamp, outputOsm)
+	nodeRight := common.AddNode(originLon+featureWidth+offsetLon, originLat+featureHeight/2+offsetLat, nil, timestamp, outputOsm)
 
 	nodes := osm.WayNodes{
 		common.ToWayNode(nodeLeft),
@@ -190,26 +185,23 @@ func addLine(originLon float64, offsetLon float64, originLat float64, offsetLat 
 
 	if featurePerTag {
 		for _, tag := range tags {
-			way := common.ToWay(nodes, []osm.Tag{tag}, timestamp)
-			outputOsm.Append(way)
+			common.AddWay(nodes, []osm.Tag{tag}, timestamp, outputOsm)
 		}
 	} else {
-		way := common.ToWay(nodes, tags, timestamp)
-		outputOsm.Append(way)
+		common.AddWay(nodes, tags, timestamp, outputOsm)
 	}
 }
 
 func addPoint(originLon float64, offsetLon float64, originLat float64, offsetLat float64, tags []osm.Tag, featurePerTag bool, outputOsm *osm.OSM) {
-	timestamp, err := time.Parse(time.RFC3339, time.Now().UTC().Format(time.RFC3339))
-	sigolo.FatalCheck(err)
+	timestamp := common.GetTimestamp()
 
 	if featurePerTag {
 		for _, tag := range tags {
-			node := common.ToNode(originLon+featureWidth/2+offsetLon, originLat+featureHeight/2+offsetLat, []osm.Tag{tag}, timestamp, outputOsm)
+			node := common.AddNode(originLon+featureWidth/2+offsetLon, originLat+featureHeight/2+offsetLat, []osm.Tag{tag}, timestamp, outputOsm)
 			outputOsm.Append(&node)
 		}
 	} else {
-		node := common.ToNode(originLon+featureWidth/2+offsetLon, originLat+featureHeight/2+offsetLat, tags, timestamp, outputOsm)
+		node := common.AddNode(originLon+featureWidth/2+offsetLon, originLat+featureHeight/2+offsetLat, tags, timestamp, outputOsm)
 		outputOsm.Append(&node)
 	}
 }

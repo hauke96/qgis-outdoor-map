@@ -15,7 +15,7 @@ var (
 	osmObjIdCounter int64 = 1
 )
 
-func ToNode(originLon float64, originLat float64, tags []osm.Tag, timestamp time.Time, outputOsm *osm.OSM) osm.Node {
+func AddNode(originLon float64, originLat float64, tags []osm.Tag, timestamp time.Time, outputOsm *osm.OSM) osm.Node {
 	node := osm.Node{
 		Version:   1,
 		ID:        osm.NodeID(osmObjIdCounter),
@@ -29,7 +29,7 @@ func ToNode(originLon float64, originLat float64, tags []osm.Tag, timestamp time
 	return node
 }
 
-func ToWay(nodes osm.WayNodes, tags osm.Tags, timestamp time.Time) *osm.Way {
+func AddWay(nodes osm.WayNodes, tags osm.Tags, timestamp time.Time, outputOsm *osm.OSM) *osm.Way {
 	way := &osm.Way{
 		ID:        osm.WayID(osmObjIdCounter),
 		Version:   1,
@@ -38,6 +38,7 @@ func ToWay(nodes osm.WayNodes, tags osm.Tags, timestamp time.Time) *osm.Way {
 		Tags:      tags,
 	}
 	osmObjIdCounter++
+	outputOsm.Append(way)
 	return way
 }
 
@@ -87,4 +88,11 @@ func GenerateVectorTiles(pbfFileName string) {
 	sigolo.Debug("Call make-tiles.sh script to create tiles of generated features")
 	err = command.Run()
 	sigolo.FatalCheck(err)
+}
+
+func GetTimestamp() time.Time {
+	// Osmium only supports this format, so we basically make the time less accurate so that no millis are serialized
+	timestamp, err := time.Parse(time.RFC3339, time.Now().UTC().Format(time.RFC3339))
+	sigolo.FatalCheck(err)
+	return timestamp
 }
