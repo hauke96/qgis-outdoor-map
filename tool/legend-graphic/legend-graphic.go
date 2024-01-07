@@ -71,8 +71,8 @@ type Item struct {
 	FeaturePerTag bool        `json:"feature-per-tag"`
 	FeatureType   string      `json:"type"`
 	Description   string      `json:"description"`
-	OffsetLat     float64     `json:"offset-lataa"`
-	OffsetLon     float64     `json:"offset-lonaa"`
+	OffsetLat     float64     `json:"offset-lat"`
+	OffsetLon     float64     `json:"offset-lon"`
 }
 
 type AdditionalInfo struct {
@@ -221,8 +221,8 @@ func generateLegendHtmlItems(schema Schema) string {
 			generatedItem = strings.ReplaceAll(generatedItem, placeholderCategoryId, textToItemId(category.Title))
 			generatedItem = strings.ReplaceAll(generatedItem, placeholderItemId, textToItemId(item.Description))
 			generatedItem = strings.ReplaceAll(generatedItem, placeholderItemDesc, item.Description)
-			generatedItem = strings.ReplaceAll(generatedItem, placeholderItemLon, strconv.FormatFloat(float64(i)*lonOffset+featureWidth/2.0+item.OffsetLon, 'f', -1, 64))
-			generatedItem = strings.ReplaceAll(generatedItem, placeholderItemLat, strconv.FormatFloat(float64(j)*latOffset+featureHeight/2.0+item.OffsetLat, 'f', -1, 64))
+			generatedItem = strings.ReplaceAll(generatedItem, placeholderItemLon, strconv.FormatFloat(float64(i)*lonOffset+featureWidth/2.0, 'f', -1, 64))
+			generatedItem = strings.ReplaceAll(generatedItem, placeholderItemLat, strconv.FormatFloat(float64(j)*latOffset+featureHeight/2.0, 'f', -1, 64))
 			generatedItem = strings.ReplaceAll(generatedItem, placeholderItemZoom, "undefined")
 
 			generatedItemsHtml += generatedItem
