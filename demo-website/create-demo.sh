@@ -13,7 +13,7 @@ echo "Copy style"
 cp ../style.json $OUTPUT/
 
 echo "Adjust URL in style"
-sed -i 's/http:\/\/localhost:8000/https:\/\/hauke-stieler.de\/public\/maps\/osm-outdoor-map-demo/g' $OUTPUT/style.json
+sed -i 's/http:\/\/localhost:8000/https:\/\/hauke-stieler.de\/public\/maps\/outdoor-hiking-map-demo/g' $OUTPUT/style.json
 
 echo "Copy index.html"
 cp index.html $OUTPUT/
