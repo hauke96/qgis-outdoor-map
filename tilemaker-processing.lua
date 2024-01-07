@@ -1,11 +1,12 @@
 -- Nodes will only be processed if one of these keys is present
 node_keys = {
 	"amenity",
+	"label",
 	"natural",
+	"place",
 	"railway",
 	"shop",
-	"label",
-	"place"
+	"waterway"
 }
 
 -- Route attributes to copy
@@ -24,9 +25,10 @@ function node_function(node)
 	local amenity = node:Find("amenity")
 	local shop = node:Find("shop")
 	local natural = node:Find("natural")
-	if amenity ~= "" or shop ~= "" or natural ~= "" then
+	local waterway = node:Find("waterway")
+	if amenity ~= "" or shop ~= "" or natural ~= "" or waterway ~= "" then
 		node:Layer("poi", false)
-		add_tag(node, "name", "amenity", "shop", "natural", "ele")
+		add_tag(node, "name", "amenity", "shop", "natural", "ele", "waterway")
 	end
 
 	local label = node:Find("label")

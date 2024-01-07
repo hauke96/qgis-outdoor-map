@@ -34,6 +34,27 @@
     "width": 32,
     "pixelRatio": 3
   },
+  "spring": {
+    "x": 10,
+    "y": 48,
+    "height": 32,
+    "width": 32,
+    "pixelRatio": 3
+  },
+  "waterfall": {
+    "x": 10,
+    "y": 80,
+    "height": 32,
+    "width": 32,
+    "pixelRatio": 2.25
+  },
+  "drinking_water": {
+    "x": 10,
+    "y": 112,
+    "height": 32,
+    "width": 32,
+    "pixelRatio": 2.25
+  },
   "cliff": {
     "x": 18,
     "y": 32,

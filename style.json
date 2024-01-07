@@ -1428,6 +1428,113 @@
       }
     },
     {
+      "id": "poi_waterfall",
+      "type": "symbol",
+      "source": "localhost",
+      "source-layer": "poi",
+      "minzoom": 12,
+      "filter": [
+        "all",
+        [
+          "==",
+          "waterway",
+          "waterfall"
+        ]
+      ],
+      "layout": {
+        "icon-image": "waterfall",
+        "text-field": "{name}",
+        "text-font": [
+          "Open Sans Regular"
+        ],
+        "text-size": 10,
+        "text-anchor": "top",
+        "symbol-placement": "point"
+      },
+      "paint": {
+        "text-color": "rgba(36, 126, 185, 1)",
+        "text-halo-color": "rgba(255, 255, 255, 0.75)",
+        "text-halo-width": 2,
+        "text-translate": [
+          0,
+          6
+        ]
+      }
+    },
+    {
+      "id": "poi_spring",
+      "type": "symbol",
+      "source": "localhost",
+      "source-layer": "poi",
+      "minzoom": 14,
+      "filter": [
+        "all",
+        [
+          "==",
+          "natural",
+          "spring"
+        ]
+      ],
+      "layout": {
+        "icon-image": "spring",
+        "text-field": "{name}",
+        "text-font": [
+          "Open Sans Regular"
+        ],
+        "text-size": 10,
+        "text-anchor": "top",
+        "symbol-placement": "point"
+      },
+      "paint": {
+        "text-color": "rgba(36, 126, 185, 1)",
+        "text-halo-color": "rgba(255, 255, 255, 0.75)",
+        "text-halo-width": 2,
+        "text-translate": [
+          0,
+          6
+        ]
+      }
+    },
+    {
+      "id": "poi_drinking-water",
+      "type": "symbol",
+      "source": "localhost",
+      "source-layer": "poi",
+      "minzoom": 12,
+      "filter": [
+        "any",
+        [
+          "==",
+          "amenity",
+          "drinking_water"
+        ],
+        [
+          "==",
+          "amenity",
+          "water_point"
+        ]
+      ],
+      "layout": {
+        "icon-image": "drinking_water",
+        "text-field": "{name}",
+        "text-font": [
+          "Open Sans Regular"
+        ],
+        "text-size": 10,
+        "text-anchor": "top",
+        "symbol-placement": "point"
+      },
+      "paint": {
+        "text-color": "rgba(36, 126, 185, 1)",
+        "text-halo-color": "rgba(255, 255, 255, 0.75)",
+        "text-halo-width": 2,
+        "text-translate": [
+          0,
+          6
+        ]
+      }
+    },
+    {
       "id": "poi_peak",
       "type": "symbol",
       "source": "localhost",
