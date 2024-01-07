@@ -405,7 +405,8 @@
             ]
           ],
           "type": "point",
-          "description": "Railway station"
+          "description": "Railway station",
+          "offset-lat": 0.00001
         },
         {
           "tags": [
@@ -419,7 +420,8 @@
             ]
           ],
           "type": "point",
-          "description": "Railway halt"
+          "description": "Railway halt",
+          "offset-lat": 0.00001
         },
         {
           "tags": [
@@ -459,7 +461,37 @@
           ],
           "type": "point",
           "description": "Mountain summit",
-          "offset-lat": 0.00003
+          "offset-lat": 0.000005
+        },
+        {
+          "tags": [
+            [
+              "waterway",
+              "waterfall"
+            ]
+          ],
+          "type": "point",
+          "description": "Waterfall"
+        },
+        {
+          "tags": [
+            [
+              "natural",
+              "spring"
+            ]
+          ],
+          "type": "point",
+          "description": "Spring"
+        },
+        {
+          "tags": [
+            [
+              "amenity",
+              "drinking_water"
+            ]
+          ],
+          "type": "point",
+          "description": "Drinking water source"
         }
       ]
     }
