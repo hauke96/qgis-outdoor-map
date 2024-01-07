@@ -1552,7 +1552,7 @@
         "text-font": [
           "Open Sans Regular"
         ],
-        "text-field": "{name} {ele}m",
+        "text-field": "{name}",
         "text-size": 10,
         "text-anchor": "top",
         "symbol-placement": "point",
