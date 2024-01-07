@@ -53,6 +53,7 @@ func PreprocessData(inputFile string, outputFile string) {
 		switch osmObj := obj.(type) {
 		case *osm.Node:
 			inputNodes[osmObj.ID] = osmObj
+			handleNode(osmObj)
 		case *osm.Way:
 			inputWays[osmObj.ID] = osmObj
 			handleWay(osmObj, &outputOsm)
@@ -152,6 +153,40 @@ func handleRelation(relation *osm.Relation, outputOsm *osm.OSM) {
 		// Do not use handleWays, since we have more like a point cloud here because we do not know (and care)
 		// about the order of the ways.
 		handleNodeCloud(allNodesOfRing, relation.Tags, outputOsm)
+	}
+}
+
+func handleNode(node *osm.Node) {
+	sigolo.Debug("Handle node %d", node.ID)
+
+	if node.Tags.Find("natural") == "peak" {
+		name := node.Tags.Find("name")
+		ele := node.Tags.Find("ele")
+
+		newName := ""
+		if name != "" {
+			newName = name
+		}
+		if ele != "" {
+			ele = ele + "m"
+			if newName == "" {
+				newName = ele
+			} else {
+				newName += " " + ele
+			}
+		}
+
+		if newName != "" {
+			nameTag := node.Tags.FindTag("name")
+			if nameTag != nil {
+				nameTag.Value = newName
+			} else {
+				node.Tags = append(node.Tags, osm.Tag{
+					Key:   "name",
+					Value: newName,
+				})
+			}
+		}
 	}
 }
 
