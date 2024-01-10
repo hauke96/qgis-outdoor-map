@@ -1,9 +1,14 @@
+This golang project implements some additional tools that are needed for a good-looking outdoor map.
+
 # Preprocessor
 
 This project adds additional data to the OSM data for better rendering.
 This includes:
 
-* Nodes at centroids of polygons (e.g. lakes)
+* Nodes at centroids of polygons and multi-polygon rings (e.g. lakes)
+* Adjusting tags of nodes
+  * Adding proper names to mountain peaks (merge of name and elevation)
+* Merge certain ways into a node for better rendering (e.g. waterfalls for a single icon and label position)
 
 ## Usage
 
@@ -57,5 +62,3 @@ cat ../style.json | grep "\"id\"" | sed 's/.*"id": "//g' | sed 's/",.*$//g'
 ```
 
 ## TODOs
-
-* Add fields for additional information (map title, description, copyright, etc.)

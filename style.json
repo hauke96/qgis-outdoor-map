@@ -962,7 +962,9 @@
         "icon-image": "via_ferrata",
         "icon-rotate": 90,
         "symbol-spacing": 1,
-        "icon-ignore-placement": true
+        "icon-ignore-placement": true,
+        "icon-allow-overlap": true,
+        "icon-anchor": "center"
       }
     },
     {
