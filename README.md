@@ -23,9 +23,9 @@ Script for pre-defined areas:
 
 ### 2. Create vector tiles from PBF file
 
-Not needed, when the `import-data.sh` script was used to download the OSM data.
+This step is not needed, when the `import-data.sh` script was used to download the OSM data.
 
-If you have a `.osm.pbf` file you want to use, just call the `make-tiles.sh data.osm.pbf` script.
+If want to generate tiles from a given `data.osm.pbf` file, just call the `make-tiles.sh data.osm.pbf` script.
 It calls the preprocessor to prepare the data, removes the `./tiles` folder, recreates it and fills it with XYZ vector tiles in PBF format.
 
 ### 3. Serve tiles locally
@@ -36,7 +36,7 @@ Tiles need to be served from `http://localhost:8000/tiles` and sprites from `...
 Use the `serve.sh` script to start the tile server and Maputnik.
 No parameters are needed, since the script uses the `./style.json` with the tile and sprite URLs defined in there.
 
-The Maputnik desktop tool is started as well and will automatically save everything to the `style.json` file.
+The Maputnik desktop tool is started as well (→ http://localhost:8080) and will automatically save everything to the `style.json` file.
 
 You're now done with the setup and can proceed with editing the style.
 
@@ -48,7 +48,7 @@ When using the `serve.sh` script, then Maputnik is available under http://localh
 
 ### Maputnik shows old tiles
 
-**Problem:** Maputnik doesn't use the newly generated tiles, data is missing or something else is not up-to-date.
+**Problem:** Sometimes, Maputnik doesn't show newly generated tiles, data is missing or something else is not up-to-date.
 
 **Solution:** Use a single(!) private-browsing window (incognito-mode or whatever your browser calls it) and open Maputnik there to prevent the browser from using any old caches. Whenever the tiles change, close that window and restart Maputnik in a new private-browsing window.
 
