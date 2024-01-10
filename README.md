@@ -1,27 +1,34 @@
-# Outdoor map style
+# Outdoor hiking map
 
-This repo contains a Mapbox style file for an OSM-based outdoor map focussed on hiking and trekking.
+A mapbox-style for an OSM-based outdoor map focussed on hiking and trekking.
 PBF vector tiles are used (generated with Tilemaker) and styled via Maputnik.
+QGIS can then be used to create a printable map layout.
 
-## Online example
+### Online example
 
 Take a look at https://hauke-stieler.de/public/maps/outdoor-hiking-map-demo for a live-demo of a (more or less) up-to-date state of the style.
 
-## Download data
+## Local setup
+
+### 1. Download data
 
 Just download/prepare any `.osm.pbf` file yourself or use the following script for certain pre-defined areas.
 
 Script for pre-defined areas:
 
 1. Go into `data` folder
-2. Execute `import-data.sh` script with one of the given area names. They are all listed at the bottom of the script.
+2. Execute `import-data.sh` script (requires `osmium`) with one of the given area names. They are all listed at the bottom of the script.
+   * This script downloads the data and crops it to the extent of the given region.
+   * This script also calls the `make-tile.sh` script, so the next section is not necessary.
 
-## Create vector tiles from PBF file
+### 2. Create vector tiles from PBF file
 
-Just call the `make-tiles.sh data.osm.pbf` script.
+Not needed, when the `import-data.sh` script was used to download the OSM data.
+
+If you have a `.osm.pbf` file you want to use, just call the `make-tiles.sh data.osm.pbf` script.
 It calls the preprocessor to prepare the data, removes the `./tiles` folder, recreates it and fills it with XYZ vector tiles in PBF format.
 
-## Serve tiles locally
+### 3. Serve tiles locally
 
 The `serve.sh` is used to host a) the tiles, sprites, etc. and b) the Maputnik application.
 
@@ -31,9 +38,13 @@ No parameters are needed, since the script uses the `./style.json` with the tile
 
 The Maputnik desktop tool is started as well and will automatically save everything to the `style.json` file.
 
+You're now done with the setup and can proceed with editing the style.
+
 ## Edit style with Maputnik
 
 Take a look at Maputnik and Tilemaker if you're not familiar with those tools.
+
+When using the `serve.sh` script, then Maputnik is available under http://localhost:8080.
 
 ### Maputnik shows old tiles
 
@@ -49,20 +60,21 @@ Take a look at Maputnik and Tilemaker if you're not familiar with those tools.
 * **Orientate yourself by the [2014 material design color palette](https://material.io/design/color/the-color-system.html#tools-for-picking-colors).** These colors work quite well but I sometimes change some parameters of the color where appropriate. But if such a color works, then take it.
 * **Sprites should be of high quality.** When possible, create large sprites and then use the scale factor to scale them down for the map. This ensures sharp icons and the possibility for hires maps.
 
-_More guidelines will be added over time._ 
+_More guidelines will be added over time._
 
-## Generate legend graphic
+## Print maps
 
-The legend graphic is a PDF file generated using a JSON schema file.
-See [`tool` folder documentation](./tool/README.md) for further documentation.
+QGIS can be used to create printable maps by loading the style and creating print layouts.
+This requires the ["Vector Tiles Reader" plugin](https://plugins.qgis.org/plugins/vector_tiles_reader/) to be able to load the style file and convert it into a QGIS style.
+Unfortunately this doesn't allow QGIS to generate a legend graphic, which is why a beautiful legend graphic can be generated as described below.
 
-## Style usage in QGIS
+### Style usage in QGIS
 
 The `qgis-map.qgz` file contains layer for the locally hosted vector tiles as well as hillshading and contour lines.
 
 **Pro-tip:** It can also be used to (a bit poorly) create Carto-OSM map with hillshading and contour lines ;)
 
-### Updating QGIS style
+#### Updating QGIS style
 
 Note that the style must be updated manually:
 
@@ -73,12 +85,21 @@ Note that the style must be updated manually:
 5. Select the `style.json` file
 6. Done
 
-### Known problems with QGIS rendering
+#### Known problems with QGIS rendering
 
 * Offsets are reversed. Example: Protected areas have a shading which is done by an offset to the inside of the polygon but in QGIS it's towards the outside.
 * Repeating icons aren't always working and QGIS sometimes just places the icon on the center of the line.
 
-# TODOs
+### Generate legend graphic
+
+The legend graphic is a PDF file generated using a JSON schema file.
+See [`tool` folder documentation](./tool/README.md) for further documentation.
+
+### Create a print layout
+
+TODO (but basically just use the QGIS feature and embed the legend graphic PDF as image)
+
+## TODOs
 
 * Bus stations
 * Label style of lakes based on their size
