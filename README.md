@@ -89,6 +89,7 @@ Note that the style must be updated manually:
 
 * Offsets are reversed. Example: Protected areas have a shading which is done by an offset to the inside of the polygon but in QGIS it's towards the outside.
 * Repeating icons aren't always working and QGIS sometimes just places the icon on the center of the line.
+* Hillshading and contour lines are always above everything else of the map. This is, because QGIS only creates a simple style from the `style.json` file but not separate layers as seen in Maputnik.
 
 ### Generate legend graphic
 
