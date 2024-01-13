@@ -61,4 +61,10 @@ Unfortunately, this list and the list of entries differ a lot (in number of entr
 cat ../style.json | grep "\"id\"" | sed 's/.*"id": "//g' | sed 's/",.*$//g'
 ```
 
-## TODOs
+# Tile proxy
+
+Because `tileserver-gl` (at least version 4.7.0) is unable to render WebP-based raster tiles for hillshading, the `tile-proxy` command starts a proxy server that is able to convert WebP images into PNG images, which are then usable by tileserver-gl. 
+
+# TODOs
+
+(currently no TODOs are known for the tool)

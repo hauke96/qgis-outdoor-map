@@ -10,6 +10,22 @@ Take a look at https://hauke-stieler.de/public/maps/outdoor-hiking-map-demo for 
 
 ## Local setup
 
+### 0. Prerequisites
+
+First of all:
+This whole setup is **Linux-based**.
+
+Software that needs to be installed. These are the CLI commands that need to be available:
+
+To generate and edit the style:
+
+* `tilemaker`
+* `tileserver-gl`
+* `go` (golang)
+* `maputnik` (I use the desktop tool, the ArchLinux package is called `maputnik-cli`)
+* `osmosis`
+* Optional: `qgis` (to create printable PDF maps)
+
 ### 1. Download data
 
 Just download/prepare any `.osm.pbf` file yourself or use the following script for certain pre-defined areas.
@@ -30,13 +46,16 @@ It calls the preprocessor to prepare the data, removes the `./tiles` folder, rec
 
 ### 3. Serve tiles locally
 
-The `serve.sh` is used to host a) the tiles, sprites, etc. and b) the Maputnik application.
+The `serve.sh` is used to host a) the tiles, sprites, b) starts the Maputnik application and c) also starts the tile-proxy for the MapTiler hillshading service.
 
-Tiles need to be served from `http://localhost:8000/tiles` and sprites from `.../sprites` in order to be used with Maputnik.
-Use the `serve.sh` script to start the tile server and Maputnik.
+Tiles and sprites need to be serves from specific URLs (see `style.json` for URLs) in order to be used with Maputnik.
+Use the `serve.sh` script to start the tile server (port 7000) and Maputnik (port 8080).
 No parameters are needed, since the script uses the `./style.json` with the tile and sprite URLs defined in there.
 
 The Maputnik desktop tool is started as well (→ http://localhost:8080) and will automatically save everything to the `style.json` file.
+
+The tile-proxy for the MapTiler hillshade service is needed, because `tileserver-gl` cannot handle WebP images and the hillshade service doesn't serve PNG images.
+Therefore, the sole purpose of the proxy is to convert WebP images into PNG and serve them as XYZ-tiles.
 
 You're now done with the setup and can proceed with editing the style.
 
@@ -114,6 +133,7 @@ TODO (but basically just use the QGIS feature and embed the legend graphic PDF a
 * Tutorial on creating sprites
 * Update example screenshots and add photo of printed map
 * Determine workflow on how to create good-looking print layouts. Maybe create a template layout or something.
+* Test the current setup, i.e. print a map and see how it looks
 
 ---
 
