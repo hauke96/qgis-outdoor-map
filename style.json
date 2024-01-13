@@ -9,23 +9,27 @@
     "localhost": {
       "type": "vector",
       "tiles": [
-        "http://localhost:8000/tiles/{z}/{x}/{y}.pbf"
+        "http://localhost:7000/data/outdoor-hiking-map-source/{z}/{x}/{y}.pbf"
       ],
       "minZoom": 0,
       "maxZoom": 14,
-      "minzoom": 10,
+      "minzoom": 0,
       "maxzoom": 14
     },
     "elevation": {
       "type": "raster-dem",
-      "url": "https://api.maptiler.com/tiles/terrain-rgb-v2/tiles.json?key=4nptrw7BQF2XDy7sNXL5"
+      "url": "http://localhost:8080/static/maptiler-elevation-proxy-config.json"
+    },
+    "hillshade": {
+      "type": "raster",
+      "url": "http://localhost:8080/static/maptiler-hillshade-proxy-config.json"
     },
     "contours": {
       "type": "vector",
       "url": "https://api.maptiler.com/tiles/contours/tiles.json?key=4nptrw7BQF2XDy7sNXL5"
     }
   },
-  "sprite": "http://localhost:8000/sprites/sprite",
+  "sprite": "http://localhost:8080/static/sprites/sprite",
   "glyphs": "https://orangemug.github.io/font-glyphs/glyphs/{fontstack}/{range}.pbf",
   "layers": [
     {
@@ -256,14 +260,13 @@
     },
     {
       "id": "hillshade",
-      "type": "hillshade",
-      "source": "elevation",
-      "maxzoom": 24,
+      "type": "raster",
+      "source": "hillshade",
       "layout": {
         "visibility": "visible"
       },
       "paint": {
-        "hillshade-exaggeration": 0.4
+        "raster-opacity": 0.4
       }
     },
     {

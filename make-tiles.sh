@@ -8,7 +8,8 @@ function log()
 }
 
 TMP=$(realpath ".tmp")
-OUTPUT=$(realpath "./tiles")
+OUTPUT_TILES=$(realpath "./tiles")
+OUTPUT_MBTILES=$(realpath "$OUTPUT_TILES/tiles.mbtiles")
 SRC_DIR=$(pwd)
 
 if [ -z $1 ]
@@ -24,9 +25,9 @@ log "Create empty temp-folder $TMP"
 rm -rf $TMP
 mkdir -p $TMP
 
-log "Create empty output folder $OUTPUT"
-rm -rf $OUTPUT
-mkdir -p $OUTPUT
+log "Create empty output folder $OUTPUT_TILES"
+rm -rf $OUTPUT_TILES
+mkdir -p $OUTPUT_TILES
 
 # Prepare input data
 log "Copy intput data"
@@ -40,7 +41,11 @@ go run main.go preprocessing "$TMP_INPUT" "$TMP_DATA"
 # Create tiles
 log "Go back to $SRC_DIR"
 cd "$SRC_DIR"
-log "Use tilemaker to create tiles from $TMP_DATA"
-tilemaker --input "$TMP_DATA" --output "$OUTPUT" --config ./tilemaker-config.json --process ./tilemaker-processing.lua
+
+log "Use tilemaker to create vector-tiles from $TMP_DATA"
+tilemaker --input "$TMP_DATA" --output "$OUTPUT_TILES" --config ./tilemaker-config.json --process ./tilemaker-processing.lua
+
+log "Use tilemaker to create .mbtiles file from $TMP_DATA"
+tilemaker --input "$TMP_DATA" --output "$OUTPUT_MBTILES" --config ./tilemaker-config.json --process ./tilemaker-processing.lua
 
 log "DONE"

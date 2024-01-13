@@ -1,0 +1,45 @@
+{
+  "options": {
+    "paths": {
+      "root": "",
+      "sprites": "sprites",
+      "styles": "",
+      "mbtiles": "tiles"
+    },
+    "domains": [
+      "localhost:7000",
+      "127.0.0.1:7000"
+    ],
+    "formatQuality": {
+      "jpeg": 80,
+      "webp": 90,
+      "png": 98
+    },
+    "maxScaleFactor": 4,
+    "maxSize": 2048,
+    "pbfAlias": "pbf",
+    "serveAllFonts": false,
+    "serveAllStyles": false,
+    "serveStaticMaps": true,
+    "allowRemoteMarkerIcons": true,
+    "allowInlineMarkerImages": true,
+    "staticAttributionText": "© MapTiler, © OpenStreetMaps",
+    "tileMargin": 4
+  },
+  "styles": {
+    "outdoor-hiking-map-style": {
+      "style": "style.json",
+      "tilejson": {
+        "format": "png",
+        "bounds": [-180, -90, 180, 90]
+      }
+    }
+  },
+  "data": {
+    "outdoor-hiking-map-source": {
+      "mbtiles": "tiles.mbtiles",
+      "type": "vector",
+      "bounds": [10, 47, 11, 48]
+    }
+  }
+}
