@@ -7,6 +7,7 @@ require (
 	github.com/hauke96/sigolo v1.0.1
 	github.com/paulmach/orb v0.10.0
 	github.com/paulmach/osm v0.7.1
+	golang.org/x/image v0.10.0
 )
 
 require (

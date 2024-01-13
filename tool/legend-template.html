@@ -85,7 +85,7 @@
             function createMap(mapId, position, zoom) {
                 new maplibregl.Map({
                     container: mapId,
-                    style: "http://localhost:8000/style.json",
+                    style: "http://localhost:7000/styles/outdoor-hiking-map-style/style.json",
                     center: position,
                     zoom: zoom ?? 18.5, // Get larger sprites (19 switches to the smallest sprites) to get sharper and better visible icons and styles due to scaling with the map-container
                     attributionControl: false,

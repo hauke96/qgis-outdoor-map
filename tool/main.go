@@ -5,6 +5,7 @@ import (
 	"github.com/hauke96/sigolo"
 	legend_graphic "tool/legend-graphic"
 	"tool/preprocessor"
+	tile_proxy "tool/tile-proxy"
 )
 
 var cli struct {
@@ -16,6 +17,10 @@ var cli struct {
 	GenerateLegend struct {
 		Input string `help:"The input schema file." placeholder:"<schema-file>"  arg:""`
 	} `cmd:"" help:"Generated a PDF file with the map legend based on the schema file."`
+	TileProxy struct {
+		TargetUrl string `help:"The target URL where the actual tiles are." short:"t"`
+		Port      string `help:"The port of the proxy on localhost" default:"9000" short:"p"`
+	} `cmd:"" help:"A proxy converting remote tiles into a given image format."`
 }
 
 func main() {
@@ -26,6 +31,8 @@ func main() {
 		preprocessor.PreprocessData(cli.Preprocessing.Input, cli.Preprocessing.Output)
 	case "generate-legend <input>":
 		legend_graphic.GenerateLegendGraphic(cli.GenerateLegend.Input)
+	case "tile-proxy":
+		tile_proxy.StartProxy(cli.TileProxy.Port, cli.TileProxy.TargetUrl)
 	default:
 		sigolo.Fatal("Unknown command: %v", ctx.Command())
 	}
