@@ -19,9 +19,9 @@ Software that needs to be installed. These are the CLI commands that need to be 
 
 To generate and edit the style:
 
-* `tilemaker`
+* `tilemaker` (version >3.0.0)
 * `tileserver-gl`
-* `go` (golang)
+* `go` (golang; version >1.12, best use the version according to the `go.mod` file)
 * `maputnik` (I use the desktop tool, the ArchLinux package is called `maputnik-cli`)
 * `osmosis`
 * Optional: `qgis` (to create printable PDF maps)
@@ -121,12 +121,17 @@ TODO (but basically just use the QGIS feature and embed the legend graphic PDF a
 
 ## TODOs
 
-* Bus stations
 * Label style of lakes based on their size
   * large lake: large font, wide letter spaces, bold
   * mid lake: mid sized font, slight letter space, bold
   * small lake: regular font, no letter space, regular font
 * Add motorways and trunks to map
+* Add steps to style
+* Add more POIs
+  * Campsites
+  * Huts
+  * Bus stops (only on low zoom levels)
+  * Gastronomy
 * Rename git-repo since it's not a QGIS-based map anymore
 * Evaluate usefulness of `render-layout.py` and `render-all.sh` scripts.
 * Tutorial on adding/editing data and layers
