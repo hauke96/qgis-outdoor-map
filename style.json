@@ -1554,23 +1554,9 @@
       ],
       "layout": {
         "icon-image": "peak",
-        "text-font": [
-          "Open Sans Regular"
-        ],
-        "text-field": "{name}",
-        "text-size": 10,
-        "text-anchor": "top",
         "symbol-placement": "point",
-        "text-max-width": 0
-      },
-      "paint": {
-        "text-color": "rgba(80, 33, 17, 1)",
-        "text-halo-color": "rgba(255, 255, 255, 0.75)",
-        "text-halo-width": 1,
-        "text-translate": [
-          0,
-          6
-        ]
+        "icon-ignore-placement": true,
+        "icon-allow-overlap": true
       }
     },
     {
@@ -1762,6 +1748,41 @@
         "text-color": "rgba(41, 130, 190, 1)",
         "text-halo-color": "rgba(225, 245, 254, 1)",
         "text-halo-width": 1.5
+      }
+    },
+    {
+      "id": "label_peak",
+      "type": "symbol",
+      "source": "localhost",
+      "source-layer": "poi",
+      "filter": [
+        "all",
+        [
+          "==",
+          "natural",
+          "peak"
+        ]
+      ],
+      "layout": {
+        "text-font": [
+          "Open Sans Regular"
+        ],
+        "text-field": "{name}",
+        "text-size": 10,
+        "text-anchor": "top",
+        "symbol-placement": "point",
+        "text-max-width": 0,
+        "text-ignore-placement": false,
+        "text-allow-overlap": false
+      },
+      "paint": {
+        "text-color": "rgba(80, 33, 17, 1)",
+        "text-halo-color": "rgba(255, 255, 255, 0.75)",
+        "text-halo-width": 1,
+        "text-translate": [
+          0,
+          6
+        ]
       }
     },
     {
