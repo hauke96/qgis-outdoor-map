@@ -1,6 +1,6 @@
 {
   "layers": {
-    "highway": { "minzoom": 10, "maxzoom": 14, "simplify_below": 15, "simplify_level": 0.00001 },
+    "highway": { "minzoom": 10, "maxzoom": 14, "simplify_below": 17, "simplify_level": 0.00001 },
     "building": { "minzoom": 12, "maxzoom": 14 },
     "poi": { "minzoom": 0, "maxzoom": 14 },
     "landuse": { "minzoom": 0, "maxzoom": 14 },
