@@ -854,7 +854,8 @@
           "highway",
           "path",
           "footway",
-          "track"
+          "track",
+          "steps"
         ],
         [
           "!has",
@@ -927,7 +928,8 @@
           "in",
           "highway",
           "path",
-          "footway"
+          "footway",
+          "steps"
         ],
         [
           "!has",
