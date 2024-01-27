@@ -56,40 +56,55 @@ end
 
 -- Assign ways to a layer, and set attributes, based on OSM tags
 function way_function(way)
+	local admin_level = tonumber(Find("admin_level")) or 1000
+	local isBoundary = false
+    local route_attr = {}
+
+	-- Collect data from relation this way is part of
+	while true do
+		local relation = NextRelation()
+		if not relation then break end
+
+		-- read boundary information
+		isBoundary = isBoundary or FindInRelation("boundary") == "administrative"
+		admin_level = math.min(admin_level, tonumber(FindInRelation("admin_level")) or 1000)
+
+        -- read the type of route
+        local route_type = FindInRelation("route")
+
+        if route_type ~= "" then
+            -- e.g. "hiking_route=yes"
+            route_attr[route_type.."_route"] = "yes"
+
+            -- Copy certain attributes from relations to the way
+            for _, osm_attr_key in pairs(route_attributes) do
+                local attr_key = route_type.."_"..osm_attr_key
+                local osm_attr_value = FindInRelation(osm_attr_key)
+                if osm_attr_value ~= nil and osm_attr_value ~= "" then
+                    local attr_value = route_attr[attr_key]
+                    if attr_value ~= nil and attr_value ~= "" then
+                        attr_value = attr_value..", "..osm_attr_value
+                    else
+                        attr_value = osm_attr_value
+                    end
+                    route_attr[attr_key] = attr_value
+                end
+            end
+        end
+	end
+
+	-- Administrative boundaries in ways
+	if isBoundary and admin_level ~= 1000 then
+		Layer("boundary", false)
+		add_tag(way, "boundary", "name", "protect_class", "border_type", "admin_level")
+		Attribute("boundary", "administrative")
+		Attribute("admin_level", admin_level)
+	end
+
 	local highway = Find("highway")
 	if highway ~= "" then
 		Layer("highway", false)
 		add_tag(way, "highway", "name", "smoothness", "trail_visibility", "sac_scale", "via_ferrata_scale", "surface", "tracktype", "hiking_route", "hiking_ref")
-
-		-- Iterate over relations to determine hiking-route tags
-		local route_attr = {}
-		while true do
-			local rel = NextRelation()
-			if not rel then break end
-
-			-- read the type of route
-			local route_type = FindInRelation("route")
-
-			if route_type ~= "" then
-				-- e.g. "hiking_route=yes"
-				route_attr[route_type.."_route"] = "yes"
-
-				-- Copy certain attributes from relations to the way
-				for _, osm_attr_key in pairs(route_attributes) do
-					local attr_key = route_type.."_"..osm_attr_key
-					local osm_attr_value = FindInRelation(osm_attr_key)
-					if osm_attr_value ~= nil and osm_attr_value ~= "" then
-						local attr_value = route_attr[attr_key]
-						if attr_value ~= nil and attr_value ~= "" then
-							attr_value = attr_value..", "..osm_attr_value
-						else
-							attr_value = osm_attr_value
-						end
-						route_attr[attr_key] = attr_value
-					end
-				end
-			end
-		end
 
 		-- Copy attributes from dictionary to the way object
 		for attr, value in pairs(route_attr) do
@@ -139,13 +154,6 @@ function way_function(way)
 		return
 	end
 
-	local boundary = Find("boundary")
-	if boundary ~= "" then
-		Layer("boundary", false)
-		add_tag(way, "boundary", "name", "protect_class", "border_type", "admin_level")
-		return
-	end
-
 	local waterway = Find("waterway")
 	if waterway ~= "" then
 		Layer("waterway", false)
@@ -177,7 +185,11 @@ end
 
 function relation_function(relation)
 	local boundary = Find("boundary")
-	if boundary ~= "" then
+
+	-- administrative boundaries are handled on ways
+	local isAdministrative = Find("admin_level") ~= ""
+
+	if boundary ~= "" and not isAdministrative then
 		Layer("boundary", false)
 		add_tag(relation, "boundary", "name", "protect_class", "border_type", "admin_level")
 		return

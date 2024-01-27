@@ -320,33 +320,6 @@
       }
     },
     {
-      "id": "border_country",
-      "type": "line",
-      "source": "localhost",
-      "source-layer": "boundary",
-      "filter": [
-        "all",
-        [
-          "==",
-          "boundary",
-          "administrative"
-        ],
-        [
-          "==",
-          "admin_level",
-          "2"
-        ]
-      ],
-      "layout": {
-        "visibility": "visible"
-      },
-      "paint": {
-        "line-color": "rgba(202, 161, 210, 1)",
-        "line-width": 5,
-        "line-opacity": 1
-      }
-    },
-    {
       "id": "contours",
       "type": "line",
       "source": "contours",
@@ -1304,6 +1277,66 @@
       },
       "paint": {
         "fill-pattern": "dash_pattern"
+      }
+    },
+    {
+      "id": "border_country-back",
+      "type": "line",
+      "source": "localhost",
+      "source-layer": "boundary",
+      "filter": [
+        "all",
+        [
+          "==",
+          "boundary",
+          "administrative"
+        ],
+        [
+          "==",
+          "admin_level",
+          "2"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(238, 155, 255, 1)",
+        "line-opacity": 0.35,
+        "line-width": 14
+      }
+    },
+    {
+      "id": "border_country-pattern",
+      "type": "line",
+      "source": "localhost",
+      "source-layer": "boundary",
+      "filter": [
+        "all",
+        [
+          "==",
+          "boundary",
+          "administrative"
+        ],
+        [
+          "==",
+          "admin_level",
+          "2"
+        ]
+      ],
+      "layout": {
+        "visibility": "visible"
+      },
+      "paint": {
+        "line-color": "rgba(217, 124, 235, 1)",
+        "line-width": 2,
+        "line-opacity": 1,
+        "line-dasharray": [
+          4,
+          2,
+          1,
+          2
+        ]
       }
     },
     {
