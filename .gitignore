@@ -5,6 +5,7 @@
 *.tif
 *.gpkg
 tiles
+.tile-cache
 demo-website/dist
 
 # Rendered maps
@@ -19,3 +20,4 @@ legend.html
 
 # Other things to ignore
 .idea
+.run
