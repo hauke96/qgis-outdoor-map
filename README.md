@@ -1,4 +1,66 @@
-# QGIS outdoor map
+# Outdoor hiking map
+
+A map style for an OSM-based outdoor map focussed on hiking and trekking.
+This map is a QGIS project based on OSM data turned into a GeoPackage file.
+
+## Local setup
+
+### 0. Prerequisites
+
+First of all:
+This whole setup is **Linux-based**.
+
+Software that needs to be installed. These are the CLI commands that need to be available:
+
+To generate and edit the style:
+
+* `qgis` with the "Trackable QGIS Project"-plugin (to make `.qgs` files a bit mot git-friendly)
+* `qtwebkit` (this is the name of Arch Linux package, make sure you install the package for your distro in order to render HTML in the QGIS-Layout)
+* `osmosis`
+* `go` (golang; version >1.12, best use the version according to the `go.mod` file)
+
+### 1. Download data
+
+1. Execute `import-data.sh <region>` script (requires `osmium`) with the region name as parameter. The available regions are all listed at the bottom of the script.
+  * This script downloads the data and crops it to the extent of the given region.
+  * This script also creates the required `data/data.gpkg` file for QGIS.
+
+## Style guide
+
+### General considerations
+
+* **Hiking infrastructure has a higher precedence over non-hiking infrastructure.** Example: Drinking water POIs are already visible at zoom level 12, advanced trails have a bright yellow background and generally all hiking trails are directly recognizable.
+* **Hiking relevant data only.** Things, that are not related or important for hikers (or other outdoor enthusiasts) are irrelevant. This includes for example parking spaces. Yes, people arrive by car but why should a map for hiking include parking if you use your phone for car navigation and finding a parking spot?
+* **Use as few different colors amd font-styles as possible.** Sometimes, adjustments of font or icon colors are needed for better visualization, but keep that to a minimum.
+* **Orientate yourself by the [2014 material design color palette](https://material.io/design/color/the-color-system.html#tools-for-picking-colors).** These colors work quite well but I sometimes change some parameters of the color where appropriate. But if such a color works, then take it.
+* **Sprites should be of high quality.** When possible, create large sprites and then use the scale factor to scale them down for the map. This ensures sharp icons and the possibility for hires maps.
+
+_More guidelines will be added over time._
+
+### Concrete guides
+
+TODO Check if this is actually looking good:
+
+* Font
+  * Font: Open Sans 
+  * Font sizes:
+    * Very important (e.g. city name): 12pt
+    * Important (e.g. forest or railway station name): 10pt
+    * Normal (e.g. trail name): 8pt
+    * Minor (e.g. contour labels): 6pt
+* Labels:
+  * Trail and street names:
+    * White outline of 1mm
+    * On line
+    * Curved
+* Road:
+  * 0.5mm outline of light gray (#9E9E9E)
+
+---
+
+# DEPRECATED DOC
+
+QGIS outdoor map
 
 A simple map for outdoor activities as [QGIS](https://www.qgis.org/) project for manual editing, printing, layouting, etc.
 

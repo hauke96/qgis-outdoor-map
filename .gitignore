@@ -1,8 +1,12 @@
 # Data files
 *.pbf
+*.osm
 *.poly
 *.tif
 *.gpkg
+tiles
+.tile-cache
+demo-website/dist
 
 # Project files
 *.qgs~
@@ -16,3 +20,7 @@ postgres-data
 *.png
 *.jpg
 rendered-maps
+
+# Other things to ignore
+.idea
+.run

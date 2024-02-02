@@ -26,8 +26,13 @@ DOWNLOAD_DIR="downloaded-data"
 # $3 = output file 
 function extract()
 {
-	echo "Extract area $1 from $2"
-	osmium extract -s smart -b $1 $2 --overwrite -o $3
+	if [ ! -f $3 ]
+	then
+		echo "Extract area $1 from $2"
+		osmium extract -s smart -b $1 $2 --overwrite -o $3
+	else
+		echo "Skip extracting, $3 already exists"
+	fi
 }
 
 # All params aRE USED
@@ -212,9 +217,7 @@ esac
 echo "Processed region $1"
 
 echo "Filter $DATA by used tags into $DATA_FILTERED"
-osmium tags-filter -o $DATA_FILTERED $DATA \
-	w/landuse \
-	w/natural
+osmium tags-filter -o $DATA_FILTERED $DATA wr/landuse,natural,highway,waterway,railway,boundary
 
 echo "Move $DATA_FILTERED to general data folder as $DATA"
 cd ..

@@ -1,0 +1,505 @@
+{
+  "title": "Legend",
+  "categories": [
+    {
+      "title": "Landuses",
+      "items": [
+        {
+          "tags": [
+            [
+              "landuse",
+              "residential"
+            ]
+          ],
+          "type": "polygon",
+          "description": "Residential"
+        },
+        {
+          "tags": [
+            [
+              "landuse",
+              "commercial"
+            ]
+          ],
+          "type": "polygon",
+          "description": "Commercial"
+        },
+        {
+          "tags": [
+            [
+              "landuse",
+              "farmland"
+            ]
+          ],
+          "type": "polygon",
+          "description": "Farmland"
+        },
+        {
+          "tags": [
+            [
+              "landuse",
+              "military"
+            ]
+          ],
+          "type": "polygon",
+          "description": "Military"
+        },
+        {
+          "tags": [
+            [
+              "building",
+              "yes"
+            ]
+          ],
+          "type": "polygon",
+          "description": "Building"
+        }
+      ]
+    },
+    {
+      "title": "Natural landscapes",
+      "items": [
+        {
+          "tags": [
+            [
+              "landuse",
+              "forest"
+            ]
+          ],
+          "type": "polygon",
+          "description": "Forest"
+        },
+        {
+          "tags": [
+            [
+              "landuse",
+              "grass"
+            ]
+          ],
+          "type": "polygon",
+          "description": "Grass / grassland"
+        },
+        {
+          "tags": [
+            [
+              "natural",
+              "scrub"
+            ]
+          ],
+          "type": "polygon",
+          "description": "Scrub / shrubbery"
+        },
+        {
+          "tags": [
+            [
+              "natural",
+              "shingle"
+            ]
+          ],
+          "type": "polygon",
+          "description": "Shingle / gravel"
+        },
+        {
+          "tags": [
+            [
+              "natural",
+              "bare_rock"
+            ]
+          ],
+          "type": "polygon",
+          "description": "Bare rock"
+        },
+        {
+          "tags": [
+            [
+              "natural",
+              "cliff"
+            ]
+          ],
+          "type": "line",
+          "description": "Cliff"
+        },
+        {
+          "tags": [
+            [
+              "natural",
+              "glacier"
+            ]
+          ],
+          "type": "polygon",
+          "description": "Glacier / Ice"
+        },
+        {
+          "tags": [
+            [
+              "natural",
+              "water"
+            ]
+          ],
+          "type": "polygon",
+          "description": "Water"
+        },
+        {
+          "tags": [
+            [
+              "waterway",
+              "river"
+            ]
+          ],
+          "type": "line",
+          "description": "River / canal"
+        },
+        {
+          "tags": [
+            [
+              "waterway",
+              "river"
+            ],
+            [
+              "intermittent",
+              "yes"
+            ]
+          ],
+          "type": "line",
+          "description": "River / canal (intermittent)"
+        },
+        {
+          "tags": [
+            [
+              "waterway",
+              "stream"
+            ]
+          ],
+          "type": "line",
+          "description": "Stream"
+        },
+        {
+          "tags": [
+            [
+              "waterway",
+              "stream"
+            ],
+            [
+              "intermittent",
+              "yes"
+            ]
+          ],
+          "type": "line",
+          "description": "Stream (intermittent)"
+        }
+      ]
+    },
+    {
+      "title": "Borders & protected areas",
+      "items": [
+        {
+          "tags": [
+            [
+              "boundary",
+              "administrative"
+            ],
+            [
+              "admin_level",
+              "2"
+            ]
+          ],
+          "type": "line",
+          "description": "Country Border"
+        },
+        {
+          "tags": [
+            [
+              "boundary",
+              "protected_area"
+            ],
+            [
+              "protect_class",
+              "1"
+            ]
+          ],
+          "type": "line",
+          "description": "Nature reserve"
+        },
+        {
+          "tags": [
+            [
+              "boundary",
+              "protected_area"
+            ],
+            [
+              "protect_class",
+              "5"
+            ]
+          ],
+          "type": "line",
+          "description": "Otherwise protected area"
+        }
+      ]
+    },
+    {
+      "title": "Roads and ways",
+      "items": [
+        {
+          "tags": [
+            [
+              "highway",
+              "primary"
+            ]
+          ],
+          "type": "line",
+          "description": "Primary road"
+        },
+        {
+          "tags": [
+            [
+              "highway",
+              "secondary"
+            ]
+          ],
+          "type": "line",
+          "description": "Secondary road"
+        },
+        {
+          "tags": [
+            [
+              "highway",
+              "tertiary"
+            ]
+          ],
+          "type": "line",
+          "description": "Tertiary / minor road"
+        },
+        {
+          "tags": [
+            [
+              "highway",
+              "path"
+            ]
+          ],
+          "type": "line",
+          "description": "Path / trail"
+        },
+        {
+          "tags": [
+            [
+              "highway",
+              "path"
+            ],
+            [
+              "hiking_route",
+              "yes"
+            ],
+            [
+              "hiking_ref",
+              "E1"
+            ]
+          ],
+          "feature-per-tag": false,
+          "type": "line",
+          "description": "Hiking route"
+        },
+        {
+          "tags": [
+            [
+              "highway",
+              "via_ferrata"
+            ],
+            [
+              "via_ferrata_scale",
+              "1"
+            ]
+          ],
+          "type": "line",
+          "description": "Via ferrata"
+        },
+        {
+          "tags": [
+            [
+              "highway",
+              "path"
+            ],
+            [
+              "sac_scale",
+              "demanding_mountain_hiking"
+            ]
+          ],
+          "type": "line",
+          "description": "Difficult trail"
+        },
+        {
+          "tags": [
+            [
+              "highway",
+              "track"
+            ],
+            [
+              "tracktype",
+              "grade1"
+            ]
+          ],
+          "type": "line",
+          "description": "Track (probably paved)"
+        },
+        {
+          "tags": [
+            [
+              "highway",
+              "track"
+            ],
+            [
+              "tracktype",
+              "grade5"
+            ]
+          ],
+          "type": "line",
+          "description": "Track (probably unpaved)"
+        }
+      ]
+    },
+    {
+      "title": "Transportation",
+      "items": [
+        {
+          "tags": [
+            [
+              "railway",
+              "rail"
+            ]
+          ],
+          "type": "line",
+          "description": "Railway"
+        },
+        {
+          "tags": [
+            [
+              "railway",
+              "rail"
+            ],
+            [
+              "tunnel",
+              "yes"
+            ]
+          ],
+          "type": "line",
+          "description": "Railway tunnel"
+        },
+        {
+          "tags": [
+            [
+              "railway",
+              "narrow_gauge"
+            ]
+          ],
+          "type": "line",
+          "description": "Railway other (e.g. narrow gauge)"
+        },
+        {
+          "tags": [
+            [
+              "railway",
+              "station"
+            ],
+            [
+              "name",
+              "Stade"
+            ]
+          ],
+          "type": "point",
+          "description": "Railway station",
+          "offset-lat": 0.00001
+        },
+        {
+          "tags": [
+            [
+              "railway",
+              "halt"
+            ],
+            [
+              "name",
+              "Untergrainau"
+            ]
+          ],
+          "type": "point",
+          "description": "Railway halt",
+          "offset-lat": 0.00001
+        },
+        {
+          "tags": [
+            [
+              "aerialway",
+              "cable_car"
+            ]
+          ],
+          "type": "line",
+          "description": "Cable car / gondola / lift"
+        },
+        {
+          "tags": [
+            [
+              "aerialway",
+              "goods"
+            ]
+          ],
+          "type": "line",
+          "description": "Cable car (private or non-passenger)"
+        }
+      ]
+    },
+    {
+      "title": "POIs",
+      "items": [
+        {
+          "tags": [
+            [
+              "natural",
+              "peak"
+            ],
+            [
+              "name",
+              "Zugspitze"
+            ]
+          ],
+          "type": "point",
+          "description": "Mountain summit",
+          "offset-lat": 0.000005
+        },
+        {
+          "tags": [
+            [
+              "waterway",
+              "waterfall"
+            ]
+          ],
+          "type": "point",
+          "description": "Waterfall"
+        },
+        {
+          "tags": [
+            [
+              "natural",
+              "spring"
+            ]
+          ],
+          "type": "point",
+          "description": "Spring"
+        },
+        {
+          "tags": [
+            [
+              "amenity",
+              "drinking_water"
+            ]
+          ],
+          "type": "point",
+          "description": "Drinking water source"
+        }
+      ]
+    }
+  ],
+  "additional-infos": [
+    {
+      "title": "Copyright",
+      "html": "        <style>\n            .info-label {\n                white-space: nowrap;\n                vertical-align: top;\n            }\n\n            .info-table {\n                border-collapse: collapse;\n            }\n        </style>\n        <p>\n            This map is based on publicly available data from the community-driven OpenStreetMap project (<a\n                href=\"https://www.openstreetmap.org\">osm.org</a>).\n            Wrong, missing or inaccurate data can be reported on <a href=\"https://www.openstreetmap.org/note/new\">osm.org/note/new</a>\n            or manually edited by according desktop, browser or mobile apps.\n        </p>\n        <p>\n            This map is licensed under the Open Data Commons Open Database License (ODbL).\n            It is therefore explicitly <i>allowed</i> to modify, copy and redistribute this map in compliance with the ODbL.\n        </p>\n        <table class=\"info-table\">\n            <tr>\n                <td class=\"info-label\">Map data:</td>\n                <td>&copy; OpenStreetMap contributors (<a\n                        href=\"https://osm.org/copyright\">openstreetmap.org/copyright</a>), &copy; MapTiler\n                </td>\n            </tr>\n            <tr>\n                <td class=\"info-label\">Map style:</td>\n                <td><i>Outdoor and Hiking map</i> by Hauke Stieler (<a\n                        href=\"https://github.com/hauke96/qgis-outdoor-map\">github.com/hauke96/qgis-outdoor-map</a>)\n                </td>\n            </tr>\n            <tr>\n                <td class=\"info-label\">License:</td>\n                <td>Open Data Commons Open Database License (ODbL)</td>\n            </tr>\n        </table>"
+    }
+  ]
+}

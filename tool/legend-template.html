@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Legend</title>
+        <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@3.3.1/dist/maplibre-gl.css"/>
+        <script src="https://unpkg.com/maplibre-gl@3.3.1/dist/maplibre-gl.js"></script>
+        <style>
+            html, body {
+                font-size: 9pt;
+                font-family: "Liberation Sans", sans-serif;
+                width: 36rem; /* 2x item size of width+margins */
+                height: 76.5rem;
+                display: flex;
+                flex-direction: column;
+                margin: 0;
+            }
+
+            @page {
+                size: 200rem 400rem;
+            }
+
+            .item-container {
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+                overflow: hidden;
+                align-content: flex-start
+            }
+
+            h1, h2, h3, h4, h5, h6 {
+                margin: 0.5rem 0;
+            }
+
+            h3 {
+                width: 15rem;
+                margin-bottom: 1rem;
+            }
+
+            p {
+                margin-top: 0.5rem;
+                margin-bottom: 0.5rem;
+            }
+
+            a {
+                color: unset;
+                text-decoration: none; /* no underline */
+            }
+
+            .item {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                margin-bottom: 0.5rem;
+                margin-left: 1rem;
+                margin-right: 2rem;
+                width: 15rem;
+
+                /* This nesting allows us to create a map of arbitrary size and scale it down to get sharper images */
+
+                .map-container {
+                    width: 4rem;
+                    height: 1.5rem;
+                    /*margin-left: 0.5rem;*/
+
+                    .map {
+                        width: 7rem;
+                        height: 2.625rem;
+                        transform: scale(57.14%);
+                        position: relative;
+                        left: -1.5rem;
+                        top: -0.5625rem;
+                    }
+                }
+
+                .description {
+                    margin-left: 0.75rem;
+                }
+            }
+
+            .additional-info-container {
+                margin-left: 0.5rem;
+            }
+        </style>
+        <script>
+            function createMap(mapId, position, zoom) {
+                new maplibregl.Map({
+                    container: mapId,
+                    style: "http://localhost:7000/styles/outdoor-hiking-map-style/style.json",
+                    center: position,
+                    zoom: zoom ?? 18.5, // Get larger sprites (19 switches to the smallest sprites) to get sharper and better visible icons and styles due to scaling with the map-container
+                    attributionControl: false,
+                    preserveDrawingBuffer: true
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Legend</h1>
+        <div class="item-container">
+            <!--            <h2>Roads and trails</h2>-->
+            <!--            <div class="item">-->
+            <!--                <div class="map-container">-->
+            <!--                    <div id="map-landuse-a" class="map"></div>-->
+            <!--                </div>-->
+            <!--                <div class="description">Test item a</div>-->
+            <!--            </div>-->
+            <!--            <script>-->
+            <!--                createMap("map-landuse-a", {lat: 0 * 0.001 + 0.0001 / 2, lon: 1 * 0.001 + 0.000225 / 2});-->
+            <!--            </script>-->
+
+            <!--            <div class="item">-->
+            <!--                <div class="map-container">-->
+            <!--                    <div id="map-landuse-b" class="map"></div>-->
+            <!--                </div>-->
+            <!--                <div class="description">Test item b</div>-->
+            <!--            </div>-->
+            <!--            <script>-->
+            <!--                createMap("map-landuse-b", {lat: 5 * 0.001 + 0.0001 / 2, lon: 1 * 0.001 + 0.000225 / 2});-->
+            <!--            </script>-->
+
+            __ITEMS__
+        </div>
+        __ADDITIONAL_INFO__
+<!--        <style>-->
+<!--            .info-label {-->
+<!--                white-space: nowrap;-->
+<!--                vertical-align: top;-->
+<!--            }-->
+
+<!--            .info-table {-->
+<!--                border-collapse: collapse;-->
+<!--            }-->
+<!--        </style>-->
+<!--        <p>-->
+<!--            This map is based on publicly available data from the community-driven OpenStreetMap project (<a-->
+<!--                href="https://www.openstreetmap.org">osm.org</a>).-->
+<!--            Wrong, missing or inaccurate data can be reported on <a href="https://www.openstreetmap.org/note/new">osm.org/note/new</a>-->
+<!--            or manually edited by according desktop, browser or mobile apps.-->
+<!--        </p>-->
+<!--        <p>-->
+<!--            This map is licensed under the Open Data Commons Open Database License (ODbL).-->
+<!--            It is therefore explicitly <i>allowed</i> to modify, copy and redistribute this map in compliance with the ODbL.-->
+<!--        </p>-->
+<!--        <table class="info-table">-->
+<!--            <tr>-->
+<!--                <td class="info-label">Map data:</td>-->
+<!--                <td>&copy; OpenStreetMap contributors (<a-->
+<!--                        href="https://osm.org/copyright">openstreetmap.org/copyright</a>), &copy; MapTiler-->
+<!--                </td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td class="info-label">Map style:</td>-->
+<!--                <td><i>Outdoor and Hiking map</i> by Hauke Stieler (<a-->
+<!--                        href="https://github.com/hauke96/qgis-outdoor-map">github.com/hauke96/qgis-outdoor-map</a>)-->
+<!--                </td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td class="info-label">License:</td>-->
+<!--                <td>Open Data Commons Open Database License (ODbL)</td>-->
+<!--            </tr>-->
+<!--        </table>-->
+    </body>
+</html>

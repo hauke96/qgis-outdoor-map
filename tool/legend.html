@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Legend</title>
+        <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@3.3.1/dist/maplibre-gl.css"/>
+        <script src="https://unpkg.com/maplibre-gl@3.3.1/dist/maplibre-gl.js"></script>
+        <style>
+            html, body {
+                font-size: 9pt;
+                font-family: "Liberation Sans", sans-serif;
+                width: 36rem; /* 2x item size of width+margins */
+                height: 76.5rem;
+                display: flex;
+                flex-direction: column;
+                margin: 0;
+            }
+
+            @page {
+                size: 200rem 400rem;
+            }
+
+            .item-container {
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+                overflow: hidden;
+                align-content: flex-start
+            }
+
+            h1, h2, h3, h4, h5, h6 {
+                margin: 0.5rem 0;
+            }
+
+            h3 {
+                width: 15rem;
+                margin-bottom: 1rem;
+            }
+
+            p {
+                margin-top: 0.5rem;
+                margin-bottom: 0.5rem;
+            }
+
+            a {
+                color: unset;
+                text-decoration: none; /* no underline */
+            }
+
+            .item {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                margin-bottom: 0.5rem;
+                margin-left: 1rem;
+                margin-right: 2rem;
+                width: 15rem;
+
+                /* This nesting allows us to create a map of arbitrary size and scale it down to get sharper images */
+
+                .map-container {
+                    width: 4rem;
+                    height: 1.5rem;
+                    /*margin-left: 0.5rem;*/
+
+                    .map {
+                        width: 7rem;
+                        height: 2.625rem;
+                        transform: scale(57.14%);
+                        position: relative;
+                        left: -1.5rem;
+                        top: -0.5625rem;
+                    }
+                }
+
+                .description {
+                    margin-left: 0.75rem;
+                }
+            }
+
+            .additional-info-container {
+                margin-left: 0.5rem;
+            }
+        </style>
+        <script>
+            function createMap(mapId, position, zoom) {
+                new maplibregl.Map({
+                    container: mapId,
+                    style: "http://localhost:7000/styles/outdoor-hiking-map-style/style.json",
+                    center: position,
+                    zoom: zoom ?? 18.5, // Get larger sprites (19 switches to the smallest sprites) to get sharper and better visible icons and styles due to scaling with the map-container
+                    attributionControl: false,
+                    preserveDrawingBuffer: true
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Legend</h1>
+        <div class="item-container">
+            <!--            <h2>Roads and trails</h2>-->
+            <!--            <div class="item">-->
+            <!--                <div class="map-container">-->
+            <!--                    <div id="map-landuse-a" class="map"></div>-->
+            <!--                </div>-->
+            <!--                <div class="description">Test item a</div>-->
+            <!--            </div>-->
+            <!--            <script>-->
+            <!--                createMap("map-landuse-a", {lat: 0 * 0.001 + 0.0001 / 2, lon: 1 * 0.001 + 0.000225 / 2});-->
+            <!--            </script>-->
+
+            <!--            <div class="item">-->
+            <!--                <div class="map-container">-->
+            <!--                    <div id="map-landuse-b" class="map"></div>-->
+            <!--                </div>-->
+            <!--                <div class="description">Test item b</div>-->
+            <!--            </div>-->
+            <!--            <script>-->
+            <!--                createMap("map-landuse-b", {lat: 5 * 0.001 + 0.0001 / 2, lon: 1 * 0.001 + 0.000225 / 2});-->
+            <!--            </script>-->
+
+            			<h3>Landuses</h3>
+			
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-landuses-residential" class="map"></div>
+	        	</div>
+	        	<div class="description">Residential</div>
+	        </div>
+	        <script>
+	        	createMap("map-landuses-residential", { lat: 0.00005, lon: 0.0001125 }, undefined);
+	        </script>
+
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-landuses-commercial" class="map"></div>
+	        	</div>
+	        	<div class="description">Commercial</div>
+	        </div>
+	        <script>
+	        	createMap("map-landuses-commercial", { lat: 0.00105, lon: 0.0001125 }, undefined);
+	        </script>
+
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-landuses-farmland" class="map"></div>
+	        	</div>
+	        	<div class="description">Farmland</div>
+	        </div>
+	        <script>
+	        	createMap("map-landuses-farmland", { lat: 0.00205, lon: 0.0001125 }, undefined);
+	        </script>
+
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-landuses-military" class="map"></div>
+	        	</div>
+	        	<div class="description">Military</div>
+	        </div>
+	        <script>
+	        	createMap("map-landuses-military", { lat: 0.00305, lon: 0.0001125 }, undefined);
+	        </script>
+
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-landuses-building" class="map"></div>
+	        	</div>
+	        	<div class="description">Building</div>
+	        </div>
+	        <script>
+	        	createMap("map-landuses-building", { lat: 0.00405, lon: 0.0001125 }, undefined);
+	        </script>
+
+			<h3>Natural landscapes</h3>
+			
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-natural_landscapes-forest" class="map"></div>
+	        	</div>
+	        	<div class="description">Forest</div>
+	        </div>
+	        <script>
+	        	createMap("map-natural_landscapes-forest", { lat: 0.00005, lon: 0.0011125 }, undefined);
+	        </script>
+
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-natural_landscapes-grass__grassland" class="map"></div>
+	        	</div>
+	        	<div class="description">Grass / grassland</div>
+	        </div>
+	        <script>
+	        	createMap("map-natural_landscapes-grass__grassland", { lat: 0.00105, lon: 0.0011125 }, undefined);
+	        </script>
+
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-natural_landscapes-scrub__shrubbery" class="map"></div>
+	        	</div>
+	        	<div class="description">Scrub / shrubbery</div>
+	        </div>
+	        <script>
+	        	createMap("map-natural_landscapes-scrub__shrubbery", { lat: 0.00205, lon: 0.0011125 }, undefined);
+	        </script>
+
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-natural_landscapes-shingle__gravel" class="map"></div>
+	        	</div>
+	        	<div class="description">Shingle / gravel</div>
+	        </div>
+	        <script>
+	        	createMap("map-natural_landscapes-shingle__gravel", { lat: 0.00305, lon: 0.0011125 }, undefined);
+	        </script>
+
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-natural_landscapes-bare_rock" class="map"></div>
+	        	</div>
+	        	<div class="description">Bare rock</div>
+	        </div>
+	        <script>
+	        	createMap("map-natural_landscapes-bare_rock", { lat: 0.00405, lon: 0.0011125 }, undefined);
+	        </script>
+
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-natural_landscapes-cliff" class="map"></div>
+	        	</div>
+	        	<div class="description">Cliff</div>
+	        </div>
+	        <script>
+	        	createMap("map-natural_landscapes-cliff", { lat: 0.00505, lon: 0.0011125 }, undefined);
+	        </script>
+
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-natural_landscapes-glacier__ice" class="map"></div>
+	        	</div>
+	        	<div class="description">Glacier / Ice</div>
+	        </div>
+	        <script>
+	        	createMap("map-natural_landscapes-glacier__ice", { lat: 0.00605, lon: 0.0011125 }, undefined);
+	        </script>
+
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-natural_landscapes-water" class="map"></div>
+	        	</div>
+	        	<div class="description">Water</div>
+	        </div>
+	        <script>
+	        	createMap("map-natural_landscapes-water", { lat: 0.00705, lon: 0.0011125 }, undefined);
+	        </script>
+
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-natural_landscapes-river__canal" class="map"></div>
+	        	</div>
+	        	<div class="description">River / canal</div>
+	        </div>
+	        <script>
+	        	createMap("map-natural_landscapes-river__canal", { lat: 0.00805, lon: 0.0011125 }, undefined);
+	        </script>
+
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-natural_landscapes-river__canal_intermittent" class="map"></div>
+	        	</div>
+	        	<div class="description">River / canal (intermittent)</div>
+	        </div>
+	        <script>
+	        	createMap("map-natural_landscapes-river__canal_intermittent", { lat: 0.00905, lon: 0.0011125 }, undefined);
+	        </script>
+
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-natural_landscapes-stream" class="map"></div>
+	        	</div>
+	        	<div class="description">Stream</div>
+	        </div>
+	        <script>
+	        	createMap("map-natural_landscapes-stream", { lat: 0.01005, lon: 0.0011125 }, undefined);
+	        </script>
+
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-natural_landscapes-stream_intermittent" class="map"></div>
+	        	</div>
+	        	<div class="description">Stream (intermittent)</div>
+	        </div>
+	        <script>
+	        	createMap("map-natural_landscapes-stream_intermittent", { lat: 0.011049999999999999, lon: 0.0011125 }, undefined);
+	        </script>
+
+			<h3>Borders & protected areas</h3>
+			
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-borders__protected_areas-country_border" class="map"></div>
+	        	</div>
+	        	<div class="description">Country Border</div>
+	        </div>
+	        <script>
+	        	createMap("map-borders__protected_areas-country_border", { lat: 0.00005, lon: 0.0021125000000000002 }, undefined);
+	        </script>
+
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-borders__protected_areas-nature_reserve" class="map"></div>
+	        	</div>
+	        	<div class="description">Nature reserve</div>
+	        </div>
+	        <script>
+	        	createMap("map-borders__protected_areas-nature_reserve", { lat: 0.00105, lon: 0.0021125000000000002 }, undefined);
+	        </script>
+
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-borders__protected_areas-otherwise_protected_area" class="map"></div>
+	        	</div>
+	        	<div class="description">Otherwise protected area</div>
+	        </div>
+	        <script>
+	        	createMap("map-borders__protected_areas-otherwise_protected_area", { lat: 0.00205, lon: 0.0021125000000000002 }, undefined);
+	        </script>
+
+			<h3>Roads and ways</h3>
+			
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-roads_and_ways-primary_road" class="map"></div>
+	        	</div>
+	        	<div class="description">Primary road</div>
+	        </div>
+	        <script>
+	        	createMap("map-roads_and_ways-primary_road", { lat: 0.00005, lon: 0.0031125000000000002 }, undefined);
+	        </script>
+
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-roads_and_ways-secondary_road" class="map"></div>
+	        	</div>
+	        	<div class="description">Secondary road</div>
+	        </div>
+	        <script>
+	        	createMap("map-roads_and_ways-secondary_road", { lat: 0.00105, lon: 0.0031125000000000002 }, undefined);
+	        </script>
+
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-roads_and_ways-tertiary__minor_road" class="map"></div>
+	        	</div>
+	        	<div class="description">Tertiary / minor road</div>
+	        </div>
+	        <script>
+	        	createMap("map-roads_and_ways-tertiary__minor_road", { lat: 0.00205, lon: 0.0031125000000000002 }, undefined);
+	        </script>
+
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-roads_and_ways-path__trail" class="map"></div>
+	        	</div>
+	        	<div class="description">Path / trail</div>
+	        </div>
+	        <script>
+	        	createMap("map-roads_and_ways-path__trail", { lat: 0.00305, lon: 0.0031125000000000002 }, undefined);
+	        </script>
+
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-roads_and_ways-hiking_route" class="map"></div>
+	        	</div>
+	        	<div class="description">Hiking route</div>
+	        </div>
+	        <script>
+	        	createMap("map-roads_and_ways-hiking_route", { lat: 0.00405, lon: 0.0031125000000000002 }, undefined);
+	        </script>
+
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-roads_and_ways-via_ferrata" class="map"></div>
+	        	</div>
+	        	<div class="description">Via ferrata</div>
+	        </div>
+	        <script>
+	        	createMap("map-roads_and_ways-via_ferrata", { lat: 0.00505, lon: 0.0031125000000000002 }, undefined);
+	        </script>
+
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-roads_and_ways-difficult_trail" class="map"></div>
+	        	</div>
+	        	<div class="description">Difficult trail</div>
+	        </div>
+	        <script>
+	        	createMap("map-roads_and_ways-difficult_trail", { lat: 0.00605, lon: 0.0031125000000000002 }, undefined);
+	        </script>
+
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-roads_and_ways-track_probably_paved" class="map"></div>
+	        	</div>
+	        	<div class="description">Track (probably paved)</div>
+	        </div>
+	        <script>
+	        	createMap("map-roads_and_ways-track_probably_paved", { lat: 0.00705, lon: 0.0031125000000000002 }, undefined);
+	        </script>
+
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-roads_and_ways-track_probably_unpaved" class="map"></div>
+	        	</div>
+	        	<div class="description">Track (probably unpaved)</div>
+	        </div>
+	        <script>
+	        	createMap("map-roads_and_ways-track_probably_unpaved", { lat: 0.00805, lon: 0.0031125000000000002 }, undefined);
+	        </script>
+
+			<h3>Transportation</h3>
+			
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-transportation-railway" class="map"></div>
+	        	</div>
+	        	<div class="description">Railway</div>
+	        </div>
+	        <script>
+	        	createMap("map-transportation-railway", { lat: 0.00005, lon: 0.0041125 }, undefined);
+	        </script>
+
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-transportation-railway_tunnel" class="map"></div>
+	        	</div>
+	        	<div class="description">Railway tunnel</div>
+	        </div>
+	        <script>
+	        	createMap("map-transportation-railway_tunnel", { lat: 0.00105, lon: 0.0041125 }, undefined);
+	        </script>
+
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-transportation-railway_other_eg_narrow_gauge" class="map"></div>
+	        	</div>
+	        	<div class="description">Railway other (e.g. narrow gauge)</div>
+	        </div>
+	        <script>
+	        	createMap("map-transportation-railway_other_eg_narrow_gauge", { lat: 0.00205, lon: 0.0041125 }, undefined);
+	        </script>
+
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-transportation-railway_station" class="map"></div>
+	        	</div>
+	        	<div class="description">Railway station</div>
+	        </div>
+	        <script>
+	        	createMap("map-transportation-railway_station", { lat: 0.00305, lon: 0.0041125 }, undefined);
+	        </script>
+
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-transportation-railway_halt" class="map"></div>
+	        	</div>
+	        	<div class="description">Railway halt</div>
+	        </div>
+	        <script>
+	        	createMap("map-transportation-railway_halt", { lat: 0.00405, lon: 0.0041125 }, undefined);
+	        </script>
+
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-transportation-cable_car__gondola__lift" class="map"></div>
+	        	</div>
+	        	<div class="description">Cable car / gondola / lift</div>
+	        </div>
+	        <script>
+	        	createMap("map-transportation-cable_car__gondola__lift", { lat: 0.00505, lon: 0.0041125 }, undefined);
+	        </script>
+
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-transportation-cable_car_private_or_nonpassenger" class="map"></div>
+	        	</div>
+	        	<div class="description">Cable car (private or non-passenger)</div>
+	        </div>
+	        <script>
+	        	createMap("map-transportation-cable_car_private_or_nonpassenger", { lat: 0.00605, lon: 0.0041125 }, undefined);
+	        </script>
+
+			<h3>POIs</h3>
+			
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-pois-mountain_summit" class="map"></div>
+	        	</div>
+	        	<div class="description">Mountain summit</div>
+	        </div>
+	        <script>
+	        	createMap("map-pois-mountain_summit", { lat: 0.00005, lon: 0.0051125 }, undefined);
+	        </script>
+
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-pois-waterfall" class="map"></div>
+	        	</div>
+	        	<div class="description">Waterfall</div>
+	        </div>
+	        <script>
+	        	createMap("map-pois-waterfall", { lat: 0.00105, lon: 0.0051125 }, undefined);
+	        </script>
+
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-pois-spring" class="map"></div>
+	        	</div>
+	        	<div class="description">Spring</div>
+	        </div>
+	        <script>
+	        	createMap("map-pois-spring", { lat: 0.00205, lon: 0.0051125 }, undefined);
+	        </script>
+
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-pois-drinking_water_source" class="map"></div>
+	        	</div>
+	        	<div class="description">Drinking water source</div>
+	        </div>
+	        <script>
+	        	createMap("map-pois-drinking_water_source", { lat: 0.00305, lon: 0.0051125 }, undefined);
+	        </script>
+
+			<h3>Elevation</h3>
+			
+			<div class="item">
+	        	<div class="map-container">
+	        		<div id="map-contour-lines" class="map"></div>
+	        	</div>
+	        	<div class="description">Contour lines</div>
+	        </div>
+	        <script>
+	        	createMap("map-contour-lines", { lat: 47.43704, lon: 10.9687 }, 14);
+	        </script>
+
+
+        </div>
+        
+			<h1>Copyright</h1>
+			<div class="additional-info-container">
+			        <style>
+            .info-label {
+                white-space: nowrap;
+                vertical-align: top;
+            }
+
+            .info-table {
+                border-collapse: collapse;
+            }
+        </style>
+        <p>
+            This map is based on publicly available data from the community-driven OpenStreetMap project (<a
+                href="https://www.openstreetmap.org">osm.org</a>).
+            Wrong, missing or inaccurate data can be reported on <a href="https://www.openstreetmap.org/note/new">osm.org/note/new</a>
+            or manually edited by according desktop, browser or mobile apps.
+        </p>
+        <p>
+            This map is licensed under the Open Data Commons Open Database License (ODbL).
+            It is therefore explicitly <i>allowed</i> to modify, copy and redistribute this map in compliance with the ODbL.
+        </p>
+        <table class="info-table">
+            <tr>
+                <td class="info-label">Map data:</td>
+                <td>&copy; OpenStreetMap contributors (<a
+                        href="https://osm.org/copyright">openstreetmap.org/copyright</a>), &copy; MapTiler
+                </td>
+            </tr>
+            <tr>
+                <td class="info-label">Map style:</td>
+                <td><i>Outdoor and Hiking map</i> by Hauke Stieler (<a
+                        href="https://github.com/hauke96/qgis-outdoor-map">github.com/hauke96/qgis-outdoor-map</a>)
+                </td>
+            </tr>
+            <tr>
+                <td class="info-label">License:</td>
+                <td>Open Data Commons Open Database License (ODbL)</td>
+            </tr>
+        </table>
+			</div>
+
+<!--        <style>-->
+<!--            .info-label {-->
+<!--                white-space: nowrap;-->
+<!--                vertical-align: top;-->
+<!--            }-->
+
+<!--            .info-table {-->
+<!--                border-collapse: collapse;-->
+<!--            }-->
+<!--        </style>-->
+<!--        <p>-->
+<!--            This map is based on publicly available data from the community-driven OpenStreetMap project (<a-->
+<!--                href="https://www.openstreetmap.org">osm.org</a>).-->
+<!--            Wrong, missing or inaccurate data can be reported on <a href="https://www.openstreetmap.org/note/new">osm.org/note/new</a>-->
+<!--            or manually edited by according desktop, browser or mobile apps.-->
+<!--        </p>-->
+<!--        <p>-->
+<!--            This map is licensed under the Open Data Commons Open Database License (ODbL).-->
+<!--            It is therefore explicitly <i>allowed</i> to modify, copy and redistribute this map in compliance with the ODbL.-->
+<!--        </p>-->
+<!--        <table class="info-table">-->
+<!--            <tr>-->
+<!--                <td class="info-label">Map data:</td>-->
+<!--                <td>&copy; OpenStreetMap contributors (<a-->
+<!--                        href="https://osm.org/copyright">openstreetmap.org/copyright</a>), &copy; MapTiler-->
+<!--                </td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td class="info-label">Map style:</td>-->
+<!--                <td><i>Outdoor and Hiking map</i> by Hauke Stieler (<a-->
+<!--                        href="https://github.com/hauke96/qgis-outdoor-map">github.com/hauke96/qgis-outdoor-map</a>)-->
+<!--                </td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td class="info-label">License:</td>-->
+<!--                <td>Open Data Commons Open Database License (ODbL)</td>-->
+<!--            </tr>-->
+<!--        </table>-->
+    </body>
+</html>
