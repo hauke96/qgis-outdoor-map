@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+        width="10"
+        height="10"
+        version="1.1"
+        id="svg1"
+        sodipodi:docname="dash-pattern.svg"
+        inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+        xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+        xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+        xmlns="http://www.w3.org/2000/svg"
+>
+    <path
+            d="M 0,0 10,0 10,4 9,4 9,1 1,1 1,4 0,4"
+            fill="param(fill) #000"
+            id="svg_peak"
+            stroke="param(outline) #000"
+            stroke-width="0"/>
+</svg>
