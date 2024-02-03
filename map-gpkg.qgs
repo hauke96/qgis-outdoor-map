@@ -1,4 +1,4 @@
-<qgis projectname="" saveDateTime="2024-02-03T11:25:36" saveUser="hauke" saveUserFull="" version="3.34.3-Prizren">
+<qgis projectname="" saveDateTime="2024-02-03T11:26:20" saveUser="hauke" saveUserFull="" version="3.34.3-Prizren">
   <homePath path=""></homePath>
   <title></title>
   <transaction mode="Disabled"></transaction>
@@ -612,7 +612,7 @@
             <settings calloutType="simple">
               <text-style allowHtml="0" blendMode="0" capitalization="0" fieldName="&quot;height&quot;" fontFamily="Open Sans" fontItalic="0" fontKerning="1" fontLetterSpacing="0" fontSize="6" fontSizeMapUnitScale="3x:0,0,0,0,0,0" fontSizeUnit="Point" fontStrikeout="0" fontUnderline="0" fontWeight="50" fontWordSpacing="0" forcedBold="0" forcedItalic="0" isExpression="1" legendString="Aa" multilineHeight="1" multilineHeightUnit="Percentage" namedStyle="Regular" previewBkgrdColor="255,255,255,255" stretchFactor="100" textColor="93,64,55,255" textOpacity="1" textOrientation="horizontal" useSubstitutions="0">
                 <families></families>
-                <text-buffer bufferBlendMode="0" bufferColor="255,255,255,191" bufferDraw="1" bufferJoinStyle="128" bufferNoFill="1" bufferOpacity="1" bufferSize="0.5" bufferSizeMapUnitScale="3x:0,0,0,0,0,0" bufferSizeUnits="MM"></text-buffer>
+                <text-buffer bufferBlendMode="0" bufferColor="255,255,255,191" bufferDraw="1" bufferJoinStyle="128" bufferNoFill="1" bufferOpacity="0.5" bufferSize="0.5" bufferSizeMapUnitScale="3x:0,0,0,0,0,0" bufferSizeUnits="MM"></text-buffer>
                 <text-mask maskEnabled="0" maskJoinStyle="128" maskOpacity="1" maskSize="1.5" maskSizeMapUnitScale="3x:0,0,0,0,0,0" maskSizeUnits="MM" maskType="0" maskedSymbolLayers=""></text-mask>
                 <background shapeBlendMode="0" shapeBorderColor="128,128,128,255" shapeBorderWidth="0" shapeBorderWidthMapUnitScale="3x:0,0,0,0,0,0" shapeBorderWidthUnit="MM" shapeDraw="0" shapeFillColor="255,255,255,255" shapeJoinStyle="64" shapeOffsetMapUnitScale="3x:0,0,0,0,0,0" shapeOffsetUnit="MM" shapeOffsetX="0" shapeOffsetY="0" shapeOpacity="1" shapeRadiiMapUnitScale="3x:0,0,0,0,0,0" shapeRadiiUnit="MM" shapeRadiiX="0" shapeRadiiY="0" shapeRotation="0" shapeRotationType="0" shapeSVGFile="" shapeSizeMapUnitScale="3x:0,0,0,0,0,0" shapeSizeType="0" shapeSizeUnit="MM" shapeSizeX="0" shapeSizeY="0" shapeType="0">
                   <symbol alpha="1" clip_to_extent="1" force_rhr="0" frame_rate="10" is_animated="0" name="markerSymbol" type="marker">
@@ -7529,7 +7529,7 @@
       </spatialrefsys>
     </CoordinateCustomCrs>
   </ProjectDisplaySettings>
-  <ProjectGpsSettings autoAddTrackVertices="0" autoCommitFeatures="0" destinationFollowsActiveLayer="1" destinationLayer="lines_92f684f3_02f7_482c_ae40_a9ab535ba56e" destinationLayerName="trails, streets, railway, waterway" destinationLayerProvider="ogr" destinationLayerSource="/home/hauke/Projekte/OSM/qgis-outdoor-map/qgis-branch/data/data.gpkg|layername=lines">
+  <ProjectGpsSettings autoAddTrackVertices="0" autoCommitFeatures="0" destinationFollowsActiveLayer="1" destinationLayer="">
     <timeStampFields></timeStampFields>
   </ProjectGpsSettings>
 </qgis>
