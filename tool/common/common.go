@@ -64,11 +64,11 @@ func WriteOsmToPbf(outputFileName string, outputOsm *osm.OSM) {
 	outputFileNameUnsorted := "features-unsorted.osm.pbf"
 	sigolo.Debug("Convert written OSM-XML file to OSM-PBF file %s", outputFileNameUnsorted)
 	commandOsmiumCat := exec.Command("osmium", "cat", osmXmlOutputFile, "-o", outputFileNameUnsorted, "--overwrite")
-	RunWithOutputPassthrough(commandOsmiumCat)
+	RunWithOutputRedirect(commandOsmiumCat)
 
 	sigolo.Debug("Sort OSM-PBF file %s into %s", outputFileNameUnsorted, outputFileName)
 	commandOsmiumSort := exec.Command("osmium", "sort", outputFileNameUnsorted, "-o", outputFileName, "--overwrite")
-	RunWithOutputPassthrough(commandOsmiumSort)
+	RunWithOutputRedirect(commandOsmiumSort)
 
 	sigolo.Debug("Remove temp file %s", osmXmlOutputFile)
 	err = os.Remove(osmXmlOutputFile)
@@ -77,7 +77,7 @@ func WriteOsmToPbf(outputFileName string, outputOsm *osm.OSM) {
 	sigolo.Info("OSM data successfully written to %s", outputFileName)
 }
 
-func RunWithOutputPassthrough(command *exec.Cmd) {
+func RunWithOutputRedirect(command *exec.Cmd) {
 	sigolo.Debug("Run command: %s", command.String())
 	command.Stdout = os.Stdout
 	command.Stderr = os.Stderr
