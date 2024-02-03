@@ -66,8 +66,8 @@ TODO Check if this is actually looking good:
 
 * Merged line segments of hiking route relations with comma-separated list of name/ref values
 * Direction-arrow of waterway labels is not always working (pointing to opposite direction)
-* Decrease font sizes by 2pt or something. Professional maps all use smaller fonts.
 * Handle ways under construction, private ways and those with access=no
+* Add scale and scale-bar to layout
 
 ---
 
