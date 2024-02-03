@@ -1,4 +1,4 @@
-<qgis projectname="" saveDateTime="2024-02-03T11:23:14" saveUser="hauke" saveUserFull="" version="3.34.3-Prizren">
+<qgis projectname="" saveDateTime="2024-02-03T11:25:36" saveUser="hauke" saveUserFull="" version="3.34.3-Prizren">
   <homePath path=""></homePath>
   <title></title>
   <transaction mode="Disabled"></transaction>
@@ -92,10 +92,10 @@
   <mapcanvas annotationsVisible="1" name="theMapCanvas">
     <units>meters</units>
     <extent>
-      <xmin>1213981.09236875548958778</xmin>
-      <ymin>6004871.58793672919273376</ymin>
-      <xmax>1235518.80342752579599619</xmax>
-      <ymax>6025916.06897125393152237</ymax>
+      <xmin>1223833.94928168272599578</xmin>
+      <ymin>6011679.92380713485181332</ymin>
+      <xmax>1226526.16316402889788151</xmax>
+      <ymax>6014310.48393644951283932</ymax>
     </extent>
     <rotation>0</rotation>
     <destinationsrs>
@@ -2684,9 +2684,9 @@
                   <Option name="dash_pattern_offset_unit" type="QString" value="MM"></Option>
                   <Option name="draw_inside_polygon" type="QString" value="0"></Option>
                   <Option name="joinstyle" type="QString" value="bevel"></Option>
-                  <Option name="line_color" type="QString" value="255,238,55,255"></Option>
+                  <Option name="line_color" type="QString" value="230,209,23,255"></Option>
                   <Option name="line_style" type="QString" value="solid"></Option>
-                  <Option name="line_width" type="QString" value="1.25"></Option>
+                  <Option name="line_width" type="QString" value="0.85"></Option>
                   <Option name="line_width_unit" type="QString" value="MM"></Option>
                   <Option name="offset" type="QString" value="0"></Option>
                   <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
@@ -7464,7 +7464,7 @@
   <Sensors></Sensors>
   <ProjectViewSettings UseProjectScales="0" rotation="0">
     <Scales></Scales>
-    <DefaultViewExtent xmax="1235518.80342752626165748" xmin="1213981.0923687550239265" ymax="6025916.06897125393152237" ymin="6004871.58793672919273376">
+    <DefaultViewExtent xmax="1226526.16316402889788151" xmin="1223833.94928168272599578" ymax="6014310.48393644951283932" ymin="6011679.92380713485181332">
       <spatialrefsys nativeFormat="Wkt">
         <wkt>PROJCRS["WGS 84 / Pseudo-Mercator",BASEGEOGCRS["WGS 84",ENSEMBLE["World Geodetic System 1984 ensemble",MEMBER["World Geodetic System 1984 (Transit)"],MEMBER["World Geodetic System 1984 (G730)"],MEMBER["World Geodetic System 1984 (G873)"],MEMBER["World Geodetic System 1984 (G1150)"],MEMBER["World Geodetic System 1984 (G1674)"],MEMBER["World Geodetic System 1984 (G1762)"],MEMBER["World Geodetic System 1984 (G2139)"],ELLIPSOID["WGS 84",6378137,298.257223563,LENGTHUNIT["metre",1]],ENSEMBLEACCURACY[2.0]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4326]],CONVERSION["Popular Visualisation Pseudo-Mercator",METHOD["Popular Visualisation Pseudo Mercator",ID["EPSG",1024]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["False easting",0,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",0,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["easting (X)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["northing (Y)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Web mapping and visualisation."],AREA["World between 85.06°S and 85.06°N."],BBOX[-85.06,-180,85.06,180]],ID["EPSG",3857]]</wkt>
         <proj4>+proj=merc +a=6378137 +b=6378137 +lat_ts=0 +lon_0=0 +x_0=0 +y_0=0 +k=1 +units=m +nadgrids=@null +wktext +no_defs</proj4>
@@ -7529,7 +7529,7 @@
       </spatialrefsys>
     </CoordinateCustomCrs>
   </ProjectDisplaySettings>
-  <ProjectGpsSettings autoAddTrackVertices="0" autoCommitFeatures="0" destinationFollowsActiveLayer="1" destinationLayer="points_ed0a9036_e907_48e1_a7f6_684a61396a8e" destinationLayerName="pois" destinationLayerProvider="ogr" destinationLayerSource="/home/hauke/Projekte/OSM/qgis-outdoor-map/qgis-branch/data/data.gpkg|layername=points">
+  <ProjectGpsSettings autoAddTrackVertices="0" autoCommitFeatures="0" destinationFollowsActiveLayer="1" destinationLayer="lines_92f684f3_02f7_482c_ae40_a9ab535ba56e" destinationLayerName="trails, streets, railway, waterway" destinationLayerProvider="ogr" destinationLayerSource="/home/hauke/Projekte/OSM/qgis-outdoor-map/qgis-branch/data/data.gpkg|layername=lines">
     <timeStampFields></timeStampFields>
   </ProjectGpsSettings>
 </qgis>
