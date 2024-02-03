@@ -56,6 +56,10 @@ TODO Check if this is actually looking good:
 * Road:
   * 0.5mm outline of light gray (#9E9E9E)
 
+## TODOs
+
+* Merged line segments of hiking route relations with comma-separated list of name/ref values
+
 ---
 
 # DEPRECATED DOC

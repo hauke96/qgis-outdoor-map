@@ -217,7 +217,7 @@ esac
 echo "Processed region $1"
 
 echo "Filter $DATA by used tags into $DATA_FILTERED"
-osmium tags-filter -o $DATA_FILTERED $DATA wr/landuse,natural,highway,waterway,railway,boundary,type,route,ele
+osmium tags-filter -o $DATA_FILTERED $DATA wr/landuse,natural,highway,waterway,railway,boundary,type,route,ele,aerialway
 
 echo "Move $DATA_FILTERED to general data folder as $DATA"
 cd ..
