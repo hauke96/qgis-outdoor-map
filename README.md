@@ -59,6 +59,7 @@ TODO Check if this is actually looking good:
 ## TODOs
 
 * Merged line segments of hiking route relations with comma-separated list of name/ref values
+* Direction-arrow of waterway labels is not always working (pointing to opposite direction)
 
 ---
 

@@ -1,4 +1,4 @@
-<qgis projectname="" saveDateTime="2024-02-03T10:22:07" saveUser="hauke" saveUserFull="" version="3.34.3-Prizren">
+<qgis projectname="" saveDateTime="2024-02-03T10:33:31" saveUser="hauke" saveUserFull="" version="3.34.3-Prizren">
   <homePath path=""></homePath>
   <title></title>
   <transaction mode="Disabled"></transaction>
@@ -92,10 +92,10 @@
   <mapcanvas annotationsVisible="1" name="theMapCanvas">
     <units>meters</units>
     <extent>
-      <xmin>1219112.34982288023456931</xmin>
-      <ymin>6009832.51728649903088808</ymin>
-      <xmax>1231227.31229320587590337</xmax>
-      <ymax>6021670.03786819148808718</ymax>
+      <xmin>1226986.80018861358985305</xmin>
+      <ymin>6013821.18481955025345087</ymin>
+      <xmax>1227996.38039448764175177</xmax>
+      <ymax>6014807.64486803766340017</ymax>
     </extent>
     <rotation>0</rotation>
     <destinationsrs>
@@ -1403,7 +1403,7 @@
             <layer class="SimpleFill" enabled="1" id="{2d5b78e8-26d8-4da5-8d80-3d1591317bf2}" locked="0" pass="0">
               <Option type="Map">
                 <Option name="border_width_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
-                <Option name="color" type="QString" value="160,215,255,255"></Option>
+                <Option name="color" type="QString" value="158,207,242,255"></Option>
                 <Option name="joinstyle" type="QString" value="bevel"></Option>
                 <Option name="offset" type="QString" value="0,0"></Option>
                 <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
@@ -2449,7 +2449,7 @@
                   <Option name="dash_pattern_offset_unit" type="QString" value="MM"></Option>
                   <Option name="draw_inside_polygon" type="QString" value="0"></Option>
                   <Option name="joinstyle" type="QString" value="bevel"></Option>
-                  <Option name="line_color" type="QString" value="160,215,255,255"></Option>
+                  <Option name="line_color" type="QString" value="158,207,242,255"></Option>
                   <Option name="line_style" type="QString" value="solid"></Option>
                   <Option name="line_width" type="QString" value="1.5"></Option>
                   <Option name="line_width_unit" type="QString" value="MM"></Option>
@@ -2496,7 +2496,7 @@
                   <Option name="dash_pattern_offset_unit" type="QString" value="MM"></Option>
                   <Option name="draw_inside_polygon" type="QString" value="0"></Option>
                   <Option name="joinstyle" type="QString" value="bevel"></Option>
-                  <Option name="line_color" type="QString" value="160,215,255,255"></Option>
+                  <Option name="line_color" type="QString" value="158,207,242,255"></Option>
                   <Option name="line_style" type="QString" value="dash"></Option>
                   <Option name="line_width" type="QString" value="1.5"></Option>
                   <Option name="line_width_unit" type="QString" value="MM"></Option>
@@ -3067,9 +3067,9 @@
                   <Option name="dash_pattern_offset_unit" type="QString" value="MM"></Option>
                   <Option name="draw_inside_polygon" type="QString" value="0"></Option>
                   <Option name="joinstyle" type="QString" value="bevel"></Option>
-                  <Option name="line_color" type="QString" value="160,215,255,255"></Option>
+                  <Option name="line_color" type="QString" value="158,207,242,255"></Option>
                   <Option name="line_style" type="QString" value="solid"></Option>
-                  <Option name="line_width" type="QString" value="0.65"></Option>
+                  <Option name="line_width" type="QString" value="0.35"></Option>
                   <Option name="line_width_unit" type="QString" value="MM"></Option>
                   <Option name="offset" type="QString" value="0"></Option>
                   <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
@@ -3324,9 +3324,9 @@
                   <Option name="dash_pattern_offset_unit" type="QString" value="MM"></Option>
                   <Option name="draw_inside_polygon" type="QString" value="0"></Option>
                   <Option name="joinstyle" type="QString" value="bevel"></Option>
-                  <Option name="line_color" type="QString" value="160,215,255,255"></Option>
+                  <Option name="line_color" type="QString" value="158,207,242,255"></Option>
                   <Option name="line_style" type="QString" value="dash"></Option>
-                  <Option name="line_width" type="QString" value="0.65"></Option>
+                  <Option name="line_width" type="QString" value="0.35"></Option>
                   <Option name="line_width_unit" type="QString" value="MM"></Option>
                   <Option name="offset" type="QString" value="0"></Option>
                   <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
@@ -6291,6 +6291,7 @@
           <rule filter="natural = 'peak'" key="{5484e45d-3bb6-4c48-a135-298e39ada59b}" label="Peaks" symbol="0"></rule>
           <rule filter="railway = 'station'" key="{8115a5e9-5a3d-4550-8817-42f7a375f4ff}" label="Railway station" symbol="1"></rule>
           <rule filter="railway = 'halt'" key="{3903765e-e799-4a1d-bdfa-1283b98fe5c2}" label="Railway halt" symbol="2"></rule>
+          <rule filter="natural = 'spring'" key="{1d155789-aad5-463a-94cc-7bee6e3c5332}" label="Spring" symbol="3"></rule>
         </rules>
         <symbols>
           <symbol alpha="1" clip_to_extent="1" force_rhr="0" frame_rate="10" is_animated="0" name="0" type="marker">
@@ -6456,6 +6457,45 @@
                 <Option name="outline_width_unit" type="QString" value="MM"></Option>
                 <Option name="scale_method" type="QString" value="diameter"></Option>
                 <Option name="size" type="QString" value="1"></Option>
+                <Option name="size_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
+                <Option name="size_unit" type="QString" value="MM"></Option>
+                <Option name="vertical_anchor_point" type="QString" value="1"></Option>
+              </Option>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option name="name" type="QString" value=""></Option>
+                  <Option name="properties"></Option>
+                  <Option name="type" type="QString" value="collection"></Option>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+          <symbol alpha="1" clip_to_extent="1" force_rhr="0" frame_rate="10" is_animated="0" name="3" type="marker">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option name="name" type="QString" value=""></Option>
+                <Option name="properties"></Option>
+                <Option name="type" type="QString" value="collection"></Option>
+              </Option>
+            </data_defined_properties>
+            <layer class="SimpleMarker" enabled="1" id="{1c413eef-6db4-4482-a4a1-25f03b41e89c}" locked="0" pass="1">
+              <Option type="Map">
+                <Option name="angle" type="QString" value="0"></Option>
+                <Option name="cap_style" type="QString" value="square"></Option>
+                <Option name="color" type="QString" value="158,207,242,255"></Option>
+                <Option name="horizontal_anchor_point" type="QString" value="1"></Option>
+                <Option name="joinstyle" type="QString" value="bevel"></Option>
+                <Option name="name" type="QString" value="circle"></Option>
+                <Option name="offset" type="QString" value="0,0"></Option>
+                <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
+                <Option name="offset_unit" type="QString" value="MM"></Option>
+                <Option name="outline_color" type="QString" value="160,215,255,255"></Option>
+                <Option name="outline_style" type="QString" value="no"></Option>
+                <Option name="outline_width" type="QString" value="0"></Option>
+                <Option name="outline_width_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
+                <Option name="outline_width_unit" type="QString" value="MM"></Option>
+                <Option name="scale_method" type="QString" value="diameter"></Option>
+                <Option name="size" type="QString" value="1.5"></Option>
                 <Option name="size_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
                 <Option name="size_unit" type="QString" value="MM"></Option>
                 <Option name="vertical_anchor_point" type="QString" value="1"></Option>
@@ -7219,7 +7259,7 @@
   <Sensors></Sensors>
   <ProjectViewSettings UseProjectScales="0" rotation="0">
     <Scales></Scales>
-    <DefaultViewExtent xmax="1231227.31229320587590337" xmin="1219112.34982288023456931" ymax="6021670.03786819148808718" ymin="6009832.51728649903088808">
+    <DefaultViewExtent xmax="1227996.38039448764175177" xmin="1226986.80018861358985305" ymax="6014807.64486803766340017" ymin="6013821.18481955025345087">
       <spatialrefsys nativeFormat="Wkt">
         <wkt>PROJCRS["WGS 84 / Pseudo-Mercator",BASEGEOGCRS["WGS 84",ENSEMBLE["World Geodetic System 1984 ensemble",MEMBER["World Geodetic System 1984 (Transit)"],MEMBER["World Geodetic System 1984 (G730)"],MEMBER["World Geodetic System 1984 (G873)"],MEMBER["World Geodetic System 1984 (G1150)"],MEMBER["World Geodetic System 1984 (G1674)"],MEMBER["World Geodetic System 1984 (G1762)"],MEMBER["World Geodetic System 1984 (G2139)"],ELLIPSOID["WGS 84",6378137,298.257223563,LENGTHUNIT["metre",1]],ENSEMBLEACCURACY[2.0]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4326]],CONVERSION["Popular Visualisation Pseudo-Mercator",METHOD["Popular Visualisation Pseudo Mercator",ID["EPSG",1024]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["False easting",0,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",0,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["easting (X)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["northing (Y)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Web mapping and visualisation."],AREA["World between 85.06°S and 85.06°N."],BBOX[-85.06,-180,85.06,180]],ID["EPSG",3857]]</wkt>
         <proj4>+proj=merc +a=6378137 +b=6378137 +lat_ts=0 +lon_0=0 +x_0=0 +y_0=0 +k=1 +units=m +nadgrids=@null +wktext +no_defs</proj4>
@@ -7284,7 +7324,7 @@
       </spatialrefsys>
     </CoordinateCustomCrs>
   </ProjectDisplaySettings>
-  <ProjectGpsSettings autoAddTrackVertices="0" autoCommitFeatures="0" destinationFollowsActiveLayer="1" destinationLayer="landuse___natural_22d5163e_294a_45cc_8bd5_e5b52fa0f599" destinationLayerName="landuse, natural, buildings" destinationLayerProvider="ogr" destinationLayerSource="/home/hauke/Projekte/OSM/qgis-outdoor-map/qgis-branch/data/data.gpkg|layername=multipolygons">
+  <ProjectGpsSettings autoAddTrackVertices="0" autoCommitFeatures="0" destinationFollowsActiveLayer="1" destinationLayer="points_ed0a9036_e907_48e1_a7f6_684a61396a8e" destinationLayerName="pois" destinationLayerProvider="ogr" destinationLayerSource="/home/hauke/Projekte/OSM/qgis-outdoor-map/qgis-branch/data/data.gpkg|layername=points">
     <timeStampFields></timeStampFields>
   </ProjectGpsSettings>
 </qgis>
