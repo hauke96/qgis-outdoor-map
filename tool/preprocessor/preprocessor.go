@@ -154,7 +154,7 @@ func handleNode(node *osm.Node) {
 func handleWay(way *osm.Way) {
 	// Handling of some special cases where certain ways should be converted into point features
 	if way.Tags.Find("waterway") == "waterfall" || way.Tags.Find("tourism") == "camp_site" {
-		centroid, _ := determineCentroidLocation(way.LineString())
+		centroid, _ := getCentroidOfWay(way)
 		addNode(centroid.Lon(), centroid.Lat(), way.Tags)
 	}
 }
@@ -173,6 +173,11 @@ func addNode(originLon float64, originLat float64, tags []osm.Tag) {
 	inputNodes[node.ID] = &node
 }
 
-func determineCentroidLocation(geometry orb.Geometry) (orb.Point, float64) {
+func getCentroidOfWay(w *osm.Way) (orb.Point, float64) {
+	geometry := make(orb.LineString, 0, len(w.Nodes))
+	for _, n := range w.Nodes {
+		nodeWithGeometry := inputNodes[n.ID]
+		geometry = append(geometry, nodeWithGeometry.Point())
+	}
 	return planar.CentroidArea(geometry)
 }
