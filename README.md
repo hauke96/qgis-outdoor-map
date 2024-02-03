@@ -25,6 +25,12 @@ To generate and edit the style:
   * This script downloads the data and crops it to the extent of the given region.
   * This script also creates the required `data/data.gpkg` file for QGIS.
 
+## Create printable PDF
+
+1. Create a new QGIS print layout or use the default one in thise project
+2. Adjust the virtual layers (within the "legend" map theme) so that your legend contains all wanted items in correct groups
+3. Adjust the theme and create the PDF (or whatever output you want)
+
 ## Style guide
 
 ### General considerations
