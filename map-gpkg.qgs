@@ -1,4 +1,4 @@
-<qgis projectname="" saveDateTime="2024-02-03T15:50:50" saveUser="hauke" saveUserFull="" version="3.34.3-Prizren">
+<qgis projectname="" saveDateTime="2024-02-03T16:12:55" saveUser="hauke" saveUserFull="" version="3.34.3-Prizren">
   <homePath path=""></homePath>
   <title></title>
   <transaction mode="Disabled"></transaction>
@@ -42,11 +42,9 @@
         </Option>
       </customproperties>
     </layer-tree-layer>
-    <layer-tree-layer checked="Qt::Checked" expanded="0" id="multilinestrings_706b07ec_2731_4a30_abc1_835d0fa41ab0" legend_exp="" legend_split_behavior="0" name="Routes" patch_size="-1,-1" providerKey="ogr" source="./data/data.gpkg|layername=lines">
+    <layer-tree-layer checked="Qt::Checked" expanded="0" id="multilinestrings_487397ba_729a_419d_b933_485495635f50" legend_exp="" legend_split_behavior="0" name="Routes and borders" patch_size="-1,-1" providerKey="ogr" source="./data/data.gpkg|layername=multilinestrings">
       <customproperties>
-        <Option type="Map">
-          <Option name="cached_name" type="QString" value="Routes"></Option>
-        </Option>
+        <Option></Option>
       </customproperties>
     </layer-tree-layer>
     <layer-tree-layer checked="Qt::Checked" expanded="0" id="landuse___natural_22d5163e_294a_45cc_8bd5_e5b52fa0f599" legend_exp="" legend_split_behavior="0" name="Areas and landuses" patch_size="-1,-1" providerKey="ogr" source="./data/data.gpkg|layername=multipolygons">
@@ -63,7 +61,7 @@
         </Option>
       </customproperties>
     </layer-tree-layer>
-    <layer-tree-layer checked="Qt::Checked" expanded="0" id="_2a66d014_7b53_44ed_90a6_336e5b27c1a5" legend_exp="" legend_split_behavior="0" name="MapTiler hillshade (localhost)" patch_size="-1,-1" providerKey="wms" source="crs=EPSG:3857&amp;format&amp;type=xyz&amp;url=http://localhost:9000/%7Bz%7D/%7Bx%7D/%7By%7D.webp&amp;zmax=12&amp;http-header:referer=">
+    <layer-tree-layer checked="Qt::Checked" expanded="1" id="_2a66d014_7b53_44ed_90a6_336e5b27c1a5" legend_exp="" legend_split_behavior="0" name="MapTiler hillshade (localhost)" patch_size="-1,-1" providerKey="wms" source="crs=EPSG:3857&amp;format&amp;type=xyz&amp;url=http://localhost:9000/%7Bz%7D/%7Bx%7D/%7By%7D.webp&amp;zmax=12&amp;http-header:referer=">
       <customproperties>
         <Option type="Map">
           <Option name="cached_name" type="QString" value="MapTiler hillshade (localhost)"></Option>
@@ -71,7 +69,7 @@
         </Option>
       </customproperties>
     </layer-tree-layer>
-    <layer-tree-layer checked="Qt::Checked" expanded="0" id="multipolygons_15331f63_080d_4d15_b9c7_3798940463c6" legend_exp="" legend_split_behavior="0" name="Areas and landuses" patch_size="-1,-1" providerKey="ogr" source="./data/data.gpkg|layername=multipolygons">
+    <layer-tree-layer checked="Qt::Checked" expanded="1" id="multipolygons_15331f63_080d_4d15_b9c7_3798940463c6" legend_exp="" legend_split_behavior="0" name="Areas and landuses" patch_size="-1,-1" providerKey="ogr" source="./data/data.gpkg|layername=multipolygons">
       <customproperties>
         <Option type="Map">
           <Option name="cached_name" type="QString" value="Areas and landuses"></Option>
@@ -94,16 +92,16 @@
       <item>lines_92f684f3_02f7_482c_ae40_a9ab535ba56e</item>
       <item>landuse___natural_22d5163e_294a_45cc_8bd5_e5b52fa0f599</item>
       <item>MapTiler_contours__localhost__eedf3c60_1778_4cb1_8ffe_f92a9aefcd01</item>
-      <item>multilinestrings_706b07ec_2731_4a30_abc1_835d0fa41ab0</item>
       <item>points_ed0a9036_e907_48e1_a7f6_684a61396a8e</item>
       <item>trails__streets__railway__waterway_16ccce6d_a50d_4626_af49_c030b6b66daa</item>
+      <item>multilinestrings_487397ba_729a_419d_b933_485495635f50</item>
     </custom-order>
   </layer-tree-group>
   <snapping-settings enabled="0" intersection-snapping="0" maxScale="0" minScale="0" mode="2" scaleDependencyMode="0" self-snapping="0" tolerance="12" type="1" unit="1">
     <individual-layer-settings>
       <layer-setting enabled="0" id="multipolygons_15331f63_080d_4d15_b9c7_3798940463c6" maxScale="0" minScale="0" tolerance="12" type="1" units="1"></layer-setting>
+      <layer-setting enabled="0" id="multilinestrings_487397ba_729a_419d_b933_485495635f50" maxScale="0" minScale="0" tolerance="12" type="1" units="1"></layer-setting>
       <layer-setting enabled="0" id="points_ed0a9036_e907_48e1_a7f6_684a61396a8e" maxScale="0" minScale="0" tolerance="12" type="1" units="1"></layer-setting>
-      <layer-setting enabled="0" id="multilinestrings_706b07ec_2731_4a30_abc1_835d0fa41ab0" maxScale="0" minScale="0" tolerance="12" type="1" units="1"></layer-setting>
       <layer-setting enabled="0" id="lines_92f684f3_02f7_482c_ae40_a9ab535ba56e" maxScale="0" minScale="0" tolerance="12" type="1" units="1"></layer-setting>
       <layer-setting enabled="0" id="trails__streets__railway__waterway_16ccce6d_a50d_4626_af49_c030b6b66daa" maxScale="0" minScale="0" tolerance="12" type="1" units="1"></layer-setting>
       <layer-setting enabled="0" id="landuse___natural_22d5163e_294a_45cc_8bd5_e5b52fa0f599" maxScale="0" minScale="0" tolerance="12" type="1" units="1"></layer-setting>
@@ -114,10 +112,10 @@
   <mapcanvas annotationsVisible="1" name="theMapCanvas">
     <units>meters</units>
     <extent>
-      <xmin>1217935.86679912498220801</xmin>
-      <ymin>6009984.11918294057250023</ymin>
-      <xmax>1223993.46918791672214866</xmax>
-      <ymax>6016317.38842489942908287</ymax>
+      <xmin>1221086.07571343192830682</xmin>
+      <ymin>6013053.47487347666174173</ymin>
+      <xmax>1223617.26333928341045976</xmax>
+      <ymax>6015435.76910957042127848</ymax>
     </extent>
     <rotation>0</rotation>
     <destinationsrs>
@@ -153,9 +151,9 @@
         <legendlayerfile isInOverview="0" layerid="trails__streets__railway__waterway_16ccce6d_a50d_4626_af49_c030b6b66daa" visible="1"></legendlayerfile>
       </filegroup>
     </legendlayer>
-    <legendlayer checked="Qt::Checked" drawingOrder="-1" name="Routes" open="false" showFeatureCount="0">
+    <legendlayer checked="Qt::Checked" drawingOrder="-1" name="Routes and borders" open="false" showFeatureCount="0">
       <filegroup hidden="false" open="false">
-        <legendlayerfile isInOverview="0" layerid="multilinestrings_706b07ec_2731_4a30_abc1_835d0fa41ab0" visible="1"></legendlayerfile>
+        <legendlayerfile isInOverview="0" layerid="multilinestrings_487397ba_729a_419d_b933_485495635f50" visible="1"></legendlayerfile>
       </filegroup>
     </legendlayer>
     <legendlayer checked="Qt::Checked" drawingOrder="-1" name="Areas and landuses" open="false" showFeatureCount="0">
@@ -168,13 +166,13 @@
         <legendlayerfile isInOverview="0" layerid="MapTiler_contours__localhost__eedf3c60_1778_4cb1_8ffe_f92a9aefcd01" visible="1"></legendlayerfile>
       </filegroup>
     </legendlayer>
-    <legendlayer checked="Qt::Checked" drawingOrder="-1" name="MapTiler hillshade (localhost)" open="false" showFeatureCount="0">
-      <filegroup hidden="false" open="false">
+    <legendlayer checked="Qt::Checked" drawingOrder="-1" name="MapTiler hillshade (localhost)" open="true" showFeatureCount="0">
+      <filegroup hidden="false" open="true">
         <legendlayerfile isInOverview="0" layerid="_2a66d014_7b53_44ed_90a6_336e5b27c1a5" visible="1"></legendlayerfile>
       </filegroup>
     </legendlayer>
-    <legendlayer checked="Qt::Checked" drawingOrder="-1" name="Areas and landuses" open="false" showFeatureCount="0">
-      <filegroup hidden="false" open="false">
+    <legendlayer checked="Qt::Checked" drawingOrder="-1" name="Areas and landuses" open="true" showFeatureCount="0">
+      <filegroup hidden="false" open="true">
         <legendlayerfile isInOverview="0" layerid="multipolygons_15331f63_080d_4d15_b9c7_3798940463c6" visible="1"></legendlayerfile>
       </filegroup>
     </legendlayer>
@@ -185,6 +183,31 @@
     </legendlayer>
   </legend>
   <mapViewDocks></mapViewDocks>
+  <mapcanvas annotationsVisible="1" name="mAreaCanvas">
+    <units>degrees</units>
+    <extent>
+      <xmin>179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368</xmin>
+      <ymin>179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368</ymin>
+      <xmax>-179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368</xmax>
+      <ymax>-179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368</ymax>
+    </extent>
+    <rotation>0</rotation>
+    <destinationsrs>
+      <spatialrefsys nativeFormat="Wkt">
+        <wkt>GEOGCRS["WGS 84",ENSEMBLE["World Geodetic System 1984 ensemble",MEMBER["World Geodetic System 1984 (Transit)"],MEMBER["World Geodetic System 1984 (G730)"],MEMBER["World Geodetic System 1984 (G873)"],MEMBER["World Geodetic System 1984 (G1150)"],MEMBER["World Geodetic System 1984 (G1674)"],MEMBER["World Geodetic System 1984 (G1762)"],MEMBER["World Geodetic System 1984 (G2139)"],ELLIPSOID["WGS 84",6378137,298.257223563,LENGTHUNIT["metre",1]],ENSEMBLEACCURACY[2.0]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],CS[ellipsoidal,2],AXIS["geodetic latitude (Lat)",north,ORDER[1],ANGLEUNIT["degree",0.0174532925199433]],AXIS["geodetic longitude (Lon)",east,ORDER[2],ANGLEUNIT["degree",0.0174532925199433]],USAGE[SCOPE["Horizontal component of 3D system."],AREA["World."],BBOX[-90,-180,90,180]],ID["EPSG",4326]]</wkt>
+        <proj4>+proj=longlat +datum=WGS84 +no_defs</proj4>
+        <srsid>3452</srsid>
+        <srid>4326</srid>
+        <authid>EPSG:4326</authid>
+        <description>WGS 84</description>
+        <projectionacronym>longlat</projectionacronym>
+        <ellipsoidacronym>EPSG:7030</ellipsoidacronym>
+        <geographicflag>true</geographicflag>
+      </spatialrefsys>
+    </destinationsrs>
+    <rendermaptile>0</rendermaptile>
+    <expressionContextScope></expressionContextScope>
+  </mapcanvas>
   <main-annotation-layer autoRefreshMode="Disabled" autoRefreshTime="0" hasScaleBasedVisibilityFlag="0" legendPlaceholderImage="" maxScale="0" minScale="1e+08" refreshOnNotifyEnabled="0" refreshOnNotifyMessage="" styleCategories="AllStyleCategories" type="annotation">
     <id>Annotations_8cad4cce_3c23_4dc9_855f_e6ed62a9ed8d</id>
     <datasource></datasource>
@@ -2424,6 +2447,15 @@
         <type>dataset</type>
         <title></title>
         <abstract></abstract>
+        <contact>
+          <name></name>
+          <organization></organization>
+          <position></position>
+          <voice></voice>
+          <fax></fax>
+          <email></email>
+          <role></role>
+        </contact>
         <links></links>
         <dates></dates>
         <fees></fees>
@@ -2441,7 +2473,15 @@
             <geographicflag>true</geographicflag>
           </spatialrefsys>
         </crs>
-        <extent></extent>
+        <extent>
+          <spatial crs="EPSG:4326" dimensions="2" maxx="-179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368" maxy="-179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368" maxz="0" minx="179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368" miny="179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368" minz="0"></spatial>
+          <temporal>
+            <period>
+              <start></start>
+              <end></end>
+            </period>
+          </temporal>
+        </extent>
       </resourceMetadata>
       <provider encoding="UTF-8">ogr</provider>
       <vectorjoins></vectorjoins>
@@ -3794,10 +3834,59 @@
       </renderer-v2>
       <selection mode="Default">
         <selectionColor invalid="1"></selectionColor>
+        <selectionSymbol>
+          <symbol alpha="1" clip_to_extent="1" force_rhr="0" frame_rate="10" is_animated="0" name="" type="line">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option name="name" type="QString" value=""></Option>
+                <Option name="properties"></Option>
+                <Option name="type" type="QString" value="collection"></Option>
+              </Option>
+            </data_defined_properties>
+            <layer class="SimpleLine" enabled="1" id="{9cd01839-47c7-4e33-95e0-154bf04429ae}" locked="0" pass="0">
+              <Option type="Map">
+                <Option name="align_dash_pattern" type="QString" value="0"></Option>
+                <Option name="capstyle" type="QString" value="square"></Option>
+                <Option name="customdash" type="QString" value="5;2"></Option>
+                <Option name="customdash_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
+                <Option name="customdash_unit" type="QString" value="MM"></Option>
+                <Option name="dash_pattern_offset" type="QString" value="0"></Option>
+                <Option name="dash_pattern_offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
+                <Option name="dash_pattern_offset_unit" type="QString" value="MM"></Option>
+                <Option name="draw_inside_polygon" type="QString" value="0"></Option>
+                <Option name="joinstyle" type="QString" value="bevel"></Option>
+                <Option name="line_color" type="QString" value="35,35,35,255"></Option>
+                <Option name="line_style" type="QString" value="solid"></Option>
+                <Option name="line_width" type="QString" value="0.26"></Option>
+                <Option name="line_width_unit" type="QString" value="MM"></Option>
+                <Option name="offset" type="QString" value="0"></Option>
+                <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
+                <Option name="offset_unit" type="QString" value="MM"></Option>
+                <Option name="ring_filter" type="QString" value="0"></Option>
+                <Option name="trim_distance_end" type="QString" value="0"></Option>
+                <Option name="trim_distance_end_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
+                <Option name="trim_distance_end_unit" type="QString" value="MM"></Option>
+                <Option name="trim_distance_start" type="QString" value="0"></Option>
+                <Option name="trim_distance_start_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
+                <Option name="trim_distance_start_unit" type="QString" value="MM"></Option>
+                <Option name="tweak_dash_pattern_on_corners" type="QString" value="0"></Option>
+                <Option name="use_custom_dash" type="QString" value="0"></Option>
+                <Option name="width_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
+              </Option>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option name="name" type="QString" value=""></Option>
+                  <Option name="properties"></Option>
+                  <Option name="type" type="QString" value="collection"></Option>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+        </selectionSymbol>
       </selection>
       <labeling type="rule-based">
-        <rules key="{10e5cf6b-d9db-4b9b-942e-9926c1fc6bbc}">
-          <rule description="Highway" filter="highway IS NOT NULL" key="{4d93bbf4-29fd-402e-87a0-dd7c509fc33c}">
+        <rules key="{9bc1836c-4b57-4c5d-9367-d56b9069c5a6}">
+          <rule description="Highway" filter="highway IS NOT NULL" key="{0501756d-f81f-4266-abc3-40e2d25e75be}">
             <settings calloutType="simple">
               <text-style allowHtml="0" blendMode="0" capitalization="0" fieldName="name" fontFamily="Open Sans" fontItalic="0" fontKerning="1" fontLetterSpacing="0" fontSize="8" fontSizeMapUnitScale="3x:0,0,0,0,0,0" fontSizeUnit="Point" fontStrikeout="0" fontUnderline="0" fontWeight="50" fontWordSpacing="0" forcedBold="0" forcedItalic="0" isExpression="0" legendString="Aa" multilineHeight="1" multilineHeightUnit="Percentage" namedStyle="Regular" previewBkgrdColor="255,255,255,255" stretchFactor="100" textColor="0,0,0,255" textOpacity="1" textOrientation="horizontal" useSubstitutions="0">
                 <families></families>
@@ -3928,162 +4017,212 @@
           <Option name="dualview/previewExpressions" type="List">
             <Option type="QString" value="&quot;osm_id&quot;"></Option>
           </Option>
+          <Option name="embeddedWidgets/count" type="int" value="0"></Option>
+          <Option name="variableNames"></Option>
+          <Option name="variableValues"></Option>
         </Option>
       </customproperties>
       <blendMode>0</blendMode>
       <featureBlendMode>0</featureBlendMode>
       <layerOpacity>1</layerOpacity>
+      <SingleCategoryDiagramRenderer attributeLegend="1" diagramType="Histogram">
+        <DiagramCategory backgroundAlpha="255" backgroundColor="#ffffff" barWidth="5" diagramOrientation="Up" direction="0" enabled="0" height="15" labelPlacementMethod="XHeight" lineSizeScale="3x:0,0,0,0,0,0" lineSizeType="MM" maxScaleDenominator="1e+08" minScaleDenominator="0" minimumSize="0" opacity="1" penAlpha="255" penColor="#000000" penWidth="0" rotationOffset="270" scaleBasedVisibility="0" scaleDependency="Area" showAxis="1" sizeScale="3x:0,0,0,0,0,0" sizeType="MM" spacing="5" spacingUnit="MM" spacingUnitScale="3x:0,0,0,0,0,0" width="15">
+          <fontProperties bold="0" description="DejaVu Sans,,9,-1,5,50,0,0,0,0,0" italic="0" strikethrough="0" style="" underline="0"></fontProperties>
+          <axisSymbol>
+            <symbol alpha="1" clip_to_extent="1" force_rhr="0" frame_rate="10" is_animated="0" name="" type="line">
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option name="name" type="QString" value=""></Option>
+                  <Option name="properties"></Option>
+                  <Option name="type" type="QString" value="collection"></Option>
+                </Option>
+              </data_defined_properties>
+              <layer class="SimpleLine" enabled="1" id="{9aefdcb5-14b4-4d04-9c2b-93bb1f833366}" locked="0" pass="0">
+                <Option type="Map">
+                  <Option name="align_dash_pattern" type="QString" value="0"></Option>
+                  <Option name="capstyle" type="QString" value="square"></Option>
+                  <Option name="customdash" type="QString" value="5;2"></Option>
+                  <Option name="customdash_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
+                  <Option name="customdash_unit" type="QString" value="MM"></Option>
+                  <Option name="dash_pattern_offset" type="QString" value="0"></Option>
+                  <Option name="dash_pattern_offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
+                  <Option name="dash_pattern_offset_unit" type="QString" value="MM"></Option>
+                  <Option name="draw_inside_polygon" type="QString" value="0"></Option>
+                  <Option name="joinstyle" type="QString" value="bevel"></Option>
+                  <Option name="line_color" type="QString" value="35,35,35,255"></Option>
+                  <Option name="line_style" type="QString" value="solid"></Option>
+                  <Option name="line_width" type="QString" value="0.26"></Option>
+                  <Option name="line_width_unit" type="QString" value="MM"></Option>
+                  <Option name="offset" type="QString" value="0"></Option>
+                  <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
+                  <Option name="offset_unit" type="QString" value="MM"></Option>
+                  <Option name="ring_filter" type="QString" value="0"></Option>
+                  <Option name="trim_distance_end" type="QString" value="0"></Option>
+                  <Option name="trim_distance_end_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
+                  <Option name="trim_distance_end_unit" type="QString" value="MM"></Option>
+                  <Option name="trim_distance_start" type="QString" value="0"></Option>
+                  <Option name="trim_distance_start_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
+                  <Option name="trim_distance_start_unit" type="QString" value="MM"></Option>
+                  <Option name="tweak_dash_pattern_on_corners" type="QString" value="0"></Option>
+                  <Option name="use_custom_dash" type="QString" value="0"></Option>
+                  <Option name="width_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
+                </Option>
+                <data_defined_properties>
+                  <Option type="Map">
+                    <Option name="name" type="QString" value=""></Option>
+                    <Option name="properties"></Option>
+                    <Option name="type" type="QString" value="collection"></Option>
+                  </Option>
+                </data_defined_properties>
+              </layer>
+            </symbol>
+          </axisSymbol>
+        </DiagramCategory>
+      </SingleCategoryDiagramRenderer>
+      <DiagramLayerSettings dist="0" linePlacementFlags="18" obstacle="0" placement="2" priority="0" showAll="1" zIndex="0">
+        <properties>
+          <Option type="Map">
+            <Option name="name" type="QString" value=""></Option>
+            <Option name="properties"></Option>
+            <Option name="type" type="QString" value="collection"></Option>
+          </Option>
+        </properties>
+      </DiagramLayerSettings>
       <geometryOptions geometryPrecision="0" removeDuplicateNodes="0">
-        <activeChecks type="StringList">
-          <Option type="QString" value=""></Option>
-        </activeChecks>
+        <activeChecks></activeChecks>
         <checkConfiguration></checkConfiguration>
       </geometryOptions>
       <legend showLabelLegend="0" type="default-vector"></legend>
       <referencedLayers></referencedLayers>
       <fieldConfiguration>
         <field configurationFlags="NoFlag" name="fid">
-          <editWidget type="">
+          <editWidget type="TextEdit">
             <config>
               <Option></Option>
             </config>
           </editWidget>
         </field>
         <field configurationFlags="NoFlag" name="osm_id">
-          <editWidget type="">
+          <editWidget type="TextEdit">
             <config>
               <Option></Option>
             </config>
           </editWidget>
         </field>
         <field configurationFlags="NoFlag" name="access">
-          <editWidget type="">
-            <config>
-              <Option></Option>
-            </config>
-          </editWidget>
-        </field>
-        <field configurationFlags="NoFlag" name="admin_level">
-          <editWidget type="">
+          <editWidget type="TextEdit">
             <config>
               <Option></Option>
             </config>
           </editWidget>
         </field>
         <field configurationFlags="NoFlag" name="aerialway">
-          <editWidget type="">
-            <config>
-              <Option></Option>
-            </config>
-          </editWidget>
-        </field>
-        <field configurationFlags="NoFlag" name="boundary">
-          <editWidget type="">
+          <editWidget type="TextEdit">
             <config>
               <Option></Option>
             </config>
           </editWidget>
         </field>
         <field configurationFlags="NoFlag" name="highway">
-          <editWidget type="">
+          <editWidget type="TextEdit">
             <config>
               <Option></Option>
             </config>
           </editWidget>
         </field>
         <field configurationFlags="NoFlag" name="intermittent">
-          <editWidget type="">
+          <editWidget type="TextEdit">
             <config>
               <Option></Option>
             </config>
           </editWidget>
         </field>
         <field configurationFlags="NoFlag" name="name">
-          <editWidget type="">
+          <editWidget type="TextEdit">
             <config>
               <Option></Option>
             </config>
           </editWidget>
         </field>
         <field configurationFlags="NoFlag" name="natural">
-          <editWidget type="">
+          <editWidget type="TextEdit">
             <config>
               <Option></Option>
             </config>
           </editWidget>
         </field>
         <field configurationFlags="NoFlag" name="railway">
-          <editWidget type="">
+          <editWidget type="TextEdit">
             <config>
               <Option></Option>
             </config>
           </editWidget>
         </field>
         <field configurationFlags="NoFlag" name="ref">
-          <editWidget type="">
+          <editWidget type="TextEdit">
             <config>
               <Option></Option>
             </config>
           </editWidget>
         </field>
         <field configurationFlags="NoFlag" name="route">
-          <editWidget type="">
+          <editWidget type="TextEdit">
             <config>
               <Option></Option>
             </config>
           </editWidget>
         </field>
         <field configurationFlags="NoFlag" name="sac_scale">
-          <editWidget type="">
+          <editWidget type="TextEdit">
             <config>
               <Option></Option>
             </config>
           </editWidget>
         </field>
         <field configurationFlags="NoFlag" name="tracktype">
-          <editWidget type="">
+          <editWidget type="TextEdit">
             <config>
               <Option></Option>
             </config>
           </editWidget>
         </field>
         <field configurationFlags="NoFlag" name="trail_visibility">
-          <editWidget type="">
+          <editWidget type="TextEdit">
             <config>
               <Option></Option>
             </config>
           </editWidget>
         </field>
         <field configurationFlags="NoFlag" name="tunnel">
-          <editWidget type="">
+          <editWidget type="TextEdit">
             <config>
               <Option></Option>
             </config>
           </editWidget>
         </field>
         <field configurationFlags="NoFlag" name="type">
-          <editWidget type="">
+          <editWidget type="TextEdit">
             <config>
               <Option></Option>
             </config>
           </editWidget>
         </field>
         <field configurationFlags="NoFlag" name="via_ferrata_scale">
-          <editWidget type="">
+          <editWidget type="TextEdit">
             <config>
               <Option></Option>
             </config>
           </editWidget>
         </field>
         <field configurationFlags="NoFlag" name="waterway">
-          <editWidget type="">
+          <editWidget type="TextEdit">
             <config>
               <Option></Option>
             </config>
           </editWidget>
         </field>
         <field configurationFlags="NoFlag" name="z_order">
-          <editWidget type="">
+          <editWidget type="Range">
             <config>
               <Option></Option>
             </config>
@@ -4094,32 +4233,28 @@
         <alias field="fid" index="0" name=""></alias>
         <alias field="osm_id" index="1" name=""></alias>
         <alias field="access" index="2" name=""></alias>
-        <alias field="admin_level" index="3" name=""></alias>
-        <alias field="aerialway" index="4" name=""></alias>
-        <alias field="boundary" index="5" name=""></alias>
-        <alias field="highway" index="6" name=""></alias>
-        <alias field="intermittent" index="7" name=""></alias>
-        <alias field="name" index="8" name=""></alias>
-        <alias field="natural" index="9" name=""></alias>
-        <alias field="railway" index="10" name=""></alias>
-        <alias field="ref" index="11" name=""></alias>
-        <alias field="route" index="12" name=""></alias>
-        <alias field="sac_scale" index="13" name=""></alias>
-        <alias field="tracktype" index="14" name=""></alias>
-        <alias field="trail_visibility" index="15" name=""></alias>
-        <alias field="tunnel" index="16" name=""></alias>
-        <alias field="type" index="17" name=""></alias>
-        <alias field="via_ferrata_scale" index="18" name=""></alias>
-        <alias field="waterway" index="19" name=""></alias>
-        <alias field="z_order" index="20" name=""></alias>
+        <alias field="aerialway" index="3" name=""></alias>
+        <alias field="highway" index="4" name=""></alias>
+        <alias field="intermittent" index="5" name=""></alias>
+        <alias field="name" index="6" name=""></alias>
+        <alias field="natural" index="7" name=""></alias>
+        <alias field="railway" index="8" name=""></alias>
+        <alias field="ref" index="9" name=""></alias>
+        <alias field="route" index="10" name=""></alias>
+        <alias field="sac_scale" index="11" name=""></alias>
+        <alias field="tracktype" index="12" name=""></alias>
+        <alias field="trail_visibility" index="13" name=""></alias>
+        <alias field="tunnel" index="14" name=""></alias>
+        <alias field="type" index="15" name=""></alias>
+        <alias field="via_ferrata_scale" index="16" name=""></alias>
+        <alias field="waterway" index="17" name=""></alias>
+        <alias field="z_order" index="18" name=""></alias>
       </aliases>
       <splitPolicies>
         <policy field="fid" policy="Duplicate"></policy>
         <policy field="osm_id" policy="Duplicate"></policy>
         <policy field="access" policy="Duplicate"></policy>
-        <policy field="admin_level" policy="Duplicate"></policy>
         <policy field="aerialway" policy="Duplicate"></policy>
-        <policy field="boundary" policy="Duplicate"></policy>
         <policy field="highway" policy="Duplicate"></policy>
         <policy field="intermittent" policy="Duplicate"></policy>
         <policy field="name" policy="Duplicate"></policy>
@@ -4140,9 +4275,7 @@
         <default applyOnUpdate="0" expression="" field="fid"></default>
         <default applyOnUpdate="0" expression="" field="osm_id"></default>
         <default applyOnUpdate="0" expression="" field="access"></default>
-        <default applyOnUpdate="0" expression="" field="admin_level"></default>
         <default applyOnUpdate="0" expression="" field="aerialway"></default>
-        <default applyOnUpdate="0" expression="" field="boundary"></default>
         <default applyOnUpdate="0" expression="" field="highway"></default>
         <default applyOnUpdate="0" expression="" field="intermittent"></default>
         <default applyOnUpdate="0" expression="" field="name"></default>
@@ -4163,9 +4296,7 @@
         <constraint constraints="3" exp_strength="0" field="fid" notnull_strength="1" unique_strength="1"></constraint>
         <constraint constraints="0" exp_strength="0" field="osm_id" notnull_strength="0" unique_strength="0"></constraint>
         <constraint constraints="0" exp_strength="0" field="access" notnull_strength="0" unique_strength="0"></constraint>
-        <constraint constraints="0" exp_strength="0" field="admin_level" notnull_strength="0" unique_strength="0"></constraint>
         <constraint constraints="0" exp_strength="0" field="aerialway" notnull_strength="0" unique_strength="0"></constraint>
-        <constraint constraints="0" exp_strength="0" field="boundary" notnull_strength="0" unique_strength="0"></constraint>
         <constraint constraints="0" exp_strength="0" field="highway" notnull_strength="0" unique_strength="0"></constraint>
         <constraint constraints="0" exp_strength="0" field="intermittent" notnull_strength="0" unique_strength="0"></constraint>
         <constraint constraints="0" exp_strength="0" field="name" notnull_strength="0" unique_strength="0"></constraint>
@@ -4186,9 +4317,7 @@
         <constraint desc="" exp="" field="fid"></constraint>
         <constraint desc="" exp="" field="osm_id"></constraint>
         <constraint desc="" exp="" field="access"></constraint>
-        <constraint desc="" exp="" field="admin_level"></constraint>
         <constraint desc="" exp="" field="aerialway"></constraint>
-        <constraint desc="" exp="" field="boundary"></constraint>
         <constraint desc="" exp="" field="highway"></constraint>
         <constraint desc="" exp="" field="intermittent"></constraint>
         <constraint desc="" exp="" field="name"></constraint>
@@ -4224,6 +4353,14 @@
           <column hidden="0" name="type" type="field" width="-1"></column>
           <column hidden="0" name="ref" type="field" width="-1"></column>
           <column hidden="0" name="tunnel" type="field" width="-1"></column>
+          <column hidden="0" name="access" type="field" width="-1"></column>
+          <column hidden="0" name="admin_level" type="field" width="-1"></column>
+          <column hidden="0" name="aerialway" type="field" width="-1"></column>
+          <column hidden="0" name="boundary" type="field" width="-1"></column>
+          <column hidden="0" name="intermittent" type="field" width="-1"></column>
+          <column hidden="0" name="sac_scale" type="field" width="-1"></column>
+          <column hidden="0" name="trail_visibility" type="field" width="-1"></column>
+          <column hidden="0" name="via_ferrata_scale" type="field" width="-1"></column>
           <column hidden="1" type="actions" width="-1"></column>
         </columns>
       </attributetableconfig>
@@ -4236,36 +4373,118 @@
       <editforminit></editforminit>
       <editforminitcodesource>0</editforminitcodesource>
       <editforminitfilepath></editforminitfilepath>
-      <editforminitcode></editforminitcode>
+      <editforminitcode># -*- coding: utf-8 -*-
+"""
+QGIS forms can have a Python function that is called when the form is
+opened.
+
+Use this function to add extra logic to your forms.
+
+Enter the name of the function in the "Python Init function"
+field.
+An example follows:
+"""
+from qgis.PyQt.QtWidgets import QWidget
+
+def my_form_open(dialog, layer, feature):
+    geom = feature.geometry()
+    control = dialog.findChild(QWidget, "MyLineEdit")
+</editforminitcode>
       <featformsuppress>0</featformsuppress>
       <editorlayout>generatedlayout</editorlayout>
-      <editable></editable>
-      <labelOnTop></labelOnTop>
-      <reuseLastValue></reuseLastValue>
+      <editable>
+        <field editable="1" name="access"></field>
+        <field editable="1" name="admin_level"></field>
+        <field editable="1" name="aerialway"></field>
+        <field editable="1" name="boundary"></field>
+        <field editable="1" name="fid"></field>
+        <field editable="1" name="highway"></field>
+        <field editable="1" name="intermittent"></field>
+        <field editable="1" name="name"></field>
+        <field editable="1" name="natural"></field>
+        <field editable="1" name="osm_id"></field>
+        <field editable="1" name="railway"></field>
+        <field editable="1" name="ref"></field>
+        <field editable="1" name="route"></field>
+        <field editable="1" name="sac_scale"></field>
+        <field editable="1" name="tracktype"></field>
+        <field editable="1" name="trail_visibility"></field>
+        <field editable="1" name="tunnel"></field>
+        <field editable="1" name="type"></field>
+        <field editable="1" name="via_ferrata_scale"></field>
+        <field editable="1" name="waterway"></field>
+        <field editable="1" name="z_order"></field>
+      </editable>
+      <labelOnTop>
+        <field labelOnTop="0" name="access"></field>
+        <field labelOnTop="0" name="admin_level"></field>
+        <field labelOnTop="0" name="aerialway"></field>
+        <field labelOnTop="0" name="boundary"></field>
+        <field labelOnTop="0" name="fid"></field>
+        <field labelOnTop="0" name="highway"></field>
+        <field labelOnTop="0" name="intermittent"></field>
+        <field labelOnTop="0" name="name"></field>
+        <field labelOnTop="0" name="natural"></field>
+        <field labelOnTop="0" name="osm_id"></field>
+        <field labelOnTop="0" name="railway"></field>
+        <field labelOnTop="0" name="ref"></field>
+        <field labelOnTop="0" name="route"></field>
+        <field labelOnTop="0" name="sac_scale"></field>
+        <field labelOnTop="0" name="tracktype"></field>
+        <field labelOnTop="0" name="trail_visibility"></field>
+        <field labelOnTop="0" name="tunnel"></field>
+        <field labelOnTop="0" name="type"></field>
+        <field labelOnTop="0" name="via_ferrata_scale"></field>
+        <field labelOnTop="0" name="waterway"></field>
+        <field labelOnTop="0" name="z_order"></field>
+      </labelOnTop>
+      <reuseLastValue>
+        <field name="access" reuseLastValue="0"></field>
+        <field name="admin_level" reuseLastValue="0"></field>
+        <field name="aerialway" reuseLastValue="0"></field>
+        <field name="boundary" reuseLastValue="0"></field>
+        <field name="fid" reuseLastValue="0"></field>
+        <field name="highway" reuseLastValue="0"></field>
+        <field name="intermittent" reuseLastValue="0"></field>
+        <field name="name" reuseLastValue="0"></field>
+        <field name="natural" reuseLastValue="0"></field>
+        <field name="osm_id" reuseLastValue="0"></field>
+        <field name="railway" reuseLastValue="0"></field>
+        <field name="ref" reuseLastValue="0"></field>
+        <field name="route" reuseLastValue="0"></field>
+        <field name="sac_scale" reuseLastValue="0"></field>
+        <field name="tracktype" reuseLastValue="0"></field>
+        <field name="trail_visibility" reuseLastValue="0"></field>
+        <field name="tunnel" reuseLastValue="0"></field>
+        <field name="type" reuseLastValue="0"></field>
+        <field name="via_ferrata_scale" reuseLastValue="0"></field>
+        <field name="waterway" reuseLastValue="0"></field>
+        <field name="z_order" reuseLastValue="0"></field>
+      </reuseLastValue>
       <dataDefinedFieldProperties></dataDefinedFieldProperties>
       <widgets></widgets>
       <previewExpression>"osm_id"</previewExpression>
       <mapTip enabled="1"></mapTip>
     </maplayer>
-    <maplayer autoRefreshMode="Disabled" autoRefreshTime="0" geometry="Line" hasScaleBasedVisibilityFlag="0" labelsEnabled="1" legendPlaceholderImage="" maxScale="0" minScale="100000000" readOnly="0" refreshOnNotifyEnabled="0" refreshOnNotifyMessage="" simplifyAlgorithm="0" simplifyDrawingHints="1" simplifyDrawingTol="1" simplifyLocal="1" simplifyMaxScale="1" styleCategories="AllStyleCategories" symbologyReferenceScale="-1" type="vector" wkbType="LineString">
+    <maplayer autoRefreshMode="Disabled" autoRefreshTime="0" geometry="Line" hasScaleBasedVisibilityFlag="0" labelsEnabled="1" legendPlaceholderImage="" maxScale="0" minScale="100000000" readOnly="0" refreshOnNotifyEnabled="0" refreshOnNotifyMessage="" simplifyAlgorithm="0" simplifyDrawingHints="1" simplifyDrawingTol="1" simplifyLocal="1" simplifyMaxScale="1" styleCategories="AllStyleCategories" symbologyReferenceScale="-1" type="vector" wkbType="MultiLineString">
       <extent>
-        <xmin>9.9457450000000005</xmin>
-        <ymin>47.17810779999999937</ymin>
-        <xmax>12.7176209999999994</xmax>
-        <ymax>47.71445860000000039</ymax>
+        <xmin>10.65831419999999952</xmin>
+        <ymin>47.24704839999999706</ymin>
+        <xmax>11.33128959999999985</xmax>
+        <ymax>47.55923310000000015</ymax>
       </extent>
       <wgs84extent>
-        <xmin>9.9457450000000005</xmin>
-        <ymin>47.17810779999999937</ymin>
-        <xmax>12.7176209999999994</xmax>
-        <ymax>47.71445860000000039</ymax>
+        <xmin>10.65831419999999952</xmin>
+        <ymin>47.24704839999999706</ymin>
+        <xmax>11.33128959999999985</xmax>
+        <ymax>47.55923310000000015</ymax>
       </wgs84extent>
-      <id>multilinestrings_706b07ec_2731_4a30_abc1_835d0fa41ab0</id>
-      <datasource>./data/data.gpkg|layername=lines</datasource>
+      <id>multilinestrings_487397ba_729a_419d_b933_485495635f50</id>
+      <datasource>./data/data.gpkg|layername=multilinestrings</datasource>
       <keywordList>
         <value></value>
       </keywordList>
-      <layername>Routes</layername>
+      <layername>Routes and borders</layername>
       <srs>
         <spatialrefsys nativeFormat="Wkt">
           <wkt>GEOGCRS["WGS 84",ENSEMBLE["World Geodetic System 1984 ensemble",MEMBER["World Geodetic System 1984 (Transit)"],MEMBER["World Geodetic System 1984 (G730)"],MEMBER["World Geodetic System 1984 (G873)"],MEMBER["World Geodetic System 1984 (G1150)"],MEMBER["World Geodetic System 1984 (G1674)"],MEMBER["World Geodetic System 1984 (G1762)"],MEMBER["World Geodetic System 1984 (G2139)"],ELLIPSOID["WGS 84",6378137,298.257223563,LENGTHUNIT["metre",1]],ENSEMBLEACCURACY[2.0]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],CS[ellipsoidal,2],AXIS["geodetic latitude (Lat)",north,ORDER[1],ANGLEUNIT["degree",0.0174532925199433]],AXIS["geodetic longitude (Lon)",east,ORDER[2],ANGLEUNIT["degree",0.0174532925199433]],USAGE[SCOPE["Horizontal component of 3D system."],AREA["World."],BBOX[-90,-180,90,180]],ID["EPSG",4326]]</wkt>
@@ -4605,8 +4824,8 @@
         <selectionColor invalid="1"></selectionColor>
       </selection>
       <labeling type="rule-based">
-        <rules key="{97dd8511-e081-4d10-8a37-53086627901c}">
-          <rule description="Hiking Route" filter="type = 'route' AND route = 'hiking'" key="{ba318fc7-e3d1-4929-9ba6-94c46d0678c5}">
+        <rules key="{e254bfaa-14e0-422e-8890-6a2a71e0d907}">
+          <rule description="Hiking Route" filter="type = 'route' AND route = 'hiking'" key="{4fe4da0d-eb37-4710-b94d-999b9fbf332c}">
             <settings calloutType="simple">
               <text-style allowHtml="0" blendMode="0" capitalization="0" fieldName="CASE&#xA;&#x9;WHEN &quot;name&quot; IS NOT NULL THEN&#xA;&#x9;&#x9;CASE&#xA;&#x9;&#x9;&#x9;WHEN &quot;ref&quot; IS NOT NULL THEN name + ' (' + &quot;ref&quot; + ')'&#xA;&#x9;&#x9;&#x9;ELSE &quot;name&quot;&#xA;&#x9;&#x9;END&#xA;&#x9;WHEN &quot;ref&quot; IS NOT NULL THEN &quot;ref&quot;&#xA;&#x9;ELSE NULL&#xA;END" fontFamily="Open Sans" fontItalic="0" fontKerning="1" fontLetterSpacing="0" fontSize="8" fontSizeMapUnitScale="3x:0,0,0,0,0,0" fontSizeUnit="Point" fontStrikeout="0" fontUnderline="0" fontWeight="50" fontWordSpacing="0" forcedBold="0" forcedItalic="0" isExpression="1" legendString="Aa" multilineHeight="1" multilineHeightUnit="Percentage" namedStyle="Regular" previewBkgrdColor="255,255,255,255" stretchFactor="100" textColor="255,128,0,255" textOpacity="1" textOrientation="horizontal" useSubstitutions="0">
                 <families></families>
@@ -4771,21 +4990,7 @@
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="NoFlag" name="access">
-          <editWidget type="">
-            <config>
-              <Option></Option>
-            </config>
-          </editWidget>
-        </field>
         <field configurationFlags="NoFlag" name="admin_level">
-          <editWidget type="">
-            <config>
-              <Option></Option>
-            </config>
-          </editWidget>
-        </field>
-        <field configurationFlags="NoFlag" name="aerialway">
           <editWidget type="">
             <config>
               <Option></Option>
@@ -4799,42 +5004,7 @@
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="NoFlag" name="highway">
-          <editWidget type="">
-            <config>
-              <Option></Option>
-            </config>
-          </editWidget>
-        </field>
-        <field configurationFlags="NoFlag" name="intermittent">
-          <editWidget type="">
-            <config>
-              <Option></Option>
-            </config>
-          </editWidget>
-        </field>
         <field configurationFlags="NoFlag" name="name">
-          <editWidget type="">
-            <config>
-              <Option></Option>
-            </config>
-          </editWidget>
-        </field>
-        <field configurationFlags="NoFlag" name="natural">
-          <editWidget type="">
-            <config>
-              <Option></Option>
-            </config>
-          </editWidget>
-        </field>
-        <field configurationFlags="NoFlag" name="railway">
-          <editWidget type="">
-            <config>
-              <Option></Option>
-            </config>
-          </editWidget>
-        </field>
-        <field configurationFlags="NoFlag" name="ref">
           <editWidget type="">
             <config>
               <Option></Option>
@@ -4848,28 +5018,7 @@
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="NoFlag" name="sac_scale">
-          <editWidget type="">
-            <config>
-              <Option></Option>
-            </config>
-          </editWidget>
-        </field>
-        <field configurationFlags="NoFlag" name="tracktype">
-          <editWidget type="">
-            <config>
-              <Option></Option>
-            </config>
-          </editWidget>
-        </field>
-        <field configurationFlags="NoFlag" name="trail_visibility">
-          <editWidget type="">
-            <config>
-              <Option></Option>
-            </config>
-          </editWidget>
-        </field>
-        <field configurationFlags="NoFlag" name="tunnel">
+        <field configurationFlags="NoFlag" name="ref">
           <editWidget type="">
             <config>
               <Option></Option>
@@ -4883,21 +5032,7 @@
             </config>
           </editWidget>
         </field>
-        <field configurationFlags="NoFlag" name="via_ferrata_scale">
-          <editWidget type="">
-            <config>
-              <Option></Option>
-            </config>
-          </editWidget>
-        </field>
-        <field configurationFlags="NoFlag" name="waterway">
-          <editWidget type="">
-            <config>
-              <Option></Option>
-            </config>
-          </editWidget>
-        </field>
-        <field configurationFlags="NoFlag" name="z_order">
+        <field configurationFlags="NoFlag" name="other_tags">
           <editWidget type="">
             <config>
               <Option></Option>
@@ -4908,117 +5043,57 @@
       <aliases>
         <alias field="fid" index="0" name=""></alias>
         <alias field="osm_id" index="1" name=""></alias>
-        <alias field="access" index="2" name=""></alias>
-        <alias field="admin_level" index="3" name=""></alias>
-        <alias field="aerialway" index="4" name=""></alias>
-        <alias field="boundary" index="5" name=""></alias>
-        <alias field="highway" index="6" name=""></alias>
-        <alias field="intermittent" index="7" name=""></alias>
-        <alias field="name" index="8" name=""></alias>
-        <alias field="natural" index="9" name=""></alias>
-        <alias field="railway" index="10" name=""></alias>
-        <alias field="ref" index="11" name=""></alias>
-        <alias field="route" index="12" name=""></alias>
-        <alias field="sac_scale" index="13" name=""></alias>
-        <alias field="tracktype" index="14" name=""></alias>
-        <alias field="trail_visibility" index="15" name=""></alias>
-        <alias field="tunnel" index="16" name=""></alias>
-        <alias field="type" index="17" name=""></alias>
-        <alias field="via_ferrata_scale" index="18" name=""></alias>
-        <alias field="waterway" index="19" name=""></alias>
-        <alias field="z_order" index="20" name=""></alias>
+        <alias field="admin_level" index="2" name=""></alias>
+        <alias field="boundary" index="3" name=""></alias>
+        <alias field="name" index="4" name=""></alias>
+        <alias field="route" index="5" name=""></alias>
+        <alias field="ref" index="6" name=""></alias>
+        <alias field="type" index="7" name=""></alias>
+        <alias field="other_tags" index="8" name=""></alias>
       </aliases>
       <splitPolicies>
         <policy field="fid" policy="Duplicate"></policy>
         <policy field="osm_id" policy="Duplicate"></policy>
-        <policy field="access" policy="Duplicate"></policy>
         <policy field="admin_level" policy="Duplicate"></policy>
-        <policy field="aerialway" policy="Duplicate"></policy>
         <policy field="boundary" policy="Duplicate"></policy>
-        <policy field="highway" policy="Duplicate"></policy>
-        <policy field="intermittent" policy="Duplicate"></policy>
         <policy field="name" policy="Duplicate"></policy>
-        <policy field="natural" policy="Duplicate"></policy>
-        <policy field="railway" policy="Duplicate"></policy>
-        <policy field="ref" policy="Duplicate"></policy>
         <policy field="route" policy="Duplicate"></policy>
-        <policy field="sac_scale" policy="Duplicate"></policy>
-        <policy field="tracktype" policy="Duplicate"></policy>
-        <policy field="trail_visibility" policy="Duplicate"></policy>
-        <policy field="tunnel" policy="Duplicate"></policy>
+        <policy field="ref" policy="Duplicate"></policy>
         <policy field="type" policy="Duplicate"></policy>
-        <policy field="via_ferrata_scale" policy="Duplicate"></policy>
-        <policy field="waterway" policy="Duplicate"></policy>
-        <policy field="z_order" policy="Duplicate"></policy>
+        <policy field="other_tags" policy="Duplicate"></policy>
       </splitPolicies>
       <defaults>
         <default applyOnUpdate="0" expression="" field="fid"></default>
         <default applyOnUpdate="0" expression="" field="osm_id"></default>
-        <default applyOnUpdate="0" expression="" field="access"></default>
         <default applyOnUpdate="0" expression="" field="admin_level"></default>
-        <default applyOnUpdate="0" expression="" field="aerialway"></default>
         <default applyOnUpdate="0" expression="" field="boundary"></default>
-        <default applyOnUpdate="0" expression="" field="highway"></default>
-        <default applyOnUpdate="0" expression="" field="intermittent"></default>
         <default applyOnUpdate="0" expression="" field="name"></default>
-        <default applyOnUpdate="0" expression="" field="natural"></default>
-        <default applyOnUpdate="0" expression="" field="railway"></default>
-        <default applyOnUpdate="0" expression="" field="ref"></default>
         <default applyOnUpdate="0" expression="" field="route"></default>
-        <default applyOnUpdate="0" expression="" field="sac_scale"></default>
-        <default applyOnUpdate="0" expression="" field="tracktype"></default>
-        <default applyOnUpdate="0" expression="" field="trail_visibility"></default>
-        <default applyOnUpdate="0" expression="" field="tunnel"></default>
+        <default applyOnUpdate="0" expression="" field="ref"></default>
         <default applyOnUpdate="0" expression="" field="type"></default>
-        <default applyOnUpdate="0" expression="" field="via_ferrata_scale"></default>
-        <default applyOnUpdate="0" expression="" field="waterway"></default>
-        <default applyOnUpdate="0" expression="" field="z_order"></default>
+        <default applyOnUpdate="0" expression="" field="other_tags"></default>
       </defaults>
       <constraints>
         <constraint constraints="3" exp_strength="0" field="fid" notnull_strength="1" unique_strength="1"></constraint>
         <constraint constraints="0" exp_strength="0" field="osm_id" notnull_strength="0" unique_strength="0"></constraint>
-        <constraint constraints="0" exp_strength="0" field="access" notnull_strength="0" unique_strength="0"></constraint>
         <constraint constraints="0" exp_strength="0" field="admin_level" notnull_strength="0" unique_strength="0"></constraint>
-        <constraint constraints="0" exp_strength="0" field="aerialway" notnull_strength="0" unique_strength="0"></constraint>
         <constraint constraints="0" exp_strength="0" field="boundary" notnull_strength="0" unique_strength="0"></constraint>
-        <constraint constraints="0" exp_strength="0" field="highway" notnull_strength="0" unique_strength="0"></constraint>
-        <constraint constraints="0" exp_strength="0" field="intermittent" notnull_strength="0" unique_strength="0"></constraint>
         <constraint constraints="0" exp_strength="0" field="name" notnull_strength="0" unique_strength="0"></constraint>
-        <constraint constraints="0" exp_strength="0" field="natural" notnull_strength="0" unique_strength="0"></constraint>
-        <constraint constraints="0" exp_strength="0" field="railway" notnull_strength="0" unique_strength="0"></constraint>
-        <constraint constraints="0" exp_strength="0" field="ref" notnull_strength="0" unique_strength="0"></constraint>
         <constraint constraints="0" exp_strength="0" field="route" notnull_strength="0" unique_strength="0"></constraint>
-        <constraint constraints="0" exp_strength="0" field="sac_scale" notnull_strength="0" unique_strength="0"></constraint>
-        <constraint constraints="0" exp_strength="0" field="tracktype" notnull_strength="0" unique_strength="0"></constraint>
-        <constraint constraints="0" exp_strength="0" field="trail_visibility" notnull_strength="0" unique_strength="0"></constraint>
-        <constraint constraints="0" exp_strength="0" field="tunnel" notnull_strength="0" unique_strength="0"></constraint>
+        <constraint constraints="0" exp_strength="0" field="ref" notnull_strength="0" unique_strength="0"></constraint>
         <constraint constraints="0" exp_strength="0" field="type" notnull_strength="0" unique_strength="0"></constraint>
-        <constraint constraints="0" exp_strength="0" field="via_ferrata_scale" notnull_strength="0" unique_strength="0"></constraint>
-        <constraint constraints="0" exp_strength="0" field="waterway" notnull_strength="0" unique_strength="0"></constraint>
-        <constraint constraints="0" exp_strength="0" field="z_order" notnull_strength="0" unique_strength="0"></constraint>
+        <constraint constraints="0" exp_strength="0" field="other_tags" notnull_strength="0" unique_strength="0"></constraint>
       </constraints>
       <constraintExpressions>
         <constraint desc="" exp="" field="fid"></constraint>
         <constraint desc="" exp="" field="osm_id"></constraint>
-        <constraint desc="" exp="" field="access"></constraint>
         <constraint desc="" exp="" field="admin_level"></constraint>
-        <constraint desc="" exp="" field="aerialway"></constraint>
         <constraint desc="" exp="" field="boundary"></constraint>
-        <constraint desc="" exp="" field="highway"></constraint>
-        <constraint desc="" exp="" field="intermittent"></constraint>
         <constraint desc="" exp="" field="name"></constraint>
-        <constraint desc="" exp="" field="natural"></constraint>
-        <constraint desc="" exp="" field="railway"></constraint>
-        <constraint desc="" exp="" field="ref"></constraint>
         <constraint desc="" exp="" field="route"></constraint>
-        <constraint desc="" exp="" field="sac_scale"></constraint>
-        <constraint desc="" exp="" field="tracktype"></constraint>
-        <constraint desc="" exp="" field="trail_visibility"></constraint>
-        <constraint desc="" exp="" field="tunnel"></constraint>
+        <constraint desc="" exp="" field="ref"></constraint>
         <constraint desc="" exp="" field="type"></constraint>
-        <constraint desc="" exp="" field="via_ferrata_scale"></constraint>
-        <constraint desc="" exp="" field="waterway"></constraint>
-        <constraint desc="" exp="" field="z_order"></constraint>
+        <constraint desc="" exp="" field="other_tags"></constraint>
       </constraintExpressions>
       <expressionfields></expressionfields>
       <attributeactions>
@@ -5271,14 +5346,15 @@
       <renderer-v2 enableorderby="0" forceraster="0" referencescale="-1" symbollevels="0" type="RuleRenderer">
         <rules key="{b16e87db-86dc-42b7-857c-75592f7ce98e}">
           <rule filter="landuse = 'residential'" key="{c88f89e9-f426-432b-acaa-12982f428347}" label="Residential" symbol="0"></rule>
-          <rule filter="landuse = 'commercial'" key="{6cef0da1-fb76-4e6a-a7c4-4eb3c1188798}" label="Commercial" symbol="1"></rule>
-          <rule filter="landuse = 'farmland'" key="{90b0fc36-ea40-46ed-9487-da6696b5955d}" label="Farmland" symbol="2"></rule>
-          <rule filter="landuse = 'forest' OR natural = 'wood'" key="{5e08e30e-e1c2-498a-adbf-4948516fbc68}" label="Forest" symbol="3"></rule>
-          <rule filter="landuse IN ('meadow', 'grass', 'village_green') OR natural = 'grassland'" key="{07ca4e85-6183-47be-a8f5-6741a9119179}" label="Grass / grassland" symbol="4"></rule>
-          <rule filter="natural = 'scrub'" key="{db80737a-8b20-489c-8b3d-591491209c18}" label="Scrub / Bushland" symbol="5"></rule>
-          <rule filter="natural = 'bare_rock'" key="{c20656b8-4e34-4d64-bf3e-a4576ad45e67}" label="Rock" symbol="6"></rule>
-          <rule filter="natural IN ('shingle', 'scree')" key="{079a74c7-f73f-4b97-b8d1-f822f1734ed7}" label="Shingle / gravel" symbol="7"></rule>
-          <rule filter="natural = 'glacier'" key="{c1aa69f9-ae96-44d9-9944-bde859f74708}" label="Glacier" symbol="8"></rule>
+          <rule filter="landuse = 'commercial'" key="{0a2288c2-b7f8-4e69-843e-3822e3f2e915}" label="Commercial" symbol="1"></rule>
+          <rule filter="landuse = 'military'" key="{6cef0da1-fb76-4e6a-a7c4-4eb3c1188798}" label="Military" symbol="2"></rule>
+          <rule filter="landuse = 'farmland'" key="{90b0fc36-ea40-46ed-9487-da6696b5955d}" label="Farmland" symbol="3"></rule>
+          <rule filter="landuse = 'forest' OR natural = 'wood'" key="{5e08e30e-e1c2-498a-adbf-4948516fbc68}" label="Forest" symbol="4"></rule>
+          <rule filter="landuse IN ('meadow', 'grass', 'village_green') OR natural = 'grassland'" key="{07ca4e85-6183-47be-a8f5-6741a9119179}" label="Grass / grassland" symbol="5"></rule>
+          <rule filter="natural = 'scrub'" key="{db80737a-8b20-489c-8b3d-591491209c18}" label="Scrub / Bushland" symbol="6"></rule>
+          <rule filter="natural = 'bare_rock'" key="{c20656b8-4e34-4d64-bf3e-a4576ad45e67}" label="Rock" symbol="7"></rule>
+          <rule filter="natural IN ('shingle', 'scree')" key="{079a74c7-f73f-4b97-b8d1-f822f1734ed7}" label="Shingle / gravel" symbol="8"></rule>
+          <rule filter="natural = 'glacier'" key="{c1aa69f9-ae96-44d9-9944-bde859f74708}" label="Glacier" symbol="9"></rule>
         </rules>
         <symbols>
           <symbol alpha="1" clip_to_extent="1" force_rhr="0" frame_rate="10" is_animated="0" name="0" type="fill">
@@ -5354,6 +5430,110 @@
             <layer class="SimpleFill" enabled="1" id="{df5486df-81d6-45a0-9c41-cba98c38c43b}" locked="0" pass="0">
               <Option type="Map">
                 <Option name="border_width_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
+                <Option name="color" type="QString" value="239,220,220,255"></Option>
+                <Option name="joinstyle" type="QString" value="bevel"></Option>
+                <Option name="offset" type="QString" value="0,0"></Option>
+                <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
+                <Option name="offset_unit" type="QString" value="MM"></Option>
+                <Option name="outline_color" type="QString" value="35,35,35,255"></Option>
+                <Option name="outline_style" type="QString" value="no"></Option>
+                <Option name="outline_width" type="QString" value="0.26"></Option>
+                <Option name="outline_width_unit" type="QString" value="MM"></Option>
+                <Option name="style" type="QString" value="solid"></Option>
+              </Option>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option name="name" type="QString" value=""></Option>
+                  <Option name="properties"></Option>
+                  <Option name="type" type="QString" value="collection"></Option>
+                </Option>
+              </data_defined_properties>
+            </layer>
+            <layer class="LinePatternFill" enabled="1" id="{5e45befd-b63e-4921-a2fa-c8ee171e3548}" locked="0" pass="0">
+              <Option type="Map">
+                <Option name="angle" type="QString" value="45"></Option>
+                <Option name="clip_mode" type="QString" value="during_render"></Option>
+                <Option name="color" type="QString" value="0,0,255,255"></Option>
+                <Option name="coordinate_reference" type="QString" value="feature"></Option>
+                <Option name="distance" type="QString" value="4"></Option>
+                <Option name="distance_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
+                <Option name="distance_unit" type="QString" value="MM"></Option>
+                <Option name="line_width" type="QString" value="0.26"></Option>
+                <Option name="line_width_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
+                <Option name="line_width_unit" type="QString" value="MM"></Option>
+                <Option name="offset" type="QString" value="0"></Option>
+                <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
+                <Option name="offset_unit" type="QString" value="MM"></Option>
+                <Option name="outline_width_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
+                <Option name="outline_width_unit" type="QString" value="MM"></Option>
+              </Option>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option name="name" type="QString" value=""></Option>
+                  <Option name="properties"></Option>
+                  <Option name="type" type="QString" value="collection"></Option>
+                </Option>
+              </data_defined_properties>
+              <symbol alpha="1" clip_to_extent="1" force_rhr="0" frame_rate="10" is_animated="0" name="@2@1" type="line">
+                <data_defined_properties>
+                  <Option type="Map">
+                    <Option name="name" type="QString" value=""></Option>
+                    <Option name="properties"></Option>
+                    <Option name="type" type="QString" value="collection"></Option>
+                  </Option>
+                </data_defined_properties>
+                <layer class="SimpleLine" enabled="1" id="{00dd32e2-8431-4bd1-b47d-257a1d53f0e8}" locked="0" pass="0">
+                  <Option type="Map">
+                    <Option name="align_dash_pattern" type="QString" value="0"></Option>
+                    <Option name="capstyle" type="QString" value="square"></Option>
+                    <Option name="customdash" type="QString" value="5;2"></Option>
+                    <Option name="customdash_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
+                    <Option name="customdash_unit" type="QString" value="MM"></Option>
+                    <Option name="dash_pattern_offset" type="QString" value="0"></Option>
+                    <Option name="dash_pattern_offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
+                    <Option name="dash_pattern_offset_unit" type="QString" value="MM"></Option>
+                    <Option name="draw_inside_polygon" type="QString" value="0"></Option>
+                    <Option name="joinstyle" type="QString" value="bevel"></Option>
+                    <Option name="line_color" type="QString" value="230,172,172,128"></Option>
+                    <Option name="line_style" type="QString" value="solid"></Option>
+                    <Option name="line_width" type="QString" value="1"></Option>
+                    <Option name="line_width_unit" type="QString" value="MM"></Option>
+                    <Option name="offset" type="QString" value="0"></Option>
+                    <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
+                    <Option name="offset_unit" type="QString" value="MM"></Option>
+                    <Option name="ring_filter" type="QString" value="0"></Option>
+                    <Option name="trim_distance_end" type="QString" value="0"></Option>
+                    <Option name="trim_distance_end_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
+                    <Option name="trim_distance_end_unit" type="QString" value="MM"></Option>
+                    <Option name="trim_distance_start" type="QString" value="0"></Option>
+                    <Option name="trim_distance_start_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
+                    <Option name="trim_distance_start_unit" type="QString" value="MM"></Option>
+                    <Option name="tweak_dash_pattern_on_corners" type="QString" value="0"></Option>
+                    <Option name="use_custom_dash" type="QString" value="0"></Option>
+                    <Option name="width_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
+                  </Option>
+                  <data_defined_properties>
+                    <Option type="Map">
+                      <Option name="name" type="QString" value=""></Option>
+                      <Option name="properties"></Option>
+                      <Option name="type" type="QString" value="collection"></Option>
+                    </Option>
+                  </data_defined_properties>
+                </layer>
+              </symbol>
+            </layer>
+          </symbol>
+          <symbol alpha="1" clip_to_extent="1" force_rhr="0" frame_rate="10" is_animated="0" name="3" type="fill">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option name="name" type="QString" value=""></Option>
+                <Option name="properties"></Option>
+                <Option name="type" type="QString" value="collection"></Option>
+              </Option>
+            </data_defined_properties>
+            <layer class="SimpleFill" enabled="1" id="{df5486df-81d6-45a0-9c41-cba98c38c43b}" locked="0" pass="0">
+              <Option type="Map">
+                <Option name="border_width_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
                 <Option name="color" type="QString" value="255,243,205,255"></Option>
                 <Option name="joinstyle" type="QString" value="bevel"></Option>
                 <Option name="offset" type="QString" value="0,0"></Option>
@@ -5374,7 +5554,7 @@
               </data_defined_properties>
             </layer>
           </symbol>
-          <symbol alpha="1" clip_to_extent="1" force_rhr="0" frame_rate="10" is_animated="0" name="3" type="fill">
+          <symbol alpha="1" clip_to_extent="1" force_rhr="0" frame_rate="10" is_animated="0" name="4" type="fill">
             <data_defined_properties>
               <Option type="Map">
                 <Option name="name" type="QString" value=""></Option>
@@ -5429,7 +5609,7 @@
               </data_defined_properties>
             </layer>
           </symbol>
-          <symbol alpha="1" clip_to_extent="1" force_rhr="0" frame_rate="10" is_animated="0" name="4" type="fill">
+          <symbol alpha="1" clip_to_extent="1" force_rhr="0" frame_rate="10" is_animated="0" name="5" type="fill">
             <data_defined_properties>
               <Option type="Map">
                 <Option name="name" type="QString" value=""></Option>
@@ -5460,7 +5640,7 @@
               </data_defined_properties>
             </layer>
           </symbol>
-          <symbol alpha="1" clip_to_extent="1" force_rhr="0" frame_rate="10" is_animated="0" name="5" type="fill">
+          <symbol alpha="1" clip_to_extent="1" force_rhr="0" frame_rate="10" is_animated="0" name="6" type="fill">
             <data_defined_properties>
               <Option type="Map">
                 <Option name="name" type="QString" value=""></Option>
@@ -5491,7 +5671,7 @@
               </data_defined_properties>
             </layer>
           </symbol>
-          <symbol alpha="1" clip_to_extent="1" force_rhr="0" frame_rate="10" is_animated="0" name="6" type="fill">
+          <symbol alpha="1" clip_to_extent="1" force_rhr="0" frame_rate="10" is_animated="0" name="7" type="fill">
             <data_defined_properties>
               <Option type="Map">
                 <Option name="name" type="QString" value=""></Option>
@@ -5527,7 +5707,7 @@
               </data_defined_properties>
             </layer>
           </symbol>
-          <symbol alpha="1" clip_to_extent="1" force_rhr="0" frame_rate="10" is_animated="0" name="7" type="fill">
+          <symbol alpha="1" clip_to_extent="1" force_rhr="0" frame_rate="10" is_animated="0" name="8" type="fill">
             <data_defined_properties>
               <Option type="Map">
                 <Option name="name" type="QString" value=""></Option>
@@ -5563,7 +5743,7 @@
               </data_defined_properties>
             </layer>
           </symbol>
-          <symbol alpha="1" clip_to_extent="1" force_rhr="0" frame_rate="10" is_animated="0" name="8" type="fill">
+          <symbol alpha="1" clip_to_extent="1" force_rhr="0" frame_rate="10" is_animated="0" name="9" type="fill">
             <data_defined_properties>
               <Option type="Map">
                 <Option name="name" type="QString" value=""></Option>
@@ -8644,9 +8824,9 @@
     <layer id="lines_92f684f3_02f7_482c_ae40_a9ab535ba56e"></layer>
     <layer id="landuse___natural_22d5163e_294a_45cc_8bd5_e5b52fa0f599"></layer>
     <layer id="MapTiler_contours__localhost__eedf3c60_1778_4cb1_8ffe_f92a9aefcd01"></layer>
-    <layer id="multilinestrings_706b07ec_2731_4a30_abc1_835d0fa41ab0"></layer>
     <layer id="points_ed0a9036_e907_48e1_a7f6_684a61396a8e"></layer>
     <layer id="trails__streets__railway__waterway_16ccce6d_a50d_4626_af49_c030b6b66daa"></layer>
+    <layer id="multilinestrings_487397ba_729a_419d_b933_485495635f50"></layer>
   </layerorder>
   <properties>
     <CopyrightLabel>
@@ -8777,8 +8957,6 @@
       <expanded-legend-nodes id="lines_92f684f3_02f7_482c_ae40_a9ab535ba56e"></expanded-legend-nodes>
       <layer expanded="0" id="trails__streets__railway__waterway_16ccce6d_a50d_4626_af49_c030b6b66daa" style="default" visible="1"></layer>
       <expanded-legend-nodes id="trails__streets__railway__waterway_16ccce6d_a50d_4626_af49_c030b6b66daa"></expanded-legend-nodes>
-      <layer expanded="0" id="multilinestrings_706b07ec_2731_4a30_abc1_835d0fa41ab0" style="default" visible="1"></layer>
-      <expanded-legend-nodes id="multilinestrings_706b07ec_2731_4a30_abc1_835d0fa41ab0"></expanded-legend-nodes>
       <layer expanded="0" id="landuse___natural_22d5163e_294a_45cc_8bd5_e5b52fa0f599" style="default" visible="1"></layer>
       <expanded-legend-nodes id="landuse___natural_22d5163e_294a_45cc_8bd5_e5b52fa0f599"></expanded-legend-nodes>
       <layer expanded="1" id="MapTiler_contours__localhost__eedf3c60_1778_4cb1_8ffe_f92a9aefcd01" style="default" visible="1"></layer>
@@ -9443,7 +9621,7 @@
               </Option>
             </customproperties>
           </layer-tree-layer>
-          <layer-tree-layer checked="Qt::Checked" expanded="0" id="multilinestrings_706b07ec_2731_4a30_abc1_835d0fa41ab0" legend_exp="" legend_split_behavior="0" name="Routes" patch_size="-1,-1" providerKey="ogr" source="./data/data.gpkg|layername=lines">
+          <layer-tree-layer checked="Qt::Checked" expanded="0" id="multilinestrings_706b07ec_2731_4a30_abc1_835d0fa41ab0" legend_exp="" legend_split_behavior="0" name="Routes" patch_size="-1,-1">
             <customproperties>
               <Option type="Map">
                 <Option name="cached_name" type="QString" value="Routes"></Option>
@@ -9912,7 +10090,7 @@
   <Sensors></Sensors>
   <ProjectViewSettings UseProjectScales="0" rotation="0">
     <Scales></Scales>
-    <DefaultViewExtent xmax="1224329.21727831149473786" xmin="1217600.11870873020961881" ymax="6016317.38842489942908287" ymin="6009984.11918294057250023">
+    <DefaultViewExtent xmax="1223617.26333928341045976" xmin="1221086.07571343192830682" ymax="6015435.76910957135260105" ymin="6013053.47487347573041916">
       <spatialrefsys nativeFormat="Wkt">
         <wkt>PROJCRS["WGS 84 / Pseudo-Mercator",BASEGEOGCRS["WGS 84",ENSEMBLE["World Geodetic System 1984 ensemble",MEMBER["World Geodetic System 1984 (Transit)"],MEMBER["World Geodetic System 1984 (G730)"],MEMBER["World Geodetic System 1984 (G873)"],MEMBER["World Geodetic System 1984 (G1150)"],MEMBER["World Geodetic System 1984 (G1674)"],MEMBER["World Geodetic System 1984 (G1762)"],MEMBER["World Geodetic System 1984 (G2139)"],ELLIPSOID["WGS 84",6378137,298.257223563,LENGTHUNIT["metre",1]],ENSEMBLEACCURACY[2.0]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4326]],CONVERSION["Popular Visualisation Pseudo-Mercator",METHOD["Popular Visualisation Pseudo Mercator",ID["EPSG",1024]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["False easting",0,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",0,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["easting (X)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["northing (Y)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Web mapping and visualisation."],AREA["World between 85.06°S and 85.06°N."],BBOX[-85.06,-180,85.06,180]],ID["EPSG",3857]]</wkt>
         <proj4>+proj=merc +a=6378137 +b=6378137 +lat_ts=0 +lon_0=0 +x_0=0 +y_0=0 +k=1 +units=m +nadgrids=@null +wktext +no_defs</proj4>
@@ -10062,7 +10240,7 @@
       </spatialrefsys>
     </CoordinateCustomCrs>
   </ProjectDisplaySettings>
-  <ProjectGpsSettings autoAddTrackVertices="0" autoCommitFeatures="0" destinationFollowsActiveLayer="1" destinationLayer="multilinestrings_706b07ec_2731_4a30_abc1_835d0fa41ab0" destinationLayerName="Routes" destinationLayerProvider="ogr" destinationLayerSource="/home/hauke/Projekte/OSM/qgis-outdoor-map/qgis-branch/data/data.gpkg|layername=lines">
+  <ProjectGpsSettings autoAddTrackVertices="0" autoCommitFeatures="0" destinationFollowsActiveLayer="1" destinationLayer="multilinestrings_487397ba_729a_419d_b933_485495635f50" destinationLayerName="Routes and borders" destinationLayerProvider="ogr" destinationLayerSource="/home/hauke/Projekte/OSM/qgis-outdoor-map/qgis-branch/data/data.gpkg|layername=multilinestrings">
     <timeStampFields></timeStampFields>
   </ProjectGpsSettings>
 </qgis>
