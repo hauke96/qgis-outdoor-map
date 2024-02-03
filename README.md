@@ -16,7 +16,7 @@ To generate and edit the style:
 
 * `qgis` with the "Trackable QGIS Project"-plugin (to make `.qgs` files a bit mot git-friendly)
 * `qtwebkit` (this is the name of Arch Linux package, make sure you install the package for your distro in order to render HTML in the QGIS-Layout)
-* `osmosis`
+* `osmium`
 * `go` (golang; version >1.12, best use the version according to the `go.mod` file)
 
 ### 1. Download data
@@ -67,6 +67,7 @@ _More guidelines will be added over time._
 
 * Handle ways under construction, private ways and those with access=no
 * Add scale and scale-bar to layout
+* Adjust tile-proxy to serve multiple endpoints under one port
 
 ---
 
