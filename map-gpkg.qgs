@@ -1,4 +1,4 @@
-<qgis projectname="" saveDateTime="2024-02-03T11:26:20" saveUser="hauke" saveUserFull="" version="3.34.3-Prizren">
+<qgis projectname="" saveDateTime="2024-02-03T11:27:40" saveUser="hauke" saveUserFull="" version="3.34.3-Prizren">
   <homePath path=""></homePath>
   <title></title>
   <transaction mode="Disabled"></transaction>
@@ -92,10 +92,10 @@
   <mapcanvas annotationsVisible="1" name="theMapCanvas">
     <units>meters</units>
     <extent>
-      <xmin>1223833.94928168272599578</xmin>
-      <ymin>6011679.92380713485181332</ymin>
-      <xmax>1226526.16316402889788151</xmax>
-      <ymax>6014310.48393644951283932</ymax>
+      <xmin>1221624.68979807826690376</xmin>
+      <ymin>6008835.04348871111869812</ymin>
+      <xmax>1227009.11756277061067522</xmax>
+      <ymax>6014096.16374734044075012</ymax>
     </extent>
     <rotation>0</rotation>
     <destinationsrs>
@@ -6584,8 +6584,8 @@
         <selectionColor invalid="1"></selectionColor>
       </selection>
       <labeling type="rule-based">
-        <rules key="{fd083b81-dadf-42c2-a4bc-00e8167ff7ad}">
-          <rule description="Peaks" filter="natural = 'peak'" key="{3faee30a-38b0-4996-9cc2-3a95be0c91a4}">
+        <rules key="{f802080d-1486-4853-baf8-9eaf074d5a1c}">
+          <rule description="Peaks" filter="natural = 'peak'" key="{ed61fb8b-72e3-4d7c-9704-4d85163a5a43}">
             <settings calloutType="simple">
               <text-style allowHtml="0" blendMode="0" capitalization="0" fieldName="CASE&#xA;&#x9;WHEN &quot;ele&quot; IS NOT NULL THEN &quot;name&quot; + '\n' + &quot;ele&quot; + ' m'&#xA;&#x9;WHEN &quot;name&quot; IS NOT NULL THEN &quot;name&quot;&#xA;&#x9;ELSE NULL&#xA;END" fontFamily="Open Sans" fontItalic="0" fontKerning="1" fontLetterSpacing="0" fontSize="8" fontSizeMapUnitScale="3x:0,0,0,0,0,0" fontSizeUnit="Point" fontStrikeout="0" fontUnderline="0" fontWeight="50" fontWordSpacing="0" forcedBold="0" forcedItalic="0" isExpression="1" legendString="Aa" multilineHeight="0.84999999999999998" multilineHeightUnit="Percentage" namedStyle="Regular" previewBkgrdColor="255,255,255,255" stretchFactor="100" textColor="80,33,17,255" textOpacity="1" textOrientation="horizontal" useSubstitutions="0">
                 <families></families>
@@ -6709,7 +6709,7 @@
               </callout>
             </settings>
           </rule>
-          <rule description="Spring" filter="natural = 'spring'" key="{d783163e-bce3-4c9b-856a-05be8d370770}">
+          <rule description="Spring" filter="natural = 'spring'" key="{3fc291ff-be24-4cfa-bbff-8035cc56f725}">
             <settings calloutType="simple">
               <text-style allowHtml="0" blendMode="0" capitalization="0" fieldName="name" fontFamily="Open Sans" fontItalic="0" fontKerning="1" fontLetterSpacing="0" fontSize="8" fontSizeMapUnitScale="3x:0,0,0,0,0,0" fontSizeUnit="Point" fontStrikeout="0" fontUnderline="0" fontWeight="50" fontWordSpacing="0" forcedBold="0" forcedItalic="0" isExpression="1" legendString="Aa" multilineHeight="1" multilineHeightUnit="Percentage" namedStyle="Regular" previewBkgrdColor="255,255,255,255" stretchFactor="100" textColor="54,155,217,255" textOpacity="1" textOrientation="horizontal" useSubstitutions="0">
                 <families></families>
@@ -7464,7 +7464,7 @@
   <Sensors></Sensors>
   <ProjectViewSettings UseProjectScales="0" rotation="0">
     <Scales></Scales>
-    <DefaultViewExtent xmax="1226526.16316402889788151" xmin="1223833.94928168272599578" ymax="6014310.48393644951283932" ymin="6011679.92380713485181332">
+    <DefaultViewExtent xmax="1227009.11756277061067522" xmin="1221624.68979807826690376" ymax="6014096.1637473413720727" ymin="6008835.04348871018737555">
       <spatialrefsys nativeFormat="Wkt">
         <wkt>PROJCRS["WGS 84 / Pseudo-Mercator",BASEGEOGCRS["WGS 84",ENSEMBLE["World Geodetic System 1984 ensemble",MEMBER["World Geodetic System 1984 (Transit)"],MEMBER["World Geodetic System 1984 (G730)"],MEMBER["World Geodetic System 1984 (G873)"],MEMBER["World Geodetic System 1984 (G1150)"],MEMBER["World Geodetic System 1984 (G1674)"],MEMBER["World Geodetic System 1984 (G1762)"],MEMBER["World Geodetic System 1984 (G2139)"],ELLIPSOID["WGS 84",6378137,298.257223563,LENGTHUNIT["metre",1]],ENSEMBLEACCURACY[2.0]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4326]],CONVERSION["Popular Visualisation Pseudo-Mercator",METHOD["Popular Visualisation Pseudo Mercator",ID["EPSG",1024]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["False easting",0,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",0,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["easting (X)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["northing (Y)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Web mapping and visualisation."],AREA["World between 85.06°S and 85.06°N."],BBOX[-85.06,-180,85.06,180]],ID["EPSG",3857]]</wkt>
         <proj4>+proj=merc +a=6378137 +b=6378137 +lat_ts=0 +lon_0=0 +x_0=0 +y_0=0 +k=1 +units=m +nadgrids=@null +wktext +no_defs</proj4>
@@ -7529,7 +7529,7 @@
       </spatialrefsys>
     </CoordinateCustomCrs>
   </ProjectDisplaySettings>
-  <ProjectGpsSettings autoAddTrackVertices="0" autoCommitFeatures="0" destinationFollowsActiveLayer="1" destinationLayer="">
+  <ProjectGpsSettings autoAddTrackVertices="0" autoCommitFeatures="0" destinationFollowsActiveLayer="1" destinationLayer="points_ed0a9036_e907_48e1_a7f6_684a61396a8e" destinationLayerName="pois" destinationLayerProvider="ogr" destinationLayerSource="/home/hauke/Projekte/OSM/qgis-outdoor-map/qgis-branch/data/data.gpkg|layername=points">
     <timeStampFields></timeStampFields>
   </ProjectGpsSettings>
 </qgis>
