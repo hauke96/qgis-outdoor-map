@@ -3,9 +3,15 @@
 set -e
 #set -x
 
+DOWNLOAD_DIR="downloaded-data"
+
+mkdir -p $DOWNLOAD_DIR
+cd $DOWNLOAD_DIR
+
 PBF_EXT=".osm.pbf"
-DATA="data$PBF_EXT"
-DATA_FILTERED="data-filtered$PBF_EXT"
+DATA=$(realpath "data$PBF_EXT")
+DATA_FILTERED=$(realpath "data-filtered$PBF_EXT")
+DATA_FILTERED_PROCESSED=$(realpath "data-filtered-processed$PBF_EXT")
 
 EU="europe"
 COUNTRY_GER="$EU/germany"
@@ -18,8 +24,6 @@ TH="thueringen-latest$PBF_EXT"
 BY_OBERB="oberbayern-latest$PBF_EXT"
 BY_SCHW="schwaben-latest$PBF_EXT"
 AU="austria-latest$PBF_EXT"
-
-DOWNLOAD_DIR="downloaded-data"
 
 # $1 = bbox
 # $2 = input file
@@ -171,9 +175,6 @@ function example_hiking_map()
 	cp $OUT $DATA
 }
 
-mkdir -p $DOWNLOAD_DIR
-cd $DOWNLOAD_DIR
-
 echo "Check region identifier $1"
 case $1 in
 "fischbeker-heide")
@@ -216,14 +217,19 @@ case $1 in
 esac
 echo "Processed region $1"
 
-echo "Filter $DATA by used tags into $DATA_FILTERED"
-osmium tags-filter -o $DATA_FILTERED $DATA nwr/aerialway,amenity,boundary,building,ele,highway,landuse,natural,place,railway,route,waterway,type,
+echo "Filter $(basename $DATA) by used tags into $(basename $DATA_FILTERED)"
+osmium tags-filter --overwrite -o $DATA_FILTERED $DATA nwr/aerialway,amenity,boundary,building,ele,highway,landuse,natural,place,railway,route,tourism,type,waterway
 
-echo "Move $DATA_FILTERED to general data folder as $DATA"
-cd ..
-mv $DOWNLOAD_DIR/$DATA_FILTERED ./$DATA
+echo "Run preprocessor on $(basename $DATA_FILTERED)"
+cd ../../tool
+go run main.go --debug preprocessing "$DATA_FILTERED" "$DATA_FILTERED_PROCESSED"
+cd ../data/
 
-echo "Convert $DATA into GeoPackage file"
-ogr2ogr -oo CONFIG_FILE=./osmconf.ini -f "GPKG" data.gpkg $DATA
+#echo "Move $DATA_FILTERED_PROCESSED to general data folder as $DATA"
+#cd ..
+#mv $DOWNLOAD_DIR/$DATA_FILTERED_PROCESSED ./$DATA
+
+echo "Convert $(basename $DATA_FILTERED_PROCESSED) into GeoPackage file"
+ogr2ogr -oo CONFIG_FILE=./osmconf.ini -f "GPKG" data.gpkg $DATA_FILTERED_PROCESSED
 
 echo "Done"

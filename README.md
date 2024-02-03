@@ -45,18 +45,19 @@ _More guidelines will be added over time._
 
 ### Concrete guides
 
-TODO Check if this is actually looking good:
-
+* Outlines
+  * Many things have outlines (e.g. labels, lines, some icons, etc.)
+  * Style: White, 0.5mm, 50% opacity
 * Font
   * Font: Open Sans 
   * Font sizes:
-    * Very important (e.g. city name): 12pt
-    * Important (e.g. forest or railway station name): 10pt
-    * Normal (e.g. trail name): 8pt
-    * Minor (e.g. contour labels): 6pt
+    * Normal (e.g. contour labels, street/trail names): 6pt
+    * Important (e.g. forest or railway station name): 8pt
+    * Very important (e.g. city name): 10pt
+    * Exceptions (e.g. for nature reserve areas) are allowed
 * Labels:
+  * Generally: White outline as described above
   * Trail and street names:
-    * White outline of 1mm
     * On line
     * Curved
 * Road:
@@ -64,8 +65,6 @@ TODO Check if this is actually looking good:
 
 ## TODOs
 
-* Merged line segments of hiking route relations with comma-separated list of name/ref values
-* Direction-arrow of waterway labels is not always working (pointing to opposite direction)
 * Handle ways under construction, private ways and those with access=no
 * Add scale and scale-bar to layout
 

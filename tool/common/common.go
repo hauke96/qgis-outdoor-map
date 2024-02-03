@@ -56,22 +56,33 @@ func WriteOsmToPbf(outputFileName string, outputOsm *osm.OSM) {
 	outputXml, err := xml.Marshal(outputOsm)
 	sigolo.FatalCheck(err)
 
-	osmXmlOutputFile := "features.osm"
+	osmXmlOutputFile := "features-unsorted.osm"
 	sigolo.Debug("Write result to temp file %s", osmXmlOutputFile)
 	err = os.WriteFile(osmXmlOutputFile, outputXml, 0644)
 	sigolo.FatalCheck(err)
 
-	sigolo.Debug("Convert written OSM-XML file to OSM-PBF file %s", outputFileName)
-	command := exec.Command("osmium", "cat", osmXmlOutputFile, "-o", outputFileName, "--overwrite")
-	sigolo.Debug("Call osmium: %s", command.String())
-	err = command.Run()
-	sigolo.FatalCheck(err)
+	outputFileNameUnsorted := "features-unsorted.osm.pbf"
+	sigolo.Debug("Convert written OSM-XML file to OSM-PBF file %s", outputFileNameUnsorted)
+	commandOsmiumCat := exec.Command("osmium", "cat", osmXmlOutputFile, "-o", outputFileNameUnsorted, "--overwrite")
+	RunWithOutputPassthrough(commandOsmiumCat)
+
+	sigolo.Debug("Sort OSM-PBF file %s into %s", outputFileNameUnsorted, outputFileName)
+	commandOsmiumSort := exec.Command("osmium", "sort", outputFileNameUnsorted, "-o", outputFileName, "--overwrite")
+	RunWithOutputPassthrough(commandOsmiumSort)
 
 	sigolo.Debug("Remove temp file %s", osmXmlOutputFile)
 	err = os.Remove(osmXmlOutputFile)
 	sigolo.FatalCheck(err)
 
-	sigolo.Info("Feature written to %s", outputFileName)
+	sigolo.Info("OSM data successfully written to %s", outputFileName)
+}
+
+func RunWithOutputPassthrough(command *exec.Cmd) {
+	sigolo.Debug("Run command: %s", command.String())
+	command.Stdout = os.Stdout
+	command.Stderr = os.Stderr
+	err := command.Run()
+	sigolo.FatalCheck(err)
 }
 
 func GenerateVectorTiles(pbfFileName string) {
