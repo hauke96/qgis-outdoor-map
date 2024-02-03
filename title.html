@@ -6,20 +6,21 @@
             html, body {
                 font-size: 8pt;
                 font-family: "Open Sans", sans-serif;
-                margin: 0.5em;
-            }
-
-            .title {
-                text-align: center;
-                font-size: 26pt;
-                font-weight: bold;
-                margin-top: 1em;
-                margin-bottom: 1em;
+                width: 110mm;
             }
 
             .h1 {
+                text-align: center;
+                font-size: 26pt;
+                font-weight: bold;
+                margin: 1em 0;
+            }
+
+            .h2 {
                 font-size: 14pt;
-                margin: 0.5em 0;
+                font-weight: normal;
+                margin-top: 0.5em;
+                margin-bottom: 0.25em;
             }
 
             p {
@@ -32,57 +33,55 @@
                 text-decoration: none; /* no underline */
             }
 
-            .additional-info-container {
-                margin-left: 0.5em;
+            .info-table {
+                margin-top: 0.5em;
+                border-collapse: collapse;
             }
 
             .info-label {
                 white-space: nowrap;
                 vertical-align: top;
-                padding-right: 0.25em;
-            }
-
-            .info-table {
-                margin-top: 0.5em;
-                border-collapse: collapse;
+                padding-right: 0.5em;
             }
         </style>
     </head>
     <body>
-        <br>
-        <div class="title">Name of the map</div>
-        <br><br><br><br><br>
-        <div class="h1">Copyright</div>
-        <div class="additional-info-container">
-            <p>
-                This map is based on publicly available data from the community-driven OpenStreetMap project (<a
-                    href="https://www.openstreetmap.org">osm.org</a>).
-                Wrong, missing or inaccurate data can be reported on <a href="https://www.openstreetmap.org/note/new">osm.org/note/new</a>
-                or manually edited by according desktop, browser or mobile apps.
-            </p>
-            <p>
-                This map is licensed under the Open Data Commons Open Database License (ODbL).
-                It is therefore explicitly <i>allowed</i> to modify, copy and redistribute this map in compliance with
-                the ODbL.
-            </p>
-            <table class="info-table">
-                <tr>
-                    <td class="info-label">Map data:</td>
-                    <td>&copy; OpenStreetMap contributors (<a
-                            href="https://osm.org/copyright">openstreetmap.org/copyright</a>), &copy; MapTiler
-                    </td>
-                </tr>
-                <tr>
-                    <td class="info-label">Map style:</td>
-                    <td><i>Outdoor and Hiking map</i> by Hauke Stieler (<a
-                            href="https://github.com/hauke96/qgis-outdoor-map">github.com/hauke96/qgis-outdoor-map</a>)
-                    </td>
-                </tr>
-                <tr>
-                    <td class="info-label">License:</td>
-                    <td>Open Data Commons Open Database License (ODbL)</td>
-                </tr>
-            </table>
-        </div>
+        <!-- Needed for QGIS to make margin-top work for the title -->
+        <div style="font-size: 0pt">&nbsp;</div>
+
+        <p class="h1">[[TITLE OF THE MAP]]</p>
+
+        <p class="h2">Information</p>
+        [[ADD INFOS HERE]]
+
+        <p class="h2">Copyright</p>
+        <p>
+            This map is based on public data from the community-driven OpenStreetMap project (<a
+                href="https://www.openstreetmap.org">osm.org</a>).
+            Wrong, inaccurate or missing data can be reported online or edited by yourself using appropriate desktop,
+            browser or mobile apps.
+        </p>
+        <p>
+            OSM data is licensed under the ODbL 1.0, the map style under the GPL 3.0.
+            This explicitly <i>allows</i> you to modify, copy and redistribute the data in compliance with the ODbL and GPL.
+        </p>
+        <table class="info-table">
+            <tr>
+                <td class="info-label">Map data:</td>
+                <td>&copy; OpenStreetMap contributors (<a
+                        href="https://osm.org/copyright">openstreetmap.org/copyright</a>), &copy; MapTiler
+                </td>
+            </tr>
+            <tr>
+                <td class="info-label">Map style:</td>
+                <td><i>Outdoor and Hiking map</i> by Hauke Stieler (<a
+                        href="https://github.com/hauke96/qgis-outdoor-map">github.com/hauke96/qgis-outdoor-map</a>)
+                </td>
+            </tr>
+            <tr>
+                <td class="info-label">License:</td>
+                <td>Open Data Commons Open Database License (ODbL)</td>
+            </tr>
+        </table>
     </body>
 </html>
