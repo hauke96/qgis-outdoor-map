@@ -1,4 +1,4 @@
-<qgis projectname="" saveDateTime="2024-02-04T15:53:33" saveUser="hauke" saveUserFull="" version="3.34.3-Prizren">
+<qgis projectname="" saveDateTime="2024-02-04T15:54:47" saveUser="hauke" saveUserFull="" version="3.34.3-Prizren">
   <homePath path=""></homePath>
   <title></title>
   <transaction mode="Disabled"></transaction>
@@ -12687,10 +12687,10 @@ def my_form_open(dialog, layer, feature):
           <rule filter="tourism = 'alpine_hut'" key="{de311cbd-9970-4ff6-bed7-e228755be54d}" label="Hut (managed)" symbol="8"></rule>
           <rule filter="tourism = 'camp_site'" key="{34f41b7c-c6ac-466f-ba0f-efe13f104441}" label="Campsite" symbol="9"></rule>
           <rule filter="amenity IN ('drinking_water', 'water_point')" key="{7bcf4997-8ca6-4b62-b720-6c63e44abf11}" label="Drinking water" symbol="10"></rule>
-          <rule filter="place IN ('village', 'hamlet', 'isolated_dwelling', 'suburb', 'town')" key="{400b356c-5fbb-43c7-8946-9bdc50bdb194}" label="Village / city" symbol="11"></rule>
-          <rule filter="amenity = 'fuel'" key="{27a52f4f-493a-4e78-b380-1aa3cd146221}" label="Gas station" symbol="12"></rule>
-          <rule filter="shop = 'outdoor'" key="{38a71adc-614a-403a-9df7-303c21c3f567}" label="Outdoor shop" symbol="13"></rule>
-          <rule filter="shop IN ('supermarket', 'convenience', 'mall', 'general')" key="{67bfd010-0b98-426a-b34c-6750412d2508}" label="Supermarket" symbol="14"></rule>
+          <rule filter="amenity = 'fuel'" key="{27a52f4f-493a-4e78-b380-1aa3cd146221}" label="Gas station" symbol="11"></rule>
+          <rule filter="shop = 'outdoor'" key="{38a71adc-614a-403a-9df7-303c21c3f567}" label="Outdoor shop" symbol="12"></rule>
+          <rule filter="shop IN ('supermarket', 'convenience', 'mall', 'general')" key="{67bfd010-0b98-426a-b34c-6750412d2508}" label="Supermarket" symbol="13"></rule>
+          <rule filter="place IN ('village', 'hamlet', 'isolated_dwelling', 'suburb', 'town')" key="{4783dcff-1ee7-497b-8127-3beea367b219}" label="Village / city" symbol="14"></rule>
         </rules>
         <symbols>
           <symbol alpha="1" clip_to_extent="1" force_rhr="0" frame_rate="10" is_animated="0" name="0" type="marker">
@@ -12876,45 +12876,6 @@ def my_form_open(dialog, layer, feature):
                 <Option name="type" type="QString" value="collection"></Option>
               </Option>
             </data_defined_properties>
-            <layer class="SimpleMarker" enabled="1" id="{2acbf910-a7b0-490e-8afd-f497cbf27b0c}" locked="0" pass="0">
-              <Option type="Map">
-                <Option name="angle" type="QString" value="0"></Option>
-                <Option name="cap_style" type="QString" value="square"></Option>
-                <Option name="color" type="QString" value="229,182,54,255"></Option>
-                <Option name="horizontal_anchor_point" type="QString" value="1"></Option>
-                <Option name="joinstyle" type="QString" value="bevel"></Option>
-                <Option name="name" type="QString" value="circle"></Option>
-                <Option name="offset" type="QString" value="0,0"></Option>
-                <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
-                <Option name="offset_unit" type="QString" value="MM"></Option>
-                <Option name="outline_color" type="QString" value="35,35,35,255"></Option>
-                <Option name="outline_style" type="QString" value="no"></Option>
-                <Option name="outline_width" type="QString" value="0"></Option>
-                <Option name="outline_width_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
-                <Option name="outline_width_unit" type="QString" value="MM"></Option>
-                <Option name="scale_method" type="QString" value="diameter"></Option>
-                <Option name="size" type="QString" value="0"></Option>
-                <Option name="size_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
-                <Option name="size_unit" type="QString" value="MM"></Option>
-                <Option name="vertical_anchor_point" type="QString" value="1"></Option>
-              </Option>
-              <data_defined_properties>
-                <Option type="Map">
-                  <Option name="name" type="QString" value=""></Option>
-                  <Option name="properties"></Option>
-                  <Option name="type" type="QString" value="collection"></Option>
-                </Option>
-              </data_defined_properties>
-            </layer>
-          </symbol>
-          <symbol alpha="1" clip_to_extent="1" force_rhr="0" frame_rate="10" is_animated="0" name="12" type="marker">
-            <data_defined_properties>
-              <Option type="Map">
-                <Option name="name" type="QString" value=""></Option>
-                <Option name="properties"></Option>
-                <Option name="type" type="QString" value="collection"></Option>
-              </Option>
-            </data_defined_properties>
             <layer class="SimpleMarker" enabled="1" id="{993471cb-d872-4f37-bf6e-71ba8d97087e}" locked="0" pass="40">
               <Option type="Map">
                 <Option name="angle" type="QString" value="0"></Option>
@@ -12975,7 +12936,7 @@ def my_form_open(dialog, layer, feature):
               </data_defined_properties>
             </layer>
           </symbol>
-          <symbol alpha="1" clip_to_extent="1" force_rhr="0" frame_rate="10" is_animated="0" name="13" type="marker">
+          <symbol alpha="1" clip_to_extent="1" force_rhr="0" frame_rate="10" is_animated="0" name="12" type="marker">
             <data_defined_properties>
               <Option type="Map">
                 <Option name="name" type="QString" value=""></Option>
@@ -13043,7 +13004,7 @@ def my_form_open(dialog, layer, feature):
               </data_defined_properties>
             </layer>
           </symbol>
-          <symbol alpha="1" clip_to_extent="1" force_rhr="0" frame_rate="10" is_animated="0" name="14" type="marker">
+          <symbol alpha="1" clip_to_extent="1" force_rhr="0" frame_rate="10" is_animated="0" name="13" type="marker">
             <data_defined_properties>
               <Option type="Map">
                 <Option name="name" type="QString" value=""></Option>
@@ -13098,6 +13059,45 @@ def my_form_open(dialog, layer, feature):
                 <Option name="parameters"></Option>
                 <Option name="scale_method" type="QString" value="diameter"></Option>
                 <Option name="size" type="QString" value="2"></Option>
+                <Option name="size_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
+                <Option name="size_unit" type="QString" value="MM"></Option>
+                <Option name="vertical_anchor_point" type="QString" value="1"></Option>
+              </Option>
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option name="name" type="QString" value=""></Option>
+                  <Option name="properties"></Option>
+                  <Option name="type" type="QString" value="collection"></Option>
+                </Option>
+              </data_defined_properties>
+            </layer>
+          </symbol>
+          <symbol alpha="1" clip_to_extent="1" force_rhr="0" frame_rate="10" is_animated="0" name="14" type="marker">
+            <data_defined_properties>
+              <Option type="Map">
+                <Option name="name" type="QString" value=""></Option>
+                <Option name="properties"></Option>
+                <Option name="type" type="QString" value="collection"></Option>
+              </Option>
+            </data_defined_properties>
+            <layer class="SimpleMarker" enabled="1" id="{2acbf910-a7b0-490e-8afd-f497cbf27b0c}" locked="0" pass="0">
+              <Option type="Map">
+                <Option name="angle" type="QString" value="0"></Option>
+                <Option name="cap_style" type="QString" value="square"></Option>
+                <Option name="color" type="QString" value="229,182,54,255"></Option>
+                <Option name="horizontal_anchor_point" type="QString" value="1"></Option>
+                <Option name="joinstyle" type="QString" value="bevel"></Option>
+                <Option name="name" type="QString" value="circle"></Option>
+                <Option name="offset" type="QString" value="0,0"></Option>
+                <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
+                <Option name="offset_unit" type="QString" value="MM"></Option>
+                <Option name="outline_color" type="QString" value="35,35,35,255"></Option>
+                <Option name="outline_style" type="QString" value="no"></Option>
+                <Option name="outline_width" type="QString" value="0"></Option>
+                <Option name="outline_width_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
+                <Option name="outline_width_unit" type="QString" value="MM"></Option>
+                <Option name="scale_method" type="QString" value="diameter"></Option>
+                <Option name="size" type="QString" value="0"></Option>
                 <Option name="size_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
                 <Option name="size_unit" type="QString" value="MM"></Option>
                 <Option name="vertical_anchor_point" type="QString" value="1"></Option>
@@ -16882,32 +16882,44 @@ def my_form_open(dialog, layer, feature):
           </customproperties>
           <layer-tree-layer checked="Qt::Unchecked" expanded="0" id="Points_of_interest_05d51e20_e874_41c8_8dc0_b15845a7e650" legend_exp="" legend_split_behavior="0" name="Points of interest" patch_size="-1,-1" providerKey="virtual" source="?layer=ogr:%2Fhome%2Fhauke%2FProjekte%2FOSM%2Fqgis-outdoor-map%2Fqgis-branch%2Fdata%2Fdata.gpkg%7Clayername%3Dpoints:points:UTF-8">
             <customproperties>
-              <Option></Option>
+              <Option type="Map">
+                <Option name="cached_name" type="QString" value="Points of interest"></Option>
+              </Option>
             </customproperties>
           </layer-tree-layer>
           <layer-tree-layer checked="Qt::Unchecked" expanded="0" id="Points_of_interest_d0a9936e_8c74_4da2_8739_bbb251efd828" legend_exp="" legend_split_behavior="0" name="Water" patch_size="-1,-1" providerKey="virtual" source="?layer=ogr:%2Fhome%2Fhauke%2FProjekte%2FOSM%2Fqgis-outdoor-map%2Fqgis-branch%2Fdata%2Fdata.gpkg%7Clayername%3Dpoints:points:UTF-8">
             <customproperties>
-              <Option></Option>
+              <Option type="Map">
+                <Option name="cached_name" type="QString" value="Water"></Option>
+              </Option>
             </customproperties>
           </layer-tree-layer>
           <layer-tree-layer checked="Qt::Unchecked" expanded="0" id="Water_5bd91e99_53b2_480d_8636_90b9827e7040" legend_exp="" legend_split_behavior="0" name="Roads and trails" patch_size="-1,-1" providerKey="virtual" source="?layer=ogr:%2Fhome%2Fhauke%2FProjekte%2FOSM%2Fqgis-outdoor-map%2Fqgis-branch%2Fdata%2Fdata.gpkg%7Clayername%3Dpoints:points:UTF-8">
             <customproperties>
-              <Option></Option>
+              <Option type="Map">
+                <Option name="cached_name" type="QString" value="Roads and trails"></Option>
+              </Option>
             </customproperties>
           </layer-tree-layer>
           <layer-tree-layer checked="Qt::Unchecked" expanded="0" id="Roads_and_trails_91c0643a_d0e1_49bc_8dfe_cc3515bc8937" legend_exp="" legend_split_behavior="0" name="Transportation" patch_size="-1,-1" providerKey="virtual" source="?layer=ogr:%2Fhome%2Fhauke%2FProjekte%2FOSM%2Fqgis-outdoor-map%2Fqgis-branch%2Fdata%2Fdata.gpkg%7Clayername%3Dpoints:points:UTF-8">
             <customproperties>
-              <Option></Option>
+              <Option type="Map">
+                <Option name="cached_name" type="QString" value="Transportation"></Option>
+              </Option>
             </customproperties>
           </layer-tree-layer>
           <layer-tree-layer checked="Qt::Unchecked" expanded="0" id="Boundaries_0892ca85_74a7_40d9_a08d_7a347530602a" legend_exp="" legend_split_behavior="0" name="Boundaries" patch_size="-1,-1" providerKey="virtual" source="?layer=ogr:%2Fhome%2Fhauke%2FProjekte%2FOSM%2Fqgis-outdoor-map%2Fqgis-branch%2Fdata%2Fdata.gpkg%7Clayername%3Dlines:points:UTF-8">
             <customproperties>
-              <Option></Option>
+              <Option type="Map">
+                <Option name="cached_name" type="QString" value="Boundaries"></Option>
+              </Option>
             </customproperties>
           </layer-tree-layer>
           <layer-tree-layer checked="Qt::Unchecked" expanded="0" id="Transportation_cf48e02e_ffa2_4f03_835d_3708e4aa3e9c" legend_exp="" legend_split_behavior="0" name="Miscellaneous" patch_size="-1,-1" providerKey="virtual" source="?layer=ogr:%2Fhome%2Fhauke%2FProjekte%2FOSM%2Fqgis-outdoor-map%2Fqgis-branch%2Fdata%2Fdata.gpkg%7Clayername%3Dpoints:points:UTF-8">
             <customproperties>
-              <Option></Option>
+              <Option type="Map">
+                <Option name="cached_name" type="QString" value="Miscellaneous"></Option>
+              </Option>
             </customproperties>
           </layer-tree-layer>
           <custom-order enabled="0"></custom-order>
@@ -17512,7 +17524,7 @@ def my_form_open(dialog, layer, feature):
       </spatialrefsys>
     </CoordinateCustomCrs>
   </ProjectDisplaySettings>
-  <ProjectGpsSettings autoAddTrackVertices="0" autoCommitFeatures="0" destinationFollowsActiveLayer="1" destinationLayer="Points_of_interest_05d51e20_e874_41c8_8dc0_b15845a7e650" destinationLayerName="Points of interest" destinationLayerProvider="virtual" destinationLayerSource="?layer=ogr:%2Fhome%2Fhauke%2FProjekte%2FOSM%2Fqgis-outdoor-map%2Fqgis-branch%2Fdata%2Fdata.gpkg%7Clayername%3Dpoints:points:UTF-8">
+  <ProjectGpsSettings autoAddTrackVertices="0" autoCommitFeatures="0" destinationFollowsActiveLayer="1" destinationLayer="points_ed0a9036_e907_48e1_a7f6_684a61396a8e" destinationLayerName="POIs" destinationLayerProvider="ogr" destinationLayerSource="/home/hauke/Projekte/OSM/qgis-outdoor-map/qgis-branch/data/data.gpkg|layername=points">
     <timeStampFields></timeStampFields>
   </ProjectGpsSettings>
 </qgis>
