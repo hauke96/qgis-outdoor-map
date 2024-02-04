@@ -18,40 +18,25 @@
 <!--        id="back"/>-->
     <path
         d="
-            M 0.5,10
-              5,2
-              9.5,10
-              7.5,10
-              5,5.5
-              2.5,10
+            M 5,9.5
+              2,9.5
+              2,4
+              8,4
+              8,9.5
+              5,9.5
         "
-        fill="param(fill) #000"
+        fill="transparent"
+        stroke="param(outline) #000"
+        stroke-width="param(outline-width) 1"
     />
-
     <path
         d="
-            M 0,9.75
-            L 10,9.75
+            M 0.5,5
+              5,1
+              9.5,5
         "
         fill="transparent"
         stroke="param(outline) #000"
-        stroke-width="0.5"/>
-
-    <path
-        d="
-            M 0.5,9.75
-            L 5.85,0.238888931
-        "
-        fill="transparent"
-        stroke="param(outline) #000"
-        stroke-width="0.5"/>
-
-    <path
-        d="
-            M 9.5,9.75
-            L 4.15,0.238888931
-        "
-        fill="transparent"
-        stroke="param(outline) #000"
-        stroke-width="0.5"/>
+        stroke-width="param(outline-width) 1"
+    />
 </svg>
