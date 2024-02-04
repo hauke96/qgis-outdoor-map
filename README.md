@@ -68,6 +68,9 @@ _More guidelines will be added over time._
 * Handle ways under construction, private ways and those with access=no
 * Add scale and scale-bar to layout
 * Adjust tile-proxy to serve multiple endpoints under one port
+* Merge POIs close by: multiple supermarkets/restaurants/... right next to each other should only get one icon
+  * Maybe put some POIs on a point-cloud-ish layer?
+* Add castles and ruins
 
 ---
 
