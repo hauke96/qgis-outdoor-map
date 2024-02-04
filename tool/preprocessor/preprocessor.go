@@ -153,9 +153,12 @@ func handleNode(node *osm.Node) {
 // handleWay interprets the given nodes as one way. Its nodes are passed to handleNodeCloud and processed accordingly.
 func handleWay(way *osm.Way) {
 	// Handling of some special cases where certain ways should be converted into point features
-	if way.Tags.Find("waterway") == "waterfall" ||
+	if way.Tags.Find("ford") == "yes" ||
+		way.Tags.HasTag("shop") ||
+		way.Tags.HasTag("amenity") ||
 		way.Tags.Find("tourism") == "camp_site" ||
-		way.Tags.Find("tourism") == "wilderness_hut" {
+		way.Tags.Find("tourism") == "wilderness_hut" ||
+		way.Tags.Find("waterway") == "waterfall" {
 		centroid, _ := getCentroidOfWay(way)
 		addNode(centroid.Lon(), centroid.Lat(), way.Tags)
 	}
