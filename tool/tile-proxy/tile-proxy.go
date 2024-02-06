@@ -23,44 +23,66 @@ const (
 	formatPbf  = "pbf"
 )
 
-func StartProxy(port string, remoteUrlString string, cacheBaseFolder string) {
+func StartProxy(port string, mappings []string, cacheBaseFolder string) {
+	for _, mapping := range mappings {
+		splitMapping := strings.SplitN(mapping, ":", 2)
+		if len(splitMapping) != 2 {
+			sigolo.Fatal("Invalid URL path mapping: %s", mapping)
+		}
+		startProxyForEndpoint(port, splitMapping[0], splitMapping[1], cacheBaseFolder)
+	}
+
+	sigolo.Debug("Start listening on port %s", port)
+	err := http.ListenAndServe(":"+port, nil)
+	sigolo.FatalCheck(err)
+}
+
+func startProxyForEndpoint(port string, endpoint string, remoteUrlString string, cacheBaseFolder string) {
 	remoteUrl, err := url.Parse(remoteUrlString)
 	sigolo.FatalCheck(err)
 
 	remoteTileFormat := strings.Trim(path.Ext(remoteUrl.Path), ".")
 	if remoteTileFormat != formatWebp && remoteTileFormat != formatPbf {
-		sigolo.Fatal("Unsupported image format %s", remoteTileFormat)
+		sigolo.Fatal("Unsupported remote tile format %s", remoteTileFormat)
 	}
 
-	sigolo.Info("Start tile proxy on port localhost:%s -> %s to convert images from %s", port, remoteUrlString, remoteTileFormat)
+	sigolo.Info("Start tile proxy on port localhost:%s/%s for remote URL %s", port, endpoint, remoteUrlString)
 
 	client := http.Client{}
 
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/"+endpoint+"/", func(w http.ResponseWriter, r *http.Request) {
 		// Use local variable here to ensure each logging has exactly the counter it belongs to. Otherwise, subsequent
 		// requests have increased the counter and concurrent requests print wrong log counter.
-		log := newLogger(port)
+		log := newLogger(endpoint)
 
 		log.Debug("Request URL: %s", r.URL)
 
-		pathSegmentsAndFormat := strings.Split(strings.Trim(r.URL.Path, "/"), ".")
+		requestPath := strings.Trim(r.URL.Path, "/")
+		requestParameterPath := strings.Trim(requestPath, endpoint+"/")
 
-		// Trim the ".png" ending off
-		requestedPath := pathSegmentsAndFormat[0]
+		pathSegmentsAndFormat := strings.Split(requestParameterPath, ".")
+
+		// Separate the "{z}/{x}/{y}" part from the ".png" or whatever extension is used
+		requestedParameters := pathSegmentsAndFormat[0]
 		requestedFormat := pathSegmentsAndFormat[1]
 
-		log.Debug("Requested path  : %s", requestedPath)
+		log.Debug("Requested path  : %s", requestPath)
 		log.Debug("Requested format: %s", requestedFormat)
+
+		segments := strings.Split(requestedParameters, "/")
+		if len(segments) != 3 {
+			log.Error("Request to URL %s invalid. Request URL must have form .../{z}/{x}/{y}.{ext}", requestPath)
+			responseWithError(log, w, fmt.Sprintf("Invalid request path %s", requestPath), err)
+			return
+		}
+		z := segments[0]
+		x := segments[1]
+		y := segments[2]
 
 		if requestedFormat != formatPng && requestedFormat != formatPbf && requestedFormat != formatWebp {
 			responseWithError(log, w, fmt.Sprintf("Unknown requested format %s", requestedFormat), err)
 			return
 		}
-
-		segments := strings.Split(requestedPath, "/") // scheme: .../z/x/y.ext
-		z := segments[0]
-		x := segments[1]
-		y := segments[2]
 
 		cacheKey := toCacheKey(remoteUrl)
 		tileBytes := getTile(z, x, y, cacheKey, remoteTileFormat, cacheBaseFolder, log)
@@ -121,9 +143,6 @@ func StartProxy(port string, remoteUrlString string, cacheBaseFolder string) {
 		}
 		log.Debug("Response written - Done")
 	})
-
-	err = http.ListenAndServe(":"+port, nil)
-	sigolo.FatalCheck(err)
 }
 
 func requestOriginalTile(remoteUrlString string, z string, x string, y string, log *logger, client http.Client) ([]byte, error) {

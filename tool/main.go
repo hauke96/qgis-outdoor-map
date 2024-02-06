@@ -10,13 +10,13 @@ import (
 var cli struct {
 	Debug         bool `help:"Enable debug mode." short:"d"`
 	Preprocessing struct {
-		Input  string `help:"The input file. Either .osm or .osm..pbf." placeholder:"<input-file>"  arg:""`
-		Output string `help:"The output file, which must be a .osm.pbf file." placeholder:"<output-file>"  arg:""`
+		Input  string `help:"The input file. Either .osm or .osm..pbf." placeholder:"<input-file>" arg:""`
+		Output string `help:"The output file, which must be a .osm.pbf file." placeholder:"<output-file>" arg:""`
 	} `cmd:"" help:"Preprocesses the OSM data by adding e.g. label nodes."`
 	TileProxy struct {
-		TargetUrl   string `help:"The target URL where the actual tiles are." short:"t"`
-		Port        string `help:"The port of the proxy on localhost." default:"9000" short:"p"`
-		CacheFolder string `help:"A folder in which tiles will be cached." default:".tile-cache" short:"c"`
+		Mappings    []string `help:"A list of URL mappings of the following form: \"<endpoint1>:<url1> <endpoint2>:<url2> ...\". Each mapping will result in an API endpoint of the form http://localhost:<port>/<endpoint>/..." arg:""`
+		Port        string   `help:"The port of the proxy on localhost." default:"9000" short:"p"`
+		CacheFolder string   `help:"A folder in which tiles will be cached." default:".tile-cache" short:"c"`
 	} `cmd:"" help:"A proxy converting remote tiles into a given image format."`
 }
 
@@ -26,8 +26,8 @@ func main() {
 	switch ctx.Command() {
 	case "preprocessing <input> <output>":
 		preprocessor.PreprocessData(cli.Preprocessing.Input, cli.Preprocessing.Output)
-	case "tile-proxy":
-		tile_proxy.StartProxy(cli.TileProxy.Port, cli.TileProxy.TargetUrl, cli.TileProxy.CacheFolder)
+	case "tile-proxy <mappings>":
+		tile_proxy.StartProxy(cli.TileProxy.Port, cli.TileProxy.Mappings, cli.TileProxy.CacheFolder)
 	default:
 		sigolo.Fatal("Unknown command: %v", ctx.Command())
 	}
