@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8">
+    <title>OpenLayers Map Viewer</title>
+    <script src="https://cdn.jsdelivr.net/npm/ol@v8.2.0/dist/ol.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v8.2.0/ol.css">
+    <style>
+      html, body, .map {
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        font-family: sans-serif;
+        font-size: 12pt;
+      }
+      .ol-grayscale-layer {
+        filter: grayscale(75%);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map" class="map"></div>
+    <script type="text/javascript">
+      var map = new ol.Map({
+        target: 'map',
+        layers: [
+          new ol.layer.Tile({
+            className: 'ol-grayscale-layer',
+            source: new ol.source.OSM()
+          }),
+          new ol.layer.Tile({
+            source: new ol.source.XYZ({
+              url: './{z}/{x}/{y}.png'
+              // url: './{z}/{x}/{y}.jpg'
+            })
+          })
+        ],
+        view: new ol.View({
+          center: ol.proj.fromLonLat([11.0071, 47.4130]),
+          zoom: 14
+        })
+      });
+    </script>
+  </body>
+</html>

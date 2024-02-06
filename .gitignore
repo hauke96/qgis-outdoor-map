@@ -1,18 +1,24 @@
 # Data files
 *.pbf
+*.osm
 *.poly
 *.tif
 *.gpkg
+tiles
+.tile-cache
+demo-website/dist
 
 # Project files
 *.qgs~
 *.db
-
-# Database
-postgres-data
+.env
 
 # Rendered maps
 *.pdf
 *.png
 *.jpg
 rendered-maps
+
+# Other things to ignore
+.idea
+.run
