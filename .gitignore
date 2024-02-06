@@ -12,6 +12,7 @@ demo-website/dist
 *.qgs~
 *.db
 .env
+*_attachments.zip
 
 # Rendered maps
 *.pdf
