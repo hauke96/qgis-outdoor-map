@@ -4,6 +4,7 @@ A [QGIS](https://www.qgis.org/) map style for an OSM-based outdoor map focussed 
 This map is a QGIS project based on OSM data turned into a GeoPackage file.
 
 See [this online example](https://hauke-stieler.de/public/maps/zugspitze/) from the Zugspitze region in Germany/Austria. 
+
 Or take a look at this example of a printable map:
 <img style="width: 100%;" src="example-hiking-map.jpg">
 
