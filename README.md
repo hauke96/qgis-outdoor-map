@@ -1,7 +1,14 @@
-# Outdoor hiking map
+# OSM Outdoor Map
 
-A map style for an OSM-based outdoor map focussed on hiking and trekking.
+A [QGIS](https://www.qgis.org/) map style for an OSM-based outdoor map focussed on hiking and trekking.
 This map is a QGIS project based on OSM data turned into a GeoPackage file.
+
+<img style="width: 100%;" src="example-hiking-map.jpg">
+
+## How to use it
+
+Simply follow the [local setup](#local-setup) steps below to prepare OSM and elevation data.
+After opening the project in QGIS, you can use the given print layout or work with the map in whatever way you like.
 
 ## Local setup
 
@@ -56,8 +63,10 @@ Take a look at [HILLSHADE_CONTOURS.md](HILLSHADE_CONTOURS.md) for a tutorial on 
 
 ### 3. Open QGIS project
 
-Simply open the `map.qgs` file and work on the map.
-You may have to adjust paths to your local files (e.g. SVGs, GeoPackage, etc.) but most of it should just work.
+1. Simply open the `map.qgs` file and work on the map.
+2. Go into Settings → Options → System and add the `./sprites` folder to the list of SVG paths.
+
+You are now ready to use the map.
 
 ## Create printable PDF
 
@@ -69,21 +78,22 @@ You may have to adjust paths to your local files (e.g. SVGs, GeoPackage, etc.) b
 
 ### General considerations
 
-* **Hiking infrastructure has a higher precedence over non-hiking infrastructure.
-  ** Example: Drinking water POIs are already visible at zoom level 12, advanced trails have a bright yellow background and generally all hiking trails are directly recognizable.
-* **Hiking relevant data only.
-  ** Things, that are not related or important for hikers (or other outdoor enthusiasts) are irrelevant. This includes for example parking spaces. Yes, people arrive by car but why should a map for hiking include parking if you use your phone for car navigation and finding a parking spot?
-* **Use as few different colors amd font-styles as possible.
-  ** Sometimes, adjustments of font or icon colors are needed for better visualization, but keep that to a minimum.
-* **Orientate yourself by
-  the [2014 material design color palette](https://material.io/design/color/the-color-system.html#tools-for-picking-colors).
-  ** These colors work quite well but I sometimes change some parameters of the color where appropriate. But if such a color works, then take it.
-* **Sprites should be of high quality.
-  ** When possible, create large sprites and then use the scale factor to scale them down for the map. This ensures sharp icons and the possibility for hires maps.
+* **Hiking infrastructure has a higher precedence over non-hiking infrastructure.**
+  * Example: Drinking water POIs are more important than some other POIs, advanced trails have a bright yellow background and generally all hiking trails are directly recognizable.
+* **Hiking relevant data only.**
+  * Things, that are not related or important for hikers (or other outdoor enthusiasts) are probably irrelevant. This includes for example parking spaces. Yes, people arrive by car but why should a map for hiking include parking if you use your phone or car navigation to find a parking spot?
+* **Use as few different colors amd font-styles as possible.**
+  * Sometimes, adjustments of font or icon colors are needed for better visualization, but keep that to a minimum.
+* **Sprites should be of high quality.**
+  * Whenever possible, use SVGs. If you use raster graphics, use PNGs of high quality (e.g. [rock.png](sprites/rock.png) and keep the original image editor file (`*.xcf` in case of GIMP).
+* **Be inspired by the [2014 material design color palette](https://material.io/design/color/the-color-system.html#tools-for-picking-colors).**
+  * These colors often work quite well, but I do change color-parameters over time to make the map even more beautiful.
 
-_More guidelines will be added over time._
+More guidelines might be added over time.
 
 ### Concrete guides
+
+This is an (incomplete) list of concrete style and design principles I use:
 
 * Outlines
   * Many things have outlines (e.g. labels, lines, some icons, etc.)
@@ -112,6 +122,8 @@ _More guidelines will be added over time._
   * Maybe put some POIs on a point-cloud-ish layer?
 * Add castles and ruins
 * Add wetland, heath and other natural landscapes
+* Remove `symbols` folder when sure that the images in there are not needed anymore.
+* Create process to create online maps
 
 ---
 
