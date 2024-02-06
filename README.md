@@ -5,6 +5,12 @@ This map is a QGIS project based on OSM data turned into a GeoPackage file.
 
 ## Local setup
 
+Basic steps:
+
+1. Create a GeoPackage file `./data/data.gpkg` containing all data to show
+2. Configure and start the `serve.sh` script to access MapTiler elevation data
+3. Open QGIS project and work on the map
+
 ### 0. Prerequisites
 
 First of all:
@@ -15,15 +21,43 @@ Software that needs to be installed. These are the CLI commands that need to be 
 To generate and edit the style:
 
 * `qgis` with the "Trackable QGIS Project"-plugin (to make `.qgs` files a bit mot git-friendly)
-* `qtwebkit` (this is the name of Arch Linux package, make sure you install the package for your distro in order to render HTML in the QGIS-Layout)
 * `osmium`
 * `go` (golang; version >1.12, best use the version according to the `go.mod` file)
 
 ### 1. Download data
 
 1. Execute `import-data.sh <region>` script (requires `osmium`) with the region name as parameter. The available regions are all listed at the bottom of the script.
-  * This script downloads the data and crops it to the extent of the given region.
-  * This script also creates the required `data/data.gpkg` file for QGIS.
+
+* This script downloads the data and crops it to the extent of the given region.
+* This script also creates the required `data/data.gpkg` file for QGIS.
+
+### 2. Start tile proxy
+
+This project uses MapTiler as source for elevation data.
+Of course, you can use whatever service or data you want (s. below), this step just describes the current setup.
+
+#### Default: Configure to use MapTiler
+
+The QGIS project already uses MapTiler via a local tile-proxy.
+So we just need to configure this proxy and we're ready to go.
+
+In order to now run into quota limits of MapTiler (or any other service), this project contains a small tile proxy in `tool/tile-proxy`.
+This is how you start it:
+
+1. Create an `.env` file next to the `serve.sh` script
+2. Add your MapTiler API-Key there by adding the following line: `MAP_TILER_API_KEY=.....`
+3. Adjust the `serve.sh` if you want to access other services
+4. Run the `service.sh` script
+
+#### Alternative: Custom elevation data
+
+One alternative to the above MapTiler approach, is the usage of your own data.
+Take a look at [HILLSHADE_CONTOURS.md](HILLSHADE_CONTOURS.md) for a tutorial on how to create your own good-looking hillshading and contour lines from GeoTIFF images using QGIS and GDAL.
+
+### 3. Open QGIS project
+
+Simply open the `map.qgs` file and work on the map.
+You may have to adjust paths to your local files (e.g. SVGs, GeoPackage, etc.) but most of it should just work.
 
 ## Create printable PDF
 
@@ -35,11 +69,17 @@ To generate and edit the style:
 
 ### General considerations
 
-* **Hiking infrastructure has a higher precedence over non-hiking infrastructure.** Example: Drinking water POIs are already visible at zoom level 12, advanced trails have a bright yellow background and generally all hiking trails are directly recognizable.
-* **Hiking relevant data only.** Things, that are not related or important for hikers (or other outdoor enthusiasts) are irrelevant. This includes for example parking spaces. Yes, people arrive by car but why should a map for hiking include parking if you use your phone for car navigation and finding a parking spot?
-* **Use as few different colors amd font-styles as possible.** Sometimes, adjustments of font or icon colors are needed for better visualization, but keep that to a minimum.
-* **Orientate yourself by the [2014 material design color palette](https://material.io/design/color/the-color-system.html#tools-for-picking-colors).** These colors work quite well but I sometimes change some parameters of the color where appropriate. But if such a color works, then take it.
-* **Sprites should be of high quality.** When possible, create large sprites and then use the scale factor to scale them down for the map. This ensures sharp icons and the possibility for hires maps.
+* **Hiking infrastructure has a higher precedence over non-hiking infrastructure.
+  ** Example: Drinking water POIs are already visible at zoom level 12, advanced trails have a bright yellow background and generally all hiking trails are directly recognizable.
+* **Hiking relevant data only.
+  ** Things, that are not related or important for hikers (or other outdoor enthusiasts) are irrelevant. This includes for example parking spaces. Yes, people arrive by car but why should a map for hiking include parking if you use your phone for car navigation and finding a parking spot?
+* **Use as few different colors amd font-styles as possible.
+  ** Sometimes, adjustments of font or icon colors are needed for better visualization, but keep that to a minimum.
+* **Orientate yourself by
+  the [2014 material design color palette](https://material.io/design/color/the-color-system.html#tools-for-picking-colors).
+  ** These colors work quite well but I sometimes change some parameters of the color where appropriate. But if such a color works, then take it.
+* **Sprites should be of high quality.
+  ** When possible, create large sprites and then use the scale factor to scale them down for the map. This ensures sharp icons and the possibility for hires maps.
 
 _More guidelines will be added over time._
 

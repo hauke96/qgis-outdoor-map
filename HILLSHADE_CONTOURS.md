@@ -1,3 +1,5 @@
+_**NOTE:** This tutorial was created before the project migrated to GeoPackage as database. But the process should still work._
+
 How to create nice looking hillshade tiles using QGIS and GDAL.
 
 # Prerequisites

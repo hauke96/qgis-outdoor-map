@@ -11,9 +11,7 @@ demo-website/dist
 # Project files
 *.qgs~
 *.db
-
-# Database
-postgres-data
+.env
 
 # Rendered maps
 *.pdf
