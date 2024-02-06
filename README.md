@@ -3,6 +3,8 @@
 A [QGIS](https://www.qgis.org/) map style for an OSM-based outdoor map focussed on hiking and trekking.
 This map is a QGIS project based on OSM data turned into a GeoPackage file.
 
+See [this online example](https://hauke-stieler.de/public/maps/zugspitze/) from the Zugspitze region in Germany/Austria. 
+Or take a look at this example of a printable map:
 <img style="width: 100%;" src="example-hiking-map.jpg">
 
 ## How to use it
@@ -70,9 +72,10 @@ You are now ready to use the map.
 
 ## Create printable PDF
 
-1. Create a new QGIS print layout or use the default one in thise project
-2. Adjust the virtual layers (within the "legend" map theme) so that your legend contains all wanted items in correct groups
-3. Adjust the theme and create the PDF (or whatever output you want)
+1. Create a new QGIS print layout or use the default one in this project.
+2. Adjust the virtual layers (within the "legend" map theme) so that your legend contains all wanted items in correct groups.
+   * Some styles on virtual layers are different from those on the actual rendered layers. So be careful when updating the legend styles.
+3. Adjust the theme and create the PDF (or whatever output you want).
 
 ## Style guide
 
@@ -123,7 +126,6 @@ This is an (incomplete) list of concrete style and design principles I use:
 * Add castles and ruins
 * Add wetland, heath and other natural landscapes
 * Remove `symbols` folder when sure that the images in there are not needed anymore.
-* Create process to create online maps
 
 ---
 
