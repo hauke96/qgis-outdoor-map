@@ -71,6 +71,7 @@ _More guidelines will be added over time._
 * Merge POIs close by: multiple supermarkets/restaurants/... right next to each other should only get one icon
   * Maybe put some POIs on a point-cloud-ish layer?
 * Add castles and ruins
+* Add wetland, heath and other natural landscapes
 
 ---
 
