@@ -116,14 +116,3 @@ This is an (incomplete) list of concrete style and design principles I use:
     * Curved
 * Road:
   * 0.5mm outline of light gray (#9E9E9E)
-
-## TODOs
-
-* Handle ways under construction, private ways and those with access=no
-* Add scale and scale-bar to layout
-* Merge POIs close by: multiple supermarkets/restaurants/... right next to each other should only get one icon
-  * Maybe put some POIs on a point-cloud-ish layer?
-* Add castles and ruins
-* Add wetland, heath and other natural landscapes
-* Remove `symbols` folder when sure that the images in there are not needed anymore.
-* Evaluate usefulness of CLI render scripts
