@@ -218,7 +218,9 @@ esac
 echo "Processed region $1"
 
 echo "Filter $(basename $DATA) by used tags into $(basename $DATA_FILTERED)"
-osmium tags-filter --overwrite -o $DATA_FILTERED $DATA nwr/aerialway,amenity,boundary,building,ele,highway,landuse,natural,place,railway,route,shop,tourism,type,waterway
+# TODO evaluate if filtering is actually improving performance and remove this if it's not.
+#osmium tags-filter --overwrite -o $DATA_FILTERED $DATA nwr/aerialway,amenity,boundary,building,ele,highway,landuse,natural,place,railway,route,shop,tourism,type,waterway
+cp $DATA $DATA_FILTERED
 
 echo "Run preprocessor on $(basename $DATA_FILTERED)"
 cd ../../tool
