@@ -156,6 +156,7 @@ func handleWay(way *osm.Way) {
 	if way.Tags.Find("ford") == "yes" ||
 		way.Tags.HasTag("shop") ||
 		way.Tags.HasTag("amenity") ||
+		way.Tags.HasTag("historic") ||
 		way.Tags.Find("tourism") == "camp_site" ||
 		way.Tags.Find("tourism") == "wilderness_hut" ||
 		way.Tags.Find("waterway") == "waterfall" {
