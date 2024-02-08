@@ -95,15 +95,15 @@ func PreprocessData(inputFile string, outputFile string) {
 			}
 		}
 
-		newHikingRouteNameTag := &osm.Tag{
+		newHikingRouteNameTag := osm.Tag{
 			Key:   "hiking_route_names",
 			Value: newHikingRouteName,
 		}
-		newHikingRouteTag := &osm.Tag{
+		newHikingRouteTag := osm.Tag{
 			Key:   "hiking_route",
 			Value: "yes",
 		}
-		way.Tags = append(way.Tags, *newHikingRouteNameTag, *newHikingRouteTag)
+		way.Tags = append(way.Tags, newHikingRouteNameTag, newHikingRouteTag)
 	}
 
 	sigolo.Debug("Write %d nodes to output", len(inputNodes))
@@ -127,18 +127,17 @@ func PreprocessData(inputFile string, outputFile string) {
 }
 
 func handleRelation(relation *osm.Relation) {
-	if relation.Tags.Find("type") != "route" || relation.Tags.Find("route") != "hiking" {
-		return
-	}
+	if relation.Tags.Find("type") == "route" && relation.Tags.Find("route") == "hiking" {
+		// Store each way that is part of a hiking-route separately to tag them later.
+		for _, member := range relation.Members {
+			if member.Type != osm.TypeWay {
+				continue
+			}
 
-	for _, member := range relation.Members {
-		if member.Type != osm.TypeWay {
-			continue
-		}
-
-		// Member ways do not contain their nodes here, only a ref-ID to the actual way
-		if memberWay, ok := inputWays[osm.WayID(member.Ref)]; ok {
-			hikingRouteMapping[memberWay.ID] = append(hikingRouteMapping[memberWay.ID], relation.ID)
+			// Member ways do not contain their nodes here, only a ref-ID to the actual way
+			if memberWay, ok := inputWays[osm.WayID(member.Ref)]; ok {
+				hikingRouteMapping[memberWay.ID] = append(hikingRouteMapping[memberWay.ID], relation.ID)
+			}
 		}
 	}
 }
@@ -150,7 +149,8 @@ func handleNode(node *osm.Node) {
 	}
 }
 
-// handleWay interprets the given nodes as one way. Its nodes are passed to handleNodeCloud and processed accordingly.
+// handleWay might add new nodes or tags to the given way to handle them easier in styling. It returns true of the way
+// should be kept and false if the line should not be part of the output.
 func handleWay(way *osm.Way) {
 	// Handling of some special cases where certain ways should be converted into point features
 	if way.Tags.Find("ford") == "yes" ||
@@ -162,6 +162,32 @@ func handleWay(way *osm.Way) {
 		way.Tags.Find("waterway") == "waterfall" {
 		centroid, _ := getCentroidOfWay(way)
 		addNode(centroid.Lon(), centroid.Lat(), way.Tags)
+	}
+
+	// Add highway tags for not accessible ways
+	isUnderConstruction := way.Tags.HasTag("construction")
+	hasNoRealHighwayTag := !way.Tags.HasTag("highway") || way.Tags.Find("highway") == "construction"
+	isNotAccessible := way.Tags.Find("access") == "no" ||
+		way.Tags.Find("access") == "private" ||
+		way.Tags.Find("foot") == "no" ||
+		way.Tags.Find("foot") == "private"
+
+	if isUnderConstruction && hasNoRealHighwayTag {
+		// Set highway tag for construction roads without proper one
+		highwayTag := osm.Tag{
+			Key:   "highway",
+			Value: way.Tags.Find("construction"),
+		}
+		way.Tags = append(way.Tags, highwayTag)
+	}
+
+	if isUnderConstruction || isNotAccessible {
+		// Override access tag for simplicity
+		accessTag := osm.Tag{
+			Key:   "access",
+			Value: "no",
+		}
+		way.Tags = append(way.Tags, accessTag)
 	}
 }
 

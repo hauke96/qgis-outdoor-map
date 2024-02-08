@@ -1,4 +1,4 @@
-<qgis projectname="" saveDateTime="2024-02-08T20:34:35" saveUser="hauke" saveUserFull="" version="3.34.3-Prizren">
+<qgis projectname="" saveDateTime="2024-02-08T22:27:28" saveUser="hauke" saveUserFull="" version="3.34.3-Prizren">
   <homePath path=""></homePath>
   <title></title>
   <transaction mode="Disabled"></transaction>
@@ -211,10 +211,10 @@
   <mapcanvas annotationsVisible="1" name="theMapCanvas">
     <units>meters</units>
     <extent>
-      <xmin>1231234.70653665577992797</xmin>
-      <ymin>6020181.94640356674790382</ymin>
-      <xmax>1232539.73937277356162667</xmax>
-      <ymax>6021327.20538609474897385</ymax>
+      <xmin>1229618.59400760056450963</xmin>
+      <ymin>6019422.22172975353896618</ymin>
+      <xmax>1232422.94468579115346074</xmax>
+      <ymax>6021712.73969480209052563</ymax>
     </extent>
     <rotation>0</rotation>
     <destinationsrs>
@@ -13908,8 +13908,8 @@
       <renderer-v2 enableorderby="0" forceraster="0" referencescale="-1" symbollevels="0" type="mergedFeatureRenderer">
         <renderer-v2 enableorderby="0" forceraster="0" referencescale="-1" symbollevels="0" type="RuleRenderer">
           <rules key="{57c0b0e0-b1da-4abc-8a59-5d24e5dfa1c1}">
-            <rule filter="highway IN ('service')" key="{ac87da79-78ec-462d-b4b7-b3d0dd1440f9}" label="Other streets" scalemaxdenom="25000" scalemindenom="500" symbol="0"></rule>
-            <rule filter="highway IN ('residential', 'living_street', 'pedestrian', 'road')" key="{1c95bf70-290c-4476-ab1a-bf9f529c32c5}" label="Street" symbol="1"></rule>
+            <rule filter="highway IN ('service') AND (service IS NULL OR service != 'driveway')" key="{ac87da79-78ec-462d-b4b7-b3d0dd1440f9}" label="Other streets" scalemaxdenom="25000" scalemindenom="500" symbol="0"></rule>
+            <rule filter="highway IN ('residential', 'living_street', 'pedestrian', 'road', 'service') AND&#xA;-- Ignore driveways since they are mostly for private housing and small businesses and therefore irrelevant for an outdoor map.&#xA;(service IS NULL OR service != 'driveway')" key="{1c95bf70-290c-4476-ab1a-bf9f529c32c5}" label="Street" symbol="1"></rule>
             <rule filter="highway IN ('unclassified', 'tertiary')" key="{43a131c9-b0b8-46fc-b1ae-de4daf30508e}" label="Tertiary / minor roads" symbol="2"></rule>
             <rule filter="highway = 'secondary'" key="{b144b599-478f-49c9-b8b8-ef0904a4afc0}" label="Secondary road" symbol="3"></rule>
             <rule filter="highway = 'primary'" key="{a0f6ab99-ca70-4fc4-99e2-77c8119f1d24}" label="Primary road" symbol="4"></rule>
@@ -13917,7 +13917,7 @@
             <rule filter="railway IN ('rail') AND tunnel = 'yes'" key="{188e4c68-14df-48d5-b07e-610c3b3c36bd}" label="Railway (tunnel)" symbol="6"></rule>
             <rule filter="railway IN ('narrow_gauge', 'funicular', 'light_rail', 'monorail', 'subway', 'tram', 'disused', 'abandoned') AND (tunnel IS NULL OR tunnel = 'no')" key="{03013027-4671-4ee6-821b-1830bd34b732}" label="Railway (other)" symbol="7"></rule>
             <rule filter="railway IN ('narrow_gauge', 'funicular', 'light_rail', 'monorail', 'subway', 'tram', 'disused', 'abandoned') AND tunnel = 'yes'" key="{571cfdc3-0db8-4de4-b91c-66e67a9a302e}" label="Railway (other; tunnel)" symbol="8"></rule>
-            <rule filter="highway = 'via_ferrata' OR via_ferrata_scale IS NOT NULL OR sac_scale IN ('demanding_mountain_hiking', 'alpine_hiking', 'demanding_alpine_hiking' ,'difficult_alpine_hiking') OR trail_visibility IN ('bad', 'horrible', 'no')" key="{1088590e-7572-4b35-a879-f8d7b718451b}" label="Advanced trail" symbol="9"></rule>
+            <rule filter="-- Some trails are marked as e.g. &quot;abandoned:highway&quot; so we definitely need a highway tag here.&#xA;highway IS NOT NULL AND&#xA;(&#xA;&#x9;highway = 'via_ferrata' OR&#xA;&#x9;via_ferrata_scale IS NOT NULL OR&#xA;&#x9;sac_scale IN ('demanding_mountain_hiking', 'alpine_hiking', 'demanding_alpine_hiking' ,'difficult_alpine_hiking') OR&#xA;&#x9;trail_visibility IN ('bad', 'horrible', 'no')&#xA;)" key="{1088590e-7572-4b35-a879-f8d7b718451b}" label="Advanced trail" symbol="9"></rule>
             <rule filter="highway = 'via_ferrata'" key="{755e384a-658a-446c-a9fc-2c573c97001c}" label="Via ferrata" symbol="10"></rule>
             <rule filter="highway IN ('path', 'footway', 'track', 'steps')" key="{3b4338fc-858d-44c1-89b6-7c7fb579e1fc}" label="Trail (background)" symbol="11"></rule>
             <rule filter="highway IN ('path', 'footway', 'steps')" key="{e72b9429-9f6f-4fe4-8bb0-c54f7317d6a0}" label="Trail" symbol="12"></rule>
@@ -13926,6 +13926,7 @@
             <rule filter="hiking_route = 'yes'" key="{b5fec54a-3587-4ea5-8ce2-2e35a3a013c4}" label="Hiking route" symbol="15"></rule>
             <rule filter="aerialway IS NOT NULL AND aerialway != 'goods' AND (access IS NULL OR access NOT IN ('private', 'forestry', 'agricultural', 'no'))" key="{ee8249f6-3147-4425-a223-5366c1a8f2a3}" label="Cable car / gondola / lift" symbol="16"></rule>
             <rule filter="aerialway = 'goods' OR (aerialway IS NOT NULL AND access IS NOT NULL AND access IN ('private', 'forestry', 'agricultural', 'no'))" key="{dbec1d27-73d4-40f8-85e5-3157ca717193}" label="Cable car (private or non-passenger)" symbol="17"></rule>
+            <rule filter="-- Any non-driveway road that is not accessible&#xA;highway IS NOT NULL AND&#xA;service != 'driveway' AND&#xA;access = 'no'" key="{22b95130-777b-4077-9a56-a42133ff325f}" label="Non accessible way" symbol="18"></rule>
           </rules>
           <symbols>
             <symbol alpha="1" clip_to_extent="1" force_rhr="0" frame_rate="10" is_animated="0" name="0" type="line">
@@ -14035,7 +14036,7 @@
                   <Option name="joinstyle" type="QString" value="bevel"></Option>
                   <Option name="line_color" type="QString" value="158,158,158,255"></Option>
                   <Option name="line_style" type="QString" value="solid"></Option>
-                  <Option name="line_width" type="QString" value="1.5"></Option>
+                  <Option name="line_width" type="QString" value="0.85"></Option>
                   <Option name="line_width_unit" type="QString" value="MM"></Option>
                   <Option name="offset" type="QString" value="0"></Option>
                   <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
@@ -14073,7 +14074,7 @@
                   <Option name="joinstyle" type="QString" value="bevel"></Option>
                   <Option name="line_color" type="QString" value="255,255,255,255"></Option>
                   <Option name="line_style" type="QString" value="solid"></Option>
-                  <Option name="line_width" type="QString" value="1"></Option>
+                  <Option name="line_width" type="QString" value="0.65"></Option>
                   <Option name="line_width_unit" type="QString" value="MM"></Option>
                   <Option name="offset" type="QString" value="0"></Option>
                   <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
@@ -14605,6 +14606,81 @@
                       <Option name="tweak_dash_pattern_on_corners" type="QString" value="0"></Option>
                       <Option name="use_custom_dash" type="QString" value="0"></Option>
                       <Option name="width_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
+                    </Option>
+                    <data_defined_properties>
+                      <Option type="Map">
+                        <Option name="name" type="QString" value=""></Option>
+                        <Option name="properties"></Option>
+                        <Option name="type" type="QString" value="collection"></Option>
+                      </Option>
+                    </data_defined_properties>
+                  </layer>
+                </symbol>
+              </layer>
+            </symbol>
+            <symbol alpha="1" clip_to_extent="1" force_rhr="0" frame_rate="10" is_animated="0" name="18" type="line">
+              <data_defined_properties>
+                <Option type="Map">
+                  <Option name="name" type="QString" value=""></Option>
+                  <Option name="properties"></Option>
+                  <Option name="type" type="QString" value="collection"></Option>
+                </Option>
+              </data_defined_properties>
+              <layer class="MarkerLine" enabled="1" id="{245ef4c3-ab4a-4841-8db0-423a951be061}" locked="0" pass="999">
+                <Option type="Map">
+                  <Option name="average_angle_length" type="QString" value="4"></Option>
+                  <Option name="average_angle_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
+                  <Option name="average_angle_unit" type="QString" value="MM"></Option>
+                  <Option name="interval" type="QString" value="3.5"></Option>
+                  <Option name="interval_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
+                  <Option name="interval_unit" type="QString" value="MM"></Option>
+                  <Option name="offset" type="QString" value="0"></Option>
+                  <Option name="offset_along_line" type="QString" value="0"></Option>
+                  <Option name="offset_along_line_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
+                  <Option name="offset_along_line_unit" type="QString" value="MM"></Option>
+                  <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
+                  <Option name="offset_unit" type="QString" value="MM"></Option>
+                  <Option name="place_on_every_part" type="bool" value="true"></Option>
+                  <Option name="placements" type="QString" value="Interval"></Option>
+                  <Option name="ring_filter" type="QString" value="0"></Option>
+                  <Option name="rotate" type="QString" value="1"></Option>
+                </Option>
+                <data_defined_properties>
+                  <Option type="Map">
+                    <Option name="name" type="QString" value=""></Option>
+                    <Option name="properties"></Option>
+                    <Option name="type" type="QString" value="collection"></Option>
+                  </Option>
+                </data_defined_properties>
+                <symbol alpha="1" clip_to_extent="1" force_rhr="0" frame_rate="10" is_animated="0" name="@18@0" type="marker">
+                  <data_defined_properties>
+                    <Option type="Map">
+                      <Option name="name" type="QString" value=""></Option>
+                      <Option name="properties"></Option>
+                      <Option name="type" type="QString" value="collection"></Option>
+                    </Option>
+                  </data_defined_properties>
+                  <layer class="SimpleMarker" enabled="1" id="{3f1eb74a-1509-40c3-985a-3cf690193fe6}" locked="0" pass="0">
+                    <Option type="Map">
+                      <Option name="angle" type="QString" value="0"></Option>
+                      <Option name="cap_style" type="QString" value="square"></Option>
+                      <Option name="color" type="QString" value="255,0,0,255"></Option>
+                      <Option name="horizontal_anchor_point" type="QString" value="1"></Option>
+                      <Option name="joinstyle" type="QString" value="bevel"></Option>
+                      <Option name="name" type="QString" value="cross2"></Option>
+                      <Option name="offset" type="QString" value="0,0"></Option>
+                      <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
+                      <Option name="offset_unit" type="QString" value="MM"></Option>
+                      <Option name="outline_color" type="QString" value="97,97,97,255"></Option>
+                      <Option name="outline_style" type="QString" value="solid"></Option>
+                      <Option name="outline_width" type="QString" value="0.15"></Option>
+                      <Option name="outline_width_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
+                      <Option name="outline_width_unit" type="QString" value="MM"></Option>
+                      <Option name="scale_method" type="QString" value="diameter"></Option>
+                      <Option name="size" type="QString" value="1"></Option>
+                      <Option name="size_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
+                      <Option name="size_unit" type="QString" value="MM"></Option>
+                      <Option name="vertical_anchor_point" type="QString" value="1"></Option>
                     </Option>
                     <data_defined_properties>
                       <Option type="Map">
@@ -15647,6 +15723,13 @@
             </config>
           </editWidget>
         </field>
+        <field configurationFlags="NoFlag" name="service">
+          <editWidget type="">
+            <config>
+              <Option></Option>
+            </config>
+          </editWidget>
+        </field>
         <field configurationFlags="NoFlag" name="tracktype">
           <editWidget type="TextEdit">
             <config>
@@ -15720,14 +15803,15 @@
         <alias field="ref" index="12" name=""></alias>
         <alias field="route" index="13" name=""></alias>
         <alias field="sac_scale" index="14" name=""></alias>
-        <alias field="tracktype" index="15" name=""></alias>
-        <alias field="trail_visibility" index="16" name=""></alias>
-        <alias field="tunnel" index="17" name=""></alias>
-        <alias field="type" index="18" name=""></alias>
-        <alias field="via_ferrata_scale" index="19" name=""></alias>
-        <alias field="voltage" index="20" name=""></alias>
-        <alias field="waterway" index="21" name=""></alias>
-        <alias field="z_order" index="22" name=""></alias>
+        <alias field="service" index="15" name=""></alias>
+        <alias field="tracktype" index="16" name=""></alias>
+        <alias field="trail_visibility" index="17" name=""></alias>
+        <alias field="tunnel" index="18" name=""></alias>
+        <alias field="type" index="19" name=""></alias>
+        <alias field="via_ferrata_scale" index="20" name=""></alias>
+        <alias field="voltage" index="21" name=""></alias>
+        <alias field="waterway" index="22" name=""></alias>
+        <alias field="z_order" index="23" name=""></alias>
       </aliases>
       <splitPolicies>
         <policy field="fid" policy="Duplicate"></policy>
@@ -15745,6 +15829,7 @@
         <policy field="ref" policy="Duplicate"></policy>
         <policy field="route" policy="Duplicate"></policy>
         <policy field="sac_scale" policy="Duplicate"></policy>
+        <policy field="service" policy="Duplicate"></policy>
         <policy field="tracktype" policy="Duplicate"></policy>
         <policy field="trail_visibility" policy="Duplicate"></policy>
         <policy field="tunnel" policy="Duplicate"></policy>
@@ -15770,6 +15855,7 @@
         <default applyOnUpdate="0" expression="" field="ref"></default>
         <default applyOnUpdate="0" expression="" field="route"></default>
         <default applyOnUpdate="0" expression="" field="sac_scale"></default>
+        <default applyOnUpdate="0" expression="" field="service"></default>
         <default applyOnUpdate="0" expression="" field="tracktype"></default>
         <default applyOnUpdate="0" expression="" field="trail_visibility"></default>
         <default applyOnUpdate="0" expression="" field="tunnel"></default>
@@ -15795,6 +15881,7 @@
         <constraint constraints="0" exp_strength="0" field="ref" notnull_strength="0" unique_strength="0"></constraint>
         <constraint constraints="0" exp_strength="0" field="route" notnull_strength="0" unique_strength="0"></constraint>
         <constraint constraints="0" exp_strength="0" field="sac_scale" notnull_strength="0" unique_strength="0"></constraint>
+        <constraint constraints="0" exp_strength="0" field="service" notnull_strength="0" unique_strength="0"></constraint>
         <constraint constraints="0" exp_strength="0" field="tracktype" notnull_strength="0" unique_strength="0"></constraint>
         <constraint constraints="0" exp_strength="0" field="trail_visibility" notnull_strength="0" unique_strength="0"></constraint>
         <constraint constraints="0" exp_strength="0" field="tunnel" notnull_strength="0" unique_strength="0"></constraint>
@@ -15820,6 +15907,7 @@
         <constraint desc="" exp="" field="ref"></constraint>
         <constraint desc="" exp="" field="route"></constraint>
         <constraint desc="" exp="" field="sac_scale"></constraint>
+        <constraint desc="" exp="" field="service"></constraint>
         <constraint desc="" exp="" field="tracktype"></constraint>
         <constraint desc="" exp="" field="trail_visibility"></constraint>
         <constraint desc="" exp="" field="tunnel"></constraint>
@@ -22757,7 +22845,7 @@ def my_form_open(dialog, layer, feature):
   <Sensors></Sensors>
   <ProjectViewSettings UseProjectScales="0" rotation="0">
     <Scales></Scales>
-    <DefaultViewExtent xmax="1232571.69414349109865725" xmin="1231202.75176593824289739" ymax="6021327.20538609474897385" ymin="6020181.94640356674790382">
+    <DefaultViewExtent xmax="1232422.94468579115346074" xmin="1229618.59400760056450963" ymax="6021712.73969480209052563" ymin="6019422.22172975353896618">
       <spatialrefsys nativeFormat="Wkt">
         <wkt>PROJCRS["WGS 84 / Pseudo-Mercator",BASEGEOGCRS["WGS 84",ENSEMBLE["World Geodetic System 1984 ensemble",MEMBER["World Geodetic System 1984 (Transit)"],MEMBER["World Geodetic System 1984 (G730)"],MEMBER["World Geodetic System 1984 (G873)"],MEMBER["World Geodetic System 1984 (G1150)"],MEMBER["World Geodetic System 1984 (G1674)"],MEMBER["World Geodetic System 1984 (G1762)"],MEMBER["World Geodetic System 1984 (G2139)"],ELLIPSOID["WGS 84",6378137,298.257223563,LENGTHUNIT["metre",1]],ENSEMBLEACCURACY[2.0]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4326]],CONVERSION["Popular Visualisation Pseudo-Mercator",METHOD["Popular Visualisation Pseudo Mercator",ID["EPSG",1024]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["False easting",0,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",0,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["easting (X)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["northing (Y)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Web mapping and visualisation."],AREA["World between 85.06°S and 85.06°N."],BBOX[-85.06,-180,85.06,180]],ID["EPSG",3857]]</wkt>
         <proj4>+proj=merc +a=6378137 +b=6378137 +lat_ts=0 +lon_0=0 +x_0=0 +y_0=0 +k=1 +units=m +nadgrids=@null +wktext +no_defs</proj4>
@@ -22907,7 +22995,7 @@ def my_form_open(dialog, layer, feature):
       </spatialrefsys>
     </CoordinateCustomCrs>
   </ProjectDisplaySettings>
-  <ProjectGpsSettings autoAddTrackVertices="0" autoCommitFeatures="0" destinationFollowsActiveLayer="1" destinationLayer="points_ed0a9036_e907_48e1_a7f6_684a61396a8e" destinationLayerName="POIs (clustered)" destinationLayerProvider="ogr" destinationLayerSource="/home/hauke/Projekte/OSM/qgis-outdoor-map/data/data.gpkg|layername=points">
+  <ProjectGpsSettings autoAddTrackVertices="0" autoCommitFeatures="0" destinationFollowsActiveLayer="1" destinationLayer="lines_92f684f3_02f7_482c_ae40_a9ab535ba56e" destinationLayerName="Streets, trails and transportation" destinationLayerProvider="ogr" destinationLayerSource="/home/hauke/Projekte/OSM/qgis-outdoor-map/data/data.gpkg|layername=lines">
     <timeStampFields></timeStampFields>
   </ProjectGpsSettings>
 </qgis>
