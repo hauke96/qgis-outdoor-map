@@ -18,7 +18,7 @@ var (
 	inputNodes               = map[osm.NodeID]*osm.Node{}
 	inputWays                = map[osm.WayID]*osm.Way{}
 	inputRelations           = map[osm.RelationID]*osm.Relation{}
-	hikingRouteMapping       = map[osm.WayID][]osm.RelationID{}
+	wayRelationMapping       = map[osm.WayID][]osm.RelationID{}
 )
 
 func PreprocessData(inputFile string, outputFile string) {
@@ -63,48 +63,8 @@ func PreprocessData(inputFile string, outputFile string) {
 		}
 	}
 
-	// Add name of all hiking routes to given ways
 	sigolo.Debug("Add hiking route names to ways")
-	for wayId, relationIds := range hikingRouteMapping {
-		way := inputWays[wayId]
-
-		newHikingRouteName := ""
-
-		for _, relationId := range relationIds {
-			relation := inputRelations[relationId]
-
-			routeName := relation.Tags.Find("name")
-			routeRef := relation.Tags.Find("ref")
-			var combinedRouteName string
-			if routeName != "" {
-				combinedRouteName = routeName
-				if routeRef != "" {
-					combinedRouteName += " (" + routeRef + ")"
-				}
-			} else if routeRef != "" {
-				combinedRouteName = routeRef
-			} else {
-				// Neither name nor ref on route -> cannot set any name on way
-				continue
-			}
-
-			if newHikingRouteName == "" {
-				newHikingRouteName = combinedRouteName
-			} else {
-				newHikingRouteName = newHikingRouteName + ", " + combinedRouteName
-			}
-		}
-
-		newHikingRouteNameTag := osm.Tag{
-			Key:   "hiking_route_names",
-			Value: newHikingRouteName,
-		}
-		newHikingRouteTag := osm.Tag{
-			Key:   "hiking_route",
-			Value: "yes",
-		}
-		way.Tags = append(way.Tags, newHikingRouteNameTag, newHikingRouteTag)
-	}
+	addHikingRouteNamesToWays()
 
 	sigolo.Debug("Write %d nodes to output", len(inputNodes))
 	for _, node := range inputNodes {
@@ -126,18 +86,54 @@ func PreprocessData(inputFile string, outputFile string) {
 	common.WriteOsmToPbf(outputFile, &outputOsm)
 }
 
-func handleRelation(relation *osm.Relation) {
-	if relation.Tags.Find("type") == "route" && relation.Tags.Find("route") == "hiking" {
-		// Store each way that is part of a hiking-route separately to tag them later.
-		for _, member := range relation.Members {
-			if member.Type != osm.TypeWay {
+func addHikingRouteNamesToWays() {
+	for wayId, relationIds := range wayRelationMapping {
+		way := inputWays[wayId]
+
+		newHikingRouteName := ""
+		isHikingRoute := false
+
+		for _, relationId := range relationIds {
+			relation := inputRelations[relationId]
+
+			if relation.Tags.Find("type") != "route" || relation.Tags.Find("route") != "hiking" {
+				// Not a hiking route -> Ignore
+				continue
+			}
+			routeName := relation.Tags.Find("name")
+			routeRef := relation.Tags.Find("ref")
+			var combinedRouteName string
+			if routeName != "" {
+				combinedRouteName = routeName
+				if routeRef != "" {
+					combinedRouteName += " (" + routeRef + ")"
+				}
+			} else if routeRef != "" {
+				combinedRouteName = routeRef
+			} else {
+				// Neither name nor ref on route -> cannot set any name on way
 				continue
 			}
 
-			// Member ways do not contain their nodes here, only a ref-ID to the actual way
-			if memberWay, ok := inputWays[osm.WayID(member.Ref)]; ok {
-				hikingRouteMapping[memberWay.ID] = append(hikingRouteMapping[memberWay.ID], relation.ID)
+			if newHikingRouteName == "" {
+				newHikingRouteName = combinedRouteName
+			} else {
+				newHikingRouteName = newHikingRouteName + ", " + combinedRouteName
 			}
+
+			isHikingRoute = true
+		}
+
+		if isHikingRoute {
+			newHikingRouteNameTag := osm.Tag{
+				Key:   "hiking_route_names",
+				Value: newHikingRouteName,
+			}
+			newHikingRouteTag := osm.Tag{
+				Key:   "hiking_route",
+				Value: "yes",
+			}
+			way.Tags = append(way.Tags, newHikingRouteNameTag, newHikingRouteTag)
 		}
 	}
 }
@@ -188,6 +184,20 @@ func handleWay(way *osm.Way) {
 			Value: "no",
 		}
 		way.Tags = append(way.Tags, accessTag)
+	}
+}
+
+func handleRelation(relation *osm.Relation) {
+	// Store each way that is part of a hiking-route separately to tag them later.
+	for _, member := range relation.Members {
+		if member.Type != osm.TypeWay {
+			continue
+		}
+
+		// Member ways do not contain their nodes here, only a ref-ID to the actual way
+		if memberWay, ok := inputWays[osm.WayID(member.Ref)]; ok {
+			wayRelationMapping[memberWay.ID] = append(wayRelationMapping[memberWay.ID], relation.ID)
+		}
 	}
 }
 
