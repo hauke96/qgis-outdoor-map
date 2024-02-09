@@ -10,7 +10,9 @@ It just creates new things and changes tags to make styling easier.
 * Handling ways
   * For some types of ways (e.g. ford and shops), nodes at their centroid are created.
     This makes it easier to create uniform POI styling because in OSM some of these things are already nodes and some are modeled as ways.
-  * Highway tags are adjusted for simplicity. All ways that are not accessible (e.g. due to constructions) get `access=no`.
+  * Simplify way tagging
+    * Ways that are not accessible (e.g. due to constructions) get `access=no`.
+    * The `_link` part of highway-tags is removed.
   * All ways being part of any hiking route are tagged accordingly and also receive special hiking-rout-name-tags.
 * Handling relations
   * Ways of hiking routes are collected for tagging as described above

@@ -170,20 +170,17 @@ func handleWay(way *osm.Way) {
 
 	if isUnderConstruction && hasNoRealHighwayTag {
 		// Set highway tag for construction roads without proper one
-		highwayTag := osm.Tag{
-			Key:   "highway",
-			Value: way.Tags.Find("construction"),
-		}
-		way.Tags = append(way.Tags, highwayTag)
+		way.Tags = setTag(way.Tags, "highway", way.Tags.Find("construction"))
 	}
 
 	if isUnderConstruction || isNotAccessible {
 		// Override access tag for simplicity
-		accessTag := osm.Tag{
-			Key:   "access",
-			Value: "no",
-		}
-		way.Tags = append(way.Tags, accessTag)
+		way.Tags = setTag(way.Tags, "access", "no")
+	}
+
+	// Remove "_link" part of highway tags
+	if strings.HasSuffix(way.Tags.Find("highway"), "_link") {
+		way.Tags = setTag(way.Tags, "highway", strings.TrimSuffix(way.Tags.Find("highway"), "_link"))
 	}
 }
 
@@ -222,4 +219,21 @@ func getCentroidOfWay(w *osm.Way) (orb.Point, float64) {
 		geometry = append(geometry, nodeWithGeometry.Point())
 	}
 	return planar.CentroidArea(geometry)
+}
+
+func setTag(tags osm.Tags, key string, value string) osm.Tags {
+	newTags := osm.Tags{
+		osm.Tag{
+			Key:   key,
+			Value: value,
+		},
+	}
+
+	for _, t := range tags {
+		if t.Key != key {
+			newTags = append(newTags, t)
+		}
+	}
+
+	return newTags
 }
