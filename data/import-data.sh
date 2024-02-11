@@ -79,10 +79,9 @@ function merge_with_data()
 
 function fischbeker_heide()
 {
-	NAME="a2-fischbeker-heide"
+	NAME="fischbeker-heide"
 	HH_OUT="hamburg-latest-$NAME-cutout$PBF_EXT"
 	NDS_OUT="niedersachsen-latest-$NAME-cutout$PBF_EXT"
-	#OUT=$DATA
 	OUT="$NAME$PBF_EXT"
 
 	extract 9.795,53.411,9.940,53.477 $HH $HH_OUT
@@ -95,7 +94,7 @@ function fischbeker_heide()
 
 function sachsenwald()
 {
-	NAME="a2-sachsenwald"
+	NAME="sachsenwald"
 	OUT="$NAME$PBF_EXT"
 
 	extract 10.260,53.484,10.484,53.581 $SH $OUT
@@ -106,7 +105,7 @@ function sachsenwald()
 
 function thueringer_wald()
 {
-	NAME="a2-thüringer-wald"
+	NAME="thüringer-wald"
 	OUT1="$NAME-1$PBF_EXT"
 	OUT2="$NAME-2$PBF_EXT"
 	OUT="$NAME$PBF_EXT"
@@ -179,7 +178,7 @@ echo "Check region identifier $1"
 case $1 in
 "fischbeker-heide")
 	download $COUNTRY_GER $NDS
-	download $COUNTRY_GER $SH
+	download $COUNTRY_GER $HH
 	fischbeker_heide
 	;;
 "sachsenwald")
