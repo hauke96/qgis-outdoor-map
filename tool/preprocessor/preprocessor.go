@@ -14,7 +14,13 @@ import (
 )
 
 var (
-	nodeIdCounter      int64 = 0
+	// Keeps track of the OSM IDs to not use them twice. While reading OSM objects, this counter is set to the highest
+	// ID found in the input data. It is then later used as ID counter for new object. This ensures that no IDs are
+	// used twice.
+	osmObjIdCounter int64 = 0
+	// A counter for temporary new objects. This is always a negative number, which marks new objects. Later, this
+	// temporary ID is turned into an actual ID using the osmObjIdCounter variable.
+	tmpOsmObjIdCounter int64 = -1
 	inputNodes               = map[osm.NodeID]*osm.Node{}
 	inputWays                = map[osm.WayID]*osm.Way{}
 	inputRelations           = map[osm.RelationID]*osm.Relation{}
@@ -72,6 +78,11 @@ func PreprocessData(inputFile string, outputFile string) {
 	}
 	sigolo.Debug("Write %d ways to output", len(inputWays))
 	for _, way := range inputWays {
+		// Some ways are new any not have an ID yet, which is represented as a negative temporary ID.
+		if way.ID < 0 {
+			osmObjIdCounter++
+			way.ID = osm.WayID(osmObjIdCounter)
+		}
 		outputOsm.Append(way)
 	}
 	sigolo.Debug("Write %d relations to output", len(inputRelations))
@@ -139,15 +150,14 @@ func addHikingRouteNamesToWays() {
 }
 
 func handleNode(node *osm.Node) {
-	// Keep track of the largest node ID. Otherwise, IDs will be used twice when creating new nodes later on.
-	if int64(node.ID) > nodeIdCounter {
-		nodeIdCounter = int64(node.ID)
-	}
+	updateOsmIdCounter(int64(node.ID))
 }
 
 // handleWay might add new nodes or tags to the given way to handle them easier in styling. It returns true of the way
 // should be kept and false if the line should not be part of the output.
 func handleWay(way *osm.Way) {
+	updateOsmIdCounter(int64(way.ID))
+
 	// Handling of some special cases where certain ways should be converted into point features
 	if way.Tags.Find("ford") == "yes" ||
 		way.Tags.HasTag("shop") ||
@@ -182,9 +192,29 @@ func handleWay(way *osm.Way) {
 	if strings.HasSuffix(way.Tags.Find("highway"), "_link") {
 		way.Tags = setTag(way.Tags, "highway", strings.TrimSuffix(way.Tags.Find("highway"), "_link"))
 	}
+
+	// Add polygonal barriers as linestring to simplify styling
+	if barrierTagValue := way.Tags.Find("barrier"); barrierTagValue != "" {
+		openBarrierWay := &osm.Way{
+			ID:        osm.WayID(tmpOsmObjIdCounter),
+			Version:   0,
+			Timestamp: common.GetTimestamp(),
+			Nodes:     way.Nodes,
+			Tags: osm.Tags{
+				osm.Tag{
+					Key:   "barrier",
+					Value: barrierTagValue,
+				},
+			},
+		}
+		tmpOsmObjIdCounter--
+		inputWays[openBarrierWay.ID] = openBarrierWay
+	}
 }
 
 func handleRelation(relation *osm.Relation) {
+	updateOsmIdCounter(int64(relation.ID))
+
 	// Store each way that is part of a hiking-route separately to tag them later.
 	for _, member := range relation.Members {
 		if member.Type != osm.TypeWay {
@@ -200,10 +230,10 @@ func handleRelation(relation *osm.Relation) {
 
 // addNode to the input list of nodes
 func addNode(originLon float64, originLat float64, tags []osm.Tag) {
-	nodeIdCounter++
+	osmObjIdCounter++
 	node := osm.Node{
 		Version:   1,
-		ID:        osm.NodeID(nodeIdCounter),
+		ID:        osm.NodeID(osmObjIdCounter),
 		Timestamp: common.GetTimestamp(),
 		Tags:      tags,
 		Lon:       originLon,
@@ -236,4 +266,10 @@ func setTag(tags osm.Tags, key string, value string) osm.Tags {
 	}
 
 	return newTags
+}
+
+func updateOsmIdCounter(osmObjId int64) {
+	if osmObjId > osmObjIdCounter {
+		osmObjIdCounter = osmObjId
+	}
 }

@@ -13,6 +13,7 @@ import (
 
 var (
 	osmObjIdCounter int64 = 1
+	newWayIdCounter int64 = -1
 )
 
 func AddNode(originLon float64, originLat float64, tags []osm.Tag, timestamp time.Time, outputOsm *osm.OSM) osm.Node {
@@ -62,13 +63,9 @@ func WriteOsmToPbf(outputFileName string, outputOsm *osm.OSM) {
 	sigolo.FatalCheck(err)
 
 	outputFileNameUnsorted := "features-unsorted.osm.pbf"
-	sigolo.Debug("Convert written OSM-XML file to OSM-PBF file %s", outputFileNameUnsorted)
-	commandOsmiumCat := exec.Command("osmium", "cat", osmXmlOutputFile, "-o", outputFileNameUnsorted, "--overwrite")
+	sigolo.Debug("Convert written OSM-XML file to sorted OSM-PBF file %s", outputFileNameUnsorted)
+	commandOsmiumCat := exec.Command("osmium", "sort", osmXmlOutputFile, "-o", outputFileName, "--overwrite")
 	RunWithOutputRedirect(commandOsmiumCat)
-
-	sigolo.Debug("Sort OSM-PBF file %s into %s", outputFileNameUnsorted, outputFileName)
-	commandOsmiumSort := exec.Command("osmium", "sort", outputFileNameUnsorted, "-o", outputFileName, "--overwrite")
-	RunWithOutputRedirect(commandOsmiumSort)
 
 	sigolo.Debug("Remove temp file %s", osmXmlOutputFile)
 	err = os.Remove(osmXmlOutputFile)
