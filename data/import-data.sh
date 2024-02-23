@@ -209,6 +209,10 @@ case $1 in
 	download $COUNTRY_GER $TH
 	example_hiking_map
 	;;
+*\.osm\.pbf)
+	echo "Use specific OSM-PBF file '$1'"
+	cp $1 $DATA
+	;;
 *)
 	cd ..
 	echo "Unknown region '$1'"
