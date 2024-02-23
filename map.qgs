@@ -1,4 +1,4 @@
-<qgis projectname="" saveDateTime="2024-02-23T14:40:50" saveUser="hauke" saveUserFull="" version="3.34.3-Prizren">
+<qgis projectname="" saveDateTime="2024-02-23T15:09:11" saveUser="hauke" saveUserFull="" version="3.34.3-Prizren">
   <homePath path=""></homePath>
   <title></title>
   <transaction mode="Disabled"></transaction>
@@ -211,10 +211,10 @@
   <mapcanvas annotationsVisible="1" name="theMapCanvas">
     <units>meters</units>
     <extent>
-      <xmin>1099314.05131749389693141</xmin>
-      <ymin>7070709.94597627595067024</ymin>
-      <xmax>1099625.6458372944034636</xmax>
-      <ymax>7070964.44797239452600479</ymax>
+      <xmin>1093088.9335575676523149</xmin>
+      <ymin>7064856.38231287337839603</ymin>
+      <xmax>1098707.86044063931331038</xmax>
+      <ymax>7069437.41824303008615971</ymax>
     </extent>
     <rotation>0</rotation>
     <destinationsrs>
@@ -13813,16 +13813,16 @@
     </maplayer>
     <maplayer autoRefreshMode="Disabled" autoRefreshTime="0" geometry="Line" hasScaleBasedVisibilityFlag="0" labelsEnabled="1" legendPlaceholderImage="" maxScale="0" minScale="100000000" readOnly="0" refreshOnNotifyEnabled="0" refreshOnNotifyMessage="" simplifyAlgorithm="0" simplifyDrawingHints="1" simplifyDrawingTol="1" simplifyLocal="1" simplifyMaxScale="1" styleCategories="AllStyleCategories" symbologyReferenceScale="-1" type="vector" wkbType="LineString">
       <extent>
-        <xmin>9.69005160000000032</xmin>
-        <ymin>53.24275269999999693</ymin>
-        <xmax>10.05554889999999979</xmax>
-        <ymax>53.49547530000000251</ymax>
+        <xmin>9.69005012512207031</xmin>
+        <ymin>53.24275207519529829</ymin>
+        <xmax>10.05555057525629969</xmax>
+        <ymax>53.49547576904299717</ymax>
       </extent>
       <wgs84extent>
-        <xmin>9.69005160000000032</xmin>
-        <ymin>53.24275269999999693</ymin>
-        <xmax>10.05554889999999979</xmax>
-        <ymax>53.49547530000000251</ymax>
+        <xmin>9.69005012512207031</xmin>
+        <ymin>53.24275207519529829</ymin>
+        <xmax>10.05555057525629969</xmax>
+        <ymax>53.49547576904299717</ymax>
       </wgs84extent>
       <id>lines_92f684f3_02f7_482c_ae40_a9ab535ba56e</id>
       <datasource>./data/data.gpkg|layername=lines</datasource>
@@ -15412,8 +15412,8 @@
         </selectionSymbol>
       </selection>
       <labeling type="rule-based">
-        <rules key="{2308bbd6-59c6-4622-a3f3-61850111a5af}">
-          <rule description="Highway" filter="highway IS NOT NULL" key="{545e71f8-aad3-4d96-9b2a-c6be64000f73}">
+        <rules key="{ed6f12c3-facb-4b72-8525-f8a98c2499da}">
+          <rule description="Highway" filter="highway IS NOT NULL" key="{f158efae-7bd1-43db-82ed-8d00c59ea950}">
             <settings calloutType="simple">
               <text-style allowHtml="0" blendMode="0" capitalization="0" fieldName="name" fontFamily="Open Sans" fontItalic="0" fontKerning="1" fontLetterSpacing="0" fontSize="6" fontSizeMapUnitScale="3x:0,0,0,0,0,0" fontSizeUnit="Point" fontStrikeout="0" fontUnderline="0" fontWeight="50" fontWordSpacing="0" forcedBold="0" forcedItalic="0" isExpression="0" legendString="Aa" multilineHeight="1" multilineHeightUnit="Percentage" namedStyle="Regular" previewBkgrdColor="255,255,255,255" stretchFactor="100" textColor="0,0,0,255" textOpacity="1" textOrientation="horizontal" useSubstitutions="0">
                 <families></families>
@@ -15537,7 +15537,7 @@
               </callout>
             </settings>
           </rule>
-          <rule description="Hiking Route" filter="hiking_route = 'yes'" key="{4c73fd7e-f11b-44bc-bbf5-535e62044f67}">
+          <rule description="Hiking Route" filter="hiking_route = 'yes'" key="{968f3487-ea1a-4cdc-a2f1-a76565a991d4}">
             <settings calloutType="simple">
               <text-style allowHtml="0" blendMode="0" capitalization="0" fieldName="&quot;hiking_route_names&quot;&#xA;--CASE&#xA;--&#x9;WHEN &quot;name&quot; IS NOT NULL THEN&#xA;--&#x9;&#x9;CASE&#xA;--&#x9;&#x9;&#x9;WHEN &quot;ref&quot; IS NOT NULL THEN name + ' (' + &quot;ref&quot; + ')'&#xA;--&#x9;&#x9;&#x9;ELSE &quot;name&quot;&#xA;--&#x9;&#x9;END&#xA;--&#x9;WHEN &quot;ref&quot; IS NOT NULL THEN &quot;ref&quot;&#xA;--&#x9;ELSE NULL&#xA;--END" fontFamily="Open Sans" fontItalic="0" fontKerning="1" fontLetterSpacing="0" fontSize="6" fontSizeMapUnitScale="3x:0,0,0,0,0,0" fontSizeUnit="Point" fontStrikeout="0" fontUnderline="0" fontWeight="50" fontWordSpacing="0" forcedBold="0" forcedItalic="0" isExpression="1" legendString="Aa" multilineHeight="1" multilineHeightUnit="Percentage" namedStyle="Regular" previewBkgrdColor="255,255,255,255" stretchFactor="100" textColor="255,128,0,255" textOpacity="1" textOrientation="horizontal" useSubstitutions="0">
                 <families></families>
@@ -16885,7 +16885,7 @@ def my_form_open(dialog, layer, feature):
       <renderer-v2 enableorderby="0" forceraster="0" referencescale="-1" symbollevels="0" type="RuleRenderer">
         <rules key="{b16e87db-86dc-42b7-857c-75592f7ce98e}">
           <rule filter="landuse IN ('residential', 'school', 'education', 'institutional')" key="{c88f89e9-f426-432b-acaa-12982f428347}" label="Residential" symbol="0"></rule>
-          <rule filter="landuse = 'commercial'" key="{0a2288c2-b7f8-4e69-843e-3822e3f2e915}" label="Commercial" symbol="1"></rule>
+          <rule filter="landuse IN ('commercial', 'retail')" key="{0a2288c2-b7f8-4e69-843e-3822e3f2e915}" label="Commercial" symbol="1"></rule>
           <rule filter="landuse = 'military'" key="{6cef0da1-fb76-4e6a-a7c4-4eb3c1188798}" label="Military" symbol="2"></rule>
           <rule filter="landuse IN ('farmland', 'animal_keeping', 'paddy', 'greenhouse_horticulture', 'orchard', 'plant_nursery', 'vineyard')" key="{5712fb73-ed73-43c5-b210-c250d3eea152}" label="Farmland" symbol="3"></rule>
           <rule filter="landuse = 'cemetery' OR amenity='grave_yard'" key="{90b0fc36-ea40-46ed-9487-da6696b5955d}" label="Cemetery" symbol="4"></rule>
@@ -21827,7 +21827,7 @@ def my_form_open(dialog, layer, feature):
       <SelectionColorRedPart type="int">255</SelectionColorRedPart>
     </Gui>
     <Layouts>
-      <lastLayoutExportDir type="QString">/home/hauke/Projekte/OSM/qgis-outdoor-map/qgis-branch/layout.png</lastLayoutExportDir>
+      <lastLayoutExportDir type="QString">/home/hauke/Projekte/OSM/qgis-outdoor-map/layout-fischbeker-heide.pdf</lastLayoutExportDir>
     </Layouts>
     <Legend>
       <filterByMap type="bool">false</filterByMap>
@@ -23888,7 +23888,7 @@ def my_form_open(dialog, layer, feature):
           </dd_properties>
         </text-style>
       </LayoutItem>
-      <LayoutItem background="true" blendMode="0" boxSpace="0" columnCount="2" columnSpace="4" equalColumnWidth="0" excludeFromExports="0" frame="false" frameJoinStyle="miter" groupUuid="" id="" itemRotation="0" legendFilterByAtlas="1" map_uuid="{b7b07368-35d0-482c-81f0-a0645f8cbc5b}" maxSymbolSize="0" minSymbolSize="0" opacity="1" outlineWidthM="0.3,mm" position="5,415,mm" positionLock="false" positionOnPage="5,415,mm" rasterBorder="1" rasterBorderColor="0,0,0,255" rasterBorderWidth="0" referencePoint="6" resizeToContents="1" size="97.1899,253.963,mm" splitLayer="1" symbolAlignment="1" symbolHeight="6" symbolWidth="10" templateUuid="{8464fd67-f287-4fb3-8502-c4040cedc6c2}" title="Legend" titleAlignment="1" type="65642" uuid="{8464fd67-f287-4fb3-8502-c4040cedc6c2}" visibility="1" wmsLegendHeight="25" wmsLegendWidth="50" wrapChar="" zValue="1">
+      <LayoutItem background="true" blendMode="0" boxSpace="0" columnCount="2" columnSpace="4" equalColumnWidth="0" excludeFromExports="0" frame="false" frameJoinStyle="miter" groupUuid="" id="" itemRotation="0" legendFilterByAtlas="1" map_uuid="{b7b07368-35d0-482c-81f0-a0645f8cbc5b}" maxSymbolSize="0" minSymbolSize="0" opacity="1" outlineWidthM="0.3,mm" position="5,415,mm" positionLock="false" positionOnPage="5,415,mm" rasterBorder="1" rasterBorderColor="0,0,0,255" rasterBorderWidth="0" referencePoint="6" resizeToContents="1" size="97.246,253.963,mm" splitLayer="1" symbolAlignment="1" symbolHeight="6" symbolWidth="10" templateUuid="{8464fd67-f287-4fb3-8502-c4040cedc6c2}" title="Legend" titleAlignment="1" type="65642" uuid="{8464fd67-f287-4fb3-8502-c4040cedc6c2}" visibility="1" wmsLegendHeight="25" wmsLegendWidth="50" wrapChar="" zValue="1">
         <FrameColor alpha="255" blue="0" green="0" red="0"></FrameColor>
         <BackgroundColor alpha="255" blue="255" green="255" red="255"></BackgroundColor>
         <LayoutObject>
@@ -24344,6 +24344,7 @@ def my_form_open(dialog, layer, feature):
           <layer-tree-layer checked="Qt::Unchecked" expanded="0" id="Roads_and_trails_91c0643a_d0e1_49bc_8dfe_cc3515bc8937" legend_exp="" legend_split_behavior="0" name="Transportation" patch_size="-1,-1" providerKey="virtual" source="?layer=ogr:%2Fhome%2Fhauke%2FProjekte%2FOSM%2Fqgis-outdoor-map%2Fdata%2Fdata.gpkg%7Clayername%3Dpoints:points:UTF-8">
             <customproperties>
               <Option type="Map">
+                <Option name="cached_name" type="QString" value="Transportation"></Option>
                 <Option name="expandedLegendNodes" type="invalid"></Option>
               </Option>
             </customproperties>
@@ -24351,6 +24352,7 @@ def my_form_open(dialog, layer, feature):
           <layer-tree-layer checked="Qt::Unchecked" expanded="0" id="Boundaries_0892ca85_74a7_40d9_a08d_7a347530602a" legend_exp="" legend_split_behavior="0" name="Boundaries" patch_size="-1,-1" providerKey="virtual" source="?layer=ogr:%2Fhome%2Fhauke%2FProjekte%2FOSM%2Fqgis-outdoor-map%2Fdata%2Fdata.gpkg%7Clayername%3Dlines:points:UTF-8">
             <customproperties>
               <Option type="Map">
+                <Option name="cached_name" type="QString" value="Boundaries"></Option>
                 <Option name="expandedLegendNodes" type="invalid"></Option>
               </Option>
             </customproperties>
@@ -24358,6 +24360,7 @@ def my_form_open(dialog, layer, feature):
           <layer-tree-layer checked="Qt::Unchecked" expanded="0" id="Transportation_cf48e02e_ffa2_4f03_835d_3708e4aa3e9c" legend_exp="" legend_split_behavior="0" name="Miscellaneous" patch_size="-1,-1" providerKey="virtual" source="?layer=ogr:%2Fhome%2Fhauke%2FProjekte%2FOSM%2Fqgis-outdoor-map%2Fdata%2Fdata.gpkg%7Clayername%3Dpoints:points:UTF-8">
             <customproperties>
               <Option type="Map">
+                <Option name="cached_name" type="QString" value="Miscellaneous"></Option>
                 <Option name="expandedLegendNodes" type="invalid"></Option>
               </Option>
             </customproperties>
@@ -24368,6 +24371,7 @@ def my_form_open(dialog, layer, feature):
       <customproperties>
         <Option type="Map">
           <Option name="atlasRasterFormat" type="QString" value="png"></Option>
+          <Option name="forceVector" type="int" value="0"></Option>
           <Option name="imageAntialias" type="bool" value="true"></Option>
           <Option name="imageCropMarginBottom" type="int" value="0"></Option>
           <Option name="imageCropMarginLeft" type="int" value="0"></Option>
@@ -24375,6 +24379,16 @@ def my_form_open(dialog, layer, feature):
           <Option name="imageCropMarginTop" type="int" value="0"></Option>
           <Option name="imageCropMarginUnit" type="int" value="0"></Option>
           <Option name="imageCropToContents" type="bool" value="false"></Option>
+          <Option name="pdfAppendGeoreference" type="int" value="1"></Option>
+          <Option name="pdfCreateGeoPdf" type="int" value="0"></Option>
+          <Option name="pdfDisableRasterTiles" type="int" value="0"></Option>
+          <Option name="pdfExportThemes" type="QString" value=""></Option>
+          <Option name="pdfIncludeMetadata" type="int" value="1"></Option>
+          <Option name="pdfLayerOrder" type="QString" value="Points_of_interest_05d51e20_e874_41c8_8dc0_b15845a7e650~~~Miscellaneous_956347f1_c8f5_4cb4_a945_578362813f08~~~Points_of_interest_d0a9936e_8c74_4da2_8739_bbb251efd828~~~Water_5bd91e99_53b2_480d_8636_90b9827e7040~~~Roads_and_trails_91c0643a_d0e1_49bc_8dfe_cc3515bc8937~~~Boundaries_0892ca85_74a7_40d9_a08d_7a347530602a~~~Transportation_cf48e02e_ffa2_4f03_835d_3708e4aa3e9c~~~Boundaries_b8abe7a0_c514_4b5b_b87e_d0619494820e~~~points_ed0a9036_e907_48e1_a7f6_684a61396a8e~~~POIs_8d6b32e6_5f44_4396_bc7e_eab499538eed~~~lines_92f684f3_02f7_482c_ae40_a9ab535ba56e~~~trails__streets__railway__waterway_16ccce6d_a50d_4626_af49_c030b6b66daa~~~multilinestrings_487397ba_729a_419d_b933_485495635f50~~~POIs_e3fe968c_32d4_4c20_ad0e_e8747cfdc84f~~~landuse___natural_22d5163e_294a_45cc_8bd5_e5b52fa0f599~~~MapTiler_contours__localhost__eedf3c60_1778_4cb1_8ffe_f92a9aefcd01~~~_2a66d014_7b53_44ed_90a6_336e5b27c1a5~~~multipolygons_15331f63_080d_4d15_b9c7_3798940463c6~~~_858a7496_f228_4045_bd1d_aa2a3938669b"></Option>
+          <Option name="pdfLosslessImages" type="int" value="1"></Option>
+          <Option name="pdfOgcBestPracticeFormat" type="int" value="0"></Option>
+          <Option name="pdfSimplify" type="int" value="1"></Option>
+          <Option name="pdfTextFormat" type="int" value="0"></Option>
           <Option name="resizeToContentsBottomMargin" type="double" value="0"></Option>
           <Option name="resizeToContentsLeftMargin" type="double" value="4.999999999999998"></Option>
           <Option name="resizeToContentsRightMargin" type="double" value="0"></Option>
@@ -24390,7 +24404,7 @@ def my_form_open(dialog, layer, feature):
   <Sensors></Sensors>
   <ProjectViewSettings UseProjectScales="0" rotation="0">
     <Scales></Scales>
-    <DefaultViewExtent xmax="1099625.92987970123067498" xmin="1099313.76727508706972003" ymax="7070964.44797239452600479" ymin="7070709.94597627595067024">
+    <DefaultViewExtent xmax="1098707.86044064490124583" xmin="1093088.93355756206437945" ymax="7069437.41824303008615971" ymin="7064856.38231287337839603">
       <spatialrefsys nativeFormat="Wkt">
         <wkt>PROJCRS["WGS 84 / Pseudo-Mercator",BASEGEOGCRS["WGS 84",ENSEMBLE["World Geodetic System 1984 ensemble",MEMBER["World Geodetic System 1984 (Transit)"],MEMBER["World Geodetic System 1984 (G730)"],MEMBER["World Geodetic System 1984 (G873)"],MEMBER["World Geodetic System 1984 (G1150)"],MEMBER["World Geodetic System 1984 (G1674)"],MEMBER["World Geodetic System 1984 (G1762)"],MEMBER["World Geodetic System 1984 (G2139)"],ELLIPSOID["WGS 84",6378137,298.257223563,LENGTHUNIT["metre",1]],ENSEMBLEACCURACY[2.0]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4326]],CONVERSION["Popular Visualisation Pseudo-Mercator",METHOD["Popular Visualisation Pseudo Mercator",ID["EPSG",1024]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["False easting",0,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",0,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["easting (X)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["northing (Y)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Web mapping and visualisation."],AREA["World between 85.06°S and 85.06°N."],BBOX[-85.06,-180,85.06,180]],ID["EPSG",3857]]</wkt>
         <proj4>+proj=merc +a=6378137 +b=6378137 +lat_ts=0 +lon_0=0 +x_0=0 +y_0=0 +k=1 +units=m +nadgrids=@null +wktext +no_defs</proj4>
