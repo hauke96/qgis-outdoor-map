@@ -1,4 +1,4 @@
-<qgis projectname="" saveDateTime="2024-03-07T20:35:53" saveUser="hauke" saveUserFull="" version="3.34.3-Prizren">
+<qgis projectname="" saveDateTime="2024-03-07T20:40:19" saveUser="hauke" saveUserFull="" version="3.34.3-Prizren">
   <homePath path=""></homePath>
   <title></title>
   <transaction mode="Disabled"></transaction>
@@ -95,7 +95,7 @@
         <Option></Option>
       </customproperties>
     </layer-tree-layer>
-    <layer-tree-layer checked="Qt::Checked" expanded="0" id="lines_92f684f3_02f7_482c_ae40_a9ab535ba56e" legend_exp="" legend_split_behavior="0" name="Streets, trails and transportation" patch_size="-1,-1" providerKey="ogr" source="./data/data.gpkg|layername=lines">
+    <layer-tree-layer checked="Qt::Checked" expanded="1" id="lines_92f684f3_02f7_482c_ae40_a9ab535ba56e" legend_exp="" legend_split_behavior="0" name="Streets, trails and transportation" patch_size="-1,-1" providerKey="ogr" source="./data/data.gpkg|layername=lines">
       <customproperties>
         <Option type="Map">
           <Option name="cached_name" type="QString" value="Streets, trails and transportation"></Option>
@@ -124,7 +124,7 @@
         <Option></Option>
       </customproperties>
     </layer-tree-layer>
-    <layer-tree-layer checked="Qt::Checked" expanded="0" id="lines_19f60738_dcb7_4d21_977a_f3f39c844f58" legend_exp="" legend_split_behavior="0" name="Misc" patch_size="-1,-1" providerKey="ogr" source="./data/data.gpkg|layername=lines">
+    <layer-tree-layer checked="Qt::Checked" expanded="1" id="lines_19f60738_dcb7_4d21_977a_f3f39c844f58" legend_exp="" legend_split_behavior="0" name="Misc" patch_size="-1,-1" providerKey="ogr" source="./data/data.gpkg|layername=lines">
       <customproperties>
         <Option></Option>
       </customproperties>
@@ -218,10 +218,10 @@
   <mapcanvas annotationsVisible="1" name="theMapCanvas">
     <units>meters</units>
     <extent>
-      <xmin>1097857.33787182415835559</xmin>
-      <ymin>7070621.52788239065557718</ymin>
-      <xmax>1098412.29361336142756045</xmax>
-      <ymax>7071073.97587549034506083</ymax>
+      <xmin>1091395.60563079826533794</xmin>
+      <ymin>7069633.05050304625183344</ymin>
+      <xmax>1093615.42859694734215736</xmax>
+      <ymax>7071442.84247544500976801</ymax>
     </extent>
     <rotation>0</rotation>
     <destinationsrs>
@@ -292,8 +292,8 @@
         <legendlayerfile isInOverview="0" layerid="POIs_8d6b32e6_5f44_4396_bc7e_eab499538eed" visible="1"></legendlayerfile>
       </filegroup>
     </legendlayer>
-    <legendlayer checked="Qt::Checked" drawingOrder="-1" name="Streets, trails and transportation" open="false" showFeatureCount="0">
-      <filegroup hidden="false" open="false">
+    <legendlayer checked="Qt::Checked" drawingOrder="-1" name="Streets, trails and transportation" open="true" showFeatureCount="0">
+      <filegroup hidden="false" open="true">
         <legendlayerfile isInOverview="0" layerid="lines_92f684f3_02f7_482c_ae40_a9ab535ba56e" visible="1"></legendlayerfile>
       </filegroup>
     </legendlayer>
@@ -312,8 +312,8 @@
         <legendlayerfile isInOverview="0" layerid="POIs_e3fe968c_32d4_4c20_ad0e_e8747cfdc84f" visible="1"></legendlayerfile>
       </filegroup>
     </legendlayer>
-    <legendlayer checked="Qt::Checked" drawingOrder="-1" name="Misc" open="false" showFeatureCount="0">
-      <filegroup hidden="false" open="false">
+    <legendlayer checked="Qt::Checked" drawingOrder="-1" name="Misc" open="true" showFeatureCount="0">
+      <filegroup hidden="false" open="true">
         <legendlayerfile isInOverview="0" layerid="lines_19f60738_dcb7_4d21_977a_f3f39c844f58" visible="1"></legendlayerfile>
       </filegroup>
     </legendlayer>
@@ -14241,7 +14241,7 @@
                 <Option name="dash_pattern_offset_unit" type="QString" value="MM"></Option>
                 <Option name="draw_inside_polygon" type="QString" value="0"></Option>
                 <Option name="joinstyle" type="QString" value="bevel"></Option>
-                <Option name="line_color" type="QString" value="66,66,66,255"></Option>
+                <Option name="line_color" type="QString" value="97,97,97,255"></Option>
                 <Option name="line_style" type="QString" value="solid"></Option>
                 <Option name="line_width" type="QString" value="0.15"></Option>
                 <Option name="line_width_unit" type="QString" value="MM"></Option>
@@ -14936,7 +14936,7 @@
             <rule filter="highway = 'primary'" key="{a0f6ab99-ca70-4fc4-99e2-77c8119f1d24}" label="Primary road" symbol="4"></rule>
             <rule filter="railway = 'rail' AND (tunnel IS NULL OR tunnel = 'no')" key="{5e8cc492-66e7-43e6-8d91-008c22d04130}" label="Railway" symbol="5"></rule>
             <rule filter="railway IN ('rail') AND tunnel = 'yes'" key="{188e4c68-14df-48d5-b07e-610c3b3c36bd}" label="Railway (tunnel)" symbol="6"></rule>
-            <rule filter="railway IN ('narrow_gauge', 'funicular', 'light_rail', 'monorail', 'subway', 'tram', 'disused', 'abandoned') AND (tunnel IS NULL OR tunnel = 'no')" key="{03013027-4671-4ee6-821b-1830bd34b732}" label="Railway (other)" symbol="7"></rule>
+            <rule filter="railway IN ('narrow_gauge', 'funicular', 'light_rail', 'monorail', 'subway', 'tram', 'disused') AND (tunnel IS NULL OR tunnel = 'no')" key="{03013027-4671-4ee6-821b-1830bd34b732}" label="Railway (other)" symbol="7"></rule>
             <rule filter="railway IN ('narrow_gauge', 'funicular', 'light_rail', 'monorail', 'subway', 'tram', 'disused', 'abandoned') AND tunnel = 'yes'" key="{571cfdc3-0db8-4de4-b91c-66e67a9a302e}" label="Railway (other; tunnel)" symbol="8"></rule>
             <rule filter="-- Some trails are marked as e.g. &quot;abandoned:highway&quot; so we definitely need a highway tag here.&#xA;highway IS NOT NULL AND&#xA;(&#xA;&#x9;highway = 'via_ferrata' OR&#xA;&#x9;via_ferrata_scale IS NOT NULL OR&#xA;&#x9;sac_scale IN ('demanding_mountain_hiking', 'alpine_hiking', 'demanding_alpine_hiking' ,'difficult_alpine_hiking') OR&#xA;&#x9;trail_visibility IN ('bad', 'horrible', 'no')&#xA;)" key="{1088590e-7572-4b35-a879-f8d7b718451b}" label="Advanced trail" symbol="9"></rule>
             <rule filter="highway = 'via_ferrata'" key="{755e384a-658a-446c-a9fc-2c573c97001c}" label="Via ferrata" symbol="10"></rule>
@@ -25368,7 +25368,7 @@ def my_form_open(dialog, layer, feature):
   <Sensors></Sensors>
   <ProjectViewSettings UseProjectScales="0" rotation="0">
     <Scales></Scales>
-    <DefaultViewExtent xmax="1098412.29361336142756045" xmin="1097857.33787182415835559" ymax="7071089.13068690989166498" ymin="7070606.37307097110897303">
+    <DefaultViewExtent xmax="1093615.42859694734215736" xmin="1091395.60563079826533794" ymax="7071503.46172112412750721" ymin="7069572.43125736713409424">
       <spatialrefsys nativeFormat="Wkt">
         <wkt>PROJCRS["WGS 84 / Pseudo-Mercator",BASEGEOGCRS["WGS 84",ENSEMBLE["World Geodetic System 1984 ensemble",MEMBER["World Geodetic System 1984 (Transit)"],MEMBER["World Geodetic System 1984 (G730)"],MEMBER["World Geodetic System 1984 (G873)"],MEMBER["World Geodetic System 1984 (G1150)"],MEMBER["World Geodetic System 1984 (G1674)"],MEMBER["World Geodetic System 1984 (G1762)"],MEMBER["World Geodetic System 1984 (G2139)"],ELLIPSOID["WGS 84",6378137,298.257223563,LENGTHUNIT["metre",1]],ENSEMBLEACCURACY[2.0]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4326]],CONVERSION["Popular Visualisation Pseudo-Mercator",METHOD["Popular Visualisation Pseudo Mercator",ID["EPSG",1024]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["False easting",0,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",0,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["easting (X)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["northing (Y)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Web mapping and visualisation."],AREA["World between 85.06°S and 85.06°N."],BBOX[-85.06,-180,85.06,180]],ID["EPSG",3857]]</wkt>
         <proj4>+proj=merc +a=6378137 +b=6378137 +lat_ts=0 +lon_0=0 +x_0=0 +y_0=0 +k=1 +units=m +nadgrids=@null +wktext +no_defs</proj4>
@@ -25518,7 +25518,7 @@ def my_form_open(dialog, layer, feature):
       </spatialrefsys>
     </CoordinateCustomCrs>
   </ProjectDisplaySettings>
-  <ProjectGpsSettings autoAddTrackVertices="0" autoCommitFeatures="0" destinationFollowsActiveLayer="1" destinationLayer="multipolygons_15331f63_080d_4d15_b9c7_3798940463c6" destinationLayerName="Areas and landuses" destinationLayerProvider="ogr" destinationLayerSource="/home/hauke/Projekte/OSM/qgis-outdoor-map/data/data.gpkg|layername=multipolygons">
+  <ProjectGpsSettings autoAddTrackVertices="0" autoCommitFeatures="0" destinationFollowsActiveLayer="1" destinationLayer="">
     <timeStampFields></timeStampFields>
   </ProjectGpsSettings>
 </qgis>
