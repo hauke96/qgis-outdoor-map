@@ -16,6 +16,7 @@ DATA_FILTERED_PROCESSED=$(realpath "data-filtered-processed$PBF_EXT")
 EU="europe"
 COUNTRY_GER="$EU/germany"
 COUNTRY_GER_BY="$COUNTRY_GER/bayern"
+COUNTRY_IS="$EU/iceland"
 
 HH="hamburg-latest$PBF_EXT"
 SH="schleswig-holstein-latest$PBF_EXT"
@@ -24,6 +25,7 @@ TH="thueringen-latest$PBF_EXT"
 BY_OBERB="oberbayern-latest$PBF_EXT"
 BY_SCHW="schwaben-latest$PBF_EXT"
 AU="austria-latest$PBF_EXT"
+IS="iceland-latest$PBF_EXT"
 
 # $1 = bbox
 # $2 = input file
@@ -164,6 +166,16 @@ function fuessen_zugspitze()
 	cp $OUT $DATA
 }
 
+function iceland_holmsarlon()
+{
+	NAME="iceland-holmsarlon"
+	OUT="$NAME$PBF_EXT"
+
+	extract -19.1433,63.9128,-18.6050,63.7843 $IS $OUT
+
+	cp $OUT $DATA
+}
+
 function example_hiking_map()
 {
 	NAME="example-hiking-map"
@@ -204,6 +216,10 @@ case $1 in
 	download $COUNTRY_GER_BY $BY_SCHW
 	download $EU $AU
 	fuessen_zugspitze
+	;;
+"iceland-holmsarlon")
+	download $EU $IS
+	iceland_holmsarlon
 	;;
 "example-hiking-map")
 	download $COUNTRY_GER $TH
