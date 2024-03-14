@@ -21,23 +21,31 @@
   <body>
     <div id="map" class="map"></div>
     <script type="text/javascript">
+      const attribution = new ol.control.Attribution({
+        collapsible: false,
+      });
       var map = new ol.Map({
         target: 'map',
+        controls: ol.control.defaults.defaults({attribution: false}).extend([attribution]),
         layers: [
-          new ol.layer.Tile({
+          /*new ol.layer.Tile({
             className: 'ol-grayscale-layer',
             source: new ol.source.OSM()
-          }),
+          }),*/
           new ol.layer.Tile({
             source: new ol.source.XYZ({
-              url: './{z}/{x}/{y}.png'
-              // url: './{z}/{x}/{y}.jpg'
+              url: './{z}/{x}/{y}.png',
+              attributions: 'Style: <a href="https://github.com/hauke96/qgis-outdoor-map" target="_blank">QGIS Outdoor Map</a> | Data: © <a href="https://maptiler.com/" target="_blank">MapTiler</a>, © <a href="https://openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors'
             })
           })
         ],
         view: new ol.View({
-          center: ol.proj.fromLonLat([11.0071, 47.4130]),
-          zoom: 14
+          // Fischbeker Heide
+          // center: ol.proj.fromLonLat([9.872889,53.448331]),
+          // zoom: 14
+          // Zugspitze
+          center: ol.proj.fromLonLat([11.03804,47.42064]),
+          zoom: 12
         })
       });
     </script>
