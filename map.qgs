@@ -1,4 +1,4 @@
-<qgis projectname="" saveDateTime="2024-03-14T22:22:30" saveUser="hauke" saveUserFull="" version="3.36.0-Maidenhead">
+<qgis projectname="" saveDateTime="2024-03-14T22:42:48" saveUser="hauke" saveUserFull="" version="3.36.0-Maidenhead">
   <homePath path=""></homePath>
   <title></title>
   <transaction mode="Disabled"></transaction>
@@ -153,7 +153,7 @@
         </Option>
       </customproperties>
     </layer-tree-layer>
-    <layer-tree-layer checked="Qt::Checked" expanded="0" id="multipolygons_15331f63_080d_4d15_b9c7_3798940463c6" legend_exp="" legend_split_behavior="0" name="Areas and landuses" patch_size="-1,-1" providerKey="ogr" source="./data/data.gpkg|layername=multipolygons">
+    <layer-tree-layer checked="Qt::Checked" expanded="1" id="multipolygons_15331f63_080d_4d15_b9c7_3798940463c6" legend_exp="" legend_split_behavior="0" name="Areas and landuses" patch_size="-1,-1" providerKey="ogr" source="./data/data.gpkg|layername=multipolygons">
       <customproperties>
         <Option type="Map">
           <Option name="cached_name" type="QString" value="Areas and landuses"></Option>
@@ -218,10 +218,10 @@
   <mapcanvas annotationsVisible="1" name="theMapCanvas">
     <units>meters</units>
     <extent>
-      <xmin>1092214.5100220157764852</xmin>
-      <ymin>7059762.96996479760855436</ymin>
-      <xmax>1105822.64624628191813827</xmax>
-      <ymax>7071600.72730158548802137</ymax>
+      <xmin>1216455.83873996115289629</xmin>
+      <ymin>5999144.93903688527643681</ymin>
+      <xmax>1243672.11118861683644354</xmax>
+      <ymax>6022820.45371055975556374</ymax>
     </extent>
     <rotation>0</rotation>
     <destinationsrs>
@@ -332,8 +332,8 @@
         <legendlayerfile isInOverview="0" layerid="_2a66d014_7b53_44ed_90a6_336e5b27c1a5" visible="1"></legendlayerfile>
       </filegroup>
     </legendlayer>
-    <legendlayer checked="Qt::Checked" drawingOrder="-1" name="Areas and landuses" open="false" showFeatureCount="0">
-      <filegroup hidden="false" open="false">
+    <legendlayer checked="Qt::Checked" drawingOrder="-1" name="Areas and landuses" open="true" showFeatureCount="0">
+      <filegroup hidden="false" open="true">
         <legendlayerfile isInOverview="0" layerid="multipolygons_15331f63_080d_4d15_b9c7_3798940463c6" visible="1"></legendlayerfile>
       </filegroup>
     </legendlayer>
@@ -2919,7 +2919,7 @@
                 <Option name="angle" type="QString" value="0"></Option>
                 <Option name="coordinate_mode" type="QString" value="0"></Option>
                 <Option name="height" type="QString" value="0"></Option>
-                <Option name="imageFile" type="QString" value=""></Option>
+                <Option name="imageFile" type="QString" value="./sprites/rock.png"></Option>
                 <Option name="offset" type="QString" value="0,0"></Option>
                 <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
                 <Option name="offset_unit" type="QString" value="MM"></Option>
@@ -2956,7 +2956,7 @@
                 <Option name="angle" type="QString" value="0"></Option>
                 <Option name="coordinate_mode" type="QString" value="0"></Option>
                 <Option name="height" type="QString" value="0"></Option>
-                <Option name="imageFile" type="QString" value=""></Option>
+                <Option name="imageFile" type="QString" value="./sprites/shingle.png"></Option>
                 <Option name="offset" type="QString" value="0,0"></Option>
                 <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
                 <Option name="offset_unit" type="QString" value="MM"></Option>
@@ -18129,7 +18129,7 @@ def my_form_open(dialog, layer, feature):
                 <Option name="angle" type="QString" value="0"></Option>
                 <Option name="coordinate_mode" type="QString" value="0"></Option>
                 <Option name="height" type="QString" value="0"></Option>
-                <Option name="imageFile" type="QString" value=""></Option>
+                <Option name="imageFile" type="QString" value="./sprites/rock.png"></Option>
                 <Option name="offset" type="QString" value="0,0"></Option>
                 <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
                 <Option name="offset_unit" type="QString" value="MM"></Option>
@@ -18166,7 +18166,7 @@ def my_form_open(dialog, layer, feature):
                 <Option name="angle" type="QString" value="0"></Option>
                 <Option name="coordinate_mode" type="QString" value="0"></Option>
                 <Option name="height" type="QString" value="0"></Option>
-                <Option name="imageFile" type="QString" value=""></Option>
+                <Option name="imageFile" type="QString" value="./sprites/shingle.png"></Option>
                 <Option name="offset" type="QString" value="0,0"></Option>
                 <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
                 <Option name="offset_unit" type="QString" value="MM"></Option>
@@ -25780,7 +25780,6 @@ def my_form_open(dialog, layer, feature):
           <layer-tree-layer checked="Qt::Unchecked" expanded="0" id="Points_of_interest_05d51e20_e874_41c8_8dc0_b15845a7e650" legend_exp="" legend_split_behavior="0" name="Points of interest" patch_size="-1,-1" providerKey="virtual" source="?layer=ogr:.%2Fdata%2Fdata.gpkg%7Clayername%3Dpoints:points:UTF-8">
             <customproperties>
               <Option type="Map">
-                <Option name="cached_name" type="QString" value="Points of interest"></Option>
                 <Option name="expandedLegendNodes" type="invalid"></Option>
               </Option>
             </customproperties>
@@ -25788,7 +25787,6 @@ def my_form_open(dialog, layer, feature):
           <layer-tree-layer checked="Qt::Unchecked" expanded="0" id="Miscellaneous_956347f1_c8f5_4cb4_a945_578362813f08" legend_exp="" legend_split_behavior="0" name="Landuses and landscapes" patch_size="-1,-1" providerKey="virtual" source="?layer=ogr:.%2Fdata%2Fdata.gpkg%7Clayername%3Dpoints:points:UTF-8">
             <customproperties>
               <Option type="Map">
-                <Option name="cached_name" type="QString" value="Landuses and landscapes"></Option>
                 <Option name="expandedLegendNodes" type="invalid"></Option>
               </Option>
             </customproperties>
@@ -25796,7 +25794,6 @@ def my_form_open(dialog, layer, feature):
           <layer-tree-layer checked="Qt::Unchecked" expanded="0" id="Points_of_interest_d0a9936e_8c74_4da2_8739_bbb251efd828" legend_exp="" legend_split_behavior="0" name="Water" patch_size="-1,-1" providerKey="virtual" source="?layer=ogr:.%2Fdata%2Fdata.gpkg%7Clayername%3Dpoints:points:UTF-8">
             <customproperties>
               <Option type="Map">
-                <Option name="cached_name" type="QString" value="Water"></Option>
                 <Option name="expandedLegendNodes" type="invalid"></Option>
               </Option>
             </customproperties>
@@ -25804,7 +25801,6 @@ def my_form_open(dialog, layer, feature):
           <layer-tree-layer checked="Qt::Unchecked" expanded="1" id="Water_5bd91e99_53b2_480d_8636_90b9827e7040" legend_exp="" legend_split_behavior="0" name="Roads and trails" patch_size="-1,-1" providerKey="virtual" source="?layer=ogr:.%2Fdata%2Fdata.gpkg%7Clayername%3Dpoints:points:UTF-8">
             <customproperties>
               <Option type="Map">
-                <Option name="cached_name" type="QString" value="Roads and trails"></Option>
                 <Option name="expandedLegendNodes" type="invalid"></Option>
                 <Option name="legend/node-order" type="QString" value="1,2,3,4,5,6,7,8,9,10"></Option>
               </Option>
@@ -25813,7 +25809,6 @@ def my_form_open(dialog, layer, feature):
           <layer-tree-layer checked="Qt::Unchecked" expanded="0" id="Roads_and_trails_91c0643a_d0e1_49bc_8dfe_cc3515bc8937" legend_exp="" legend_split_behavior="0" name="Transportation" patch_size="-1,-1" providerKey="virtual" source="?layer=ogr:.%2Fdata%2Fdata.gpkg%7Clayername%3Dpoints:points:UTF-8">
             <customproperties>
               <Option type="Map">
-                <Option name="cached_name" type="QString" value="Transportation"></Option>
                 <Option name="expandedLegendNodes" type="invalid"></Option>
               </Option>
             </customproperties>
@@ -25821,7 +25816,6 @@ def my_form_open(dialog, layer, feature):
           <layer-tree-layer checked="Qt::Unchecked" expanded="0" id="Boundaries_0892ca85_74a7_40d9_a08d_7a347530602a" legend_exp="" legend_split_behavior="0" name="Boundaries" patch_size="-1,-1" providerKey="virtual" source="?layer=ogr:.%2Fdata%2Fdata.gpkg%7Clayername%3Dlines:points:UTF-8">
             <customproperties>
               <Option type="Map">
-                <Option name="cached_name" type="QString" value="Boundaries"></Option>
                 <Option name="expandedLegendNodes" type="invalid"></Option>
               </Option>
             </customproperties>
@@ -25829,7 +25823,6 @@ def my_form_open(dialog, layer, feature):
           <layer-tree-layer checked="Qt::Unchecked" expanded="0" id="Transportation_cf48e02e_ffa2_4f03_835d_3708e4aa3e9c" legend_exp="" legend_split_behavior="0" name="Miscellaneous" patch_size="-1,-1" providerKey="virtual" source="?layer=ogr:.%2Fdata%2Fdata.gpkg%7Clayername%3Dpoints:points:UTF-8">
             <customproperties>
               <Option type="Map">
-                <Option name="cached_name" type="QString" value="Miscellaneous"></Option>
                 <Option name="expandedLegendNodes" type="invalid"></Option>
               </Option>
             </customproperties>
@@ -25873,7 +25866,7 @@ def my_form_open(dialog, layer, feature):
   <Sensors></Sensors>
   <ProjectViewSettings UseProjectScales="0" rotation="0">
     <Scales></Scales>
-    <DefaultViewExtent xmax="1110286.29900207044556737" xmin="1087750.8572662272490561" ymax="7071600.72730158548802137" ymin="7059762.96996479760855436">
+    <DefaultViewExtent xmax="1243672.11118861683644354" xmin="1216455.83873996115289629" ymax="6022820.45371061377227306" ymin="5999144.93903683125972748">
       <spatialrefsys nativeFormat="Wkt">
         <wkt>PROJCRS["WGS 84 / Pseudo-Mercator",BASEGEOGCRS["WGS 84",ENSEMBLE["World Geodetic System 1984 ensemble",MEMBER["World Geodetic System 1984 (Transit)"],MEMBER["World Geodetic System 1984 (G730)"],MEMBER["World Geodetic System 1984 (G873)"],MEMBER["World Geodetic System 1984 (G1150)"],MEMBER["World Geodetic System 1984 (G1674)"],MEMBER["World Geodetic System 1984 (G1762)"],MEMBER["World Geodetic System 1984 (G2139)"],ELLIPSOID["WGS 84",6378137,298.257223563,LENGTHUNIT["metre",1]],ENSEMBLEACCURACY[2.0]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4326]],CONVERSION["Popular Visualisation Pseudo-Mercator",METHOD["Popular Visualisation Pseudo Mercator",ID["EPSG",1024]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["False easting",0,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",0,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["easting (X)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["northing (Y)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Web mapping and visualisation."],AREA["World between 85.06°S and 85.06°N."],BBOX[-85.06,-180,85.06,180]],ID["EPSG",3857]]</wkt>
         <proj4>+proj=merc +a=6378137 +b=6378137 +lat_ts=0 +lon_0=0 +x_0=0 +y_0=0 +k=1 +units=m +nadgrids=@null +wktext +no_defs</proj4>
@@ -26023,7 +26016,7 @@ def my_form_open(dialog, layer, feature):
       </spatialrefsys>
     </CoordinateCustomCrs>
   </ProjectDisplaySettings>
-  <ProjectGpsSettings autoAddTrackVertices="0" autoCommitFeatures="0" destinationFollowsActiveLayer="1" destinationLayer="Points_of_interest_05d51e20_e874_41c8_8dc0_b15845a7e650" destinationLayerName="Points of interest" destinationLayerProvider="virtual" destinationLayerSource="?layer=ogr:%2Fhome%2Fhauke%2FProjekte%2FOSM%2Fqgis-outdoor-map%2Fdata%2Fdata.gpkg%7Clayername%3Dpoints:points:UTF-8">
+  <ProjectGpsSettings autoAddTrackVertices="0" autoCommitFeatures="0" destinationFollowsActiveLayer="1" destinationLayer="Miscellaneous_956347f1_c8f5_4cb4_a945_578362813f08" destinationLayerName="Landuses and landscapes" destinationLayerProvider="virtual" destinationLayerSource="?layer=ogr:%2Fhome%2Fhauke%2FProjekte%2FOSM%2Fqgis-outdoor-map%2Fdata%2Fdata.gpkg%7Clayername%3Dpoints:points:UTF-8">
     <timeStampFields></timeStampFields>
   </ProjectGpsSettings>
 </qgis>
