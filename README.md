@@ -1,9 +1,9 @@
-# OSM Outdoor Map
+# QGIS Outdoor Map
 
-A [QGIS](https://www.qgis.org/) map style for an OSM-based outdoor map focussed on hiking and trekking.
-This map is a QGIS project based on OSM data turned into a GeoPackage file.
+A [QGIS](https://www.qgis.org/) map style for an [OSM](https://osm.org)-based outdoor map focussed on hiking and trekking.
+This map is a QGIS project with a completely self-made map style and it's based on OSM as well as MapTiler data.
 
-See [this](https://hauke-stieler.de/public/maps/zugspitze/) (Zugspitze Germany/Austria) and [this](https://hauke-stieler.de/public/maps/zugspitze/) (Fischbeker Heide near Hamburg, Germany) online demos for examples of the current map style.
+See [this](https://hauke-stieler.de/public/maps/zugspitze_120dpi/) (Zugspitze Germany/Austria) and [this](https://hauke-stieler.de/public/maps/fischbeker-heide_120dpi/) (Fischbeker Heide near Hamburg, Germany) online demos for examples of the current map style.
 
 Or take a look at this example of a printable map:
 <img style="width: 100%;" src="example-hiking-map.jpg">
