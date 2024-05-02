@@ -1,4 +1,4 @@
-<qgis projectname="" saveDateTime="2024-05-02T09:13:46" saveUser="hauke" saveUserFull="" version="3.36.2-Maidenhead">
+<qgis projectname="" saveDateTime="2024-05-02T09:23:46" saveUser="hauke" saveUserFull="" version="3.36.2-Maidenhead">
   <homePath path=""></homePath>
   <title></title>
   <transaction mode="Disabled"></transaction>
@@ -233,10 +233,10 @@
   <mapcanvas annotationsVisible="1" name="theMapCanvas">
     <units>meters</units>
     <extent>
-      <xmin>1461892.38128571165725589</xmin>
-      <ymin>7164271.13665112853050232</ymin>
-      <xmax>1462780.9960064715705812</xmax>
-      <ymax>7165098.78612077608704567</ymax>
+      <xmin>1464060.3425639069173485</xmin>
+      <ymin>7162017.26979182101786137</ymin>
+      <xmax>1467614.80144694657064974</xmax>
+      <ymax>7165327.86767041124403477</ymax>
     </extent>
     <rotation>0</rotation>
     <destinationsrs>
@@ -18799,14 +18799,14 @@ def my_form_open(dialog, layer, feature):
                 <Option name="alpha" type="QString" value="1"></Option>
                 <Option name="angle" type="QString" value="0"></Option>
                 <Option name="coordinate_mode" type="QString" value="0"></Option>
-                <Option name="height" type="QString" value="0"></Option>
+                <Option name="height" type="QString" value="150"></Option>
                 <Option name="imageFile" type="QString" value="./sprites/wetland.png"></Option>
                 <Option name="offset" type="QString" value="0,0"></Option>
                 <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
                 <Option name="offset_unit" type="QString" value="MM"></Option>
-                <Option name="width" type="QString" value="0"></Option>
+                <Option name="width" type="QString" value="150"></Option>
                 <Option name="width_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
-                <Option name="width_unit" type="QString" value="Pixel"></Option>
+                <Option name="width_unit" type="QString" value="Percentage"></Option>
               </Option>
               <data_defined_properties>
                 <Option type="Map">
@@ -18852,14 +18852,14 @@ def my_form_open(dialog, layer, feature):
                 <Option name="alpha" type="QString" value="1"></Option>
                 <Option name="angle" type="QString" value="0"></Option>
                 <Option name="coordinate_mode" type="QString" value="0"></Option>
-                <Option name="height" type="QString" value="0"></Option>
+                <Option name="height" type="QString" value="150"></Option>
                 <Option name="imageFile" type="QString" value="./sprites/wetland_marsh.png"></Option>
                 <Option name="offset" type="QString" value="0,0"></Option>
                 <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
                 <Option name="offset_unit" type="QString" value="MM"></Option>
-                <Option name="width" type="QString" value="0"></Option>
+                <Option name="width" type="QString" value="150"></Option>
                 <Option name="width_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
-                <Option name="width_unit" type="QString" value="Pixel"></Option>
+                <Option name="width_unit" type="QString" value="Percentage"></Option>
               </Option>
               <data_defined_properties>
                 <Option type="Map">
@@ -18905,14 +18905,14 @@ def my_form_open(dialog, layer, feature):
                 <Option name="alpha" type="QString" value="1"></Option>
                 <Option name="angle" type="QString" value="0"></Option>
                 <Option name="coordinate_mode" type="QString" value="0"></Option>
-                <Option name="height" type="QString" value="0"></Option>
+                <Option name="height" type="QString" value="150"></Option>
                 <Option name="imageFile" type="QString" value="./sprites/wetland_bog.png"></Option>
                 <Option name="offset" type="QString" value="0,0"></Option>
                 <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
                 <Option name="offset_unit" type="QString" value="MM"></Option>
-                <Option name="width" type="QString" value="0"></Option>
+                <Option name="width" type="QString" value="150"></Option>
                 <Option name="width_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
-                <Option name="width_unit" type="QString" value="Pixel"></Option>
+                <Option name="width_unit" type="QString" value="Percentage"></Option>
               </Option>
               <data_defined_properties>
                 <Option type="Map">
@@ -18958,14 +18958,14 @@ def my_form_open(dialog, layer, feature):
                 <Option name="alpha" type="QString" value="1"></Option>
                 <Option name="angle" type="QString" value="0"></Option>
                 <Option name="coordinate_mode" type="QString" value="0"></Option>
-                <Option name="height" type="QString" value="0"></Option>
+                <Option name="height" type="QString" value="150"></Option>
                 <Option name="imageFile" type="QString" value="./sprites/wetland_swamp.png"></Option>
                 <Option name="offset" type="QString" value="0,0"></Option>
                 <Option name="offset_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
                 <Option name="offset_unit" type="QString" value="MM"></Option>
-                <Option name="width" type="QString" value="0"></Option>
+                <Option name="width" type="QString" value="150"></Option>
                 <Option name="width_map_unit_scale" type="QString" value="3x:0,0,0,0,0,0"></Option>
-                <Option name="width_unit" type="QString" value="Pixel"></Option>
+                <Option name="width_unit" type="QString" value="Percentage"></Option>
               </Option>
               <data_defined_properties>
                 <Option type="Map">
@@ -26687,7 +26687,7 @@ def my_form_open(dialog, layer, feature):
         </LayoutItem>
         <GuideCollection visible="1"></GuideCollection>
       </PageCollection>
-      <LayoutItem background="false" blendMode="0" excludeFromExports="0" frame="false" frameJoinStyle="miter" groupUuid="" halign="1" htmlState="1" id="title &amp; infobox" itemRotation="0" labelText="&lt;!DOCTYPE html>&#xA;&lt;html lang=&quot;en&quot;>&#xA;    &lt;head>&#xA;        &lt;title>Legend&lt;/title>&#xA;        &lt;style>&#xA;            html, body {&#xA;                font-size: 8pt;&#xA;                font-family: &quot;Open Sans&quot;, sans-serif;&#xA;                width: 110mm;&#xA;            }&#xA;&#xA;            .h1 {&#xA;                text-align: center;&#xA;                font-size: 26pt;&#xA;                font-weight: bold;&#xA;                margin: 0.75em 0;&#xA;            }&#xA;&#xA;            .h2 {&#xA;                font-size: 14pt;&#xA;                font-weight: normal;&#xA;                margin-top: 0.5em;&#xA;                margin-bottom: 0.25em;&#xA;            }&#xA;&#xA;            p {&#xA;                margin-top: 0.5em;&#xA;                margin-bottom: 0.5em;&#xA;            }&#xA;&#xA;            a {&#xA;                color: unset;&#xA;                text-decoration: none; /* no underline */&#xA;            }&#xA;&#xA;            .info-table {&#xA;                margin-top: 0.5em;&#xA;                border-collapse: collapse;&#xA;            }&#xA;&#xA;            .info-label {&#xA;                white-space: nowrap;&#xA;                vertical-align: top;&#xA;                padding-right: 0.5em;&#xA;            }&#xA;        &lt;/style>&#xA;    &lt;/head>&#xA;    &lt;body>&#xA;        &lt;!-- Needed for QGIS to make margin-top work for the title -->&#xA;        &lt;div style=&quot;font-size: 0pt&quot;>&amp;nbsp;&lt;/div>&#xA;&#xA;        &lt;p class=&quot;h1&quot;>Fischbeker Heide&lt;/p>&#xA;&#xA;        &lt;p class=&quot;h2&quot;>Information&lt;/p>&#xA;        The Peene is a coastal river in Mecklenburg-Western Pomerania. It is the eighth largest sea tributary with a catchment area in Germany (after the Ems). There are several theories about the origin of the name: according to one interpretation, it comes from the Slavic Pěna and means “foam” or “the foamy (river)”. According to Jürgen Udolph, however, Peene is neither Slavic nor Germanic, but has a pre-single-language Old European name.&#xA;    &lt;/body>&#xA;&lt;/html>" marginX="0" marginY="0" opacity="1" outlineWidthM="0.3,mm" position="5,0,mm" positionLock="false" positionOnPage="5,0,mm" referencePoint="0" size="200,63.1575,mm" templateUuid="{5492b159-1389-4786-85bf-314de956e92c}" type="65641" uuid="{5492b159-1389-4786-85bf-314de956e92c}" valign="32" visibility="1" zValue="21">
+      <LayoutItem background="false" blendMode="0" excludeFromExports="0" frame="false" frameJoinStyle="miter" groupUuid="" halign="1" htmlState="1" id="title &amp; infobox" itemRotation="0" labelText="&lt;!DOCTYPE html>&#xA;&lt;html lang=&quot;en&quot;>&#xA;    &lt;head>&#xA;        &lt;title>Legend&lt;/title>&#xA;        &lt;style>&#xA;            html, body {&#xA;                font-size: 8pt;&#xA;                font-family: &quot;Open Sans&quot;, sans-serif;&#xA;                width: 110mm;&#xA;            }&#xA;&#xA;            .h1 {&#xA;                text-align: center;&#xA;                font-size: 26pt;&#xA;                font-weight: bold;&#xA;                margin: 0.75em 0;&#xA;            }&#xA;&#xA;            .h2 {&#xA;                font-size: 14pt;&#xA;                font-weight: normal;&#xA;                margin-top: 0.5em;&#xA;                margin-bottom: 0.25em;&#xA;            }&#xA;&#xA;            p {&#xA;                margin-top: 0.5em;&#xA;                margin-bottom: 0.5em;&#xA;            }&#xA;&#xA;            a {&#xA;                color: unset;&#xA;                text-decoration: none; /* no underline */&#xA;            }&#xA;&#xA;            .info-table {&#xA;                margin-top: 0.5em;&#xA;                border-collapse: collapse;&#xA;            }&#xA;&#xA;            .info-label {&#xA;                white-space: nowrap;&#xA;                vertical-align: top;&#xA;                padding-right: 0.5em;&#xA;            }&#xA;        &lt;/style>&#xA;    &lt;/head>&#xA;    &lt;body>&#xA;        &lt;!-- Needed for QGIS to make margin-top work for the title -->&#xA;        &lt;div style=&quot;font-size: 0pt&quot;>&amp;nbsp;&lt;/div>&#xA;&#xA;        &lt;p class=&quot;h1&quot;>Peene&lt;/p>&#xA;&#xA;        &lt;p class=&quot;h2&quot;>Information&lt;/p>&#xA;        The Peene is a coastal river in Mecklenburg-Western Pomerania. It is the eighth largest sea tributary with a catchment area in Germany (after the Ems). There are several theories about the origin of the name: according to one interpretation, it comes from the Slavic Pěna and means “foam” or “the foamy (river)”. According to Jürgen Udolph, however, Peene is neither Slavic nor Germanic, but has a pre-single-language Old European name.&#xA;    &lt;/body>&#xA;&lt;/html>" marginX="0" marginY="0" opacity="1" outlineWidthM="0.3,mm" position="5,0,mm" positionLock="false" positionOnPage="5,0,mm" referencePoint="0" size="200,63.1575,mm" templateUuid="{5492b159-1389-4786-85bf-314de956e92c}" type="65641" uuid="{5492b159-1389-4786-85bf-314de956e92c}" valign="32" visibility="1" zValue="21">
         <FrameColor alpha="255" blue="0" green="0" red="0"></FrameColor>
         <BackgroundColor alpha="255" blue="255" green="255" red="255"></BackgroundColor>
         <LayoutObject>
@@ -31318,6 +31318,17 @@ def my_form_open(dialog, layer, feature):
       <customproperties>
         <Option type="Map">
           <Option name="atlasRasterFormat" type="QString" value="png"></Option>
+          <Option name="forceVector" type="int" value="0"></Option>
+          <Option name="pdfAppendGeoreference" type="int" value="1"></Option>
+          <Option name="pdfCreateGeoPdf" type="int" value="0"></Option>
+          <Option name="pdfDisableRasterTiles" type="int" value="0"></Option>
+          <Option name="pdfExportThemes" type="QString" value=""></Option>
+          <Option name="pdfIncludeMetadata" type="int" value="1"></Option>
+          <Option name="pdfLayerOrder" type="QString" value="Points_of_interest_05d51e20_e874_41c8_8dc0_b15845a7e650~~~Miscellaneous_956347f1_c8f5_4cb4_a945_578362813f08~~~Points_of_interest_d0a9936e_8c74_4da2_8739_bbb251efd828~~~Water_5bd91e99_53b2_480d_8636_90b9827e7040~~~Roads_and_trails_91c0643a_d0e1_49bc_8dfe_cc3515bc8937~~~Boundaries_0892ca85_74a7_40d9_a08d_7a347530602a~~~Transportation_cf48e02e_ffa2_4f03_835d_3708e4aa3e9c~~~Boundaries_b8abe7a0_c514_4b5b_b87e_d0619494820e~~~points_ed0a9036_e907_48e1_a7f6_684a61396a8e~~~POIs_8d6b32e6_5f44_4396_bc7e_eab499538eed~~~lines_92f684f3_02f7_482c_ae40_a9ab535ba56e~~~multilinestrings_487397ba_729a_419d_b933_485495635f50~~~Misc_337bfbc3_2a9b_4b5c_87f4_2f346a9d59d7~~~trails__streets__railway__waterway_16ccce6d_a50d_4626_af49_c030b6b66daa~~~POIs_e3fe968c_32d4_4c20_ad0e_e8747cfdc84f~~~lines_19f60738_dcb7_4d21_977a_f3f39c844f58~~~landuse___natural_22d5163e_294a_45cc_8bd5_e5b52fa0f599~~~MapTiler_contours__localhost__eedf3c60_1778_4cb1_8ffe_f92a9aefcd01~~~_2a66d014_7b53_44ed_90a6_336e5b27c1a5~~~multipolygons_15331f63_080d_4d15_b9c7_3798940463c6~~~_858a7496_f228_4045_bd1d_aa2a3938669b"></Option>
+          <Option name="pdfLosslessImages" type="int" value="1"></Option>
+          <Option name="pdfOgcBestPracticeFormat" type="int" value="0"></Option>
+          <Option name="pdfSimplify" type="int" value="1"></Option>
+          <Option name="pdfTextFormat" type="int" value="0"></Option>
           <Option name="singleFile" type="bool" value="true"></Option>
         </Option>
       </customproperties>
@@ -31329,7 +31340,7 @@ def my_form_open(dialog, layer, feature):
   <Sensors></Sensors>
   <ProjectViewSettings UseProjectScales="0" rotation="0">
     <Scales></Scales>
-    <DefaultViewExtent xmax="1462780.9960064715705812" xmin="1461892.38128571165725589" ymax="7165098.78612077608704567" ymin="7164271.13665112853050232">
+    <DefaultViewExtent xmax="1467614.80144694680348039" xmin="1464060.34256390668451786" ymax="7165327.86767041124403477" ymin="7162017.26979182101786137">
       <spatialrefsys nativeFormat="Wkt">
         <wkt>PROJCRS["WGS 84 / Pseudo-Mercator",BASEGEOGCRS["WGS 84",ENSEMBLE["World Geodetic System 1984 ensemble",MEMBER["World Geodetic System 1984 (Transit)"],MEMBER["World Geodetic System 1984 (G730)"],MEMBER["World Geodetic System 1984 (G873)"],MEMBER["World Geodetic System 1984 (G1150)"],MEMBER["World Geodetic System 1984 (G1674)"],MEMBER["World Geodetic System 1984 (G1762)"],MEMBER["World Geodetic System 1984 (G2139)"],ELLIPSOID["WGS 84",6378137,298.257223563,LENGTHUNIT["metre",1]],ENSEMBLEACCURACY[2.0]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4326]],CONVERSION["Popular Visualisation Pseudo-Mercator",METHOD["Popular Visualisation Pseudo Mercator",ID["EPSG",1024]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["False easting",0,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",0,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["easting (X)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["northing (Y)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Web mapping and visualisation."],AREA["World between 85.06°S and 85.06°N."],BBOX[-85.06,-180,85.06,180]],ID["EPSG",3857]]</wkt>
         <proj4>+proj=merc +a=6378137 +b=6378137 +lat_ts=0 +lon_0=0 +x_0=0 +y_0=0 +k=1 +units=m +nadgrids=@null +wktext +no_defs</proj4>
@@ -31479,7 +31490,7 @@ def my_form_open(dialog, layer, feature):
       </spatialrefsys>
     </CoordinateCustomCrs>
   </ProjectDisplaySettings>
-  <ProjectGpsSettings autoAddTrackVertices="0" autoCommitFeatures="0" destinationFollowsActiveLayer="1" destinationLayer="Miscellaneous_956347f1_c8f5_4cb4_a945_578362813f08" destinationLayerName="Landuses and landscapes" destinationLayerProvider="virtual" destinationLayerSource="?layer=ogr:%2Fhome%2Fhauke%2FProjekte%2FOSM%2Fqgis-outdoor-map%2Fdata%2Fdata.gpkg%7Clayername%3Dpoints:points:UTF-8">
+  <ProjectGpsSettings autoAddTrackVertices="0" autoCommitFeatures="0" destinationFollowsActiveLayer="1" destinationLayer="multipolygons_15331f63_080d_4d15_b9c7_3798940463c6" destinationLayerName="Areas and landuses" destinationLayerProvider="ogr" destinationLayerSource="/home/hauke/Projekte/OSM/qgis-outdoor-map/data/data.gpkg|layername=multipolygons">
     <timeStampFields></timeStampFields>
   </ProjectGpsSettings>
 </qgis>
