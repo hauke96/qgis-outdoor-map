@@ -16,12 +16,14 @@ DATA_FILTERED_PROCESSED=$(realpath "data-filtered-processed$PBF_EXT")
 EU="europe"
 COUNTRY_GER="$EU/germany"
 COUNTRY_GER_BY="$COUNTRY_GER/bayern"
+COUNTRY_GER_MV="$COUNTRY_GER/mecklenburg-vorpommern"
 COUNTRY_IS="$EU/iceland"
 
 HH="hamburg-latest$PBF_EXT"
 SH="schleswig-holstein-latest$PBF_EXT"
 NDS="niedersachsen-latest$PBF_EXT"
 TH="thueringen-latest$PBF_EXT"
+MV="mecklenburg-vorpommern-latest$PBF_EXT"
 BY_OBERB="oberbayern-latest$PBF_EXT"
 BY_SCHW="schwaben-latest$PBF_EXT"
 AU="austria-latest$PBF_EXT"
@@ -176,6 +178,16 @@ function iceland_holmsarlon()
 	cp $OUT $DATA
 }
 
+function peene()
+{
+	NAME="peene"
+	OUT="$NAME$PBF_EXT"
+
+	extract 12.8,53.75,13.9,54.1 $MV $OUT
+
+	cp $OUT $DATA
+}
+
 function example_hiking_map()
 {
 	NAME="example-hiking-map"
@@ -220,6 +232,10 @@ case $1 in
 "iceland-holmsarlon")
 	download $EU $IS
 	iceland_holmsarlon
+	;;
+"peene")
+	download $COUNTRY_GER $MV
+	peene
 	;;
 "example-hiking-map")
 	download $COUNTRY_GER $TH
